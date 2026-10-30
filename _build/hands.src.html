@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIBE.EXE</title>
+<meta name="description" content="VIBE.EXE — a black and white pixel experiment.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { height: 100%; }
+  body { overflow: hidden; touch-action: none; }
+  /* Холст с руками на весь экран */
+  #hands { position: fixed; inset: 0; width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+</style>
+</head>
+<body>
+
+<canvas id="hands" aria-label="Two pixel hands reaching for each other"></canvas>
+<div class="scan"></div>
+
+<div class="corner tl">VIBE.EXE<span class="blink">_</span></div>
+<div class="corner tr">EXPERIMENT_01</div>
+
+<script src="progress.js"></script>
+<script src="terminal.js"></script>
+<script>
+(() => {
+  // Картинка с руками: 736×268 точек, каждая точка — 1 бит (1 = белая)
+  const W = 736, H = 268;
+  const DATA = "__HANDS__";
+  const GAP_X = 378, GAP_Y = 134;   // место между пальцами
+  const SPLIT_X = 378;              // всё левее — левая рука, правее — правая
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const touch = matchMedia("(pointer: coarse)").matches;
+
+  // Разбираем картинку на отдельные точки
+  const bytes = Uint8Array.from(atob(DATA), c => c.charCodeAt(0));
+  let n = 0;
+  for (const b of bytes) for (let k = 0; k < 8; k++) n += (b >> k) & 1;
+  const hx = new Int16Array(n), hy = new Int16Array(n);   // место точки на картинке
+  const side = new Uint8Array(n);
+  const sx = new Float32Array(n), sy = new Float32Array(n); // откуда точка летит при входе
+  const delay = new Float32Array(n);
+  const dx = new Float32Array(n), dy = new Float32Array(n); // сдвиг от своего места (от мыши)
+  const vx = new Float32Array(n), vy = new Float32Array(n);
+  let i = 0;
+  for (let p = 0; p < W * H; p++) {
+    if (bytes[p >> 3] & (128 >> (p & 7))) {
+      const x = p % W, y = (p / W) | 0;
+      hx[i] = x; hy[i] = y; side[i] = x < SPLIT_X ? 0 : 1;
+      sx[i] = Math.random() * W; sy[i] = Math.random() * H;
+      delay[i] = Math.random() * 700;
+      i++;
+    }
+  }
+
+  // Сетка для быстрого поиска точек рядом с мышью (ячейки 16×16)
+  const CELL = 16, GW = Math.ceil(W / CELL), GH = Math.ceil(H / CELL);
+  const cellStart = new Uint32Array(GW * GH + 1);
+  const cellItems = new Uint32Array(n);
+  {
+    const cnt = new Uint32Array(GW * GH);
+    for (let j = 0; j < n; j++) cnt[((hy[j] / CELL) | 0) * GW + ((hx[j] / CELL) | 0)]++;
+    for (let c = 0; c < GW * GH; c++) cellStart[c + 1] = cellStart[c] + cnt[c];
+    const fill = cellStart.slice(0, GW * GH);
+    for (let j = 0; j < n; j++) cellItems[fill[((hy[j] / CELL) | 0) * GW + ((hx[j] / CELL) | 0)]++] = j;
+  }
+  // Список «проснувшихся» точек, которые сейчас двигаются от мыши
+  const awake = new Uint32Array(n);
+  const isAwake = new Uint8Array(n);
+  let awakeN = 0;
+
+  // Маленький холст в «родном» размере, потом растягиваем без сглаживания
+  const buf = document.createElement("canvas");
+  buf.width = W; buf.height = H;
+  const bctx = buf.getContext("2d");
+  const img = bctx.createImageData(W, H);
+  const pix = new Uint32Array(img.data.buffer);
+  const BLACK = 0xff000000, WHITE = 0xffffffff, GREY = 0xff4a4a4a;
+
+  const cv = document.getElementById("hands");
+  const ctx = cv.getContext("2d", { alpha: false });
+  let vw = 0, vh = 0, s = 1, ox = 0, oy = 0;
+
+  function layout() {
+    // Рисуем в обычном разрешении: картинка пиксельная, лишние точки экрана не нужны
+    vw = innerWidth; vh = innerHeight;
+    cv.width = vw; cv.height = vh;
+    const need = Math.max(vw / (W - 24), Math.min(vh * 0.55 / H, vw / 220));
+    // Целый масштаб, чтобы пиксели были ровными (если это не сильно увеличит картинку)
+    const whole = Math.ceil(need);
+    s = whole / need < 1.25 ? whole : need;
+    ox = Math.round(Math.min(0, Math.max(vw - W * s, vw / 2 - GAP_X * s)));
+    if (vw < 640) ox = Math.round(vw / 2 - GAP_X * s);
+    oy = Math.round(vh / 2 - GAP_Y * s);
+  }
+
+  // Мышь / палец в координатах картинки
+  let mx = -999, my = -999, active = false;
+  function pointer(e) {
+    if (e.target.closest && e.target.closest(".win")) { active = false; return; }
+    mx = (e.clientX - ox) / s; my = (e.clientY - oy) / s;
+    active = true;
+  }
+  addEventListener("pointermove", pointer);
+  addEventListener("pointerdown", pointer);
+  document.addEventListener("pointerout", e => { if (!e.relatedTarget) active = false; });
+  addEventListener("pointerup", e => { if (e.pointerType === "touch") active = false; });
+
+  // Вспышка и помехи, когда пальцы почти касаются
+  let glitch = 0, flash = 0, sparked = false;
+  const sparks = [];
+
+  const T = 7000;        // длительность одного «вдоха» рук, мс
+  const INTRO = 1900;    // сколько летит одна точка при входе, мс
+  const INTRO_END = INTRO + 700;
+  const R = touch ? 34 : 26, R2 = R * R;
+  const t0 = performance.now();
+
+  function frame(now) {
+    const t = now - t0;
+    // 0 — руки разошлись, 1 — пальцы почти касаются
+    const d = reduce ? 0.3 : (1 - Math.cos((t / T) * Math.PI * 2)) / 2;
+    const reach = d * 6.2;
+    const float = Math.sin(t / 1300) * 1.6;
+    const offX0 = reach, offY0 = float, offX1 = -reach, offY1 = -float;
+
+    if (!reduce) {
+      if (d > 0.985 && !sparked) {
+        sparked = true; glitch = 12; flash = 1;
+        for (let j = 0; j < 46; j++) {
+          const a = Math.random() * Math.PI * 2, sp = 0.6 + Math.random() * 2.6;
+          sparks.push({ x: GAP_X, y: GAP_Y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 1 });
+        }
+      }
+      if (d < 0.5) sparked = false;
+    }
+
+    pix.fill(BLACK);
+
+    // Немного «шума» на фоне
+    for (let j = 0; j < 60; j++) {
+      pix[((Math.random() * H) | 0) * W + ((Math.random() * W) | 0)] = GREY;
+    }
+
+    if (!reduce && t < INTRO_END) {
+      // Сборка: у каждой точки готовый путь, без физики
+      for (let j = 0; j < n; j++) {
+        let q = (t - delay[j]) / INTRO;
+        q = q <= 0 ? 0 : q >= 1 ? 1 : 1 - (1 - q) * (1 - q) * (1 - q);
+        const tx = hx[j] + (side[j] ? offX1 : offX0), ty = hy[j] + (side[j] ? offY1 : offY0);
+        const x = (sx[j] + (tx - sx[j]) * q) | 0, y = (sy[j] + (ty - sy[j]) * q) | 0;
+        if (x >= 0 && x < W && y >= 0 && y < H) pix[y * W + x] = WHITE;
+      }
+    } else {
+      // Будим точки рядом с мышью
+      if (active) {
+        const c0 = Math.max(0, ((mx - R - 8) / CELL) | 0), c1 = Math.min(GW - 1, ((mx + R + 8) / CELL) | 0);
+        const r0 = Math.max(0, ((my - R - 4) / CELL) | 0), r1 = Math.min(GH - 1, ((my + R + 4) / CELL) | 0);
+        for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) {
+          const cell = r * GW + c;
+          for (let k = cellStart[cell]; k < cellStart[cell + 1]; k++) {
+            const j = cellItems[k];
+            const px = hx[j] + (side[j] ? offX1 : offX0) + dx[j] - mx;
+            const py = hy[j] + (side[j] ? offY1 : offY0) + dy[j] - my;
+            const q = px * px + py * py;
+            if (q < R2 && q > 0.01) {
+              const dist = Math.sqrt(q), f = (1 - dist / R) * 2.4;
+              vx[j] += px / dist * f; vy[j] += py / dist * f;
+              if (!isAwake[j]) { isAwake[j] = 1; awake[awakeN++] = j; }
+            }
+          }
+        }
+      }
+      // Двигаем только проснувшиеся точки: пружина обратно к своему месту
+      for (let k = awakeN - 1; k >= 0; k--) {
+        const j = awake[k];
+        vx[j] = (vx[j] - dx[j] * 0.06) * 0.86;
+        vy[j] = (vy[j] - dy[j] * 0.06) * 0.86;
+        dx[j] += vx[j]; dy[j] += vy[j];
+        if (Math.abs(dx[j]) < 0.2 && Math.abs(dy[j]) < 0.2 && Math.abs(vx[j]) < 0.05 && Math.abs(vy[j]) < 0.05) {
+          dx[j] = dy[j] = vx[j] = vy[j] = 0; isAwake[j] = 0;
+          awake[k] = awake[--awakeN];
+        }
+      }
+      // Рисуем все точки
+      const ox0 = offX0, oy0 = offY0, ox1 = offX1, oy1 = offY1;
+      for (let j = 0; j < n; j++) {
+        const sd = side[j];
+        const x = (hx[j] + (sd ? ox1 : ox0) + dx[j]) | 0;
+        const y = (hy[j] + (sd ? oy1 : oy0) + dy[j]) | 0;
+        if (x >= 0 && x < W && y >= 0 && y < H) pix[y * W + x] = WHITE;
+      }
+    }
+
+    // Искры
+    for (let j = sparks.length - 1; j >= 0; j--) {
+      const p = sparks[j];
+      p.x += p.vx; p.y += p.vy; p.vx *= 0.95; p.vy *= 0.95; p.life -= 0.018;
+      if (p.life <= 0) { sparks.splice(j, 1); continue; }
+      const x = p.x | 0, y = p.y | 0;
+      if (x >= 0 && x < W && y >= 0 && y < H) pix[y * W + x] = p.life > 0.4 ? WHITE : GREY;
+    }
+    // Кольцо в точке касания
+    if (flash > 0.02) {
+      const r = (1 - flash) * 22;
+      for (let a = 0; a < 64; a++) {
+        const x = (GAP_X + Math.cos(a / 64 * Math.PI * 2) * r) | 0;
+        const y = (GAP_Y + Math.sin(a / 64 * Math.PI * 2) * r) | 0;
+        if (x >= 0 && x < W && y >= 0 && y < H) pix[y * W + x] = WHITE;
+      }
+    }
+
+    bctx.putImageData(img, 0, 0);
+
+    ctx.imageSmoothingEnabled = false;
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, vw, vh);
+    ctx.drawImage(buf, ox, oy, W * s, H * s);
+
+    // Помехи: сдвигаем горизонтальные полоски
+    if (glitch > 0) {
+      for (let j = 0; j < 5; j++) {
+        const gy = Math.random() * H, gh = 2 + Math.random() * 14;
+        const shift = (Math.random() - 0.5) * 40;
+        ctx.fillRect(0, oy + gy * s, vw, gh * s);
+        ctx.drawImage(buf, 0, gy, W, gh, ox + shift * s, oy + gy * s, W * s, gh * s);
+      }
+      glitch--;
+    }
+    if (flash > 0) {
+      ctx.fillStyle = "rgba(255,255,255," + (flash * 0.12) + ")";
+      ctx.fillRect(0, 0, vw, vh);
+      flash *= 0.9;
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- Окошко с командной строкой ----------
+  const term = VibeTerm.create({
+    page: 1,
+    intro: [
+      "> booting vibe.exe...",
+      "> loading hands ....... ok",
+      "> human  <->  machine",
+    ],
+    place(win) {
+      // Там же, где окно было на картинке; на телефоне — внизу, чтобы не закрывать пальцы
+      const w = Math.min(Math.max(250, 246 * s), vw - 32, 440);
+      const h = vw < 640 ? 170 : Math.max(190, Math.min(180 * s, 320));
+      let x = ox + 387 * s - w / 2, y = oy + 108 * s - h / 2;
+      if (vw < 640) y = Math.max(oy + H * s * 0.8, vh - h - 40);
+      win.style.width = w + "px";
+      win.style.height = h + "px";
+      win.style.left = Math.max(16, Math.min(vw - w - 16, x)) + "px";
+      win.style.top = Math.max(60, y) + "px";
+    },
+  });
+
+  addEventListener("resize", () => { layout(); term.place(); });
+  layout();
+  term.place();
+  requestAnimationFrame(frame);
+  setTimeout(() => term.show(), reduce ? 0 : 2200);
+})();
+</script>
+</body>
+</html>

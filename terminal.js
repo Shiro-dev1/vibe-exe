@@ -20,13 +20,13 @@ window.VibeTerm = (() => {
 
   // Все тексты терминала на двух языках
   const T = RU ? {
-    p1: "главная — руки", p2: "языки.doc", p3: "linux.man",
+    p1: "главная — глаз", p2: "языки.doc", p3: "linux.man",
     hint: "введи help и нажми Enter",
     help: [
       "команды:",
       "  help      этот список",
       "  ls        все страницы",
-      "  page 1    главная — руки",
+      "  page 1    главная — глаз",
       "  page 2    языки программирования",
       "  page 3    linux и терминал",
       "  progress  твой прогресс в уроках",
@@ -48,13 +48,13 @@ window.VibeTerm = (() => {
     langSame: "уже русский",
     langSwitch: "переключаю на english ...",
   } : {
-    p1: "home — the hands", p2: "languages.doc", p3: "linux.man",
+    p1: "home — the eye", p2: "languages.doc", p3: "linux.man",
     hint: "type help and press Enter",
     help: [
       "commands:",
       "  help      show this list",
       "  ls        list all pages",
-      "  page 1    home — the hands",
+      "  page 1    home — the eye",
       "  page 2    languages.doc",
       "  page 3    linux.man",
       "  progress  your lesson progress",

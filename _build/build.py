@@ -1,7 +1,8 @@
 # Сборка страниц VIBE.EXE.
 # Запуск из корня репозитория: python3 _build/build.py
 # Что делает:
-#   - index.html и ru/index.html из _build/index.src.html (+ картинка рук из hands.b64)
+#   - index.html и ru/index.html из _build/index.src.html (глаз из символов)
+#     (старая главная с руками — hands.src.html + hands.b64, сейчас не собирается)
 #   - страницы уроков (python.html, ...) на английском в корне и на русском в ru/
 # page2.html, page3.html и их русские версии в ru/ пишутся вручную.
 import os, sys, html
@@ -20,7 +21,6 @@ def write(rel, text):
 
 # ---------------------------------------------------------------- главная
 src = open(os.path.join(HERE, "index.src.html")).read()
-src = src.replace("__HANDS__", open(os.path.join(HERE, "hands.b64")).read().strip())
 write("index.html", src)
 
 ru_index = src
@@ -31,11 +31,11 @@ for a, b in [
     ('src="progress.js"', 'src="../progress.js"'),
     ('src="terminal.js"', 'src="../terminal.js"'),
     ('content="VIBE.EXE — a black and white pixel experiment."', 'content="VIBE.EXE — чёрно-белый пиксельный эксперимент."'),
-    ('aria-label="Two pixel hands reaching for each other"', 'aria-label="Две пиксельные руки тянутся друг к другу"'),
+    ('aria-label="An eye made of letters that follows the cursor"', 'aria-label="Глаз из букв, который следит за курсором"'),
     ('>EXPERIMENT_01<', '>ЭКСПЕРИМЕНТ_01<'),
     ('"> booting vibe.exe..."', '"> загрузка vibe.exe..."'),
-    ('"> loading hands ....... ok"', '"> загружаю руки ....... ok"'),
-    ('"> human  <->  machine"', '"> человек  <->  машина"'),
+    ('"> opening eye ....... ok"', '"> открываю глаз ....... ok"'),
+    ('"> it sees you"', '"> он видит тебя"'),
 ]:
     assert a in ru_index, a
     ru_index = ru_index.replace(a, b)
