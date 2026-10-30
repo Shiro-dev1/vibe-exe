@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINUX.MAN — VIBE.EXE</title>
+<meta name="description" content="A short guide to Linux and its basic terminal commands.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<div class="corner tr">PAGE_03</div>
+
+<main>
+  <div class="label">// PAGE 03</div>
+  <h1>LINUX.MAN</h1>
+  <p class="lead">Linux is a free operating system kernel, started in 1991 by Linus Torvalds. It runs most servers on the internet, every Android phone and the world's supercomputers. ChromeOS is built on Linux too.</p>
+
+  <article class="doc">
+    <div class="doc-bar"><span>WHAT_IS_A_TERMINAL.TXT</span><span>01</span></div>
+    <div class="doc-body">
+      <p>A terminal is a window where you control the computer with text commands instead of the mouse. You type a command, press Enter, and the computer answers. The box in the corner of this site works the same way.</p>
+      <pre><code>$ command  options  target
+$ ls -la /home</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>FILES_AND_FOLDERS.MAN</span><span>02</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>pwd</code><div>Show the folder you are in now.</div></div>
+      <div class="cmd"><code>ls</code><div>List files in the folder.<small>ls -la — also show hidden files and details</small></div></div>
+      <div class="cmd"><code>cd folder</code><div>Go into a folder.<small>cd .. — go one folder up; cd ~ — go home</small></div></div>
+      <div class="cmd"><code>mkdir name</code><div>Create a new folder.</div></div>
+      <div class="cmd"><code>touch file.txt</code><div>Create an empty file.</div></div>
+      <div class="cmd"><code>cp a b</code><div>Copy file a to b.</div></div>
+      <div class="cmd"><code>mv a b</code><div>Move or rename a file.</div></div>
+      <div class="cmd"><code>rm file</code><div>Delete a file.<small>careful: there is no trash bin, it is gone for good</small></div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>READING_AND_SEARCHING.MAN</span><span>03</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>cat file.txt</code><div>Print the whole file.</div></div>
+      <div class="cmd"><code>less file.txt</code><div>Read a long file page by page.<small>q — quit</small></div></div>
+      <div class="cmd"><code>grep "word" file</code><div>Find lines that contain a word.</div></div>
+      <div class="cmd"><code>man ls</code><div>Open the manual for any command.</div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>SYSTEM.MAN</span><span>04</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>sudo command</code><div>Run a command as administrator.<small>asks for your password</small></div></div>
+      <div class="cmd"><code>chmod +x script.sh</code><div>Make a file executable.</div></div>
+      <div class="cmd"><code>top</code><div>See running programs and how much they load the computer.</div></div>
+      <div class="cmd"><code>clear</code><div>Clear the terminal screen.</div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>TIPS.TXT</span><span>05</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>Tab</code><div>Finish a file or command name for you.</div></div>
+      <div class="cmd"><code>↑ / ↓</code><div>Scroll through commands you typed before (works in this site's terminal too).</div></div>
+      <div class="cmd"><code>Ctrl + C</code><div>Stop the running command.</div></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "page 1" in the terminal to go back to the hands</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal(3, "linux.man loaded");</script>
+</body>
+</html>

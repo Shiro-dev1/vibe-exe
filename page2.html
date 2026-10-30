@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LANGUAGES.DOC — VIBE.EXE</title>
+<meta name="description" content="Short docs about popular programming languages.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<div class="corner tr">PAGE_02</div>
+
+<main>
+  <div class="label">// PAGE 02</div>
+  <h1>LANGUAGES.DOC</h1>
+  <p class="lead">A language is how you talk to a computer. Each one is good at something different. Here are six you will meet most often, with the classic first program: printing "Hello, world!".</p>
+
+  <article class="doc">
+    <div class="doc-bar"><span>PYTHON.DOC</span><span>01</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1991</dd>
+        <dt>AUTHOR</dt><dd>Guido van Rossum</dd>
+        <dt>USED FOR</dt><dd>bots, scripts, automation, data, AI</dd>
+      </dl>
+      <p>Simple and readable, almost like English. A great first language. Most Telegram bots are written in Python.</p>
+      <pre><code>print("Hello, world!")</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>JAVASCRIPT.DOC</span><span>02</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1995</dd>
+        <dt>AUTHOR</dt><dd>Brendan Eich (Netscape)</dd>
+        <dt>USED FOR</dt><dd>interactive websites, servers (Node.js)</dd>
+      </dl>
+      <p>The language of the web: it runs in every browser. All the moving dots on page 1 are JavaScript.</p>
+      <pre><code>console.log("Hello, world!");</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>HTML.DOC</span><span>03</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1991</dd>
+        <dt>AUTHOR</dt><dd>Tim Berners-Lee</dd>
+        <dt>USED FOR</dt><dd>the structure of every web page</dd>
+      </dl>
+      <p>Not a programming language but a markup language: it says what is on the page — headings, text, buttons, images.</p>
+      <pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>CSS.DOC</span><span>04</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1996</dd>
+        <dt>AUTHOR</dt><dd>Håkon Wium Lie</dd>
+        <dt>USED FOR</dt><dd>colors, fonts, layout, animations</dd>
+      </dl>
+      <p>HTML says what is on the page, CSS says how it looks. This black and white style is CSS.</p>
+      <pre><code>h1 { color: white; background: black; }</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>C.DOC</span><span>05</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1972</dd>
+        <dt>AUTHOR</dt><dd>Dennis Ritchie (Bell Labs)</dd>
+        <dt>USED FOR</dt><dd>operating systems, drivers, fast programs</dd>
+      </dl>
+      <p>Old, fast and close to the hardware. The Linux kernel is written in C.</p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf("Hello, world!\n");
+    return 0;
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>RUST.DOC</span><span>06</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>2015 (version 1.0)</dd>
+        <dt>AUTHOR</dt><dd>Graydon Hoare, Mozilla</dd>
+        <dt>USED FOR</dt><dd>fast and safe system software</dd>
+      </dl>
+      <p>As fast as C, but the compiler catches many memory mistakes before the program even runs.</p>
+      <pre><code>fn main() {
+    println!("Hello, world!");
+}</code></pre>
+    </div>
+  </article>
+
+  <p class="tip">// type "page 3" in the terminal to read about Linux</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal(2, "languages.doc loaded");</script>
+</body>
+</html>
