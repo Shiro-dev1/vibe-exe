@@ -2,92 +2,107 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>УРОКИ C — VIBE.EXE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Уроки C — VIBE.EXE</title>
 <meta name="description" content="Уроки C: от Hello, world до мини-проекта.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../c.html">
+<link rel="alternate" hreflang="ru" href="c.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../c.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<a class="corner tr" href="page2.html">&lt; СТРАНИЦА_02</a>
-
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Главная</a><a href="page2.html" aria-current="page">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../c.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="c.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
+    </div>
+  </div>
+</header>
 <main>
-  <div class="label">// СТРАНИЦА 02 / C</div>
-  <h1>УРОКИ C</h1>
-  <p class="lead">C — старый, быстрый язык, близкий к «железу». На нём написаны операционные системы, драйверы и ядро Linux. Выучишь C — поймёшь, как на самом деле работает компьютер.</p>
-
-  <nav class="toc">
-    <a href="#lesson-1">01 ПРИВЕТ, МИР</a>
-    <a href="#lesson-2">02 ПЕРЕМЕННЫЕ</a>
-    <a href="#lesson-3">03 ТИПЫ ДАННЫХ</a>
-    <a href="#lesson-4">04 УСЛОВИЯ</a>
-    <a href="#lesson-5">05 ЦИКЛЫ</a>
-    <a href="#lesson-6">06 ФУНКЦИИ</a>
-    <a href="#lesson-7">07 МАССИВЫ</a>
-    <a href="#lesson-8">08 МИНИ-ПРОЕКТ: УГАДАЙ ЧИСЛО</a>
-    <a href="#quiz">ТЕСТ</a>
-  </nav>
-  <p class="pline" data-progress="c"></p>
-
-  <article class="doc" id="lesson-1">
-    <div class="doc-bar"><span>01_ПРИВЕТ_МИР</span><span>01/08</span></div>
-    <div class="doc-body">
-      <p>C нужно <b>компилировать</b>: превратить в программу перед запуском. Любая программа начинается в <code>main</code>. <code>\n</code> — переход на новую строку.</p>
-      <pre><code>#include &lt;stdio.h&gt;
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Языки</a><span>›</span><span>C</span></nav>
+    <h1>Уроки C</h1>
+    <p class="lead">C — старый, быстрый язык, близкий к «железу». На нём написаны операционные системы, драйверы и ядро Linux. Выучишь C — поймёшь, как на самом деле работает компьютер.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Уроки</summary>
+      <div class="side-inner">
+        <div class="side-title">Уроки</div>
+        <div class="pbar" data-progress="c"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="c" data-n="1"><span class="num"><span>1</span></span>Привет, мир</a></li>
+        <li><a href="#lesson-2" data-lang="c" data-n="2"><span class="num"><span>2</span></span>Переменные</a></li>
+        <li><a href="#lesson-3" data-lang="c" data-n="3"><span class="num"><span>3</span></span>Типы данных</a></li>
+        <li><a href="#lesson-4" data-lang="c" data-n="4"><span class="num"><span>4</span></span>Условия</a></li>
+        <li><a href="#lesson-5" data-lang="c" data-n="5"><span class="num"><span>5</span></span>Циклы</a></li>
+        <li><a href="#lesson-6" data-lang="c" data-n="6"><span class="num"><span>6</span></span>Функции</a></li>
+        <li><a href="#lesson-7" data-lang="c" data-n="7"><span class="num"><span>7</span></span>Массивы</a></li>
+        <li><a href="#lesson-8" data-lang="c" data-n="8"><span class="num"><span>8</span></span>Мини-проект: угадай число</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Тест</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Привет, мир</h2>
+    <p>C нужно <b>компилировать</b>: превратить в программу перед запуском. Любая программа начинается в <code>main</code>. <code>\n</code> — переход на новую строку.</p>
+    <pre><code>#include &lt;stdio.h&gt;
 
 int main(void) {
     printf(&quot;Hello, world!\n&quot;);
     return 0;
 }</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Hello, world!</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="1"></button>
-    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <button class="done-btn" type="button" data-lang="c" data-n="1"></button>
   </article>
-
-  <article class="doc" id="lesson-2">
-    <div class="doc-bar"><span>02_ПЕРЕМЕННЫЕ</span><span>02/08</span></div>
-    <div class="doc-body">
-      <p>В C у каждой переменной нужно указать тип. <code>printf</code> вставляет значения по кодам: <code>%d</code> — целое число, <code>%.2f</code> — дробное с 2 знаками после точки, <code>%c</code> — один символ. Дальше короткие примеры пишутся внутри <code>main</code>.</p>
-      <pre><code>int age = 18;
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Переменные</h2>
+    <p>В C у каждой переменной нужно указать тип. <code>printf</code> вставляет значения по кодам: <code>%d</code> — целое число, <code>%.2f</code> — дробное с 2 знаками после точки, <code>%c</code> — один символ. Дальше короткие примеры пишутся внутри <code>main</code>.</p>
+    <pre><code>int age = 18;
 float price = 9.99f;
 char letter = &#x27;S&#x27;;
 
 printf(&quot;Age: %d\n&quot;, age);
 printf(&quot;Price: %.2f\n&quot;, price);
 printf(&quot;Letter: %c\n&quot;, letter);</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Age: 18
+    <div class="out"><span class="out-label">Вывод</span><pre>Age: 18
 Price: 9.99
 Letter: S</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="2"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="c" data-n="2"></button>
   </article>
-
-  <article class="doc" id="lesson-3">
-    <div class="doc-bar"><span>03_ТИПЫ_ДАННЫХ</span><span>03/08</span></div>
-    <div class="doc-body">
-      <p>Текст в C — это массив символов. <code>%s</code> выводит текст, <code>sizeof</code> показывает, сколько байт что-то занимает (у текста в конце есть один скрытый лишний байт).</p>
-      <pre><code>int whole = 42;           // целое число
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Типы данных</h2>
+    <p>Текст в C — это массив символов. <code>%s</code> выводит текст, <code>sizeof</code> показывает, сколько байт что-то занимает (у текста в конце есть один скрытый лишний байт).</p>
+    <pre><code>int whole = 42;           // целое число
 double precise = 3.14159; // дробное число
 char symbol = &#x27;#&#x27;;        // один символ
 char word[] = &quot;VIBE&quot;;     // текст
 
 printf(&quot;%s has %zu letters\n&quot;, word, sizeof(word) - 1);</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>VIBE has 4 letters</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="3"></button>
-    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>VIBE has 4 letters</pre></div>
+    <button class="done-btn" type="button" data-lang="c" data-n="3"></button>
   </article>
-
-  <article class="doc" id="lesson-4">
-    <div class="doc-bar"><span>04_УСЛОВИЯ</span><span>04/08</span></div>
-    <div class="doc-body">
-      <p><code>if</code> выполняет код, только если условие в скобках верно.</p>
-      <pre><code>int age = 18;
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Условия</h2>
+    <p><code>if</code> выполняет код, только если условие в скобках верно.</p>
+    <pre><code>int age = 18;
 
 if (age &gt;= 18) {
     printf(&quot;Adult\n&quot;);
@@ -96,16 +111,14 @@ if (age &gt;= 18) {
 } else {
     printf(&quot;Kid\n&quot;);
 }</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Adult</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="4"></button>
-    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <button class="done-btn" type="button" data-lang="c" data-n="4"></button>
   </article>
-
-  <article class="doc" id="lesson-5">
-    <div class="doc-bar"><span>05_ЦИКЛЫ</span><span>05/08</span></div>
-    <div class="doc-body">
-      <p>У <code>for</code> три части: начало, условие, шаг. <code>i++</code> прибавляет 1, <code>count--</code> отнимает 1.</p>
-      <pre><code>for (int i = 0; i &lt; 3; i++) {
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Циклы</h2>
+    <p>У <code>for</code> три части: начало, условие, шаг. <code>i++</code> прибавляет 1, <code>count--</code> отнимает 1.</p>
+    <pre><code>for (int i = 0; i &lt; 3; i++) {
     printf(&quot;Step %d\n&quot;, i);
 }
 
@@ -114,21 +127,19 @@ while (count &gt; 0) {
     printf(&quot;%d\n&quot;, count);
     count--;
 }</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Step 0
+    <div class="out"><span class="out-label">Вывод</span><pre>Step 0
 Step 1
 Step 2
 3
 2
 1</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="5"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="c" data-n="5"></button>
   </article>
-
-  <article class="doc" id="lesson-6">
-    <div class="doc-bar"><span>06_ФУНКЦИИ</span><span>06/08</span></div>
-    <div class="doc-body">
-      <p>У функции есть тип результата, название и параметры с типами. Её нужно написать до того, как используешь.</p>
-      <pre><code>#include &lt;stdio.h&gt;
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Функции</h2>
+    <p>У функции есть тип результата, название и параметры с типами. Её нужно написать до того, как используешь.</p>
+    <pre><code>#include &lt;stdio.h&gt;
 
 int add(int a, int b) {
     return a + b;
@@ -138,16 +149,14 @@ int main(void) {
     printf(&quot;%d\n&quot;, add(2, 3));
     return 0;
 }</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>5</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="6"></button>
-    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>5</pre></div>
+    <button class="done-btn" type="button" data-lang="c" data-n="6"></button>
   </article>
-
-  <article class="doc" id="lesson-7">
-    <div class="doc-bar"><span>07_МАССИВЫ</span><span>07/08</span></div>
-    <div class="doc-body">
-      <p>Массив хранит много значений одного типа. Счёт идёт с 0. C не хранит длину массива, поэтому считаем её через <code>sizeof</code>.</p>
-      <pre><code>int scores[] = {10, 20, 30, 40};
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Массивы</h2>
+    <p>Массив хранит много значений одного типа. Счёт идёт с 0. C не хранит длину массива, поэтому считаем её через <code>sizeof</code>.</p>
+    <pre><code>int scores[] = {10, 20, 30, 40};
 int size = sizeof(scores) / sizeof(scores[0]);
 int sum = 0;
 
@@ -155,16 +164,14 @@ for (int i = 0; i &lt; size; i++) {
     sum += scores[i];
 }
 printf(&quot;Sum: %d\n&quot;, sum);</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Sum: 100</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="7"></button>
-    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Sum: 100</pre></div>
+    <button class="done-btn" type="button" data-lang="c" data-n="7"></button>
   </article>
-
-  <article class="doc" id="lesson-8">
-    <div class="doc-bar"><span>08_МИНИ-ПРОЕКТ_УГАДАЙ_ЧИСЛО</span><span>08/08</span></div>
-    <div class="doc-body">
-      <p>Всё вместе. <code>rand()</code> даёт случайное число, <code>scanf</code> читает то, что ввёл игрок. Ниже — пример одной игры.</p>
-      <pre><code>#include &lt;stdio.h&gt;
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Мини-проект: угадай число</h2>
+    <p>Всё вместе. <code>rand()</code> даёт случайное число, <code>scanf</code> читает то, что ввёл игрок. Ниже — пример одной игры.</p>
+    <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
 
@@ -182,62 +189,64 @@ int main(void) {
     printf(&quot;You got it!\n&quot;);
     return 0;
 }</code></pre>
-      <div class="out"><span>ВЫВОД</span><pre>Guess a number from 1 to 10: 5
+    <div class="out"><span class="out-label">Вывод</span><pre>Guess a number from 1 to 10: 5
 Bigger!
 Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
-      <button class="done-btn" type="button" data-lang="c" data-n="8"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="c" data-n="8"></button>
   </article>
-
   <section class="quiz" id="quiz" data-lang="c">
-    <div class="doc-bar"><span>ТЕСТ.EXE</span><span>5 ВОПРОСОВ</span></div>
-    <div class="doc-body">
-      <div class="q" data-answer="1">
-      <p class="q-text">01. Что выведет этот код?</p>
+    <div class="quiz-head"><h2>Тест</h2><p>5 вопросов. Выбери ответ — сразу увидишь, верно ли.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. Что выведет этот код?</p>
       <pre><code>int x = 7;
 printf(&quot;%d\n&quot;, x / 2);</code></pre>
       <div class="opts"><button type="button">3.5</button><button type="button">3</button><button type="button">4</button><button type="button">Error</button></div>
       <p class="why" hidden>Оба числа целые, поэтому C отбрасывает дробную часть.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">02. Какой код в printf выводит целое число?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Какой код в printf выводит целое число?</p>
       <div class="opts"><button type="button">%s</button><button type="button">%d</button><button type="button">%c</button><button type="button">%f</button></div>
       <p class="why" hidden>%d — целое, %s — текст, %c — символ, %f — дробное.</p>
-      </div>
-      <div class="q" data-answer="2">
-      <p class="q-text">03. Что выведет этот код?</p>
+    </div>
+    <div class="q" data-answer="2">
+      <p class="q-text">3. Что выведет этот код?</p>
       <pre><code>int a[] = {4, 8, 15};
 printf(&quot;%d\n&quot;, a[2]);</code></pre>
       <div class="opts"><button type="button">4</button><button type="button">8</button><button type="button">15</button><button type="button">2</button></div>
       <p class="why" hidden>Счёт идёт с 0: a[0]=4, a[1]=8, a[2]=15.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">04. Что выведет этот код?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Что выведет этот код?</p>
       <pre><code>for (int i = 0; i &lt; 3; i++) {
     printf(&quot;%d&quot;, i);
 }</code></pre>
       <div class="opts"><button type="button">123</button><button type="button">012</button><button type="button">0123</button><button type="button">333</button></div>
       <p class="why" hidden>i идёт 0, 1, 2 и останавливается на 3.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">05. С чего начинается любая программа на C?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. С чего начинается любая программа на C?</p>
       <div class="opts"><button type="button">start()</button><button type="button">main()</button><button type="button">begin()</button><button type="button">program()</button></div>
       <p class="why" hidden>Программа всегда начинает работу с main().</p>
-      </div>
-      <p class="score" hidden></p>
-      <button class="retry" type="button" hidden></button>
     </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
   </section>
-  <p class="tip">// введи "back" в терминале, чтобы вернуться к языкам, или другой язык: python, js, html, css, c++, c#, rust</p>
+  <nav class="pager"><a class="btn ghost" href="css.html">← Предыдущий язык: CSS</a><a class="btn ghost" href="cpp.html">Следующий язык: C++ →</a></nav>
+    </div>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js"></script>
 <script src="../progress.js"></script>
-<script src="../terminal.js"></script>
-<script src="../docs.js"></script>
 <script src="../quiz.js"></script>
-<script>startDocsTerminal("c", "уроки c загружены");</script>
 </body>
 </html>

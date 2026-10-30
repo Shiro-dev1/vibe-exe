@@ -2,44 +2,65 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSS LESSONS — VIBE.EXE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CSS lessons — VIBE.EXE</title>
 <meta name="description" content="CSS lessons: from Hello, world to a mini project.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="css.html">
+<link rel="alternate" hreflang="ru" href="ru/css.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/css.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
-
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html" aria-current="page">Languages</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="css.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/css.html" data-setlang="ru" hreflang="ru">RU</a>
+    </div>
+  </div>
+</header>
 <main>
-  <div class="label">// PAGE 02 / CSS</div>
-  <h1>CSS LESSONS</h1>
-  <p class="lead">HTML says what is on the page, CSS says how it looks: colors, fonts, sizes, layout and animations.</p>
-
-  <nav class="toc">
-    <a href="#lesson-1">01 CONNECT CSS</a>
-    <a href="#lesson-2">02 SELECTORS</a>
-    <a href="#lesson-3">03 COLORS AND FONTS</a>
-    <a href="#lesson-4">04 SPACING AND BORDERS</a>
-    <a href="#lesson-5">05 FLEXBOX</a>
-    <a href="#lesson-6">06 GRID</a>
-    <a href="#lesson-7">07 ANIMATIONS</a>
-    <a href="#lesson-8">08 PHONES</a>
-    <a href="#quiz">QUIZ</a>
-  </nav>
-  <p class="pline" data-progress="css"></p>
-
-  <article class="doc" id="lesson-1">
-    <div class="doc-bar"><span>01_CONNECT_CSS</span><span>01/08</span></div>
-    <div class="doc-body">
-      <p>Put styles in a file <code>style.css</code> and connect it inside <code>&lt;head&gt;</code>. A rule is: who to style, then <code>{ property: value; }</code>.</p>
-      <pre><code>&lt;!-- index.html, inside &lt;head&gt; --&gt;
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Languages</a><span>›</span><span>CSS</span></nav>
+    <h1>CSS lessons</h1>
+    <p class="lead">HTML says what is on the page, CSS says how it looks: colors, fonts, sizes, layout and animations.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Lessons</summary>
+      <div class="side-inner">
+        <div class="side-title">Lessons</div>
+        <div class="pbar" data-progress="css"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="css" data-n="1"><span class="num"><span>1</span></span>Connect CSS</a></li>
+        <li><a href="#lesson-2" data-lang="css" data-n="2"><span class="num"><span>2</span></span>Selectors</a></li>
+        <li><a href="#lesson-3" data-lang="css" data-n="3"><span class="num"><span>3</span></span>Colors and fonts</a></li>
+        <li><a href="#lesson-4" data-lang="css" data-n="4"><span class="num"><span>4</span></span>Spacing and borders</a></li>
+        <li><a href="#lesson-5" data-lang="css" data-n="5"><span class="num"><span>5</span></span>Flexbox</a></li>
+        <li><a href="#lesson-6" data-lang="css" data-n="6"><span class="num"><span>6</span></span>Grid</a></li>
+        <li><a href="#lesson-7" data-lang="css" data-n="7"><span class="num"><span>7</span></span>Animations</a></li>
+        <li><a href="#lesson-8" data-lang="css" data-n="8"><span class="num"><span>8</span></span>Phones</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Quiz</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Connect CSS</h2>
+    <p>Put styles in a file <code>style.css</code> and connect it inside <code>&lt;head&gt;</code>. A rule is: who to style, then <code>{ property: value; }</code>.</p>
+    <pre><code>&lt;!-- index.html, inside &lt;head&gt; --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
 
 /* style.css */
@@ -47,27 +68,23 @@ body {
   background: black;
   color: white;
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
   </article>
-
-  <article class="doc" id="lesson-2">
-    <div class="doc-bar"><span>02_SELECTORS</span><span>02/08</span></div>
-    <div class="doc-body">
-      <p>A selector picks which elements to style. A class (<code>.</code>) can be used many times, an id (<code>#</code>) only once on a page.</p>
-      <pre><code>p { color: gray; }            /* every &lt;p&gt; */
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Selectors</h2>
+    <p>A selector picks which elements to style. A class (<code>.</code>) can be used many times, an id (<code>#</code>) only once on a page.</p>
+    <pre><code>p { color: gray; }            /* every &lt;p&gt; */
 .card { border: 2px solid; }  /* class=&quot;card&quot; */
 #logo { font-size: 32px; }    /* id=&quot;logo&quot; */
 a:hover { color: white; }     /* link under the mouse */</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
   </article>
-
-  <article class="doc" id="lesson-3">
-    <div class="doc-bar"><span>03_COLORS_AND_FONTS</span><span>03/08</span></div>
-    <div class="doc-body">
-      <p>Colors can be names, <code>#hex</code> codes or <code>rgb()</code>. Fonts are listed in order: if the first is missing, the next one is used.</p>
-      <pre><code>h1 {
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Colors and fonts</h2>
+    <p>Colors can be names, <code>#hex</code> codes or <code>rgb()</code>. Fonts are listed in order: if the first is missing, the next one is used.</p>
+    <pre><code>h1 {
   color: #ffffff;
   background: rgb(0, 0, 0);
   font-family: Arial, sans-serif;
@@ -75,57 +92,49 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   font-weight: bold;
   text-align: center;
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
   </article>
-
-  <article class="doc" id="lesson-4">
-    <div class="doc-bar"><span>04_SPACING_AND_BORDERS</span><span>04/08</span></div>
-    <div class="doc-body">
-      <p>Every element is a box. <code>padding</code> is space inside the border, <code>margin</code> is space outside it.</p>
-      <pre><code>.card {
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Spacing and borders</h2>
+    <p>Every element is a box. <code>padding</code> is space inside the border, <code>margin</code> is space outside it.</p>
+    <pre><code>.card {
   width: 300px;
   padding: 16px;          /* inside */
   border: 2px solid white;
   margin: 24px;           /* outside */
   border-radius: 8px;     /* round corners */
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
   </article>
-
-  <article class="doc" id="lesson-5">
-    <div class="doc-bar"><span>05_FLEXBOX</span><span>05/08</span></div>
-    <div class="doc-body">
-      <p>Flexbox puts elements in a row (or column) and spaces them out. Great for menus and headers.</p>
-      <pre><code>.menu {
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Flexbox</h2>
+    <p>Flexbox puts elements in a row (or column) and spaces them out. Great for menus and headers.</p>
+    <pre><code>.menu {
   display: flex;
   justify-content: space-between; /* along the row */
   align-items: center;            /* across the row */
   gap: 16px;
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
   </article>
-
-  <article class="doc" id="lesson-6">
-    <div class="doc-bar"><span>06_GRID</span><span>06/08</span></div>
-    <div class="doc-body">
-      <p>Grid places elements in rows and columns. <code>1fr</code> means "one equal part", so this makes 3 equal columns.</p>
-      <pre><code>.gallery {
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Grid</h2>
+    <p>Grid places elements in rows and columns. <code>1fr</code> means "one equal part", so this makes 3 equal columns.</p>
+    <pre><code>.gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
   </article>
-
-  <article class="doc" id="lesson-7">
-    <div class="doc-bar"><span>07_ANIMATIONS</span><span>07/08</span></div>
-    <div class="doc-body">
-      <p><code>transition</code> makes a change smooth. <code>@keyframes</code> describes an animation step by step. This is how the blinking cursor on this site works.</p>
-      <pre><code>.button {
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Animations</h2>
+    <p><code>transition</code> makes a change smooth. <code>@keyframes</code> describes an animation step by step. This is how the blinking cursor on this site works.</p>
+    <pre><code>.button {
   transition: transform 0.2s;
 }
 .button:hover {
@@ -138,69 +147,69 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
 @keyframes blink {
   50% { opacity: 0; }
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
   </article>
-
-  <article class="doc" id="lesson-8">
-    <div class="doc-bar"><span>08_PHONES</span><span>08/08</span></div>
-    <div class="doc-body">
-      <p><code>@media</code> applies styles only on some screens. Here the gallery becomes one column on narrow phones.</p>
-      <pre><code>@media (max-width: 600px) {
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Phones</h2>
+    <p><code>@media</code> applies styles only on some screens. Here the gallery becomes one column on narrow phones.</p>
+    <pre><code>@media (max-width: 600px) {
   .gallery {
     grid-template-columns: 1fr;
   }
 }</code></pre>
-      <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
   </article>
-
   <section class="quiz" id="quiz" data-lang="css">
-    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
-    <div class="doc-body">
-      <div class="q" data-answer="1">
-      <p class="q-text">01. Which selector picks elements with class=&quot;card&quot;?</p>
+    <div class="quiz-head"><h2>Quiz</h2><p>5 questions. Pick an answer to see if it is right.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. Which selector picks elements with class=&quot;card&quot;?</p>
       <div class="opts"><button type="button">#card</button><button type="button">.card</button><button type="button">card</button><button type="button">*card</button></div>
       <p class="why" hidden>A dot means class, # means id.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">02. Which property is the space INSIDE the border?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Which property is the space INSIDE the border?</p>
       <div class="opts"><button type="button">margin</button><button type="button">padding</button><button type="button">gap</button><button type="button">border</button></div>
       <p class="why" hidden>padding is inside, margin is outside.</p>
-      </div>
-      <div class="q" data-answer="0">
-      <p class="q-text">03. What does this make?</p>
+    </div>
+    <div class="q" data-answer="0">
+      <p class="q-text">3. What does this make?</p>
       <pre><code>.box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }</code></pre>
       <div class="opts"><button type="button">3 equal columns</button><button type="button">3 rows</button><button type="button">3 pixels gap</button><button type="button">A 3x3 square</button></div>
       <p class="why" hidden>1fr is one equal part, repeated 3 times: three equal columns.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">04. Which property changes the text color?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Which property changes the text color?</p>
       <div class="opts"><button type="button">background</button><button type="button">color</button><button type="button">font-color</button><button type="button">text-color</button></div>
       <p class="why" hidden>color is the text color, background is the color behind it.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">05. When will these styles work?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. When will these styles work?</p>
       <pre><code>@media (max-width: 600px) {
   .menu { display: none; }
 }</code></pre>
       <div class="opts"><button type="button">Always</button><button type="button">On screens 600px wide or less</button><button type="button">On screens wider than 600px</button><button type="button">Never</button></div>
       <p class="why" hidden>max-width: 600px means &quot;up to 600 pixels wide&quot;: phones.</p>
-      </div>
-      <p class="score" hidden></p>
-      <button class="retry" type="button" hidden></button>
     </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
   </section>
-  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, c, c++, c#, rust</p>
+  <nav class="pager"><a class="btn ghost" href="html.html">← Previous language: HTML</a><a class="btn ghost" href="c.html">Next language: C →</a></nav>
+    </div>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js"></script>
 <script src="progress.js"></script>
-<script src="terminal.js"></script>
-<script src="docs.js"></script>
 <script src="quiz.js"></script>
-<script>startDocsTerminal("css", "css lessons loaded");</script>
 </body>
 </html>

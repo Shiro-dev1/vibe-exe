@@ -3,8 +3,8 @@
 (() => {
   const ru = document.documentElement.lang === "ru";
   const T = ru
-    ? { run: "[ RUN ]", reset: "[ СБРОС ]", empty: "(ничего не выведено)", running: "..." }
-    : { run: "[ RUN ]", reset: "[ RESET ]", empty: "(no output)", running: "..." };
+    ? { run: "▶ Запустить", reset: "Сбросить", empty: "(ничего не выведено)", running: "..." }
+    : { run: "▶ Run", reset: "Reset", empty: "(no output)", running: "..." };
 
   // Подгоняем высоту поля под количество строк
   const fit = ta => { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + 4 + "px"; };
@@ -51,8 +51,8 @@
         "console.error=function(){send('err',fmt(arguments));};" +
         "window.onerror=function(m){send('err',String(m).replace(/^Uncaught /,''));};" +
         "})();<\/script>";
-      const style = "<style>body{background:#000;color:#fff;font:18px monospace;margin:10px}" +
-        "button{font:18px monospace;padding:6px 14px;background:#fff;color:#000;border:0;cursor:pointer}<\/style>";
+      const style = "<style>body{background:#0a0a0a;color:#f4f4f2;font:16px system-ui,sans-serif;margin:12px}" +
+        "button{font:600 15px system-ui,sans-serif;padding:10px 18px;background:#f4f4f2;color:#0a0a0a;border:0;border-radius:8px;cursor:pointer}<\/style>";
       const body = html ? code : "<script>" + code.replace(/<\/script/gi, "<\\/script") + "<\/script>";
       const end = "<script>parent.postMessage({vibe:" + JSON.stringify(id) + ",t:'done'},'*');<\/script>";
 
