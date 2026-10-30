@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../javascript.html" + location.hash); } catch (e) {}
@@ -65,6 +65,28 @@
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>JavaScript создали для веб-страниц, и он работает в любом браузере. <code>console.log()</code> пишет сообщение в консоль — скрытую панель для разработчиков. Программисты постоянно пользуются ею, чтобы проверить, что делает код.</p>
+    <p>Каждая команда обычно заканчивается точкой с запятой <code>;</code>. JavaScript часто прощает, если её нет, но писать её — хорошая привычка.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>console</code><span>консоль браузера — объект с полезными командами.</span></div>
+        <div class="bd-row"><code>.log(...)</code><span>команда «записать в журнал». Точка значит «взять log у console».</span></div>
+        <div class="bd-row"><code>&quot;Hello, world!&quot;</code><span>текст в кавычках, он называется строкой.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать <code>console.Log</code> — регистр важен, нужно <code>log</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке число 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>console.log(&quot;Shiro&quot;);
+console.log(2026);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -82,6 +104,31 @@ console.log(`Hi, I&#x27;m ${name}`);</textarea>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>Shiro 19
 Hi, I&#x27;m Shiro</pre></div>
+    <div class="more">
+    <p>По умолчанию используй <code>const</code> — для значений, которые не будут меняться. <code>let</code> — когда значение должно меняться, например счётчик. В старом коде встречается <code>var</code>; сейчас его лучше не использовать.</p>
+    <p>Шаблонные строки в обратных кавычках <code>`...`</code> могут содержать <code>${...}</code>: всё внутри вычисляется и вставляется в текст.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>const name = &quot;Shiro&quot;;</code><span>константа: name потом нельзя присвоить новое значение.</span></div>
+        <div class="bd-row"><code>let age = 18;</code><span>переменная, которую можно менять.</span></div>
+        <div class="bd-row"><code>age = age + 1;</code><span>берём старое значение, прибавляем 1, сохраняем. Теперь age = 19.</span></div>
+        <div class="bd-row"><code>`Hi, I&#x27;m ${name}`</code><span>обратные кавычки + ${} вставляют значение name в текст.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Менять <code>const</code>: <code>TypeError: Assignment to constant variable</code>. Используй <code>let</code>.</li>
+        <li>Писать <code>${}</code> в обычных кавычках — это работает только в обратных.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай let score = 0, дважды прибавь 10 и выведи "Score: 20" через шаблонную строку.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>let score = 0;
+score += 10;
+score += 10;
+console.log(`Score: ${score}`);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Score: 20</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -101,6 +148,28 @@ console.log(typeof title);</textarea>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>number
 string</pre></div>
+    <div class="more">
+    <p>В JavaScript несколько основных типов: number (любые числа — целые и дробные), string (текст), boolean (true/false), а ещё null и undefined для «нет значения».</p>
+    <p>JavaScript старается помочь и сам меняет типы, иногда неожиданно: <code>"5" + 2</code> даёт <code>"52"</code> (текст), а <code>"5" * 2</code> даёт <code>10</code>. Чтобы специально превратить текст в число, используй <code>Number("5")</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let count = 10;</code><span>number — целые и дробные числа здесь один тип.</span></div>
+        <div class="bd-row"><code>let nothing = null;</code><span>null: мы сами решили, что здесь ничего нет.</span></div>
+        <div class="bd-row"><code>let user;</code><span>значение не задано, поэтому undefined.</span></div>
+        <div class="bd-row"><code>typeof count</code><span>возвращает название типа текстом: "number".</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Сложить числа из полей ввода и получить "12" вместо 3 — они были текстом. Преобразуй через <code>Number()</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть a = "7" (текст). Выведи a + 3 так, чтобы получилось 10.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const a = &quot;7&quot;;
+console.log(Number(a) + 3);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -120,6 +189,31 @@ if (age &gt;= 18) {
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p><code>if</code> проверяет условие в скобках. Если оно верно, выполняется блок в <code>{ }</code>. <code>else if</code> проверяет следующее условие, <code>else</code> ловит всё остальное.</p>
+    <p>В JavaScript сравнивают тремя знаками равенства <code>===</code> (и <code>!==</code> для «не равно»). Два знака <code>==</code> меняют типы и могут дать странный результат: например, <code>"5" == 5</code> — это true.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>условие в круглых скобках, код — в фигурных.</span></div>
+        <div class="bd-row"><code>} else if (age &gt;= 13) {</code><span>следующая проверка, только если первая не прошла.</span></div>
+        <div class="bd-row"><code>} else {</code><span>всё остальное.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать <code>=</code> в if: <code>if (age = 18)</code> присваивает 18 вместо сравнения.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>const t = 30. Выведи "Hot", если t больше 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const t = 30;
+if (t &gt; 25) {
+  console.log(&quot;Hot&quot;);
+} else {
+  console.log(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -144,6 +238,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>У классического цикла <code>for</code> три части через <code>;</code>: начало (<code>let i = 0</code>), условие продолжения (<code>i &lt; 3</code>) и шаг после каждого круга (<code>i++</code>).</p>
+    <p><code>while</code> проще: повторяет, пока условие верно. Для массивов есть ещё <code>for (const item of array)</code>, он проходит по каждому элементу.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (let i = 0; i &lt; 3; i++)</code><span>i начинается с 0, цикл идёт, пока i < 3, после каждого круга i растёт на 1.</span></div>
+        <div class="bd-row"><code>while (count &gt; 0)</code><span>повторять, пока count больше 0.</span></div>
+        <div class="bd-row"><code>count--;</code><span>отнять 1, иначе цикл не закончится.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать запятые вместо точек с запятой в for: <code>for (let i = 0, i &lt; 3, i++)</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (let i = 1; i &lt;= 5; i++) {
+  console.log(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -163,6 +283,27 @@ console.log(shout(&quot;vibe&quot;));</textarea>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, Shiro!
 VIBE</pre></div>
+    <div class="more">
+    <p>Функция объединяет код под одним именем. Параметры в скобках — это входные данные, <code>return</code> — результат. Без <code>return</code> функция вернёт <code>undefined</code>.</p>
+    <p>Стрелочные функции <code>(x) =&gt; x * 2</code> — короткая запись. Если тело — одно выражение, его результат возвращается сам.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>function greet(name) {</code><span>функция greet с параметром name.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, &quot; + name + &quot;!&quot;;</code><span>собираем текст и возвращаем его.</span></div>
+        <div class="bd-row"><code>const shout = (text) =&gt; text.toUpperCase();</code><span>стрелочная функция: берёт текст и возвращает его заглавными буквами.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть скобки при вызове: <code>greet</code> вместо <code>greet("Shiro")</code> — функция не выполнится.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши стрелочную функцию square, которая возвращает n * n. Выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const square = (n) =&gt; n * n;
+console.log(square(7));</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -185,6 +326,29 @@ I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+    <div class="more">
+    <p>Массив — упорядоченный список значений. До элемента добираются по индексу (номеру), начиная с 0. Массивы могут расти и уменьшаться.</p>
+    <p>Удобные методы: <code>push</code> добавляет в конец, <code>pop</code> убирает последний элемент, <code>includes(x)</code> проверяет, есть ли x внутри, <code>forEach</code> вызывает функцию для каждого элемента.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>const langs = [...]</code><span>массив в квадратных скобках. const запрещает заменить переменную, но не содержимое.</span></div>
+        <div class="bd-row"><code>langs.push(&quot;Rust&quot;);</code><span>добавить в конец.</span></div>
+        <div class="bd-row"><code>langs.length</code><span>сколько всего элементов.</span></div>
+        <div class="bd-row"><code>langs.forEach((lang) =&gt; ...)</code><span>выполнить стрелочную функцию для каждого элемента.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Брать <code>langs.length</code> как последний индекс — последний элемент это <code>langs[langs.length - 1]</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай массив из 3 чисел, добавь ещё одно через push и выведи, сколько стало элементов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const nums = [1, 2, 3];
+nums.push(4);
+console.log(nums.length);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>4</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -206,6 +370,36 @@ I like Rust</pre></div>
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Вывод</span><pre>[ Clicks: 0 ]  -&gt; клик -&gt;  [ Clicks: 1 ]  -&gt; клик -&gt;  [ Clicks: 2 ]</pre></div>
+    <div class="more">
+    <p>Здесь JavaScript показывает свою силу: он меняет страницу прямо у тебя на глазах. <code>document</code> — это вся страница; <code>getElementById</code> находит элемент с нужным id.</p>
+    <p><code>addEventListener("click", ...)</code> говорит: «когда кликнут — выполни эту функцию». Функция прибавляет 1 к счётчику и пишет новый текст в кнопку.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;button id=&quot;btn&quot;&gt;</code><span>HTML-кнопка с id btn, чтобы JavaScript мог её найти.</span></div>
+        <div class="bd-row"><code>document.getElementById(&quot;btn&quot;)</code><span>найти эту кнопку на странице.</span></div>
+        <div class="bd-row"><code>btn.addEventListener(&quot;click&quot;, ...)</code><span>слушать клики по кнопке.</span></div>
+        <div class="bd-row"><code>btn.textContent = ...</code><span>заменить текст внутри кнопки.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Запускать скрипт до того, как появилась кнопка, — тогда getElementById вернёт null. Ставь скрипт после HTML.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Измени счётчик так, чтобы каждый клик прибавлял 5, а не 1. Проверь кнопкой «Запустить».</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById(&quot;btn&quot;);
+  let clicks = 0;
+
+  btn.addEventListener(&quot;click&quot;, () =&gt; {
+    clicks += 5;
+    btn.textContent = &quot;Clicks: &quot; + clicks;
+  });
+&lt;/script&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="javascript">
@@ -246,7 +440,7 @@ console.log(shout(&quot;hi&quot;));</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="python.html">← Предыдущий язык: Python</a><a class="btn ghost" href="html.html">Следующий язык: HTML →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="python.html">← Предыдущий язык: Python</a><a class="btn ghost" href="typescript.html">Следующий язык: TypeScript →</a></nav>
     </div>
   </div>
 </div>
@@ -257,9 +451,9 @@ console.log(shout(&quot;hi&quot;));</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
-<script src="../runner.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
+<script src="../runner.js?v=9d1b2c69"></script>
 </body>
 </html>

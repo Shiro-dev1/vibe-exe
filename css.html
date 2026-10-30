@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/css.html" + location.hash); } catch (e) {}
@@ -68,6 +68,29 @@ body {
   background: black;
   color: white;
 }</code></pre>
+    <div class="more">
+    <p>CSS stands for Cascading Style Sheets. One CSS file can style the whole site, so you change a color once and every page updates.</p>
+    <p>A rule has a <b>selector</b> (who) and <b>declarations</b> (what): <code>body { color: white; }</code>. Each declaration is <code>property: value;</code> — don't forget the colon and the semicolon.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code><span>connect the file style.css to the page.</span></div>
+        <div class="bd-row"><code>body {</code><span>the selector: style the whole page body.</span></div>
+        <div class="bd-row"><code>background: black;</code><span>the background color.</span></div>
+        <div class="bd-row"><code>color: white;</code><span>the text color.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>A wrong path in href — the styles silently don't load. Check the file name and folder.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make the whole page dark blue with yellow text.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>body {
+  background: navy;
+  color: yellow;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -78,6 +101,28 @@ body {
 .card { border: 2px solid; }  /* class=&quot;card&quot; */
 #logo { font-size: 32px; }    /* id=&quot;logo&quot; */
 a:hover { color: white; }     /* link under the mouse */</code></pre>
+    <div class="more">
+    <p>Selectors are how CSS finds elements. A tag selector (<code>p</code>) styles all such tags. A class (<code>.card</code>) styles any element with <code>class="card"</code>. An id (<code>#logo</code>) styles one unique element.</p>
+    <p>If two rules disagree, the more specific one wins: id is stronger than class, class is stronger than tag. If they are equal, the later rule wins — that is the "cascade".</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>p { ... }</code><span>all paragraphs.</span></div>
+        <div class="bd-row"><code>.card { ... }</code><span>every element with class="card".</span></div>
+        <div class="bd-row"><code>#logo { ... }</code><span>the one element with id="logo".</span></div>
+        <div class="bd-row"><code>a:hover { ... }</code><span>:hover is a state — the link while the mouse is over it.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting the dot: <code>card { }</code> looks for a &lt;card&gt; tag, not the class.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make all buttons with class "big" have font size 24px.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>.big {
+  font-size: 24px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -92,6 +137,29 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   font-weight: bold;
   text-align: center;
 }</code></pre>
+    <div class="more">
+    <p>Colors can be written in several ways: names (<code>white</code>), hex codes (<code>#ff8800</code> — red, green, blue from 00 to ff) or <code>rgb(255, 136, 0)</code>. Add transparency with <code>rgba(0, 0, 0, 0.5)</code>.</p>
+    <p><code>font-family</code> lists fonts by priority; always end with a general family like <code>sans-serif</code>. <code>font-size</code> is the size, <code>font-weight</code> the thickness (400 normal, 700 bold).</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>color: #ffffff;</code><span>white text in hex.</span></div>
+        <div class="bd-row"><code>font-family: Arial, sans-serif;</code><span>use Arial; if it is missing, any sans-serif font.</span></div>
+        <div class="bd-row"><code>text-align: center;</code><span>center the text inside the element.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Missing # in hex: <code>color: ffffff;</code> doesn't work.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make h2 headings orange (#ff8800), bold and 32px.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>h2 {
+  color: #ff8800;
+  font-weight: bold;
+  font-size: 32px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -105,6 +173,30 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   margin: 24px;           /* outside */
   border-radius: 8px;     /* round corners */
 }</code></pre>
+    <div class="more">
+    <p>Every element is a rectangle (a "box"). From inside out: the content, then <code>padding</code>, then <code>border</code>, then <code>margin</code>. Background color fills content and padding, but not margin.</p>
+    <p>Tip: add <code>box-sizing: border-box;</code> so that width includes padding and border. Then a 300px card stays 300px wide.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>width: 300px;</code><span>the width of the box.</span></div>
+        <div class="bd-row"><code>padding: 16px;</code><span>space between the content and the border.</span></div>
+        <div class="bd-row"><code>border: 2px solid white;</code><span>thickness, style and color of the border.</span></div>
+        <div class="bd-row"><code>margin: 24px;</code><span>space outside, between this box and others.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Confusing padding and margin. Remember: padding is inside, margin is outside.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a .note box: 20px padding, a 1px grey dashed border and round corners of 12px.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>.note {
+  padding: 20px;
+  border: 1px dashed grey;
+  border-radius: 12px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -117,6 +209,30 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   align-items: center;            /* across the row */
   gap: 16px;
 }</code></pre>
+    <div class="more">
+    <p>Flexbox arranges the children of an element in one line. You put <code>display: flex</code> on the parent, and the children line up.</p>
+    <p><code>justify-content</code> moves items along the line (start, center, space-between), <code>align-items</code> across it (top, center, bottom). <code>gap</code> adds space between items. <code>flex-direction: column</code> turns the row into a column.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>display: flex;</code><span>turn on flexbox for this element's children.</span></div>
+        <div class="bd-row"><code>justify-content: space-between;</code><span>first item at the start, last at the end, the rest spread out.</span></div>
+        <div class="bd-row"><code>align-items: center;</code><span>center items vertically.</span></div>
+        <div class="bd-row"><code>gap: 16px;</code><span>16px between items.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Putting <code>display: flex</code> on the children instead of the parent.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Center a single element inside .box both ways using flexbox.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -128,6 +244,28 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }</code></pre>
+    <div class="more">
+    <p>Grid is for two dimensions: rows and columns at once, like a table for layout. You describe the columns on the parent, and children fill the cells in order.</p>
+    <p><code>repeat(3, 1fr)</code> = three equal columns. <code>200px 1fr</code> = a fixed sidebar and the rest of the space. <code>gap</code> works here too.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>display: grid;</code><span>turn on grid.</span></div>
+        <div class="bd-row"><code>grid-template-columns: repeat(3, 1fr);</code><span>three columns of equal width.</span></div>
+        <div class="bd-row"><code>gap: 12px;</code><span>space between cells.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using grid for a single row of buttons — flexbox is simpler for one line.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a layout with a 250px sidebar and a main area taking the rest.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -147,6 +285,31 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
 @keyframes blink {
   50% { opacity: 0; }
 }</code></pre>
+    <div class="more">
+    <p><code>transition</code> animates a change between two states, for example when you hover. You say which property and how long: <code>transition: transform 0.2s</code>.</p>
+    <p><code>@keyframes</code> describes a full animation by percent of time. Then <code>animation: name 1s infinite</code> plays it: the name, the length and how many times.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>transition: transform 0.2s;</code><span>changes of transform take 0.2 seconds.</span></div>
+        <div class="bd-row"><code>transform: scale(1.1);</code><span>make the element 10% bigger.</span></div>
+        <div class="bd-row"><code>@keyframes blink { 50% { opacity: 0; } }</code><span>at half the time the element is invisible.</span></div>
+        <div class="bd-row"><code>animation: blink 1s infinite;</code><span>play blink for 1 second, forever.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Different names in @keyframes and animation — nothing moves.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a .card lift 4px up smoothly when hovered.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>.card {
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -158,6 +321,28 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
     grid-template-columns: 1fr;
   }
 }</code></pre>
+    <div class="more">
+    <p>Most visitors use phones, so a site must work on narrow screens. <code>@media</code> applies rules only when a condition is true, usually a screen width.</p>
+    <p>For this to work, the page needs <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> in head. Without it, phones pretend to be wide and shrink the page.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>@media (max-width: 600px) {</code><span>the rules inside work only on screens up to 600px wide.</span></div>
+        <div class="bd-row"><code>grid-template-columns: 1fr;</code><span>one column instead of three.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting the viewport meta tag — media queries seem not to work on phones.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Hide the .sidebar on screens narrower than 700px.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="css">
@@ -197,7 +382,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="html.html">← Previous language: HTML</a><a class="btn ghost" href="c.html">Next language: C →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="html.html">← Previous language: HTML</a><a class="btn ghost" href="php.html">Next language: PHP →</a></nav>
     </div>
   </div>
 </div>
@@ -208,8 +393,8 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
 </body>
 </html>

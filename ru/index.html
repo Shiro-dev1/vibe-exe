@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VIBE.EXE</title>
-<meta name="description" content="Бесплатные уроки программирования по 8 языкам: короткие объяснения, код, который можно запустить, и тест по каждому языку.">
+<meta name="description" content="Бесплатные уроки программирования по 12 языкам: понятные объяснения, код, который можно запустить, задания и тест по каждому языку.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="../index.html">
 <link rel="alternate" hreflang="ru" href="index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../index.html" + location.hash); } catch (e) {}
@@ -33,7 +33,7 @@
 <section class="hero wrap">
   <div class="eye-box"><canvas id="eye" role="img" aria-label="Глаз из букв, который следит за курсором"></canvas></div>
   <h1>Учись программировать шаг за шагом</h1>
-  <p class="lead">Бесплатные уроки по 8 языкам. Короткие объяснения, настоящие примеры кода и тест в конце каждого языка. Прогресс сохраняется в твоём браузере.</p>
+  <p class="lead">Бесплатные уроки по 12 языкам. Понятные объяснения, настоящие примеры кода, задания с ответами и тест по каждому языку. Прогресс сохраняется в твоём браузере.</p>
   <div class="btn-row">
     <a class="btn" href="page2.html">Начать учиться →</a>
     <a class="btn ghost" href="page3.html">Основы Linux</a>
@@ -54,6 +54,12 @@
       <div class="pbar" data-progress="javascript"></div>
       <span class="go">Открыть уроки →</span>
     </a>
+    <a class="card" href="typescript.html">
+      <h3>TypeScript</h3>
+      <p>JavaScript с типами: меньше ошибок в больших проектах.</p>
+      <div class="pbar" data-progress="typescript"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
     <a class="card" href="html.html">
       <h3>HTML</h3>
       <p>Структура любой веб-страницы.</p>
@@ -64,6 +70,18 @@
       <h3>CSS</h3>
       <p>Цвета, шрифты, расположение и анимации.</p>
       <div class="pbar" data-progress="css"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="php.html">
+      <h3>PHP</h3>
+      <p>Серверная часть сайтов: WordPress и интернет-магазины.</p>
+      <div class="pbar" data-progress="php"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="java.html">
+      <h3>Java</h3>
+      <p>Android-приложения, серверы и Minecraft.</p>
+      <div class="pbar" data-progress="java"></div>
       <span class="go">Открыть уроки →</span>
     </a>
     <a class="card" href="c.html">
@@ -84,6 +102,12 @@
       <div class="pbar" data-progress="csharp"></div>
       <span class="go">Открыть уроки →</span>
     </a>
+    <a class="card" href="go.html">
+      <h3>Go</h3>
+      <p>Быстрые серверы и облачные утилиты от Google.</p>
+      <div class="pbar" data-progress="go"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
     <a class="card" href="rust.html">
       <h3>Rust</h3>
       <p>Быстрый как C, а компилятор ловит ошибки.</p>
@@ -95,8 +119,8 @@
 <section class="section wrap">
   <div class="section-head"><h2>Как это работает</h2></div>
   <ol class="steps">
-      <li><h3>Выбери язык</h3><p>Восемь языков, от Python до Rust. Каждый начинается с Hello, world.</p></li>
-      <li><h3>Читай и пробуй</h3><p>Каждый урок — короткое объяснение, код и то, что он выведет. Код на JavaScript запускается прямо на странице.</p></li>
+      <li><h3>Выбери язык</h3><p>Двенадцать языков: от Python и JavaScript до Java и Go. Каждый начинается с Hello, world.</p></li>
+      <li><h3>Читай и пробуй</h3><p>Каждый урок объясняет идею, разбирает код по строчкам, показывает частые ошибки и даёт задание.</p></li>
       <li><h3>Проверь себя</h3><p>Отмечай пройденные уроки и пройди тест из 5 вопросов. Прогресс виден на каждой карточке.</p></li>
   </ol>
 </section>
@@ -107,8 +131,8 @@
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../eye.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../eye.js?v=f62e3716"></script>
 </body>
 </html>

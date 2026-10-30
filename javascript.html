@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/javascript.html" + location.hash); } catch (e) {}
@@ -65,6 +65,28 @@
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>JavaScript was made for web pages and runs in every browser. <code>console.log()</code> writes a message to the console — a hidden panel for developers. Programmers use it all the time to check what their code is doing.</p>
+    <p>Each command usually ends with a semicolon <code>;</code>. JavaScript often forgives a missing one, but it is a good habit to write it.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>console</code><span>the browser console, an object with useful commands.</span></div>
+        <div class="bd-row"><code>.log(...)</code><span>the command "write to the log". The dot means "take log from console".</span></div>
+        <div class="bd-row"><code>&quot;Hello, world!&quot;</code><span>the text in quotes, called a string.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Writing <code>console.Log</code> — case matters, it must be <code>log</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print your name and on the next line the number 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>console.log(&quot;Shiro&quot;);
+console.log(2026);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -82,6 +104,31 @@ console.log(`Hi, I&#x27;m ${name}`);</textarea>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>Shiro 19
 Hi, I&#x27;m Shiro</pre></div>
+    <div class="more">
+    <p>Use <code>const</code> by default — for values that won't be reassigned. Use <code>let</code> when the value must change, like a counter. You may also meet <code>var</code> in old code; today it is better not to use it.</p>
+    <p>Template strings in backticks <code>`...`</code> can contain <code>${...}</code>: anything inside is calculated and put into the text.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>const name = &quot;Shiro&quot;;</code><span>a constant: name can't be given a new value later.</span></div>
+        <div class="bd-row"><code>let age = 18;</code><span>a variable that can change.</span></div>
+        <div class="bd-row"><code>age = age + 1;</code><span>take the old value, add 1, save it back. Now age is 19.</span></div>
+        <div class="bd-row"><code>`Hi, I&#x27;m ${name}`</code><span>backticks + ${} put the value of name into the text.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Changing a <code>const</code>: <code>TypeError: Assignment to constant variable</code>. Use <code>let</code> instead.</li>
+        <li>Using normal quotes with <code>${}</code> — it only works inside backticks.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create let score = 0, add 10 to it twice and print "Score: 20" with a template string.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>let score = 0;
+score += 10;
+score += 10;
+console.log(`Score: ${score}`);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Score: 20</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -101,6 +148,28 @@ console.log(typeof title);</textarea>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>number
 string</pre></div>
+    <div class="more">
+    <p>JavaScript has a few basic types: number (all numbers, whole or with a dot), string (text), boolean (true/false), plus null and undefined for "no value".</p>
+    <p>JavaScript tries to be helpful and converts types by itself, which sometimes surprises: <code>"5" + 2</code> gives <code>"52"</code> (text), but <code>"5" * 2</code> gives <code>10</code>. Use <code>Number("5")</code> to turn text into a number on purpose.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>let count = 10;</code><span>number — whole numbers and numbers with a dot are the same type.</span></div>
+        <div class="bd-row"><code>let nothing = null;</code><span>null: we decided there is nothing here.</span></div>
+        <div class="bd-row"><code>let user;</code><span>no value given, so it is undefined.</span></div>
+        <div class="bd-row"><code>typeof count</code><span>returns the type name as text: "number".</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Adding numbers from inputs and getting "12" instead of 3 — they were text. Convert with <code>Number()</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>You have a = "7" (text). Print a + 3 so that the answer is 10.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>const a = &quot;7&quot;;
+console.log(Number(a) + 3);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -120,6 +189,31 @@ if (age &gt;= 18) {
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p><code>if</code> checks a condition in brackets. If it is true, the block in <code>{ }</code> runs. <code>else if</code> checks the next condition, <code>else</code> catches everything else.</p>
+    <p>In JavaScript compare with three equals signs <code>===</code> (and <code>!==</code> for "not equal"). Two equals <code>==</code> converts types and can give strange results, like <code>"5" == 5</code> being true.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>the condition goes in round brackets, the code in curly ones.</span></div>
+        <div class="bd-row"><code>} else if (age &gt;= 13) {</code><span>the next check, only if the first was false.</span></div>
+        <div class="bd-row"><code>} else {</code><span>everything else.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using <code>=</code> inside if: <code>if (age = 18)</code> assigns 18 instead of comparing.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>const t = 30. Print "Hot" if t is more than 25, otherwise "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>const t = 30;
+if (t &gt; 25) {
+  console.log(&quot;Hot&quot;);
+} else {
+  console.log(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -144,6 +238,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>The classic <code>for</code> loop has three parts separated by <code>;</code>: start (<code>let i = 0</code>), condition to keep going (<code>i &lt; 3</code>) and step after each round (<code>i++</code>).</p>
+    <p><code>while</code> is simpler: it repeats while the condition is true. For arrays there is also <code>for (const item of array)</code> that goes through every item.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for (let i = 0; i &lt; 3; i++)</code><span>i starts at 0, the loop runs while i < 3, after each round i grows by 1.</span></div>
+        <div class="bd-row"><code>while (count &gt; 0)</code><span>repeat while count is more than 0.</span></div>
+        <div class="bd-row"><code>count--;</code><span>take 1 away, otherwise the loop never ends.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Writing commas instead of semicolons in for: <code>for (let i = 0, i &lt; 3, i++)</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>for (let i = 1; i &lt;= 5; i++) {
+  console.log(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -163,6 +283,27 @@ console.log(shout(&quot;vibe&quot;));</textarea>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>Hello, Shiro!
 VIBE</pre></div>
+    <div class="more">
+    <p>A function groups code under a name. Parameters in brackets are inputs, <code>return</code> is the output. Without <code>return</code> the function gives back <code>undefined</code>.</p>
+    <p>Arrow functions <code>(x) =&gt; x * 2</code> are a short form. If the body is one expression, its result is returned automatically.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>function greet(name) {</code><span>a function greet with the parameter name.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, &quot; + name + &quot;!&quot;;</code><span>build the text and give it back.</span></div>
+        <div class="bd-row"><code>const shout = (text) =&gt; text.toUpperCase();</code><span>an arrow function: takes text, returns it in capital letters.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting the brackets when calling: <code>greet</code> instead of <code>greet("Shiro")</code> — the function doesn't run.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write an arrow function square that returns n * n. Print square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>const square = (n) =&gt; n * n;
+console.log(square(7));</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -185,6 +326,29 @@ I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+    <div class="more">
+    <p>An array is an ordered list of values. You reach an item by its index (number), starting from 0. Arrays can grow and shrink.</p>
+    <p>Handy methods: <code>push</code> adds to the end, <code>pop</code> removes the last item, <code>includes(x)</code> checks if x is inside, <code>forEach</code> runs a function for every item.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>const langs = [...]</code><span>an array in square brackets. const means the variable, not the content, can't be replaced.</span></div>
+        <div class="bd-row"><code>langs.push(&quot;Rust&quot;);</code><span>add to the end.</span></div>
+        <div class="bd-row"><code>langs.length</code><span>how many items there are.</span></div>
+        <div class="bd-row"><code>langs.forEach((lang) =&gt; ...)</code><span>run the arrow function for each item.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using <code>langs.length</code> as the last index — the last item is <code>langs[langs.length - 1]</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make an array of 3 numbers, push one more and print how many items there are.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>const nums = [1, 2, 3];
+nums.push(4);
+console.log(nums.length);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>4</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -206,6 +370,36 @@ I like Rust</pre></div>
       <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
     <div class="out"><span class="out-label">Output</span><pre>[ Clicks: 0 ]  -&gt; click -&gt;  [ Clicks: 1 ]  -&gt; click -&gt;  [ Clicks: 2 ]</pre></div>
+    <div class="more">
+    <p>This is where JavaScript shines: it changes the page while you look at it. <code>document</code> is the whole page; <code>getElementById</code> finds the element with that id.</p>
+    <p><code>addEventListener("click", ...)</code> says: "when someone clicks, run this function". The function adds 1 to the counter and writes the new text into the button.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;button id=&quot;btn&quot;&gt;</code><span>an HTML button with the id btn so JavaScript can find it.</span></div>
+        <div class="bd-row"><code>document.getElementById(&quot;btn&quot;)</code><span>find that button on the page.</span></div>
+        <div class="bd-row"><code>btn.addEventListener(&quot;click&quot;, ...)</code><span>listen for clicks on the button.</span></div>
+        <div class="bd-row"><code>btn.textContent = ...</code><span>replace the text inside the button.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Running the script before the button exists — then getElementById returns null. Put the script after the HTML.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Change the counter so that each click adds 5 instead of 1. Try it with Run.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById(&quot;btn&quot;);
+  let clicks = 0;
+
+  btn.addEventListener(&quot;click&quot;, () =&gt; {
+    clicks += 5;
+    btn.textContent = &quot;Clicks: &quot; + clicks;
+  });
+&lt;/script&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="javascript" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="javascript">
@@ -246,7 +440,7 @@ console.log(shout(&quot;hi&quot;));</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="python.html">← Previous language: Python</a><a class="btn ghost" href="html.html">Next language: HTML →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="python.html">← Previous language: Python</a><a class="btn ghost" href="typescript.html">Next language: TypeScript →</a></nav>
     </div>
   </div>
 </div>
@@ -257,9 +451,9 @@ console.log(shout(&quot;hi&quot;));</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
-<script src="runner.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
+<script src="runner.js?v=9d1b2c69"></script>
 </body>
 </html>

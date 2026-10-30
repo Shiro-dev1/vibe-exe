@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/python.html" + location.hash); } catch (e) {}
@@ -62,6 +62,29 @@
     <p><code>print()</code> shows text on the screen. Text in quotes is called a <b>string</b>.</p>
     <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>A program is a list of instructions that the computer runs from top to bottom. The very first instruction most people learn is "show some text". In Python that is <code>print()</code>.</p>
+    <p>Whatever you put inside the brackets appears on the screen. Text must be in quotes, single <code>'...'</code> or double <code>"..."</code> — both work. Numbers don't need quotes.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>print</code><span>the name of the command: "print" = show.</span></div>
+        <div class="bd-row"><code>( ... )</code><span>brackets hold what we give to the command.</span></div>
+        <div class="bd-row"><code>&quot;Hello, world!&quot;</code><span>the text itself. The quotes are not shown on the screen.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting the quotes: <code>print(Hello)</code> — Python thinks Hello is a variable and shows an error.</li>
+        <li>Writing <code>Print</code> with a capital letter. Python cares about big and small letters.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print two lines: your name, and then the number 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>print(&quot;Shiro&quot;)
+print(2026)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -75,6 +98,30 @@ print(name, age)
 print(f&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;)</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Shiro 18
 Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+    <div class="more">
+    <p>A variable is a name for a value. Instead of writing the same value again and again, you save it once and use the name. If the value changes, you change it in one place.</p>
+    <p>The <code>=</code> sign means "put the value on the right into the name on the left". It is not "equals" from math. An f-string (<code>f"..."</code>) lets you put variables right inside text.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>name = &quot;Shiro&quot;</code><span>create a variable name and put the text Shiro in it.</span></div>
+        <div class="bd-row"><code>age = 18</code><span>a variable with a number. No quotes — it is a number, not text.</span></div>
+        <div class="bd-row"><code>print(name, age)</code><span>print can show several values; it puts a space between them.</span></div>
+        <div class="bd-row"><code>f&quot;... {name} ...&quot;</code><span>inside an f-string, {name} is replaced by the value of name.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using a variable before creating it — Python says <code>NameError</code>.</li>
+        <li>Forgetting the <code>f</code> before the quotes: then <code>{name}</code> is printed as is.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create variables city and year, then print: I live in <i>city</i> since <i>year</i>.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>city = &quot;Kyiv&quot;
+year = 2020
+print(f&quot;I live in {city} since {year}&quot;)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -88,6 +135,29 @@ online = True       # bool: True or False
 
 print(type(price))</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
+    <div class="more">
+    <p>The type tells Python what kind of value it is and what you can do with it. Numbers can be added, text can be glued together, True/False is used in conditions.</p>
+    <p>You can change the type: <code>int("5")</code> turns text into a number, <code>str(5)</code> turns a number into text. This is needed often, for example when the user types a number — Python receives it as text.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>count = 10</code><span>int — a whole number.</span></div>
+        <div class="bd-row"><code>price = 9.99</code><span>float — a number with a dot. In code we always use a dot, not a comma.</span></div>
+        <div class="bd-row"><code>online = True</code><span>bool — only True or False, always with a capital letter.</span></div>
+        <div class="bd-row"><code>type(price)</code><span>asks Python: what is the type of this value?</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>"5" + 5</code> — you can't add text and a number. Convert first: <code>int("5") + 5</code>.</li>
+        <li>Writing <code>true</code> in small letters — in Python it must be <code>True</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>You have <code>a = "7"</code> (text). Print a + 3 so the answer is 10.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>a = &quot;7&quot;
+print(int(a) + 3)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -103,6 +173,32 @@ elif age &gt;= 13:
 else:
     print(&quot;Kid&quot;)</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Conditions let a program make decisions: do one thing if something is true, another thing if not. The computer checks conditions from top to bottom and runs only the first block that fits.</p>
+    <p>Comparisons: <code>==</code> equal, <code>!=</code> not equal, <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code>. You can join them with <code>and</code> (both true) and <code>or</code> (at least one true).</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if age &gt;= 18:</code><span>if age is 18 or more… The colon at the end is required.</span></div>
+        <div class="bd-row"><code>    print(&quot;Adult&quot;)</code><span>4 spaces at the start: this line belongs to the if.</span></div>
+        <div class="bd-row"><code>elif age &gt;= 13:</code><span>checked only if the first condition was false.</span></div>
+        <div class="bd-row"><code>else:</code><span>runs when nothing above was true.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using <code>=</code> instead of <code>==</code> in a comparison: <code>if age = 18</code> is an error.</li>
+        <li>Forgetting the colon or the indent — Python shows <code>SyntaxError</code> or <code>IndentationError</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Variable t = 30. Print "Hot" if t is more than 25, otherwise print "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>t = 30
+if t &gt; 25:
+    print(&quot;Hot&quot;)
+else:
+    print(&quot;OK&quot;)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -122,6 +218,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>A loop repeats code so you don't have to copy it. <code>for</code> is used when you know how many times to repeat or want to go through every item. <code>while</code> repeats while a condition stays true.</p>
+    <p><code>range(3)</code> makes the numbers 0, 1, 2 — it starts from 0 and stops before 3. <code>range(1, 4)</code> gives 1, 2, 3.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for i in range(3):</code><span>i takes the values 0, 1, 2 one by one.</span></div>
+        <div class="bd-row"><code>while count &gt; 0:</code><span>repeat while count is more than 0.</span></div>
+        <div class="bd-row"><code>count -= 1</code><span>the same as count = count - 1. Without it the loop would never stop.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>An endless while loop: the condition never becomes false. Always change the variable inside the loop.</li>
+        <li>Expecting <code>range(5)</code> to include 5. It stops at 4.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5 using a for loop.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>for i in range(1, 6):
+    print(i)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -135,6 +257,30 @@ print(greet(&quot;Shiro&quot;))
 print(greet(&quot;world&quot;))</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hello, Shiro!
 Hello, world!</pre></div>
+    <div class="more">
+    <p>A function is a small machine: you give it values (parameters), it does work and gives back a result (<code>return</code>). You write it once and use it as many times as you need.</p>
+    <p>Functions make code shorter and easier to read: instead of 10 lines in five places, you write one name. Code inside the function runs only when you call it: <code>greet("Shiro")</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>def greet(name):</code><span>def creates a function called greet with one parameter, name.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, &quot; + name + &quot;!&quot;</code><span>+ glues text together; return gives the result back.</span></div>
+        <div class="bd-row"><code>print(greet(&quot;Shiro&quot;))</code><span>call the function with "Shiro" and print what it returned.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>return</code>: then the function gives back <code>None</code>.</li>
+        <li>Calling a function before it is defined (above the def). Define first, call after.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write a function square(n) that returns n * n. Print square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>def square(n):
+    return n * n
+
+print(square(7))</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -155,6 +301,29 @@ I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+    <div class="more">
+    <p>A list keeps many values in one variable, in order. It is like a numbered shelf: you can take an item by its number, add new items, remove them and go through all of them with a loop.</p>
+    <p>Useful commands: <code>append(x)</code> adds to the end, <code>remove(x)</code> deletes an item, <code>len(list)</code> counts items, <code>list[-1]</code> is the last item.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;]</code><span>a list in square brackets, items separated by commas.</span></div>
+        <div class="bd-row"><code>langs.append(&quot;Rust&quot;)</code><span>add Rust to the end. Now there are 4 items.</span></div>
+        <div class="bd-row"><code>langs[0]</code><span>the first item. Counting starts from 0.</span></div>
+        <div class="bd-row"><code>for lang in langs:</code><span>lang becomes each item in turn.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>langs[4]</code> when there are only 4 items — the last one is <code>langs[3]</code>. Error: <code>IndexError</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a list of 3 numbers, add one more with append and print the sum using sum().</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>nums = [1, 2, 3]
+nums.append(4)
+print(sum(nums))</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -180,6 +349,39 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+    <div class="more">
+    <p>A mini project joins everything you learned. Read it from top to bottom: first we prepare data (a secret number), then a loop asks the player again and again, conditions give hints, and when the guess is right the loop ends.</p>
+    <p><code>import random</code> connects a ready-made module with random numbers. <code>input()</code> waits for the player to type something and press Enter; <code>int()</code> turns that text into a number.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>secret = random.randint(1, 10)</code><span>a random whole number from 1 to 10.</span></div>
+        <div class="bd-row"><code>while guess != secret:</code><span>repeat until the guess is right.</span></div>
+        <div class="bd-row"><code>int(input(&quot;...&quot;))</code><span>show a question, read the answer, turn it into a number.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>int()</code>: then the guess is text and never equals the number.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a counter: after the game print how many tries the player needed.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>import random
+
+secret = random.randint(1, 10)
+guess = 0
+tries = 0
+
+while guess != secret:
+    guess = int(input(&quot;Guess a number from 1 to 10: &quot;))
+    tries += 1
+    if guess &lt; secret:
+        print(&quot;Bigger!&quot;)
+    elif guess &gt; secret:
+        print(&quot;Smaller!&quot;)
+
+print(&quot;You got it in&quot;, tries, &quot;tries!&quot;)</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="python">
@@ -235,8 +437,8 @@ else:
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
 </body>
 </html>

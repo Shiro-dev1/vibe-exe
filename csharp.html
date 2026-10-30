@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/csharp.html" + location.hash); } catch (e) {}
@@ -63,6 +63,27 @@
     <p>In modern C# (.NET 6 and newer) this one line is a whole program. In older code you will see it wrapped in <code>class Program</code> and <code>static void Main()</code>.</p>
     <pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>C# programs run on .NET, a free platform from Microsoft. Modern C# lets you write a program as a list of lines at the top of a file ("top-level statements") — that's why one line is enough.</p>
+    <p><code>Console</code> is the text window, <code>WriteLine</code> writes a line and moves to the next one. <code>Write</code> (without Line) stays on the same line.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>Console</code><span>the console window.</span></div>
+        <div class="bd-row"><code>.WriteLine(&quot;Hello, world!&quot;);</code><span>write the text and a line break.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>console.writeline</code> in small letters — C# is case-sensitive: <code>Console.WriteLine</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print your name and on the next line 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>Console.WriteLine(&quot;Shiro&quot;);
+Console.WriteLine(2026);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -75,6 +96,28 @@ var lang = &quot;C#&quot;;   // C# guesses: string
 
 Console.WriteLine($&quot;Hi, I&#x27;m {name}, {age}, I learn {lang}&quot;);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hi, I&#x27;m Shiro, 18, I learn C#</pre></div>
+    <div class="more">
+    <p>C# is strict about types: a <code>string</code> variable can only hold text, an <code>int</code> only whole numbers. <code>var</code> doesn't remove the type — C# just figures it out from the value and then keeps it.</p>
+    <p>Interpolated strings start with <code>$</code>: <code>$"Hi, {name}"</code>. Any expression can go inside the braces, even <code>{age + 1}</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>string name = &quot;Shiro&quot;;</code><span>a text variable.</span></div>
+        <div class="bd-row"><code>var lang = &quot;C#&quot;;</code><span>C# sees text and makes lang a string.</span></div>
+        <div class="bd-row"><code>$&quot;Hi, I&#x27;m {name}, ...&quot;</code><span>$ turns on {} substitution.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Putting a number into a string variable: <code>string s = 5;</code> — error. Use <code>"5"</code> or <code>5.ToString()</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create city = "Kyiv" and year = 2020, print: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>string city = &quot;Kyiv&quot;;
+int year = 2020;
+Console.WriteLine($&quot;I live in {city} since {year}&quot;);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -89,6 +132,27 @@ string title = &quot;VIBE&quot;;  // text
 
 Console.WriteLine(title.Length);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>4</pre></div>
+    <div class="more">
+    <p>Main types: <code>int</code>, <code>double</code>, <code>bool</code>, <code>char</code>, <code>string</code>. Strings have useful properties and methods: <code>Length</code>, <code>ToUpper()</code>, <code>Contains("x")</code>.</p>
+    <p>To turn text into a number use <code>int.Parse("5")</code>; to turn anything into text use <code>.ToString()</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>double price = 9.99;</code><span>a number with a dot.</span></div>
+        <div class="bd-row"><code>char letter = &#x27;S&#x27;;</code><span>one character in single quotes.</span></div>
+        <div class="bd-row"><code>title.Length</code><span>how many characters (a property, no brackets).</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>title.Length()</code> with brackets — Length is a property, write it without ().</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>You have string a = "7". Print a as a number plus 3 (10).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>string a = &quot;7&quot;;
+Console.WriteLine(int.Parse(a) + 3);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -110,6 +174,34 @@ else
     Console.WriteLine(&quot;Kid&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>In C# the braces usually go on their own line — that's just the common style, the code works either way. The condition must be a real bool: <code>if (count)</code> with a number is an error, write <code>if (count &gt; 0)</code>.</p>
+    <p>And / or / not: <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if (age &gt;= 18)</code><span>the condition.</span></div>
+        <div class="bd-row"><code>else if (age &gt;= 13)</code><span>the next check.</span></div>
+        <div class="bd-row"><code>else</code><span>everything else.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>if (age = 18)</code> — in C# this doesn't compile, which saves you from a classic bug. Use <code>==</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>int t = 30. Print "Hot" if t > 25, otherwise "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25)
+{
+    Console.WriteLine(&quot;Hot&quot;);
+}
+else
+{
+    Console.WriteLine(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -133,6 +225,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>C# has <code>for</code>, <code>while</code>, <code>do ... while</code> and <code>foreach</code>. Use <code>foreach (var x in list)</code> to go through every item of a list or array — it is the most common loop in real code.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>counter 0, 1, 2.</span></div>
+        <div class="bd-row"><code>$&quot;Step {i}&quot;</code><span>insert i into the text.</span></div>
+        <div class="bd-row"><code>count--;</code><span>take 1 away.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Changing a list inside foreach (adding or removing items) — C# throws an error.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++)
+{
+    Console.WriteLine(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -146,6 +264,27 @@ Step 2
 
 Console.WriteLine(Greet(&quot;Shiro&quot;));</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hello, Shiro!</pre></div>
+    <div class="more">
+    <p>A method has a return type, a name and typed parameters. If it returns nothing, the type is <code>void</code>. In bigger programs methods live inside classes, and names usually start with a capital letter: <code>Greet</code>, <code>Hit</code>.</p>
+    <p>Short methods can be written with an arrow: <code>int Square(int n) =&gt; n * n;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>string Greet(string name)</code><span>returns a string, takes a string.</span></div>
+        <div class="bd-row"><code>return $&quot;Hello, {name}!&quot;;</code><span>give back the finished text.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Returning the wrong type: a method declared <code>int</code> can't return text.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write int Square(int n) and print Square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>int Square(int n) =&gt; n * n;
+
+Console.WriteLine(Square(7));</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -165,6 +304,28 @@ I like Python
 I like C#
 I like Rust
 I like C++</pre></div>
+    <div class="more">
+    <p><code>List&lt;T&gt;</code> is a list that grows; <code>T</code> is the type of items, for example <code>List&lt;string&gt;</code>. It has <code>Add</code>, <code>Remove</code>, <code>Contains</code>, <code>Count</code> and works with <code>foreach</code>.</p>
+    <p>There are also arrays: <code>int[] a = {1, 2, 3};</code> — they have a fixed size and use <code>Length</code> instead of <code>Count</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>new List&lt;string&gt; { ... }</code><span>create a list of texts with starting items.</span></div>
+        <div class="bd-row"><code>langs.Add(&quot;C++&quot;);</code><span>add to the end.</span></div>
+        <div class="bd-row"><code>langs.Count</code><span>how many items.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>Count</code> for lists, <code>Length</code> for arrays and strings — easy to mix up.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a List&lt;int&gt; with 1, 2, 3, add 4 and print the sum with .Sum().</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>var nums = new List&lt;int&gt; { 1, 2, 3 };
+nums.Add(4);
+Console.WriteLine(nums.Sum());</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -193,6 +354,54 @@ class Player
 }</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p>A class is a blueprint for objects. <code>new Player("Shiro")</code> creates an object and calls the <b>constructor</b> — the special method with the same name as the class that sets the starting values.</p>
+    <p><code>public</code> means the field or method can be used from outside. In Unity, every script is a class like this, and its methods react to the game.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>var p = new Player(&quot;Shiro&quot;);</code><span>create a player; the constructor sets Name.</span></div>
+        <div class="bd-row"><code>public int Hp = 100;</code><span>every player starts with 100 HP.</span></div>
+        <div class="bd-row"><code>public void Hit(int damage)</code><span>an action that changes HP.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using an object before <code>new</code>: <code>Player p; p.Hit(5);</code> — error, p is not created.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a Heal(int amount) method and heal the player by 10 after the hits.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>var p = new Player(&quot;Shiro&quot;);
+p.Hit(30);
+p.Hit(25);
+p.Heal(10);
+
+class Player
+{
+    public string Name;
+    public int Hp = 100;
+
+    public Player(string name)
+    {
+        Name = name;
+    }
+
+    public void Hit(int damage)
+    {
+        Hp -= damage;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+
+    public void Heal(int amount)
+    {
+        Hp += amount;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="csharp">
@@ -231,7 +440,7 @@ Console.WriteLine(x);</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="cpp.html">← Previous language: C++</a><a class="btn ghost" href="rust.html">Next language: Rust →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="cpp.html">← Previous language: C++</a><a class="btn ghost" href="go.html">Next language: Go →</a></nav>
     </div>
   </div>
 </div>
@@ -242,8 +451,8 @@ Console.WriteLine(x);</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
 </body>
 </html>

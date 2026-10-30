@@ -5,10 +5,34 @@ import os, sys, html
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from lessons import LANGS, ORDER
+import importlib, hashlib
+from lessons import LANGS
 from lessons_ru import RU
 from quiz import QUIZ
 from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX
+
+# Порядок языков на сайте
+ORDER = ["python", "javascript", "typescript", "html", "css", "php", "java", "c", "cpp", "csharp", "go", "rust"]
+
+# Подробности к урокам (details/<язык>.py) и новые языки (newlangs/<язык>.py) — переводим в общий формат
+DETAILS = {}
+for key in ["python", "javascript", "html", "css", "c", "cpp", "csharp", "rust"]:
+    DETAILS[key] = importlib.import_module("details." + key).D
+for key in ["typescript", "php", "java", "go"]:
+    m = importlib.import_module("newlangs." + key)
+    LANGS[key] = dict(file=m.LANG["file"], title=m.LANG["title"], cmd=m.LANG["cmd"], ext=m.LANG["ext"], lead=m.LANG["lead"][0],
+                      lessons=[(L["title"][0], L["text"][0], L["code"], L["out"], L["mode"]) for L in m.LESSONS])
+    RU[key] = dict(lead=m.LANG["lead"][1], lessons=[(L["title"][1], L["text"][1]) for L in m.LESSONS])
+    QUIZ[key] = [dict(q, check=None) for q in m.QUIZ]
+    FACTS[key] = m.FACT
+    CARD[key] = m.CARD
+    DETAILS[key] = [dict(about=L["about"], lines=L["lines"], mistakes=L["mistakes"], task=L["task"],
+                         answer=L["answer"], answer_out=L["answer_out"]) for L in m.LESSONS]
+
+
+def ver(name):
+    # Метка версии файла: браузер увидит новый адрес и не возьмёт старую копию из кэша
+    return name + "?v=" + hashlib.md5(open(os.path.join(ROOT, name), "rb").read()).hexdigest()[:8]
 
 esc = html.escape
 GH = "https://github.com/Shiro-dev1"
@@ -32,7 +56,7 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
     nav = [("index.html", U["nav_home"], "home"), ("page2.html", U["nav_langs"], "langs"), ("page3.html", U["nav_linux"], "linux")]
     nav_html = "".join(
         f'<a href="{f}"{" aria-current=\"page\"" if key == active else ""}>{esc(t)}</a>' for f, t, key in nav)
-    js = "".join(f'<script src="{pre}{s}"></script>\n' for s in ("site.js",) + tuple(scripts))
+    js = "".join(f'<script src="{pre}{ver(s)}"></script>\n' for s in ("site.js",) + tuple(scripts))
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -46,7 +70,7 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}site.css">
+<link rel="stylesheet" href="{pre}{ver("site.css")}">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try {{ if (localStorage.getItem("vibe-lang") === "{other}") location.replace("{other_href}" + location.hash); }} catch (e) {{}}
@@ -79,7 +103,7 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
 
 
 def card_title(key):
-    return LANGS[key]["title"] if key not in ("python", "javascript", "rust") else LANGS[key]["title"].capitalize().replace("Javascript", "JavaScript")
+    return {"PYTHON": "Python", "JAVASCRIPT": "JavaScript", "RUST": "Rust"}.get(LANGS[key]["title"], LANGS[key]["title"])
 
 
 def lang_cards(lang):
@@ -221,11 +245,32 @@ for idx, key in enumerate(ORDER):
             out_html = ""
             if out is not None:
                 out_html = f'\n    <div class="out"><span class="out-label">{esc(U["out"])}</span><pre>{esc(out)}</pre></div>'
+            D = DETAILS[key][n - 1]
+            li = 0 if lang == "en" else 1
+            about = "".join(f"\n    <p>{para}</p>" for para in D["about"][li].split("\n\n"))
+            rows = "".join(f'\n        <div class="bd-row"><code>{esc(c)}</code><span>{(e if lang == "en" else r)}</span></div>' for c, e, r in D["lines"])
+            mist = "".join(f"\n        <li>{m[li]}</li>" for m in D["mistakes"])
+            ans_out = (f'\n        <div class="out"><span class="out-label">{esc(U["out"])}</span><pre>{esc(D["answer_out"])}</pre></div>'
+                       if D.get("answer_out") else "")
+            extra = f"""
+    <div class="more">{about}
+    </div>
+    <section class="sub breakdown"><h3>{esc(U['breakdown'])}</h3>{rows}
+    </section>
+    <section class="sub mistakes"><h3>{esc(U['mistakes'])}</h3><ul>{mist}
+      </ul>
+    </section>
+    <section class="sub task"><h3>{esc(U['task'])}</h3>
+      <p>{D['task'][li]}</p>
+      <details class="answer"><summary>{esc(U['show_answer'])}</summary>
+        <pre><code>{esc(D['answer'])}</code></pre>{ans_out}
+      </details>
+    </section>"""
             body.append(f"""  <article class="lesson" id="lesson-{n}">
     <span class="lesson-kicker">{n:02d} / {total:02d}</span>
     <h2>{esc(t)}</h2>
     <p>{text}</p>
-{code_html}{out_html}
+{code_html}{out_html}{extra}
     <button class="done-btn" type="button" data-lang="{key}" data-n="{n}"></button>
   </article>""")
 

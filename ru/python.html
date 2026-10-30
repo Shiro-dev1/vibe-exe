@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../python.html" + location.hash); } catch (e) {}
@@ -62,6 +62,29 @@
     <p><code>print()</code> выводит текст на экран. Текст в кавычках называется <b>строкой</b>.</p>
     <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>Программа — это список команд, которые компьютер выполняет сверху вниз. Самая первая команда, которую учат все, — «покажи текст». В Python это <code>print()</code>.</p>
+    <p>Всё, что внутри скобок, появится на экране. Текст пишут в кавычках, одинарных <code>'...'</code> или двойных <code>"..."</code> — работают обе. Числа кавычки не нужны.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>print</code><span>название команды: print — «напечатай», «покажи».</span></div>
+        <div class="bd-row"><code>( ... )</code><span>в скобках то, что мы передаём команде.</span></div>
+        <div class="bd-row"><code>&quot;Hello, world!&quot;</code><span>сам текст. Кавычки на экран не выводятся.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть кавычки: <code>print(Hello)</code> — Python решит, что Hello это переменная, и выдаст ошибку.</li>
+        <li>Написать <code>Print</code> с большой буквы. Python различает большие и маленькие буквы.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи две строки: своё имя, а потом число 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>print(&quot;Shiro&quot;)
+print(2026)</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -75,6 +98,30 @@ print(name, age)
 print(f&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;)</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Shiro 18
 Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+    <div class="more">
+    <p>Переменная — это имя для значения. Вместо того чтобы писать одно и то же значение много раз, ты сохраняешь его один раз и пользуешься именем. Если значение поменяется, менять придётся в одном месте.</p>
+    <p>Знак <code>=</code> значит «положи значение справа в имя слева». Это не «равно» из математики. f-строка (<code>f"..."</code>) позволяет вставлять переменные прямо в текст.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>name = &quot;Shiro&quot;</code><span>создаём переменную name и кладём в неё текст Shiro.</span></div>
+        <div class="bd-row"><code>age = 18</code><span>переменная с числом. Без кавычек — это число, а не текст.</span></div>
+        <div class="bd-row"><code>print(name, age)</code><span>print умеет выводить несколько значений и ставит между ними пробел.</span></div>
+        <div class="bd-row"><code>f&quot;... {name} ...&quot;</code><span>внутри f-строки {name} заменяется значением переменной.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать переменную до того, как её создали, — Python скажет <code>NameError</code>.</li>
+        <li>Забыть <code>f</code> перед кавычками: тогда <code>{name}</code> так и выведется буквами.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай переменные city и year и выведи: I live in <i>city</i> since <i>year</i>.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>city = &quot;Kyiv&quot;
+year = 2020
+print(f&quot;I live in {city} since {year}&quot;)</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -88,6 +135,29 @@ online = True       # bool: True или False
 
 print(type(price))</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
+    <div class="more">
+    <p>Тип говорит Python, что это за значение и что с ним можно делать. Числа можно складывать, текст — склеивать, True/False используют в условиях.</p>
+    <p>Тип можно менять: <code>int("5")</code> превращает текст в число, <code>str(5)</code> — число в текст. Это нужно часто: например, когда пользователь вводит число, Python получает его как текст.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>count = 10</code><span>int — целое число.</span></div>
+        <div class="bd-row"><code>price = 9.99</code><span>float — дробное число. В коде всегда точка, а не запятая.</span></div>
+        <div class="bd-row"><code>online = True</code><span>bool — только True или False, всегда с большой буквы.</span></div>
+        <div class="bd-row"><code>type(price)</code><span>спрашивает у Python: какого типа это значение?</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>"5" + 5</code> — текст и число складывать нельзя. Сначала преобразуй: <code>int("5") + 5</code>.</li>
+        <li>Писать <code>true</code> с маленькой буквы — в Python нужно <code>True</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть <code>a = "7"</code> (текст). Выведи a + 3 так, чтобы получилось 10.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>a = &quot;7&quot;
+print(int(a) + 3)</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -103,6 +173,32 @@ elif age &gt;= 13:
 else:
     print(&quot;Kid&quot;)</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Условия позволяют программе принимать решения: сделать одно, если что-то верно, и другое, если нет. Компьютер проверяет условия сверху вниз и выполняет только первый подходящий блок.</p>
+    <p>Сравнения: <code>==</code> равно, <code>!=</code> не равно, <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code>. Их можно соединять: <code>and</code> (оба верны) и <code>or</code> (хотя бы одно верно).</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if age &gt;= 18:</code><span>если age 18 или больше… Двоеточие в конце обязательно.</span></div>
+        <div class="bd-row"><code>    print(&quot;Adult&quot;)</code><span>4 пробела в начале: эта строка относится к if.</span></div>
+        <div class="bd-row"><code>elif age &gt;= 13:</code><span>проверяется, только если первое условие не сработало.</span></div>
+        <div class="bd-row"><code>else:</code><span>срабатывает, если ничего выше не подошло.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать <code>=</code> вместо <code>==</code> в сравнении: <code>if age = 18</code> — ошибка.</li>
+        <li>Забыть двоеточие или отступ — Python покажет <code>SyntaxError</code> или <code>IndentationError</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Переменная t = 30. Выведи "Hot", если t больше 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>t = 30
+if t &gt; 25:
+    print(&quot;Hot&quot;)
+else:
+    print(&quot;OK&quot;)</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -122,6 +218,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>Цикл повторяет код, чтобы его не копировать. <code>for</code> используют, когда известно, сколько раз повторить, или нужно пройти по каждому элементу. <code>while</code> повторяет, пока условие верно.</p>
+    <p><code>range(3)</code> даёт числа 0, 1, 2 — начинает с 0 и останавливается перед 3. <code>range(1, 4)</code> даёт 1, 2, 3.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for i in range(3):</code><span>i по очереди становится 0, 1, 2.</span></div>
+        <div class="bd-row"><code>while count &gt; 0:</code><span>повторять, пока count больше 0.</span></div>
+        <div class="bd-row"><code>count -= 1</code><span>то же, что count = count - 1. Без этого цикл никогда не закончится.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Бесконечный цикл while: условие никогда не становится ложным. Всегда меняй переменную внутри цикла.</li>
+        <li>Думать, что <code>range(5)</code> включает 5. Он заканчивается на 4.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5 с помощью цикла for.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for i in range(1, 6):
+    print(i)</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -135,6 +257,30 @@ print(greet(&quot;Shiro&quot;))
 print(greet(&quot;world&quot;))</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, Shiro!
 Hello, world!</pre></div>
+    <div class="more">
+    <p>Функция — это маленькая машинка: ты даёшь ей значения (параметры), она делает работу и возвращает результат (<code>return</code>). Пишешь её один раз и используешь сколько угодно.</p>
+    <p>Функции делают код короче и понятнее: вместо 10 строк в пяти местах — одно название. Код внутри функции выполняется только тогда, когда её вызывают: <code>greet("Shiro")</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>def greet(name):</code><span>def создаёт функцию greet с одним параметром name.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, &quot; + name + &quot;!&quot;</code><span>+ склеивает текст; return возвращает результат.</span></div>
+        <div class="bd-row"><code>print(greet(&quot;Shiro&quot;))</code><span>вызываем функцию со значением "Shiro" и выводим то, что она вернула.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>return</code>: тогда функция вернёт <code>None</code>.</li>
+        <li>Вызывать функцию выше, чем она написана. Сначала def, потом вызов.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши функцию square(n), которая возвращает n * n. Выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>def square(n):
+    return n * n
+
+print(square(7))</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -155,6 +301,29 @@ I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+    <div class="more">
+    <p>Список хранит много значений в одной переменной по порядку. Это как полка с номерами: можно взять элемент по номеру, добавить новый, удалить и пройти по всем циклом.</p>
+    <p>Полезные команды: <code>append(x)</code> добавляет в конец, <code>remove(x)</code> удаляет элемент, <code>len(список)</code> считает элементы, <code>список[-1]</code> — последний элемент.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;]</code><span>список в квадратных скобках, элементы через запятую.</span></div>
+        <div class="bd-row"><code>langs.append(&quot;Rust&quot;)</code><span>добавляем Rust в конец. Теперь элементов 4.</span></div>
+        <div class="bd-row"><code>langs[0]</code><span>первый элемент. Счёт идёт с 0.</span></div>
+        <div class="bd-row"><code>for lang in langs:</code><span>lang по очереди становится каждым элементом.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>langs[4]</code>, когда элементов 4, — последний это <code>langs[3]</code>. Ошибка: <code>IndexError</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай список из 3 чисел, добавь ещё одно через append и выведи сумму через sum().</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>nums = [1, 2, 3]
+nums.append(4)
+print(sum(nums))</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -180,6 +349,39 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+    <div class="more">
+    <p>Мини-проект соединяет всё, что ты выучил. Читай его сверху вниз: сначала готовим данные (секретное число), потом цикл снова и снова спрашивает игрока, условия дают подсказки, а когда число угадано, цикл заканчивается.</p>
+    <p><code>import random</code> подключает готовый модуль со случайными числами. <code>input()</code> ждёт, пока игрок что-то напишет и нажмёт Enter; <code>int()</code> превращает этот текст в число.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>secret = random.randint(1, 10)</code><span>случайное целое число от 1 до 10.</span></div>
+        <div class="bd-row"><code>while guess != secret:</code><span>повторяем, пока не угадали.</span></div>
+        <div class="bd-row"><code>int(input(&quot;...&quot;))</code><span>показать вопрос, прочитать ответ, превратить в число.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>int()</code>: тогда ответ — текст и никогда не будет равен числу.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь счётчик: после игры выведи, за сколько попыток игрок угадал.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>import random
+
+secret = random.randint(1, 10)
+guess = 0
+tries = 0
+
+while guess != secret:
+    guess = int(input(&quot;Guess a number from 1 to 10: &quot;))
+    tries += 1
+    if guess &lt; secret:
+        print(&quot;Bigger!&quot;)
+    elif guess &gt; secret:
+        print(&quot;Smaller!&quot;)
+
+print(&quot;You got it in&quot;, tries, &quot;tries!&quot;)</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="python" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="python">
@@ -235,8 +437,8 @@ else:
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

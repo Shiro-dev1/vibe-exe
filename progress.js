@@ -1,7 +1,7 @@
 // Прогресс: пройденные уроки и лучший результат теста. Хранится в браузере посетителя.
 window.VibeProgress = (() => {
-  const TOTAL = { python: 8, javascript: 8, html: 6, css: 8, c: 8, cpp: 8, csharp: 8, rust: 8 };
-  const CMD = { python: "python", javascript: "js", html: "html", css: "css", c: "c", cpp: "c++", csharp: "c#", rust: "rust" };
+  const TOTAL = { python: 8, javascript: 8, typescript: 8, html: 6, css: 8, php: 8, java: 8, c: 8, cpp: 8, csharp: 8, go: 8, rust: 8 };
+  const CMD = { python: "python", javascript: "js", typescript: "ts", html: "html", css: "css", php: "php", java: "java", c: "c", cpp: "c++", csharp: "c#", go: "go", rust: "rust" };
   const QUESTIONS = 5;
   const KEY = "vibe-progress-v1";
   const ru = document.documentElement.lang === "ru";

@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../rust.html" + location.hash); } catch (e) {}
@@ -64,6 +64,29 @@
     println!(&quot;Hello, world!&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>Программы на Rust собирают через <code>cargo</code> или <code>rustc</code>, а попробовать Rust можно в браузере на play.rust-lang.org. Любая программа начинается в <code>fn main()</code>.</p>
+    <p><code>println!</code> выводит строку. Восклицательный знак показывает, что это макрос, а не обычная функция: он проверяет шаблон текста ещё при компиляции.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>fn main() {</code><span>fn — функция; main — точка старта программы.</span></div>
+        <div class="bd-row"><code>println!(&quot;Hello, world!&quot;);</code><span>вывести текст и перенос строки.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>!</code>: <code>println("...")</code> — Rust не найдёт такую функцию.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>fn main() {
+    println!(&quot;Shiro&quot;);
+    println!(&quot;{}&quot;, 2026);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -77,6 +100,30 @@
     println!(&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 19</pre></div>
+    <div class="more">
+    <p>В Rust переменные по умолчанию нельзя менять. Это защищает от случайных изменений. Если значение должно меняться, это говорят словом <code>mut</code>.</p>
+    <p>Внутри <code>println!</code> запись <code>{name}</code> вставляет переменную напрямую; <code>{}</code> берёт следующее значение после текста: <code>println!("{} + {}", a, b)</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let name = &quot;Shiro&quot;;</code><span>переменная, которую нельзя менять.</span></div>
+        <div class="bd-row"><code>let mut age = 18;</code><span>mut разрешает изменения.</span></div>
+        <div class="bd-row"><code>age += 1;</code><span>age становится 19.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Менять переменную без <code>mut</code> — ошибка: <code>cannot assign twice to immutable variable</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай city = "Kyiv" и year = 2020, выведи: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>fn main() {
+    let city = &quot;Kyiv&quot;;
+    let year = 2020;
+    println!(&quot;I live in {city} since {year}&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -91,6 +138,28 @@ let title: &amp;str = &quot;VIBE&quot;; // текст
 
 println!(&quot;{}&quot;, title.len());</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>4</pre></div>
+    <div class="more">
+    <p>Числовые типы говорят свой размер: <code>i32</code> — целое на 32 бита (со знаком), <code>u8</code> — от 0 до 255, <code>f64</code> — дробное. <code>&amp;str</code> — кусок текста, <code>String</code> — текст, которым ты владеешь и можешь менять.</p>
+    <p>Текст в число: <code>"5".parse::&lt;i32&gt;().unwrap()</code> — <code>unwrap</code> значит «я уверен, что получилось».</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let count: i32 = 10;</code><span>тип после двоеточия.</span></div>
+        <div class="bd-row"><code>let title: &amp;str = &quot;VIBE&quot;;</code><span>кусок текста.</span></div>
+        <div class="bd-row"><code>title.len()</code><span>длина в байтах (для латиницы = количество букв).</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Смешивать типы: <code>i32 + f64</code> не скомпилируется. Преобразуй: <code>count as f64 + price</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть let a = "7". Выведи a как число плюс 3 (10).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>let a = &quot;7&quot;;
+let n: i32 = a.parse().unwrap();
+println!(&quot;{}&quot;, n + 3);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -107,6 +176,30 @@ if age &gt;= 18 {
     println!(&quot;Kid&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p><code>if</code> в Rust не требует скобок вокруг условия, но фигурные скобки обязательны. Условие должно быть <code>bool</code>.</p>
+    <p><code>if</code> умеет возвращать значение: <code>let label = if age &gt;= 18 { "Adult" } else { "Kid" };</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if age &gt;= 18 {</code><span>без скобок, но с фигурными скобками.</span></div>
+        <div class="bd-row"><code>} else if age &gt;= 13 {</code><span>следующая проверка.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>if count { }</code> с числом — Rust хочет настоящий bool: <code>if count &gt; 0</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>let t = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>let t = 30;
+if t &gt; 25 {
+    println!(&quot;Hot&quot;);
+} else {
+    println!(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -128,6 +221,31 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p><code>for i in 0..3</code> проходит по диапазону: 0, 1, 2. <code>0..=3</code> включает конец: 0, 1, 2, 3. <code>while</code> повторяет, пока условие верно, а <code>loop</code> — бесконечно, пока не сделаешь <code>break</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for i in 0..3 {</code><span>i = 0, 1, 2.</span></div>
+        <div class="bd-row"><code>let mut count = 3;</code><span>mut, потому что count будет меняться.</span></div>
+        <div class="bd-row"><code>count -= 1;</code><span>отнять 1.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>mut</code> у счётчика, который меняешь в цикле.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for i in 1..=5 {
+    println!(&quot;{i}&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -142,6 +260,31 @@ fn main() {
     println!(&quot;{}&quot;, add(2, 3));
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>5</pre></div>
+    <div class="more">
+    <p>У каждого параметра нужен тип, а <code>-&gt;</code> показывает, что функция возвращает. В Rust удобное правило: последнее выражение без <code>;</code> и есть результат, поэтому <code>return</code> часто не нужен.</p>
+    <p>Если поставить <code>;</code> в конце этой строки, она станет обычной командой, и функция ничего не вернёт — частая ошибка.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>fn add(a: i32, b: i32) -&gt; i32 {</code><span>на входе два i32, на выходе один i32.</span></div>
+        <div class="bd-row"><code>a + b</code><span>без точки с запятой: это и есть результат.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>a + b;</code> с точкой с запятой — ошибка: <code>mismatched types</code>, ожидался i32, получено ().</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши fn square(n: i32) -> i32 и выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>fn square(n: i32) -&gt; i32 {
+    n * n
+}
+
+fn main() {
+    println!(&quot;{}&quot;, square(7));
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -160,6 +303,28 @@ I like Python
 I like C
 I like Rust
 I like C#</pre></div>
+    <div class="more">
+    <p><code>Vec</code> — растущий список; <code>vec![...]</code> быстро его создаёт. Чтобы добавлять элементы, нужен <code>mut</code>.</p>
+    <p>Rust внимательно следит, кому принадлежат данные. <code>for lang in &amp;langs</code> одалживает вектор только для чтения, поэтому <code>langs</code> можно использовать и после цикла. Без <code>&amp;</code> цикл забрал бы вектор себе.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let mut langs = vec![...];</code><span>вектор, который можно менять.</span></div>
+        <div class="bd-row"><code>langs.push(&quot;C#&quot;);</code><span>добавить в конец.</span></div>
+        <div class="bd-row"><code>for lang in &amp;langs {</code><span>прочитать каждый элемент, не забирая вектор.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать вектор после <code>for x in v</code> (без &amp;) — ошибка: value used after move.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай vec![1, 2, 3], добавь 4 и выведи сумму через .iter().sum::&lt;i32&gt;().</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>let mut v = vec![1, 2, 3];
+v.push(4);
+println!(&quot;{}&quot;, v.iter().sum::&lt;i32&gt;());</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -185,6 +350,50 @@ fn main() {
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p>Классов в Rust нет: <code>struct</code> хранит данные, а блок <code>impl</code> добавляет к ним методы. <code>&amp;mut self</code> в методе значит «этот метод может менять объект», <code>&amp;self</code> — только читает.</p>
+    <p>Игрока нужно объявить как <code>let mut p</code>, потому что <code>hit</code> его меняет.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>struct Player { name: String, hp: i32 }</code><span>что есть у каждого игрока.</span></div>
+        <div class="bd-row"><code>impl Player {</code><span>методы игрока.</span></div>
+        <div class="bd-row"><code>fn hit(&amp;mut self, damage: i32)</code><span>может менять игрока.</span></div>
+        <div class="bd-row"><code>String::from(&quot;Shiro&quot;)</code><span>сделать владеемую строку String из текста.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>let p = ...</code> без mut, потом <code>p.hit(30)</code> — ошибка: cannot borrow as mutable.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь метод heal(&mut self, amount: i32) и вылечи игрока на 10 после ударов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>struct Player {
+    name: String,
+    hp: i32,
+}
+
+impl Player {
+    fn hit(&amp;mut self, damage: i32) {
+        self.hp -= damage;
+        println!(&quot;{} has {} HP&quot;, self.name, self.hp);
+    }
+    fn heal(&amp;mut self, amount: i32) {
+        self.hp += amount;
+        println!(&quot;{} has {} HP&quot;, self.name, self.hp);
+    }
+}
+
+fn main() {
+    let mut p = Player { name: String::from(&quot;Shiro&quot;), hp: 100 };
+    p.hit(30);
+    p.hit(25);
+    p.heal(10);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="rust" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="rust">
@@ -234,7 +443,7 @@ println!(&quot;{}&quot;, v.len());</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="csharp.html">← Предыдущий язык: C#</a></nav>
+  <nav class="pager"><a class="btn ghost" href="go.html">← Предыдущий язык: Go</a></nav>
     </div>
   </div>
 </div>
@@ -245,8 +454,8 @@ println!(&quot;{}&quot;, v.len());</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

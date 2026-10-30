@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Уроки Java — VIBE.EXE</title>
+<meta name="description" content="Уроки Java: от Hello, world до мини-проекта.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../java.html">
+<link rel="alternate" hreflang="ru" href="java.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../java.html" + location.hash); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Главная</a><a href="page2.html" aria-current="page">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../java.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="java.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Языки</a><span>›</span><span>Java</span></nav>
+    <h1>Уроки Java</h1>
+    <p class="lead">Java — один из самых популярных языков в мире. На Java пишут Android-приложения, банковские системы, серверы больших компаний и Minecraft. Он строгий и понятный, поэтому хорошо подходит для учёбы.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Уроки</summary>
+      <div class="side-inner">
+        <div class="side-title">Уроки</div>
+        <div class="pbar" data-progress="java"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="java" data-n="1"><span class="num"><span>1</span></span>Привет, мир</a></li>
+        <li><a href="#lesson-2" data-lang="java" data-n="2"><span class="num"><span>2</span></span>Переменные</a></li>
+        <li><a href="#lesson-3" data-lang="java" data-n="3"><span class="num"><span>3</span></span>Типы данных</a></li>
+        <li><a href="#lesson-4" data-lang="java" data-n="4"><span class="num"><span>4</span></span>Условия</a></li>
+        <li><a href="#lesson-5" data-lang="java" data-n="5"><span class="num"><span>5</span></span>Циклы</a></li>
+        <li><a href="#lesson-6" data-lang="java" data-n="6"><span class="num"><span>6</span></span>Методы</a></li>
+        <li><a href="#lesson-7" data-lang="java" data-n="7"><span class="num"><span>7</span></span>Списки</a></li>
+        <li><a href="#lesson-8" data-lang="java" data-n="8"><span class="num"><span>8</span></span>Мини-проект: герой игры</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Тест</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Привет, мир</h2>
+    <p>В Java весь код живёт внутри класса. Программа начинается в методе <code>main</code>. <code>System.out.println</code> выводит строку.</p>
+    <pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello, world!&quot;);
+    }
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>В первой программе много слов, но их пишут в каждой программе на Java, поэтому они быстро становятся привычкой. <code>public class Main</code> — это класс; файл должен называться <code>Main.java</code>.</p>
+    <p><code>public static void main(String[] args)</code> — точка старта. Код на Java компилируют через <code>javac</code> и запускают через <code>java</code>. В браузере можно попробовать на onlinegdb.com или jdoodle.com.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>public class Main {</code><span>класс Main; имя файла должно совпадать.</span></div>
+        <div class="bd-row"><code>public static void main(String[] args) {</code><span>метод, с которого начинается программа.</span></div>
+        <div class="bd-row"><code>System.out.println(&quot;Hello, world!&quot;);</code><span>вывести текст и перенос строки.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Имя файла не совпадает с классом: класс Main в файле Hello.java — ошибка.</li>
+        <li><code>system.out.println</code> маленькими буквами — нужно <code>System</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println(&quot;Shiro&quot;);
+        System.out.println(2026);
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="1"></button>
+  </article>
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Переменные</h2>
+    <p>У каждой переменной есть тип: <code>String</code> для текста, <code>int</code> для целых чисел. <code>+</code> склеивает текст и значения. Дальше короткие примеры пишутся внутри <code>main</code>.</p>
+    <pre><code>String name = &quot;Shiro&quot;;
+int age = 18;
+age = age + 1;
+System.out.println(&quot;Hi, I&#x27;m &quot; + name + &quot; and I&#x27;m &quot; + age);</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 19</pre></div>
+    <div class="more">
+    <p><code>String</code> пишется с большой буквы, потому что это класс, а <code>int</code> — простой (примитивный) тип. Начиная с Java 10 можно писать <code>var</code>: <code>var age = 18;</code> — Java сама поймёт тип.</p>
+    <p><code>final int max = 10;</code> делает константу, которую нельзя менять.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>String name = &quot;Shiro&quot;;</code><span>текстовая переменная.</span></div>
+        <div class="bd-row"><code>int age = 18;</code><span>целое число.</span></div>
+        <div class="bd-row"><code>&quot;Hi, I&#x27;m &quot; + name + ...</code><span>+ соединяет текст и значения в одну строку.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>string</code> маленькими буквами — Java знает только <code>String</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай String city = "Kyiv" и int year = 2020, выведи: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>String city = &quot;Kyiv&quot;;
+int year = 2020;
+System.out.println(&quot;I live in &quot; + city + &quot; since &quot; + year);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="2"></button>
+  </article>
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Типы данных</h2>
+    <p>Основные типы: <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code> и <code>String</code>. У текста есть метод <code>length()</code>.</p>
+    <pre><code>int count = 10;          // whole number
+double price = 9.99;     // number with a dot
+boolean online = true;   // true or false
+char letter = &#x27;S&#x27;;       // one character
+String title = &quot;VIBE&quot;;   // text
+System.out.println(title.length());</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>4</pre></div>
+    <div class="more">
+    <p>Примитивные типы (<code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>) пишутся маленькими буквами и хранят просто значение. <code>String</code> — объект с множеством методов: <code>toUpperCase()</code>, <code>contains()</code>, <code>charAt(0)</code>.</p>
+    <p>Текст в число: <code>Integer.parseInt("5")</code>. Число в текст: <code>String.valueOf(5)</code> или просто <code>"" + 5</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>boolean online = true;</code><span>true или false (слово boolean, а не bool).</span></div>
+        <div class="bd-row"><code>char letter = &#x27;S&#x27;;</code><span>один символ в одинарных кавычках.</span></div>
+        <div class="bd-row"><code>title.length()</code><span>это метод — со скобками.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Сравнивать строки через <code>==</code>. В Java нужно <code>a.equals(b)</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть String a = "7". Выведи a как число плюс 3 (10).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>String a = &quot;7&quot;;
+System.out.println(Integer.parseInt(a) + 3);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="3"></button>
+  </article>
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Условия</h2>
+    <p><code>if</code>, <code>else if</code> и <code>else</code> — так же, как в C, C# и JavaScript.</p>
+    <pre><code>int age = 18;
+
+if (age &gt;= 18) {
+    System.out.println(&quot;Adult&quot;);
+} else if (age &gt;= 13) {
+    System.out.println(&quot;Teen&quot;);
+} else {
+    System.out.println(&quot;Kid&quot;);
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Условие должно быть <code>boolean</code>. Соединяй через <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>. Для множества фиксированных значений есть <code>switch</code>.</p>
+    <p>Есть и короткая форма <code>условие ? a : b</code>: <code>String label = age &gt;= 18 ? "Adult" : "Kid";</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>первая проверка.</span></div>
+        <div class="bd-row"><code>} else if (age &gt;= 13) {</code><span>следующая.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>if (name == "Shiro")</code> может быть false даже при одинаковом тексте — используй <code>name.equals("Shiro")</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>int t = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25) {
+    System.out.println(&quot;Hot&quot;);
+} else {
+    System.out.println(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="4"></button>
+  </article>
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Циклы</h2>
+    <p><code>for</code> со счётчиком, <code>while</code> — пока условие верно. Для списков есть цикл «для каждого»: <code>for (String s : list)</code>.</p>
+    <pre><code>for (int i = 0; i &lt; 3; i++) {
+    System.out.println(&quot;Step &quot; + i);
+}
+
+int count = 3;
+while (count &gt; 0) {
+    System.out.println(count);
+    count--;
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    <div class="more">
+    <p>Циклы в Java такие же, как в C и C#: выучил — знаешь в трёх языках сразу.</p>
+    <p><code>break</code> досрочно выходит из цикла, <code>continue</code> переходит к следующему кругу.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>i = 0, 1, 2.</span></div>
+        <div class="bd-row"><code>count--;</code><span>отнять 1.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Цикл <code>while</code>, в котором переменная не меняется, — программа зависнет.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++) {
+    System.out.println(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="5"></button>
+  </article>
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Методы</h2>
+    <p>Функции в Java называются методами и живут внутри класса. <code>static</code> значит, что его можно вызвать без создания объекта.</p>
+    <pre><code>public class Main {
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(add(2, 3));
+    }
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>5</pre></div>
+    <div class="more">
+    <p>У метода есть тип результата (<code>int</code>, <code>String</code> или <code>void</code>, если ничего), имя и параметры с типами. Имена обычно начинаются с маленькой буквы: <code>add</code>, <code>sayHello</code>.</p>
+    <p>Метод можно написать выше или ниже <code>main</code> — Java сначала читает весь класс.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>static int add(int a, int b)</code><span>возвращает int, принимает два int.</span></div>
+        <div class="bd-row"><code>return a + b;</code><span>вернуть сумму.</span></div>
+        <div class="bd-row"><code>add(2, 3)</code><span>вызов из main.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Вызвать нестатический метод из main без объекта — ошибка: non-static method cannot be referenced from a static context.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши static int square(int n) и выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>public class Main {
+    static int square(int n) {
+        return n * n;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(square(7));
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="6"></button>
+  </article>
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Списки</h2>
+    <p><code>ArrayList</code> — список, который растёт. Его импортируют из <code>java.util</code>, а в угловых скобках указывают, что он хранит.</p>
+    <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; langs = new ArrayList&lt;&gt;();
+        langs.add(&quot;Java&quot;);
+        langs.add(&quot;Kotlin&quot;);
+        langs.add(&quot;Go&quot;);
+        System.out.println(langs.size());
+        for (String lang : langs) {
+            System.out.println(&quot;I like &quot; + lang);
+        }
+    }
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>3
+I like Java
+I like Kotlin
+I like Go</pre></div>
+    <div class="more">
+    <p>В Java есть и обычные массивы: <code>int[] a = {1, 2, 3};</code> — фиксированный размер, длина через <code>a.length</code>. <code>ArrayList</code> гибче: <code>add</code>, <code>get(i)</code>, <code>remove(i)</code>, <code>size()</code>.</p>
+    <p>Списки не хранят примитивы напрямую, поэтому для чисел пиши <code>ArrayList&lt;Integer&gt;</code>, а не <code>&lt;int&gt;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>import java.util.ArrayList;</code><span>подключить класс ArrayList.</span></div>
+        <div class="bd-row"><code>new ArrayList&lt;&gt;()</code><span>создать пустой список.</span></div>
+        <div class="bd-row"><code>langs.size()</code><span>сколько элементов.</span></div>
+        <div class="bd-row"><code>for (String lang : langs)</code><span>для каждого элемента.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>ArrayList&lt;int&gt;</code> — ошибка. Используй <code>ArrayList&lt;Integer&gt;</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай ArrayList&lt;Integer&gt; с 1, 2, 3, 4 и выведи сумму.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;Integer&gt; nums = new ArrayList&lt;&gt;();
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(4);
+        int sum = 0;
+        for (int n : nums) {
+            sum += n;
+        }
+        System.out.println(sum);
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="7"></button>
+  </article>
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Мини-проект: герой игры</h2>
+    <p>Java построена вокруг классов и объектов. Здесь у класса <code>Player</code> есть данные (name, hp) и действие (hit).</p>
+    <pre><code>public class Main {
+    static class Player {
+        String name;
+        int hp = 100;
+
+        Player(String name) {
+            this.name = name;
+        }
+
+        void hit(int damage) {
+            hp -= damage;
+            System.out.println(name + &quot; has &quot; + hp + &quot; HP&quot;);
+        }
+    }
+
+    public static void main(String[] args) {
+        Player p = new Player(&quot;Shiro&quot;);
+        p.hit(30);
+        p.hit(25);
+    }
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p><code>Player(String name)</code> — конструктор: он выполняется, когда пишешь <code>new Player("Shiro")</code>. <code>this.name</code> значит «name этого объекта», чтобы отличить его от параметра <code>name</code>.</p>
+    <p>В настоящих проектах у каждого класса обычно свой файл. Здесь он внутри Main как <code>static class</code>, чтобы всё поместилось в один файл.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>static class Player {</code><span>чертёж для игроков.</span></div>
+        <div class="bd-row"><code>Player(String name) {</code><span>конструктор.</span></div>
+        <div class="bd-row"><code>this.name = name;</code><span>сохранить параметр в объект.</span></div>
+        <div class="bd-row"><code>Player p = new Player(&quot;Shiro&quot;);</code><span>создать одного настоящего игрока.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>new</code>: <code>Player p = Player("Shiro");</code> — ошибка.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь метод heal(int amount) и вылечи игрока на 10 после ударов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>public class Main {
+    static class Player {
+        String name;
+        int hp = 100;
+
+        Player(String name) {
+            this.name = name;
+        }
+
+        void hit(int damage) {
+            hp -= damage;
+            System.out.println(name + &quot; has &quot; + hp + &quot; HP&quot;);
+        }
+
+        void heal(int amount) {
+            hp += amount;
+            System.out.println(name + &quot; has &quot; + hp + &quot; HP&quot;);
+        }
+    }
+
+    public static void main(String[] args) {
+        Player p = new Player(&quot;Shiro&quot;);
+        p.hit(30);
+        p.hit(25);
+        p.heal(10);
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="java" data-n="8"></button>
+  </article>
+  <section class="quiz" id="quiz" data-lang="java">
+    <div class="quiz-head"><h2>Тест</h2><p>5 вопросов. Выбери ответ — сразу увидишь, верно ли.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. С чего начинается программа на Java?</p>
+      <div class="opts"><button type="button">start()</button><button type="button">main()</button><button type="button">run()</button><button type="button">init()</button></div>
+      <p class="why" hidden>С метода public static void main.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Что выведет этот код?</p>
+      <pre><code>int x = 7;
+System.out.println(x / 2);</code></pre>
+      <div class="opts"><button type="button">3.5</button><button type="button">3</button><button type="button">4</button><button type="button">Error</button></div>
+      <p class="why" hidden>Оба числа int, поэтому дробная часть отбрасывается.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. Как правильно сравнить две строки?</p>
+      <div class="opts"><button type="button">a == b</button><button type="button">a.equals(b)</button><button type="button">a = b</button><button type="button">a === b</button></div>
+      <p class="why" hidden>== сравнивает объекты, equals() — текст.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Что выведет этот код?</p>
+      <pre><code>String s = &quot;Java&quot;;
+System.out.println(s.length() + 1);</code></pre>
+      <div class="opts"><button type="button">4</button><button type="button">5</button><button type="button">Java1</button><button type="button">Error</button></div>
+      <p class="why" hidden>length() это 4, плюс 1 — 5.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Какой тип подходит для списка целых чисел?</p>
+      <div class="opts"><button type="button">ArrayList&lt;int&gt;</button><button type="button">ArrayList&lt;Integer&gt;</button><button type="button">ArrayList&lt;number&gt;</button><button type="button">int&lt;List&gt;</button></div>
+      <p class="why" hidden>Спискам нужен объектный тип Integer, а не примитив int.</p>
+    </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
+  </section>
+  <nav class="pager"><a class="btn ghost" href="php.html">← Предыдущий язык: PHP</a><a class="btn ghost" href="c.html">Следующий язык: C →</a></nav>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
+</body>
+</html>

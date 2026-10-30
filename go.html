@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Go lessons — VIBE.EXE</title>
+<meta name="description" content="Go lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="go.html">
+<link rel="alternate" hreflang="ru" href="ru/go.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/go.html" + location.hash); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html" aria-current="page">Languages</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="go.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/go.html" data-setlang="ru" hreflang="ru">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Languages</a><span>›</span><span>Go</span></nav>
+    <h1>Go lessons</h1>
+    <p class="lead">Go is a simple and fast language from Google. It is made for servers, cloud services and command line tools: Docker and Kubernetes are written in Go. It has few rules, so it is quick to learn.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Lessons</summary>
+      <div class="side-inner">
+        <div class="side-title">Lessons</div>
+        <div class="pbar" data-progress="go"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="go" data-n="1"><span class="num"><span>1</span></span>Hello, world</a></li>
+        <li><a href="#lesson-2" data-lang="go" data-n="2"><span class="num"><span>2</span></span>Variables</a></li>
+        <li><a href="#lesson-3" data-lang="go" data-n="3"><span class="num"><span>3</span></span>Data types</a></li>
+        <li><a href="#lesson-4" data-lang="go" data-n="4"><span class="num"><span>4</span></span>Conditions</a></li>
+        <li><a href="#lesson-5" data-lang="go" data-n="5"><span class="num"><span>5</span></span>Loops</a></li>
+        <li><a href="#lesson-6" data-lang="go" data-n="6"><span class="num"><span>6</span></span>Functions</a></li>
+        <li><a href="#lesson-7" data-lang="go" data-n="7"><span class="num"><span>7</span></span>Slices</a></li>
+        <li><a href="#lesson-8" data-lang="go" data-n="8"><span class="num"><span>8</span></span>Mini project: a game hero</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Quiz</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Hello, world</h2>
+    <p>Every Go program starts with <code>package main</code>, imports what it needs and runs <code>func main()</code>. <code>fmt.Println</code> prints a line.</p>
+    <pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, world!&quot;)
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p><code>package main</code> says "this is a program you can run". <code>import "fmt"</code> connects the package for formatted output. Note: in Go there are no semicolons at line ends — the compiler adds them itself.</p>
+    <p>Run it with <code>go run main.go</code>, or try it in the browser at go.dev/play.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>package main</code><span>this file is a runnable program.</span></div>
+        <div class="bd-row"><code>import &quot;fmt&quot;</code><span>connect the fmt package.</span></div>
+        <div class="bd-row"><code>func main() {</code><span>the program starts here.</span></div>
+        <div class="bd-row"><code>fmt.Println(&quot;Hello, world!&quot;)</code><span>print the text and a new line.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Putting the opening brace on a new line: <code>func main()\n{</code> — in Go this is an error.</li>
+        <li>Importing a package and not using it — Go refuses to compile: <code>imported and not used</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print your name and on the next line 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Shiro&quot;)
+	fmt.Println(2026)
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="1"></button>
+  </article>
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Variables</h2>
+    <p><code>:=</code> creates a variable and guesses its type. <code>var</code> creates one with an explicit type. From here on, short examples go inside <code>func main()</code>.</p>
+    <pre><code>name := &quot;Shiro&quot;
+var age int = 18
+age = age + 1
+fmt.Println(&quot;Hi, I&#x27;m&quot;, name, &quot;and I&#x27;m&quot;, age)</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 19</pre></div>
+    <div class="more">
+    <p><code>:=</code> is used only the first time, when the variable is created. To change it later use plain <code>=</code>.</p>
+    <p><code>fmt.Println</code> puts a space between its values. For a template like in other languages use <code>fmt.Printf("%s is %d\n", name, age)</code>: <code>%s</code> is text, <code>%d</code> a whole number.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>name := &quot;Shiro&quot;</code><span>create name; Go sees text and makes it a string.</span></div>
+        <div class="bd-row"><code>var age int = 18</code><span>create age with the type int.</span></div>
+        <div class="bd-row"><code>age = age + 1</code><span>change it with = (not :=).</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>A variable that is created but never used — Go stops with <code>declared and not used</code>. Use it or delete it.</li>
+        <li><code>:=</code> twice for the same name in one block — <code>no new variables on left side of :=</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create city := "Kyiv" and year := 2020 and print: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>city := &quot;Kyiv&quot;
+year := 2020
+fmt.Printf(&quot;I live in %s since %d\n&quot;, city, year)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="2"></button>
+  </article>
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Data types</h2>
+    <p>Main types: <code>int</code>, <code>float64</code>, <code>bool</code>, <code>string</code>. <code>%T</code> in Printf shows the type, <code>len()</code> the length.</p>
+    <pre><code>count := 10        // int
+price := 9.99      // float64
+online := true     // bool
+title := &quot;VIBE&quot;    // string
+fmt.Println(len(title))
+fmt.Printf(&quot;%T %T %T\n&quot;, count, price, online)</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>4
+int float64 bool</pre></div>
+    <div class="more">
+    <p>Go never converts types by itself: <code>count + price</code> (int + float64) is an error. Convert yourself: <code>float64(count) + price</code>.</p>
+    <p>Text to number: <code>strconv.Atoi("5")</code> from the <code>strconv</code> package. It returns two things — the number and an error — you'll see this style everywhere in Go.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>price := 9.99</code><span>numbers with a dot are float64.</span></div>
+        <div class="bd-row"><code>len(title)</code><span>length of the string.</span></div>
+        <div class="bd-row"><code>fmt.Printf(&quot;%T ...&quot;, ...)</code><span>%T prints the type of each value.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Mixing int and float64 in one expression — <code>mismatched types</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>You have a := 7 and b := 2.5. Print their sum (9.5).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>a := 7
+b := 2.5
+fmt.Println(float64(a) + b)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>9.5</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="3"></button>
+  </article>
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Conditions</h2>
+    <p><code>if</code> without brackets around the condition, but with braces. <code>else</code> must be on the same line as the closing brace.</p>
+    <pre><code>age := 18
+
+if age &gt;= 18 {
+	fmt.Println(&quot;Adult&quot;)
+} else if age &gt;= 13 {
+	fmt.Println(&quot;Teen&quot;)
+} else {
+	fmt.Println(&quot;Kid&quot;)
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Go's <code>if</code> can start with a short statement: <code>if n := len(s); n &gt; 3 { ... }</code> — n exists only inside the if. This is used a lot for errors: <code>if err != nil { ... }</code>.</p>
+    <p>There is also <code>switch</code>, and in Go it doesn't need <code>break</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if age &gt;= 18 {</code><span>no brackets needed.</span></div>
+        <div class="bd-row"><code>} else if age &gt;= 13 {</code><span>else on the same line as }.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>}</code> on one line and <code>else</code> on the next — syntax error.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>t := 30. Print "Hot" if t > 25, otherwise "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>t := 30
+if t &gt; 25 {
+	fmt.Println(&quot;Hot&quot;)
+} else {
+	fmt.Println(&quot;OK&quot;)
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="4"></button>
+  </article>
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Loops</h2>
+    <p>Go has only one loop: <code>for</code>. With three parts it is a counter, with just a condition it works like <code>while</code>.</p>
+    <pre><code>for i := 0; i &lt; 3; i++ {
+	fmt.Println(&quot;Step&quot;, i)
+}
+
+count := 3
+for count &gt; 0 {
+	fmt.Println(count)
+	count--
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    <div class="more">
+    <p>One loop keyword for everything keeps Go simple. <code>for { }</code> with nothing is an endless loop, stopped with <code>break</code>.</p>
+    <p>To go through a list or text use <code>for i, value := range list</code> — you'll see it in the lesson about slices.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for i := 0; i &lt; 3; i++ {</code><span>a counter loop, no brackets.</span></div>
+        <div class="bd-row"><code>for count &gt; 0 {</code><span>this is Go's while.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Writing <code>while</code> — Go has no such word, use <code>for</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>for i := 1; i &lt;= 5; i++ {
+	fmt.Println(i)
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="5"></button>
+  </article>
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Functions</h2>
+    <p><code>func</code> creates a function. Types go after names. A Go function can return several values at once.</p>
+    <pre><code>package main
+
+import &quot;fmt&quot;
+
+func divide(a, b int) (int, int) {
+	return a / b, a % b
+}
+
+func main() {
+	q, r := divide(17, 5)
+	fmt.Println(q, r)
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>3 2</pre></div>
+    <div class="more">
+    <p><code>(a, b int)</code> means both a and b are int. <code>(int, int)</code> after the brackets means two results. Here: 17 / 5 = 3 and the remainder 17 % 5 = 2.</p>
+    <p>Many Go functions return a result and an error: <code>n, err := strconv.Atoi("42")</code>. If you don't need a value, write <code>_</code>: <code>q, _ := divide(17, 5)</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>func divide(a, b int) (int, int) {</code><span>two ints in, two ints out.</span></div>
+        <div class="bd-row"><code>return a / b, a % b</code><span>the result and the remainder.</span></div>
+        <div class="bd-row"><code>q, r := divide(17, 5)</code><span>take both results.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Taking only one value from a function that returns two: <code>q := divide(17, 5)</code> — error.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write func square(n int) int and print square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>package main
+
+import &quot;fmt&quot;
+
+func square(n int) int {
+	return n * n
+}
+
+func main() {
+	fmt.Println(square(7))
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="6"></button>
+  </article>
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Slices</h2>
+    <p>A slice is Go's list that can grow. <code>append</code> adds items, <code>len</code> counts them, <code>range</code> goes through them.</p>
+    <pre><code>langs := []string{&quot;Go&quot;, &quot;Rust&quot;, &quot;C&quot;}
+langs = append(langs, &quot;Java&quot;)
+fmt.Println(len(langs))
+
+for i, lang := range langs {
+	fmt.Println(i, lang)
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>4
+0 Go
+1 Rust
+2 C
+3 Java</pre></div>
+    <div class="more">
+    <p><code>[]string</code> means "a slice of strings". <code>append</code> returns a new slice, so you always write <code>langs = append(langs, ...)</code>.</p>
+    <p><code>range</code> gives two things: the index and the value. If you need only the value, write <code>for _, lang := range langs</code>. Go also has maps: <code>ages := map[string]int{"Shiro": 18}</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>[]string{&quot;Go&quot;, &quot;Rust&quot;, &quot;C&quot;}</code><span>a slice of three strings.</span></div>
+        <div class="bd-row"><code>langs = append(langs, &quot;Java&quot;)</code><span>add one and save the result back.</span></div>
+        <div class="bd-row"><code>for i, lang := range langs {</code><span>i is the number, lang the value.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>append(langs, "Java")</code> without <code>langs =</code> — the result is lost (and Go reports it).</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make []int{1, 2, 3}, append 4 and print the sum using a range loop.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>nums := []int{1, 2, 3}
+nums = append(nums, 4)
+sum := 0
+for _, n := range nums {
+	sum += n
+}
+fmt.Println(sum)</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="7"></button>
+  </article>
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Mini project: a game hero</h2>
+    <p>Go has no classes. A <code>struct</code> holds data, and methods are attached to it with a receiver: <code>func (p *Player) Hit(...)</code>.</p>
+    <pre><code>package main
+
+import &quot;fmt&quot;
+
+type Player struct {
+	Name string
+	HP   int
+}
+
+func (p *Player) Hit(damage int) {
+	p.HP -= damage
+	fmt.Printf(&quot;%s has %d HP\n&quot;, p.Name, p.HP)
+}
+
+func main() {
+	p := Player{Name: &quot;Shiro&quot;, HP: 100}
+	p.Hit(30)
+	p.Hit(25)
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p><code>*Player</code> (with a star) means the method gets a pointer to the real player and can change it. Without the star it would get a copy, and the HP would not change outside.</p>
+    <p>Names that start with a capital letter (<code>Name</code>, <code>Hit</code>) are visible from other packages — that's how Go marks things as public.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>type Player struct { ... }</code><span>what every player has.</span></div>
+        <div class="bd-row"><code>func (p *Player) Hit(damage int)</code><span>a method of Player that can change it.</span></div>
+        <div class="bd-row"><code>p := Player{Name: &quot;Shiro&quot;, HP: 100}</code><span>create a player.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Writing <code>func (p Player) Hit</code> without * — the HP changes only in a copy.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a Heal(amount int) method and heal the player by 10 after the hits.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>package main
+
+import &quot;fmt&quot;
+
+type Player struct {
+	Name string
+	HP   int
+}
+
+func (p *Player) Hit(damage int) {
+	p.HP -= damage
+	fmt.Printf(&quot;%s has %d HP\n&quot;, p.Name, p.HP)
+}
+
+func (p *Player) Heal(amount int) {
+	p.HP += amount
+	fmt.Printf(&quot;%s has %d HP\n&quot;, p.Name, p.HP)
+}
+
+func main() {
+	p := Player{Name: &quot;Shiro&quot;, HP: 100}
+	p.Hit(30)
+	p.Hit(25)
+	p.Heal(10)
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="go" data-n="8"></button>
+  </article>
+  <section class="quiz" id="quiz" data-lang="go">
+    <div class="quiz-head"><h2>Quiz</h2><p>5 questions. Pick an answer to see if it is right.</p></div>
+    <div class="q" data-answer="0">
+      <p class="q-text">1. How many kinds of loops does Go have?</p>
+      <div class="opts"><button type="button">1 (only for)</button><button type="button">2</button><button type="button">3</button><button type="button">4</button></div>
+      <p class="why" hidden>Go has only for; it also works as while.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. What will this code print?</p>
+      <pre><code>x := 17
+fmt.Println(x % 5)</code></pre>
+      <div class="opts"><button type="button">3</button><button type="button">2</button><button type="button">3.4</button><button type="button">5</button></div>
+      <p class="why" hidden>% is the remainder: 17 = 5 * 3 + 2.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. What happens if you create a variable and never use it?</p>
+      <div class="opts"><button type="button">Nothing</button><button type="button">Compile error</button><button type="button">A warning only</button><button type="button">It is deleted</button></div>
+      <p class="why" hidden>Go refuses to compile: declared and not used.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. What will this code print?</p>
+      <pre><code>s := []int{1, 2}
+s = append(s, 3)
+fmt.Println(len(s))</code></pre>
+      <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">6</button><button type="button">Error</button></div>
+      <p class="why" hidden>append added one item.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Which sign creates a new variable and guesses its type?</p>
+      <div class="opts"><button type="button">=</button><button type="button">:=</button><button type="button">==</button><button type="button">=&gt;</button></div>
+      <p class="why" hidden>:= creates; = only changes an existing variable.</p>
+    </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
+  </section>
+  <nav class="pager"><a class="btn ghost" href="csharp.html">← Previous language: C#</a><a class="btn ghost" href="rust.html">Next language: Rust →</a></nav>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
+</body>
+</html>

@@ -43,6 +43,7 @@ p { max-width: 68ch; }
 code { font-family: var(--mono); font-size: 0.88em; background: var(--raised); border: 1px solid var(--line); border-radius: 5px; padding: 0.05em 0.35em; }
 pre { font-family: var(--mono); font-size: 14.5px; line-height: 1.6; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; overflow-x: auto; }
 pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+pre { tab-size: 4; }
 
 /* ---------- Шапка ---------- */
 .site-head {
@@ -198,6 +199,32 @@ main { flex: 1; padding-bottom: 64px; }
 }
 .done-btn:hover { color: var(--fg); border-color: var(--muted); }
 .done-btn.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* Подробности урока: объяснение, разбор кода, ошибки, задание */
+.more { display: grid; gap: 10px; color: var(--fg); }
+.more p { color: #d9d9d6; }
+.sub { display: grid; gap: 10px; margin-top: 6px; }
+.sub h3 { font-family: var(--body); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--faint); }
+.breakdown { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.bd-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 6px 18px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.breakdown h3 + .bd-row { border-top: 0; padding-top: 0; }
+.bd-row code { justify-self: start; align-self: start; white-space: pre-wrap; word-break: break-word; }
+.bd-row span { color: var(--muted); }
+@media (max-width: 640px) { .bd-row { grid-template-columns: 1fr; } }
+.mistakes ul { list-style: none; display: grid; gap: 8px; }
+.mistakes li { position: relative; padding-left: 22px; color: var(--muted); font-size: 15.5px; }
+.mistakes li::before { content: "×"; position: absolute; left: 2px; top: -1px; color: var(--fg); font-weight: 600; }
+.task { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+.task > p { font-weight: 500; }
+.answer summary {
+  cursor: pointer; display: inline-flex; font: 600 14px var(--body); padding: 8px 14px;
+  border: 1px solid var(--line); border-radius: 8px; list-style: none;
+}
+.answer summary::-webkit-details-marker { display: none; }
+.answer summary:hover { border-color: var(--muted); }
+.answer[open] summary { margin-bottom: 10px; background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.answer pre { background: var(--bg); }
+.answer .out { margin-top: 10px; }
 
 /* Редактор кода (уроки JavaScript) */
 .runbox { display: grid; gap: 10px; }

@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../html.html" + location.hash); } catch (e) {}
@@ -69,6 +69,35 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Вкладка «My first page» и текст: Hello, world!</pre></div>
+    <div class="more">
+    <p>HTML — не язык программирования, он описывает, что есть на странице. Он состоит из <b>тегов</b>: слов в угловых скобках. Большинство тегов идут парами и обнимают содержимое: <code>&lt;title&gt;Моя страница&lt;/title&gt;</code>.</p>
+    <p><code>&lt;!DOCTYPE html&gt;</code> говорит браузеру «это современный HTML». <code>&lt;meta charset="UTF-8"&gt;</code> нужен, чтобы любые буквы, включая русские, отображались правильно.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;html lang=&quot;en&quot;&gt;</code><span>корень страницы; lang говорит, на каком языке текст.</span></div>
+        <div class="bd-row"><code>&lt;head&gt;</code><span>настройки: заголовок вкладки, кодировка, стили. На странице не видно.</span></div>
+        <div class="bd-row"><code>&lt;title&gt;</code><span>текст на вкладке браузера.</span></div>
+        <div class="bd-row"><code>&lt;body&gt;</code><span>всё, что видит посетитель.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть закрыть тег: <code>&lt;body&gt;</code> без <code>&lt;/body&gt;</code>. Браузер часто прощает, но страница может сломаться странным образом.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай страницу с названием вкладки "Shiro" и текстом "My first site".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Shiro&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My first site
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -78,6 +107,26 @@
     <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
 &lt;h2&gt;Smaller heading&lt;/h2&gt;
 &lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
+    <div class="more">
+    <p>Заголовки помогают быстро понять страницу. <code>&lt;h1&gt;</code> используй один раз — для главного заголовка, <code>&lt;h2&gt;</code> — для разделов, <code>&lt;h3&gt;</code> — для частей поменьше. На этот порядок опираются поисковики и программы для незрячих.</p>
+    <p><code>&lt;b&gt;</code> делает текст жирным, <code>&lt;i&gt;</code> — курсивом. Для важных слов есть ещё <code>&lt;strong&gt;</code> и <code>&lt;em&gt;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;h1&gt;Big heading&lt;/h1&gt;</code><span>главный заголовок страницы.</span></div>
+        <div class="bd-row"><code>&lt;p&gt;...&lt;/p&gt;</code><span>абзац: блок текста с отступами.</span></div>
+        <div class="bd-row"><code>&lt;b&gt;bold&lt;/b&gt;</code><span>тег внутри тега: жирное только это слово.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Выбирать заголовки по размеру («h4 смотрится лучше»). Выбирай по смыслу, а размер меняй через CSS.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай заголовок "About me" и абзац с одним жирным словом.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;h2&gt;About me&lt;/h2&gt;
+&lt;p&gt;I am learning &lt;b&gt;HTML&lt;/b&gt; right now.&lt;/p&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -88,6 +137,25 @@
 &lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
 
 &lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
+    <div class="more">
+    <p>Ссылки связывают страницы: <code>&lt;a href="..."&gt;</code>. Адрес — это другой сайт (<code>https://...</code>) или файл рядом с твоим (<code>page2.html</code>). Добавь <code>target="_blank"</code>, чтобы ссылка открылась в новой вкладке.</p>
+    <p>У <code>&lt;img&gt;</code> нет закрывающего тега. <code>src</code> — файл, <code>alt</code> — описание. Задавай только ширину или только высоту, иначе картинка может растянуться.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;a href=&quot;https://...&quot;&gt;My portfolio&lt;/a&gt;</code><span>посетитель видит «My portfolio»; по клику открывается адрес.</span></div>
+        <div class="bd-row"><code>&lt;img src=&quot;cat.jpg&quot; ...&gt;</code><span>показать файл cat.jpg из той же папки.</span></div>
+        <div class="bd-row"><code>alt=&quot;A sleeping cat&quot;</code><span>текст для программ чтения с экрана и на случай, если картинка не загрузилась.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Неверное имя файла или папки в src — вместо картинки значок «сломано». На серверах регистр важен: Cat.jpg ≠ cat.jpg.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай ссылку на github.com, которая открывается в новой вкладке.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;a href=&quot;https://github.com&quot; target=&quot;_blank&quot;&gt;My GitHub&lt;/a&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -110,6 +178,29 @@
 1. Learn HTML
 2. Learn CSS
 3. Build a site</pre></div>
+    <div class="more">
+    <p>Списки повсюду: меню, шаги рецепта, возможности товара. Список — это родительский тег (<code>ul</code> или <code>ol</code>) и пункты <code>li</code> внутри.</p>
+    <p>Списки можно вкладывать: новый <code>ul</code> внутри <code>li</code> даёт подсписок. Большинство меню на сайтах — это на самом деле списки, оформленные через CSS.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;ul&gt;</code><span>неупорядоченный список: точки.</span></div>
+        <div class="bd-row"><code>&lt;ol&gt;</code><span>упорядоченный список: номера ставятся сами.</span></div>
+        <div class="bd-row"><code>&lt;li&gt;...&lt;/li&gt;</code><span>один пункт списка.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать текст прямо в ul без li — каждый пункт должен быть внутри <code>&lt;li&gt;</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай нумерованный список из 3 вещей, которые хочешь выучить.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -125,6 +216,27 @@
 
   &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+    <div class="more">
+    <p>Формы — это способ получить информацию от людей: регистрация, поиск, комментарии. <code>&lt;input&gt;</code> — поле; его <code>type</code> меняет поведение: <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>checkbox</code>.</p>
+    <p><code>&lt;label&gt;</code>, связанный через <code>for</code>, делает подпись кликабельной и помогает программам для незрячих. <code>placeholder</code> — серая подсказка, которая исчезает, когда начинаешь печатать.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;label for=&quot;name&quot;&gt;</code><span>подпись для поля с id="name".</span></div>
+        <div class="bd-row"><code>&lt;input id=&quot;name&quot; type=&quot;text&quot;&gt;</code><span>однострочное текстовое поле.</span></div>
+        <div class="bd-row"><code>type=&quot;email&quot;</code><span>браузер проверит, похоже ли это на почту.</span></div>
+        <div class="bd-row"><code>&lt;button type=&quot;submit&quot;&gt;</code><span>кнопка, которая отправляет форму.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Разные значения в <code>for</code> и <code>id</code> — тогда клик по подписи ничего не делает.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь в форму поле для пароля с подписью.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;label for=&quot;pass&quot;&gt;Password&lt;/label&gt;
+&lt;input id=&quot;pass&quot; type=&quot;password&quot;&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -143,6 +255,34 @@
 &lt;/main&gt;
 
 &lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
+    <div class="more">
+    <p>Семантические теги называют части страницы: <code>header</code> (верх), <code>nav</code> (меню), <code>main</code> (основное содержимое, один на страницу), <code>section</code> (раздел со своим заголовком), <code>footer</code> (низ).</p>
+    <p>Выглядят они так же, как обычный <code>div</code>, но сообщают браузерам, поисковикам и программам для незрячих, что это за часть. Так сайтом удобнее пользоваться и его проще найти.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;header&gt;</code><span>верх страницы, обычно логотип и меню.</span></div>
+        <div class="bd-row"><code>&lt;nav&gt;</code><span>блок навигационных ссылок.</span></div>
+        <div class="bd-row"><code>&lt;section id=&quot;about&quot;&gt;</code><span>раздел; id позволяет ссылке прыгнуть к нему.</span></div>
+        <div class="bd-row"><code>&lt;footer&gt;</code><span>низ: контакты, копирайт.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Два элемента с одинаковым id. id должен быть уникальным на странице.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь второй раздел "Contacts" и ссылку на него в nav.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>&lt;nav&gt;
+  &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+  &lt;a href=&quot;#contacts&quot;&gt;Contacts&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section id=&quot;contacts&quot;&gt;
+  &lt;h2&gt;Contacts&lt;/h2&gt;
+  &lt;p&gt;github.com/Shiro-dev1&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="html">
@@ -177,7 +317,7 @@
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="javascript.html">← Предыдущий язык: JavaScript</a><a class="btn ghost" href="css.html">Следующий язык: CSS →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="typescript.html">← Предыдущий язык: TypeScript</a><a class="btn ghost" href="css.html">Следующий язык: CSS →</a></nav>
     </div>
   </div>
 </div>
@@ -188,8 +328,8 @@
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

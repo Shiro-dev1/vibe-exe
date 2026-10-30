@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../csharp.html" + location.hash); } catch (e) {}
@@ -63,6 +63,27 @@
     <p>В современном C# (.NET 6 и новее) эта одна строка — целая программа. В старом коде ты увидишь её внутри <code>class Program</code> и <code>static void Main()</code>.</p>
     <pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>Программы на C# работают на .NET — бесплатной платформе от Microsoft. Современный C# разрешает писать программу просто строками в начале файла («операторы верхнего уровня») — поэтому хватает одной строки.</p>
+    <p><code>Console</code> — текстовое окно, <code>WriteLine</code> пишет строку и переходит на следующую. <code>Write</code> (без Line) остаётся на той же строке.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>Console</code><span>окно консоли.</span></div>
+        <div class="bd-row"><code>.WriteLine(&quot;Hello, world!&quot;);</code><span>написать текст и перенос строки.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>console.writeline</code> маленькими буквами — C# различает регистр: <code>Console.WriteLine</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>Console.WriteLine(&quot;Shiro&quot;);
+Console.WriteLine(2026);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -75,6 +96,28 @@ var lang = &quot;C#&quot;;   // C# угадает: string
 
 Console.WriteLine($&quot;Hi, I&#x27;m {name}, {age}, I learn {lang}&quot;);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hi, I&#x27;m Shiro, 18, I learn C#</pre></div>
+    <div class="more">
+    <p>C# строг к типам: переменная <code>string</code> хранит только текст, <code>int</code> — только целые числа. <code>var</code> не отменяет тип: C# просто понимает его по значению и дальше держится за него.</p>
+    <p>Строки с подстановкой начинаются с <code>$</code>: <code>$"Hi, {name}"</code>. В скобки можно писать любое выражение, даже <code>{age + 1}</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>string name = &quot;Shiro&quot;;</code><span>текстовая переменная.</span></div>
+        <div class="bd-row"><code>var lang = &quot;C#&quot;;</code><span>C# видит текст и делает lang строкой.</span></div>
+        <div class="bd-row"><code>$&quot;Hi, I&#x27;m {name}, ...&quot;</code><span>$ включает подстановку через {}.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Класть число в строковую переменную: <code>string s = 5;</code> — ошибка. Используй <code>"5"</code> или <code>5.ToString()</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай city = "Kyiv" и year = 2020, выведи: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>string city = &quot;Kyiv&quot;;
+int year = 2020;
+Console.WriteLine($&quot;I live in {city} since {year}&quot;);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -89,6 +132,27 @@ string title = &quot;VIBE&quot;;  // текст
 
 Console.WriteLine(title.Length);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>4</pre></div>
+    <div class="more">
+    <p>Основные типы: <code>int</code>, <code>double</code>, <code>bool</code>, <code>char</code>, <code>string</code>. У строк есть полезные свойства и методы: <code>Length</code>, <code>ToUpper()</code>, <code>Contains("x")</code>.</p>
+    <p>Чтобы превратить текст в число, используй <code>int.Parse("5")</code>; чтобы что угодно превратить в текст — <code>.ToString()</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>double price = 9.99;</code><span>дробное число.</span></div>
+        <div class="bd-row"><code>char letter = &#x27;S&#x27;;</code><span>один символ в одинарных кавычках.</span></div>
+        <div class="bd-row"><code>title.Length</code><span>сколько символов (это свойство, без скобок).</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>title.Length()</code> со скобками — Length это свойство, пиши без ().</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть string a = "7". Выведи a как число плюс 3 (10).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>string a = &quot;7&quot;;
+Console.WriteLine(int.Parse(a) + 3);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -110,6 +174,34 @@ else
     Console.WriteLine(&quot;Kid&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>В C# фигурные скобки обычно ставят на отдельной строке — это просто привычный стиль, код работает в любом случае. Условие должно быть настоящим bool: <code>if (count)</code> с числом — ошибка, пиши <code>if (count &gt; 0)</code>.</p>
+    <p>И / или / не: <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if (age &gt;= 18)</code><span>условие.</span></div>
+        <div class="bd-row"><code>else if (age &gt;= 13)</code><span>следующая проверка.</span></div>
+        <div class="bd-row"><code>else</code><span>всё остальное.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>if (age = 18)</code> — в C# это не скомпилируется, и это спасает от классической ошибки. Используй <code>==</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>int t = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25)
+{
+    Console.WriteLine(&quot;Hot&quot;);
+}
+else
+{
+    Console.WriteLine(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -133,6 +225,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>В C# есть <code>for</code>, <code>while</code>, <code>do ... while</code> и <code>foreach</code>. <code>foreach (var x in list)</code> проходит по каждому элементу списка или массива — это самый частый цикл в реальном коде.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>счётчик 0, 1, 2.</span></div>
+        <div class="bd-row"><code>$&quot;Step {i}&quot;</code><span>вставить i в текст.</span></div>
+        <div class="bd-row"><code>count--;</code><span>отнять 1.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Менять список внутри foreach (добавлять или удалять) — C# выдаст ошибку.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++)
+{
+    Console.WriteLine(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -146,6 +264,27 @@ Step 2
 
 Console.WriteLine(Greet(&quot;Shiro&quot;));</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, Shiro!</pre></div>
+    <div class="more">
+    <p>У метода есть тип результата, имя и параметры с типами. Если он ничего не возвращает, тип — <code>void</code>. В больших программах методы живут внутри классов, а их имена обычно начинаются с большой буквы: <code>Greet</code>, <code>Hit</code>.</p>
+    <p>Короткие методы можно писать через стрелку: <code>int Square(int n) =&gt; n * n;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>string Greet(string name)</code><span>возвращает string, принимает string.</span></div>
+        <div class="bd-row"><code>return $&quot;Hello, {name}!&quot;;</code><span>вернуть готовый текст.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Вернуть не тот тип: метод, объявленный как <code>int</code>, не может вернуть текст.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши int Square(int n) и выведи Square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int Square(int n) =&gt; n * n;
+
+Console.WriteLine(Square(7));</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -165,6 +304,28 @@ I like Python
 I like C#
 I like Rust
 I like C++</pre></div>
+    <div class="more">
+    <p><code>List&lt;T&gt;</code> — список, который растёт; <code>T</code> — тип элементов, например <code>List&lt;string&gt;</code>. У него есть <code>Add</code>, <code>Remove</code>, <code>Contains</code>, <code>Count</code>, и он работает с <code>foreach</code>.</p>
+    <p>Есть и массивы: <code>int[] a = {1, 2, 3};</code> — у них фиксированный размер, и вместо <code>Count</code> у них <code>Length</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>new List&lt;string&gt; { ... }</code><span>создать список текстов с начальными элементами.</span></div>
+        <div class="bd-row"><code>langs.Add(&quot;C++&quot;);</code><span>добавить в конец.</span></div>
+        <div class="bd-row"><code>langs.Count</code><span>сколько элементов.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>Count</code> у списков, <code>Length</code> у массивов и строк — их легко перепутать.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай List&lt;int&gt; с 1, 2, 3, добавь 4 и выведи сумму через .Sum().</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>var nums = new List&lt;int&gt; { 1, 2, 3 };
+nums.Add(4);
+Console.WriteLine(nums.Sum());</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -193,6 +354,54 @@ class Player
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p>Класс — это чертёж для объектов. <code>new Player("Shiro")</code> создаёт объект и вызывает <b>конструктор</b> — особый метод с тем же именем, что и класс, который задаёт начальные значения.</p>
+    <p><code>public</code> значит, что поле или метод доступны снаружи. В Unity каждый скрипт — это такой класс, а его методы реагируют на игру.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>var p = new Player(&quot;Shiro&quot;);</code><span>создаём игрока; конструктор задаёт Name.</span></div>
+        <div class="bd-row"><code>public int Hp = 100;</code><span>каждый игрок начинает со 100 HP.</span></div>
+        <div class="bd-row"><code>public void Hit(int damage)</code><span>действие, которое меняет HP.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать объект до <code>new</code>: <code>Player p; p.Hit(5);</code> — ошибка, p не создан.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь метод Heal(int amount) и вылечи игрока на 10 после ударов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>var p = new Player(&quot;Shiro&quot;);
+p.Hit(30);
+p.Hit(25);
+p.Heal(10);
+
+class Player
+{
+    public string Name;
+    public int Hp = 100;
+
+    public Player(string name)
+    {
+        Name = name;
+    }
+
+    public void Hit(int damage)
+    {
+        Hp -= damage;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+
+    public void Heal(int amount)
+    {
+        Hp += amount;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="csharp" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="csharp">
@@ -231,7 +440,7 @@ Console.WriteLine(x);</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="cpp.html">← Предыдущий язык: C++</a><a class="btn ghost" href="rust.html">Следующий язык: Rust →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="cpp.html">← Предыдущий язык: C++</a><a class="btn ghost" href="go.html">Следующий язык: Go →</a></nav>
     </div>
   </div>
 </div>
@@ -242,8 +451,8 @@ Console.WriteLine(x);</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

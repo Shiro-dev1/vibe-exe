@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../cpp.html" + location.hash); } catch (e) {}
@@ -68,6 +68,32 @@ int main() {
     return 0;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>C++ вырос из C, поэтому многое знакомо, но у него большая стандартная библиотека. <code>#include &lt;iostream&gt;</code> подключает её часть для ввода и вывода. <code>std::</code> значит «из стандартной библиотеки».</p>
+    <p><code>std::cout</code> — это экран («вывод символов»), а <code>&lt;&lt;</code> отправляет в него значения одно за другим.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>#include &lt;iostream&gt;</code><span>подключить ввод и вывод.</span></div>
+        <div class="bd-row"><code>std::cout &lt;&lt; &quot;Hello, world!&quot;</code><span>отправить текст на экран.</span></div>
+        <div class="bd-row"><code>&lt;&lt; std::endl;</code><span>закончить строку.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Писать <code>cout</code> без <code>std::</code> — компилятор его не знает. (В некотором коде пишут <code>using namespace std;</code>, чтобы не повторять.)</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Shiro&quot; &lt;&lt; &quot;\n&quot;;
+    std::cout &lt;&lt; 2026 &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -83,6 +109,28 @@ int main() {
     std::cout &lt;&lt; &quot;Hi, I&#x27;m &quot; &lt;&lt; name &lt;&lt; &quot; and I&#x27;m &quot; &lt;&lt; age &lt;&lt; &quot;\n&quot;;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+    <div class="more">
+    <p>Переменные в C++ имеют типы, как в C. Большой помощник — <code>std::string</code>: настоящий текст, который знает свою длину, склеивается через <code>+</code> и сравнивается через <code>==</code>.</p>
+    <p><code>"\n"</code> и <code>std::endl</code> оба заканчивают строку; <code>"\n"</code> чуть быстрее.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>#include &lt;string&gt;</code><span>подключить std::string.</span></div>
+        <div class="bd-row"><code>std::string name = &quot;Shiro&quot;;</code><span>текстовая переменная.</span></div>
+        <div class="bd-row"><code>std::cout &lt;&lt; &quot;Hi, I&#x27;m &quot; &lt;&lt; name &lt;&lt; ...</code><span>несколько значений в одной строке подряд.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать <code>std::string</code> без <code>#include &lt;string&gt;</code> — иногда работает случайно, иногда нет. Всегда подключай.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай std::string city = "Kyiv" и int year = 2020, выведи: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>std::string city = &quot;Kyiv&quot;;
+int year = 2020;
+std::cout &lt;&lt; &quot;I live in &quot; &lt;&lt; city &lt;&lt; &quot; since &quot; &lt;&lt; year &lt;&lt; &quot;\n&quot;;</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -98,6 +146,27 @@ auto half = 3.5;             // компилятор выберет double
 
 std::cout &lt;&lt; title.length() &lt;&lt; &quot;\n&quot;;</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>4</pre></div>
+    <div class="more">
+    <p>Основные типы: <code>int</code>, <code>double</code>, <code>bool</code> (true/false), <code>char</code>, <code>std::string</code>. <code>auto</code> позволяет компилятору самому понять тип по значению — удобно для длинных названий типов.</p>
+    <p>Текст в число: <code>std::stoi("5")</code>, число в текст: <code>std::to_string(5)</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>bool online = true;</code><span>true или false.</span></div>
+        <div class="bd-row"><code>auto half = 3.5;</code><span>компилятор видит 3.5 и делает double.</span></div>
+        <div class="bd-row"><code>title.length()</code><span>сколько символов в тексте.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>auto x;</code> без значения — компилятор не сможет угадать тип.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Есть std::string a = "7". Выведи a как число плюс 3 (10).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>std::string a = &quot;7&quot;;
+std::cout &lt;&lt; std::stoi(a) + 3 &lt;&lt; &quot;\n&quot;;</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -114,6 +183,30 @@ if (age &gt;= 18) {
     std::cout &lt;&lt; &quot;Kid\n&quot;;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Условия в C++ такие же, как в C, но есть настоящий тип <code>bool</code>. Вместо <code>&amp;&amp;</code>, <code>||</code>, <code>!</code> можно писать <code>and</code>, <code>or</code>, <code>not</code>, хотя чаще пишут символы.</p>
+    <p>Для множества фиксированных вариантов есть <code>switch</code>, но чаще хватает <code>if / else if</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>условие в скобках.</span></div>
+        <div class="bd-row"><code>std::cout &lt;&lt; &quot;Adult\n&quot;;</code><span>выполняется, только если условие верно.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Точка с запятой сразу после if: <code>if (x &gt; 5);</code> — тогда блок ниже выполнится всегда.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>int t = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25) {
+    std::cout &lt;&lt; &quot;Hot\n&quot;;
+} else {
+    std::cout &lt;&lt; &quot;OK\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -135,6 +228,30 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p><code>for</code> и <code>while</code> работают как в C. В C++ есть ещё for по диапазону: <code>for (int x : numbers)</code> — «для каждого x из numbers». Он короче, и с ним нельзя случайно выйти за границы.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>счётчик от 0 до 2.</span></div>
+        <div class="bd-row"><code>while (count &gt; 0)</code><span>повторять, пока count больше нуля.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Случайно менять счётчик внутри for — цикл перескакивает или не заканчивается.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++) {
+    std::cout &lt;&lt; i &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -152,6 +269,33 @@ int main() {
     std::cout &lt;&lt; greet(&quot;Shiro&quot;) &lt;&lt; &quot;\n&quot;;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, Shiro!</pre></div>
+    <div class="more">
+    <p>Функция в C++ похожа на функцию в C. Когда передаёшь большой объект, например строку, пиши <code>const std::string&amp;</code>: <code>&amp;</code> значит «не копируй, используй оригинал», <code>const</code> — «и не меняй его». Так быстрее и безопасно.</p>
+    <p>Функции могут называться одинаково, но иметь разные параметры — это называется перегрузкой.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>std::string greet(const std::string&amp; name)</code><span>возвращает текст, читает name без копирования.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, &quot; + name + &quot;!&quot;;</code><span>склеить кусочки в новую строку.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть вернуть значение в функции не-void — результат непредсказуем.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши int square(int n) и выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;iostream&gt;
+
+int square(int n) {
+    return n * n;
+}
+
+int main() {
+    std::cout &lt;&lt; square(7) &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -176,6 +320,35 @@ I like Python
 I like C++
 I like Rust
 I like C#</pre></div>
+    <div class="more">
+    <p><code>std::vector</code> — самый популярный контейнер в C++: массив, который сам растёт. <code>push_back</code> добавляет в конец, <code>pop_back</code> удаляет последний, <code>size()</code> говорит, сколько элементов, <code>v[i]</code> даёт элемент.</p>
+    <p>В угловых скобках указывают, что хранится: <code>std::vector&lt;int&gt;</code> — целые числа, <code>std::vector&lt;std::string&gt;</code> — текст.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>std::vector&lt;std::string&gt; langs = {...};</code><span>вектор текстов из 3 элементов.</span></div>
+        <div class="bd-row"><code>langs.push_back(&quot;C#&quot;);</code><span>добавить ещё один.</span></div>
+        <div class="bd-row"><code>for (const auto&amp; lang : langs)</code><span>пройти по каждому элементу без копирования.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>#include &lt;vector&gt;</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай вектор {1, 2, 3}, добавь 4 и выведи сумму всех элементов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; v = {1, 2, 3};
+    v.push_back(4);
+    int sum = 0;
+    for (int x : v) sum += x;
+    std::cout &lt;&lt; sum &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>10</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -204,6 +377,53 @@ int main() {
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+    <div class="more">
+    <p>Класс — это чертёж, а объекты — вещи, построенные по нему. <code>Player</code> описывает, что есть у каждого игрока (name, hp) и что он умеет (hit). <code>Player p;</code> создаёт одного настоящего игрока.</p>
+    <p><code>public:</code> значит, что эти части доступны снаружи класса. Идея объединять данные и действия называется объектно-ориентированным программированием.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>class Player {</code><span>начало чертежа.</span></div>
+        <div class="bd-row"><code>int hp = 100;</code><span>каждый новый игрок начинает со 100 HP.</span></div>
+        <div class="bd-row"><code>void hit(int damage)</code><span>действие игрока; void — ничего не возвращает.</span></div>
+        <div class="bd-row"><code>p.hit(30);</code><span>вызвать действие у этого игрока.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>;</code> после закрывающей скобки класса: <code>};</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь метод heal(int amount), который прибавляет HP и выводит его. Вылечи игрока на 10 после ударов.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Player {
+public:
+    std::string name;
+    int hp = 100;
+
+    void hit(int damage) {
+        hp -= damage;
+        std::cout &lt;&lt; name &lt;&lt; &quot; has &quot; &lt;&lt; hp &lt;&lt; &quot; HP\n&quot;;
+    }
+    void heal(int amount) {
+        hp += amount;
+        std::cout &lt;&lt; name &lt;&lt; &quot; has &quot; &lt;&lt; hp &lt;&lt; &quot; HP\n&quot;;
+    }
+};
+
+int main() {
+    Player p;
+    p.name = &quot;Shiro&quot;;
+    p.hit(30);
+    p.hit(25);
+    p.heal(10);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 70 HP
+Shiro has 45 HP
+Shiro has 55 HP</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="cpp" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="cpp">
@@ -256,8 +476,8 @@ std::cout &lt;&lt; hp &lt;&lt; &quot;\n&quot;;</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/c.html" + location.hash); } catch (e) {}
@@ -67,6 +67,35 @@ int main(void) {
     return 0;
 }</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>C programs are written in a text file and then <b>compiled</b> — turned into an executable file the computer understands. Online, you can do it in one click on sites like onlinegdb.com.</p>
+    <p><code>#include &lt;stdio.h&gt;</code> connects the standard input/output library, where <code>printf</code> lives. <code>int main(void)</code> is where the program starts. <code>return 0;</code> tells the system "everything went fine".</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>#include &lt;stdio.h&gt;</code><span>connect the library with printf.</span></div>
+        <div class="bd-row"><code>int main(void) {</code><span>the main function; int means it returns a whole number.</span></div>
+        <div class="bd-row"><code>printf(&quot;Hello, world!\n&quot;);</code><span>print the text; \n moves to a new line.</span></div>
+        <div class="bd-row"><code>return 0;</code><span>finish the program successfully.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>;</code> at the end of a line — the compiler stops with an error.</li>
+        <li>Forgetting <code>\n</code> — the next text sticks to the same line.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print two lines: your name and the number 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Shiro\n&quot;);
+    printf(&quot;%d\n&quot;, 2026);
+    return 0;
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -83,6 +112,29 @@ printf(&quot;Letter: %c\n&quot;, letter);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Age: 18
 Price: 9.99
 Letter: S</pre></div>
+    <div class="more">
+    <p>In C every variable has a fixed type that you write before its name. The compiler uses it to know how much memory to reserve.</p>
+    <p><code>printf</code> doesn't know types by itself, so you tell it with format codes: <code>%d</code> for int, <code>%f</code> for float/double, <code>%c</code> for a char, <code>%s</code> for text. The values go after the text, in the same order.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>int age = 18;</code><span>a whole number.</span></div>
+        <div class="bd-row"><code>float price = 9.99f;</code><span>a number with a dot; f at the end marks a float.</span></div>
+        <div class="bd-row"><code>char letter = &#x27;S&#x27;;</code><span>one character, in single quotes.</span></div>
+        <div class="bd-row"><code>printf(&quot;Price: %.2f\n&quot;, price);</code><span>%.2f — a number with exactly 2 digits after the dot.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Wrong format code: <code>printf("%d", price)</code> for a float prints garbage.</li>
+        <li>Double quotes for a char: <code>char c = "S";</code> is an error — use <code>'S'</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create int year = 2026 and print "Year: 2026".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>int year = 2026;
+printf(&quot;Year: %d\n&quot;, year);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Year: 2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -96,6 +148,27 @@ char word[] = &quot;VIBE&quot;;     // text
 
 printf(&quot;%s has %zu letters\n&quot;, word, sizeof(word) - 1);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>VIBE has 4 letters</pre></div>
+    <div class="more">
+    <p>C has no special string type: text is an array of <code>char</code> that ends with a hidden zero character <code>'\0'</code>. That's why <code>sizeof("VIBE")</code> is 5, not 4.</p>
+    <p><code>double</code> is like float but more precise — use it by default for numbers with a dot. For text length there is <code>strlen()</code> from <code>&lt;string.h&gt;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>double precise = 3.14159;</code><span>a precise number with a dot.</span></div>
+        <div class="bd-row"><code>char word[] = &quot;VIBE&quot;;</code><span>text: an array of 5 chars (4 letters + hidden \0).</span></div>
+        <div class="bd-row"><code>sizeof(word) - 1</code><span>size in bytes minus the hidden end character.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Comparing texts with <code>==</code>. In C use <code>strcmp(a, b) == 0</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create char name[] = "Shiro" and print "Shiro has 5 letters" using sizeof.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>char name[] = &quot;Shiro&quot;;
+printf(&quot;%s has %zu letters\n&quot;, name, sizeof(name) - 1);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro has 5 letters</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -112,6 +185,31 @@ if (age &gt;= 18) {
     printf(&quot;Kid\n&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p><code>if</code> in C works like in most languages: a condition in brackets and a block in curly braces. In C, true is any number except 0, and false is 0.</p>
+    <p>Combine conditions with <code>&amp;&amp;</code> (and), <code>||</code> (or) and <code>!</code> (not). For example: <code>if (age &gt;= 13 &amp;&amp; age &lt; 18)</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>check: age is 18 or more.</span></div>
+        <div class="bd-row"><code>} else if (age &gt;= 13) {</code><span>otherwise check the next condition.</span></div>
+        <div class="bd-row"><code>} else {</code><span>if nothing fits.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>if (x = 5)</code> assigns 5 and is always true. Compare with <code>==</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>int t = 30. Print "Hot" if t > 25, otherwise "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25) {
+    printf(&quot;Hot\n&quot;);
+} else {
+    printf(&quot;OK\n&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -133,6 +231,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>C loops: <code>for</code> (start; condition; step), <code>while</code> (repeat while true) and <code>do ... while</code>, which runs at least once. They are the same as in JavaScript, C++, Java and C# — learn them once, use them everywhere.</p>
+    <p><code>break</code> leaves a loop early, <code>continue</code> skips to the next round.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>i = 0, 1, 2; after each round i grows by 1.</span></div>
+        <div class="bd-row"><code>while (count &gt; 0)</code><span>repeat while count is positive.</span></div>
+        <div class="bd-row"><code>count--;</code><span>take 1 away.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>for (int i = 0; i &lt;= 3; i++)</code> runs 4 times, not 3 — watch &lt; vs &lt;=.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++) {
+    printf(&quot;%d\n&quot;, i);
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -150,6 +274,35 @@ int main(void) {
     return 0;
 }</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>5</pre></div>
+    <div class="more">
+    <p>A C function says what type it returns, its name and the types of its parameters: <code>int add(int a, int b)</code>. A function that returns nothing has the type <code>void</code>.</p>
+    <p>The compiler reads from top to bottom, so a function must be written (or announced) above the place where you call it.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>int add(int a, int b) {</code><span>returns an int, takes two ints.</span></div>
+        <div class="bd-row"><code>return a + b;</code><span>give back the sum.</span></div>
+        <div class="bd-row"><code>add(2, 3)</code><span>call the function: a = 2, b = 3.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Writing the function below main without a declaration — the compiler complains.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write int square(int n) that returns n * n and print square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int square(int n) {
+    return n * n;
+}
+
+int main(void) {
+    printf(&quot;%d\n&quot;, square(7));
+    return 0;
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -165,6 +318,31 @@ for (int i = 0; i &lt; size; i++) {
 }
 printf(&quot;Sum: %d\n&quot;, sum);</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>Sum: 100</pre></div>
+    <div class="more">
+    <p>An array in C is a fixed number of values of one type standing next to each other in memory. Its size can't change after creation.</p>
+    <p>C doesn't check if the index is valid: <code>scores[10]</code> in an array of 4 reads someone else's memory. This is a classic source of bugs, so always keep track of the size.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>int scores[] = {10, 20, 30, 40};</code><span>an array of 4 ints; the size is counted from the list.</span></div>
+        <div class="bd-row"><code>sizeof(scores) / sizeof(scores[0])</code><span>total bytes divided by bytes of one item = number of items.</span></div>
+        <div class="bd-row"><code>sum += scores[i];</code><span>add each item to sum.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Going one step too far: <code>i &lt;= size</code> instead of <code>i &lt; size</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Find the biggest number in {3, 9, 4, 7} and print it.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>int a[] = {3, 9, 4, 7};
+int max = a[0];
+for (int i = 1; i &lt; 4; i++) {
+    if (a[i] &gt; max) max = a[i];
+}
+printf(&quot;%d\n&quot;, max);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>9</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -195,6 +373,43 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+    <div class="more">
+    <p><code>rand()</code> gives a pseudo-random number; <code>% 10</code> keeps the remainder from 0 to 9, and <code>+ 1</code> makes it 1 to 10. <code>srand(time(NULL))</code> mixes the generator with the current time so each game is different.</p>
+    <p><code>scanf("%d", &amp;guess)</code> reads a number from the keyboard. The <code>&amp;</code> means "the address of guess": scanf needs to know where to put the value.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>srand(time(NULL));</code><span>start the random generator from the current time.</span></div>
+        <div class="bd-row"><code>rand() % 10 + 1</code><span>a random number from 1 to 10.</span></div>
+        <div class="bd-row"><code>scanf(&quot;%d&quot;, &amp;guess);</code><span>read a whole number into guess.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>&amp;</code> in scanf — the program may crash.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a tries counter and print it at the end.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void) {
+    srand(time(NULL));
+    int secret = rand() % 10 + 1;
+    int guess = 0, tries = 0;
+
+    while (guess != secret) {
+        printf(&quot;Guess a number from 1 to 10: &quot;);
+        scanf(&quot;%d&quot;, &amp;guess);
+        tries++;
+        if (guess &lt; secret) printf(&quot;Bigger!\n&quot;);
+        else if (guess &gt; secret) printf(&quot;Smaller!\n&quot;);
+    }
+    printf(&quot;You got it in %d tries!\n&quot;, tries);
+    return 0;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="c">
@@ -234,7 +449,7 @@ printf(&quot;%d\n&quot;, a[2]);</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="css.html">← Previous language: CSS</a><a class="btn ghost" href="cpp.html">Next language: C++ →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="java.html">← Previous language: Java</a><a class="btn ghost" href="cpp.html">Next language: C++ →</a></nav>
     </div>
   </div>
 </div>
@@ -245,8 +460,8 @@ printf(&quot;%d\n&quot;, a[2]);</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
 </body>
 </html>

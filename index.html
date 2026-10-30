@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VIBE.EXE</title>
-<meta name="description" content="Free coding lessons in 8 languages: short explanations, code you can run and a quiz for each language.">
+<meta name="description" content="Free coding lessons in 12 languages: clear explanations, code you can run, exercises and a quiz for each language.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="alternate" hreflang="ru" href="ru/index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/index.html" + location.hash); } catch (e) {}
@@ -33,7 +33,7 @@
 <section class="hero wrap">
   <div class="eye-box"><canvas id="eye" role="img" aria-label="An eye made of letters that follows your cursor"></canvas></div>
   <h1>Learn to code, one step at a time</h1>
-  <p class="lead">Free lessons in 8 languages. Short explanations, real code examples and a quiz at the end of each language. Your progress is saved in your browser.</p>
+  <p class="lead">Free lessons in 12 languages. Clear explanations, real code examples, exercises with answers and a quiz for each language. Your progress is saved in your browser.</p>
   <div class="btn-row">
     <a class="btn" href="page2.html">Start learning →</a>
     <a class="btn ghost" href="page3.html">Linux basics</a>
@@ -54,6 +54,12 @@
       <div class="pbar" data-progress="javascript"></div>
       <span class="go">Open lessons →</span>
     </a>
+    <a class="card" href="typescript.html">
+      <h3>TypeScript</h3>
+      <p>JavaScript with types: fewer bugs in big projects.</p>
+      <div class="pbar" data-progress="typescript"></div>
+      <span class="go">Open lessons →</span>
+    </a>
     <a class="card" href="html.html">
       <h3>HTML</h3>
       <p>The structure of every web page.</p>
@@ -64,6 +70,18 @@
       <h3>CSS</h3>
       <p>Colors, fonts, layout and animations.</p>
       <div class="pbar" data-progress="css"></div>
+      <span class="go">Open lessons →</span>
+    </a>
+    <a class="card" href="php.html">
+      <h3>PHP</h3>
+      <p>Server side of websites: WordPress and online shops.</p>
+      <div class="pbar" data-progress="php"></div>
+      <span class="go">Open lessons →</span>
+    </a>
+    <a class="card" href="java.html">
+      <h3>Java</h3>
+      <p>Android apps, servers and Minecraft.</p>
+      <div class="pbar" data-progress="java"></div>
       <span class="go">Open lessons →</span>
     </a>
     <a class="card" href="c.html">
@@ -84,6 +102,12 @@
       <div class="pbar" data-progress="csharp"></div>
       <span class="go">Open lessons →</span>
     </a>
+    <a class="card" href="go.html">
+      <h3>Go</h3>
+      <p>Fast servers and cloud tools from Google.</p>
+      <div class="pbar" data-progress="go"></div>
+      <span class="go">Open lessons →</span>
+    </a>
     <a class="card" href="rust.html">
       <h3>Rust</h3>
       <p>As fast as C, with a compiler that catches mistakes.</p>
@@ -95,8 +119,8 @@
 <section class="section wrap">
   <div class="section-head"><h2>How it works</h2></div>
   <ol class="steps">
-      <li><h3>Pick a language</h3><p>Eight languages, from Python to Rust. Each one starts from Hello, world.</p></li>
-      <li><h3>Read and try</h3><p>Every lesson is a short explanation with code and its output. JavaScript code runs right on the page.</p></li>
+      <li><h3>Pick a language</h3><p>Twelve languages, from Python and JavaScript to Java and Go. Each one starts from Hello, world.</p></li>
+      <li><h3>Read and try</h3><p>Every lesson explains the idea, goes through the code line by line, lists common mistakes and gives you an exercise.</p></li>
       <li><h3>Check yourself</h3><p>Mark lessons as done and finish with a 5-question quiz. Your progress shows on every card.</p></li>
   </ol>
 </section>
@@ -107,8 +131,8 @@
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="eye.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="eye.js?v=f62e3716"></script>
 </body>
 </html>

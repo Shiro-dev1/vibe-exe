@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PHP lessons — VIBE.EXE</title>
+<meta name="description" content="PHP lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="php.html">
+<link rel="alternate" hreflang="ru" href="ru/php.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/php.html" + location.hash); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html" aria-current="page">Languages</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="php.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/php.html" data-setlang="ru" hreflang="ru">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Languages</a><span>›</span><span>PHP</span></nav>
+    <h1>PHP lessons</h1>
+    <p class="lead">PHP runs on the server and builds web pages before they reach the browser. WordPress, Wikipedia and a huge part of the internet are made with it. It is easy to start with and to host.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Lessons</summary>
+      <div class="side-inner">
+        <div class="side-title">Lessons</div>
+        <div class="pbar" data-progress="php"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="php" data-n="1"><span class="num"><span>1</span></span>Hello, world</a></li>
+        <li><a href="#lesson-2" data-lang="php" data-n="2"><span class="num"><span>2</span></span>Variables</a></li>
+        <li><a href="#lesson-3" data-lang="php" data-n="3"><span class="num"><span>3</span></span>Data types</a></li>
+        <li><a href="#lesson-4" data-lang="php" data-n="4"><span class="num"><span>4</span></span>Conditions</a></li>
+        <li><a href="#lesson-5" data-lang="php" data-n="5"><span class="num"><span>5</span></span>Loops</a></li>
+        <li><a href="#lesson-6" data-lang="php" data-n="6"><span class="num"><span>6</span></span>Functions</a></li>
+        <li><a href="#lesson-7" data-lang="php" data-n="7"><span class="num"><span>7</span></span>Arrays</a></li>
+        <li><a href="#lesson-8" data-lang="php" data-n="8"><span class="num"><span>8</span></span>Mini project: site menu</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Quiz</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Hello, world</h2>
+    <p>PHP code starts with <code>&lt;?php</code>. <code>echo</code> sends text out — to the page or to the terminal.</p>
+    <pre><code>&lt;?php
+echo &quot;Hello, world!&quot;;</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>A PHP file can mix HTML and PHP. Everything after <code>&lt;?php</code> is code; the server runs it and sends only the result to the visitor, so nobody sees your PHP code.</p>
+    <p>Every command ends with <code>;</code>. You can try PHP online at onlinephp.io or 3v4l.org right in the browser.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;?php</code><span>start of PHP code.</span></div>
+        <div class="bd-row"><code>echo &quot;Hello, world!&quot;;</code><span>output the text.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>;</code> — PHP shows Parse error: syntax error.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print your name, a new line, and 2026.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+echo &quot;Shiro\n&quot;;
+echo 2026;</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="1"></button>
+  </article>
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Variables</h2>
+    <p>Every variable in PHP starts with <code>$</code>. In double quotes PHP puts variable values right into the text; in single quotes it doesn't.</p>
+    <pre><code>&lt;?php
+$name = &quot;Shiro&quot;;
+$age = 18;
+echo &quot;Hi, I&#x27;m $name and I&#x27;m $age\n&quot;;
+echo &#x27;Single quotes: $name&#x27; . &quot;\n&quot;;</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 18
+Single quotes: $name</pre></div>
+    <div class="more">
+    <p>You don't write types in PHP: a variable takes whatever you put in it. The <code>$</code> sign makes variables easy to spot.</p>
+    <p>The dot <code>.</code> glues strings together (in JavaScript it would be <code>+</code>). <code>"\n"</code> is a new line — it works only inside double quotes.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>$name = &quot;Shiro&quot;;</code><span>create the variable $name.</span></div>
+        <div class="bd-row"><code>&quot;Hi, I&#x27;m $name ...&quot;</code><span>double quotes: $name is replaced by Shiro.</span></div>
+        <div class="bd-row"><code>&#x27;Single quotes: $name&#x27;</code><span>single quotes: printed as is.</span></div>
+        <div class="bd-row"><code>. &quot;\n&quot;</code><span>glue a new line to the end.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>$</code>: <code>name = "Shiro";</code> is an error.</li>
+        <li>Using <code>+</code> to join text — in PHP it is <code>.</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Create $city = "Kyiv" and $year = 2020 and print: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+$city = &quot;Kyiv&quot;;
+$year = 2020;
+echo &quot;I live in $city since $year&quot;;</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="2"></button>
+  </article>
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Data types</h2>
+    <p>PHP has int, float, string, bool, array and null. <code>gettype()</code> shows the type, <code>strlen()</code> counts characters.</p>
+    <pre><code>&lt;?php
+$count = 10;        // int
+$price = 9.99;      // float
+$title = &quot;VIBE&quot;;    // string
+$online = true;     // bool
+echo gettype($price) . &quot;\n&quot;;
+echo strlen($title) . &quot;\n&quot;;</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>double
+4</pre></div>
+    <div class="more">
+    <p>Notice: for a float <code>gettype()</code> says <code>double</code> — that's an old name for the same thing.</p>
+    <p>PHP converts types by itself when needed: <code>"5" + 3</code> gives <code>8</code>. To convert on purpose use <code>(int)</code>, <code>(float)</code> or <code>(string)</code> before the value: <code>(int)"42"</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>$price = 9.99;</code><span>a number with a dot (float).</span></div>
+        <div class="bd-row"><code>gettype($price)</code><span>returns the type name as text.</span></div>
+        <div class="bd-row"><code>strlen($title)</code><span>length of the string: 4.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>strlen("Привет")</code> gives 12, not 6: it counts bytes. For Russian text use <code>mb_strlen()</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>You have $a = "7". Print $a as a number plus 3 (10).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+$a = &quot;7&quot;;
+echo (int)$a + 3;</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="3"></button>
+  </article>
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Conditions</h2>
+    <p><code>if</code>, <code>elseif</code> (one word in PHP) and <code>else</code>. The condition goes in brackets, the code in braces.</p>
+    <pre><code>&lt;?php
+$age = 18;
+
+if ($age &gt;= 18) {
+    echo &quot;Adult\n&quot;;
+} elseif ($age &gt;= 13) {
+    echo &quot;Teen\n&quot;;
+} else {
+    echo &quot;Kid\n&quot;;
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <div class="more">
+    <p>Compare with <code>===</code> (equal value and type) and <code>!==</code>. Double <code>==</code> converts types first and can surprise you, so prefer three.</p>
+    <p>Combine conditions with <code>&amp;&amp;</code> (and), <code>||</code> (or), <code>!</code> (not).</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>if ($age &gt;= 18) {</code><span>the first check.</span></div>
+        <div class="bd-row"><code>} elseif ($age &gt;= 13) {</code><span>the next one.</span></div>
+        <div class="bd-row"><code>} else {</code><span>everything else.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li><code>if ($age = 18)</code> assigns instead of comparing and is always true.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>$t = 30. Print "Hot" if $t > 25, otherwise "OK".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+$t = 30;
+if ($t &gt; 25) {
+    echo &quot;Hot&quot;;
+} else {
+    echo &quot;OK&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>Hot</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="4"></button>
+  </article>
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Loops</h2>
+    <p><code>for</code> and <code>while</code> look like in C and JavaScript. For arrays PHP has <code>foreach</code> — you will see it in the next lessons.</p>
+    <pre><code>&lt;?php
+for ($i = 0; $i &lt; 3; $i++) {
+    echo &quot;Step $i\n&quot;;
+}
+
+$count = 3;
+while ($count &gt; 0) {
+    echo &quot;$count\n&quot;;
+    $count--;
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    <div class="more">
+    <p>Loops in PHP are often used to build HTML: a table row for every product, a list item for every comment.</p>
+    <p><code>break</code> leaves a loop, <code>continue</code> jumps to the next round.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>for ($i = 0; $i &lt; 3; $i++)</code><span>the counter $i goes 0, 1, 2.</span></div>
+        <div class="bd-row"><code>$count--;</code><span>take 1 away.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting <code>$</code> on the counter: <code>for (i = 0; ...)</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Print the numbers from 1 to 5, each on its own line.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+for ($i = 1; $i &lt;= 5; $i++) {
+    echo &quot;$i\n&quot;;
+}</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="5"></button>
+  </article>
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Functions</h2>
+    <p><code>function</code> creates a function. You can write types of parameters and of the result — PHP will check them.</p>
+    <pre><code>&lt;?php
+function greet(string $name): string {
+    return &quot;Hello, $name!&quot;;
+}
+
+echo greet(&quot;Shiro&quot;) . &quot;\n&quot;;</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hello, Shiro!</pre></div>
+    <div class="more">
+    <p>PHP has thousands of ready-made functions: <code>strtoupper()</code>, <code>date()</code>, <code>count()</code>, <code>round()</code>. Before writing your own, check if PHP already has one.</p>
+    <p>Parameters can have default values: <code>function greet(string $name = "friend")</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>function greet(string $name): string</code><span>takes a string, returns a string.</span></div>
+        <div class="bd-row"><code>return &quot;Hello, $name!&quot;;</code><span>the result with the name inside.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Using a variable from outside inside a function — functions don't see outer variables. Pass them as parameters.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Write square(int $n): int and print square(7).</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+function square(int $n): int {
+    return $n * $n;
+}
+echo square(7);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>49</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="6"></button>
+  </article>
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Arrays</h2>
+    <p>PHP arrays can be lists (<code>["PHP", "Go"]</code>) or have named keys (<code>["name" =&gt; "Shiro"]</code>). <code>foreach</code> goes through them.</p>
+    <pre><code>&lt;?php
+$langs = [&quot;PHP&quot;, &quot;JS&quot;, &quot;Go&quot;];
+$langs[] = &quot;Rust&quot;;
+echo count($langs) . &quot;\n&quot;;
+
+$user = [&quot;name&quot; =&gt; &quot;Shiro&quot;, &quot;age&quot; =&gt; 18];
+foreach ($user as $key =&gt; $value) {
+    echo &quot;$key: $value\n&quot;;
+}</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>4
+name: Shiro
+age: 18</pre></div>
+    <div class="more">
+    <p>An array with named keys (an "associative array") is like a small table: on the left the name, on the right the value. Data from forms and databases usually comes in this shape.</p>
+    <p><code>$langs[] = ...</code> adds to the end. <code>count()</code> counts items. <code>$user["name"]</code> takes a value by its key.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>$langs[] = &quot;Rust&quot;;</code><span>add to the end.</span></div>
+        <div class="bd-row"><code>[&quot;name&quot; =&gt; &quot;Shiro&quot;, ...]</code><span>=> links a key with a value.</span></div>
+        <div class="bd-row"><code>foreach ($user as $key =&gt; $value)</code><span>go through every key and value.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Reading a key that doesn't exist — PHP shows Warning: Undefined array key. Check with <code>isset($user["email"])</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make $nums = [1, 2, 3], add 4 and print the sum with array_sum().</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+$nums = [1, 2, 3];
+$nums[] = 4;
+echo array_sum($nums);</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>10</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="7"></button>
+  </article>
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Mini project: site menu</h2>
+    <p>What PHP is made for: building HTML from data. One array describes the menu, a loop turns it into a list of links.</p>
+    <pre><code>&lt;?php
+$menu = [&quot;Home&quot; =&gt; &quot;/&quot;, &quot;Lessons&quot; =&gt; &quot;/lessons&quot;, &quot;Contacts&quot; =&gt; &quot;/contacts&quot;];
+
+echo &quot;&lt;ul&gt;\n&quot;;
+foreach ($menu as $title =&gt; $link) {
+    echo &quot;  &lt;li&gt;&lt;a href=\&quot;$link\&quot;&gt;$title&lt;/a&gt;&lt;/li&gt;\n&quot;;
+}
+echo &quot;&lt;/ul&gt;\n&quot;;</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lessons&quot;&gt;Lessons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contacts&quot;&gt;Contacts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+    <div class="more">
+    <p>On a real site this HTML goes straight to the browser, and the visitor sees a normal menu. Want a new menu item? Add one line to the array — every page that uses it updates.</p>
+    <p><code>\"</code> is a quote inside a double-quoted string; without the backslash PHP would think the string ends there.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>$menu = [...]</code><span>the data: title => link.</span></div>
+        <div class="bd-row"><code>foreach ($menu as $title =&gt; $link)</code><span>for every menu item…</span></div>
+        <div class="bd-row"><code>echo &quot;  &lt;li&gt;&lt;a href=\&quot;$link\&quot;&gt;$title&lt;/a&gt;&lt;/li&gt;\n&quot;;</code><span>…print one line of HTML.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Putting text from users straight into HTML — use <code>htmlspecialchars()</code>, otherwise someone can inject their own code.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a "Blog" item with the link /blog to the menu.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;?php
+$menu = [&quot;Home&quot; =&gt; &quot;/&quot;, &quot;Lessons&quot; =&gt; &quot;/lessons&quot;, &quot;Contacts&quot; =&gt; &quot;/contacts&quot;, &quot;Blog&quot; =&gt; &quot;/blog&quot;];
+
+echo &quot;&lt;ul&gt;\n&quot;;
+foreach ($menu as $title =&gt; $link) {
+    echo &quot;  &lt;li&gt;&lt;a href=\&quot;$link\&quot;&gt;$title&lt;/a&gt;&lt;/li&gt;\n&quot;;
+}
+echo &quot;&lt;/ul&gt;\n&quot;;</code></pre>
+        <div class="out"><span class="out-label">Output</span><pre>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/lessons&quot;&gt;Lessons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contacts&quot;&gt;Contacts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="php" data-n="8"></button>
+  </article>
+  <section class="quiz" id="quiz" data-lang="php">
+    <div class="quiz-head"><h2>Quiz</h2><p>5 questions. Pick an answer to see if it is right.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. What does every PHP variable start with?</p>
+      <div class="opts"><button type="button">@</button><button type="button">$</button><button type="button">#</button><button type="button">&amp;</button></div>
+      <p class="why" hidden>PHP variables always start with $.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. What will this code print?</p>
+      <pre><code>&lt;?php
+$name = &quot;Shiro&quot;;
+echo &#x27;Hi $name&#x27;;</code></pre>
+      <div class="opts"><button type="button">Hi Shiro</button><button type="button">Hi $name</button><button type="button">Hi</button><button type="button">Error</button></div>
+      <p class="why" hidden>Single quotes don&#x27;t replace variables.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. Which operator glues two strings in PHP?</p>
+      <div class="opts"><button type="button">+</button><button type="button">.</button><button type="button">&amp;</button><button type="button">,</button></div>
+      <p class="why" hidden>In PHP it&#x27;s the dot: &quot;a&quot; . &quot;b&quot;.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. What will this code print?</p>
+      <pre><code>&lt;?php
+$a = [10, 20, 30];
+$a[] = 40;
+echo count($a);</code></pre>
+      <div class="opts"><button type="button">3</button><button type="button">4</button><button type="button">40</button><button type="button">100</button></div>
+      <p class="why" hidden>$a[] = 40 added one more item.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Where does PHP code usually run?</p>
+      <div class="opts"><button type="button">In the visitor&#x27;s browser</button><button type="button">On the server</button><button type="button">In the phone&#x27;s camera</button><button type="button">In CSS</button></div>
+      <p class="why" hidden>PHP runs on the server and sends ready HTML to the browser.</p>
+    </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
+  </section>
+  <nav class="pager"><a class="btn ghost" href="css.html">← Previous language: CSS</a><a class="btn ghost" href="java.html">Next language: Java →</a></nav>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
+</body>
+</html>

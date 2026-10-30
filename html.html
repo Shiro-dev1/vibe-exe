@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/html.html" + location.hash); } catch (e) {}
@@ -69,6 +69,35 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
     <div class="out"><span class="out-label">Output</span><pre>A tab called &quot;My first page&quot; with the text: Hello, world!</pre></div>
+    <div class="more">
+    <p>HTML is not a programming language — it describes what is on a page. It is made of <b>tags</b>: words in angle brackets. Most tags come in pairs and wrap content: <code>&lt;title&gt;My page&lt;/title&gt;</code>.</p>
+    <p><code>&lt;!DOCTYPE html&gt;</code> tells the browser "this is modern HTML". <code>&lt;meta charset="UTF-8"&gt;</code> makes any letters, including Russian, show correctly.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;html lang=&quot;en&quot;&gt;</code><span>the root of the page; lang says which language the text is in.</span></div>
+        <div class="bd-row"><code>&lt;head&gt;</code><span>settings: title, encoding, links to styles. Not shown on the page.</span></div>
+        <div class="bd-row"><code>&lt;title&gt;</code><span>the text on the browser tab.</span></div>
+        <div class="bd-row"><code>&lt;body&gt;</code><span>everything the visitor sees.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Forgetting to close a tag: <code>&lt;body&gt;</code> without <code>&lt;/body&gt;</code>. Browsers often forgive it, but the page can break in strange ways.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a page with the tab title "Shiro" and the text "My first site".</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Shiro&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My first site
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -78,6 +107,26 @@
     <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
 &lt;h2&gt;Smaller heading&lt;/h2&gt;
 &lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
+    <div class="more">
+    <p>Headings make a page easy to scan. Use <code>&lt;h1&gt;</code> once per page for the main title, <code>&lt;h2&gt;</code> for sections, <code>&lt;h3&gt;</code> for smaller parts. Search engines and screen readers rely on this order.</p>
+    <p><code>&lt;b&gt;</code> makes text bold and <code>&lt;i&gt;</code> italic. For important words there are also <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;h1&gt;Big heading&lt;/h1&gt;</code><span>the main title of the page.</span></div>
+        <div class="bd-row"><code>&lt;p&gt;...&lt;/p&gt;</code><span>a paragraph: a block of text with space around it.</span></div>
+        <div class="bd-row"><code>&lt;b&gt;bold&lt;/b&gt;</code><span>a tag inside a tag: only this word is bold.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Choosing headings by size ("h4 looks nicer"). Pick by meaning, change the size with CSS.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a heading "About me" and a paragraph with one bold word.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;h2&gt;About me&lt;/h2&gt;
+&lt;p&gt;I am learning &lt;b&gt;HTML&lt;/b&gt; right now.&lt;/p&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -88,6 +137,25 @@
 &lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
 
 &lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
+    <div class="more">
+    <p>Links connect pages: <code>&lt;a href="..."&gt;</code>. The address can be another site (<code>https://...</code>) or a file next to yours (<code>page2.html</code>). Add <code>target="_blank"</code> to open it in a new tab.</p>
+    <p><code>&lt;img&gt;</code> has no closing tag. <code>src</code> is the file, <code>alt</code> is the description. Set only width or only height, otherwise the picture may stretch.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;a href=&quot;https://...&quot;&gt;My portfolio&lt;/a&gt;</code><span>the visitor sees "My portfolio"; a click opens the address.</span></div>
+        <div class="bd-row"><code>&lt;img src=&quot;cat.jpg&quot; ...&gt;</code><span>show the file cat.jpg from the same folder.</span></div>
+        <div class="bd-row"><code>alt=&quot;A sleeping cat&quot;</code><span>text for screen readers and if the picture doesn't load.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>A wrong file name or folder in src — the picture shows as a broken icon. Names are case-sensitive on servers: Cat.jpg ≠ cat.jpg.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a link to github.com that opens in a new tab.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;a href=&quot;https://github.com&quot; target=&quot;_blank&quot;&gt;My GitHub&lt;/a&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -110,6 +178,29 @@
 1. Learn HTML
 2. Learn CSS
 3. Build a site</pre></div>
+    <div class="more">
+    <p>Lists are everywhere: menus, steps of a recipe, features of a product. A list is a parent tag (<code>ul</code> or <code>ol</code>) with <code>li</code> items inside.</p>
+    <p>Lists can be nested: put a new <code>ul</code> inside an <code>li</code> to make a sub-list. Most site menus are actually lists styled with CSS.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;ul&gt;</code><span>unordered list: dots.</span></div>
+        <div class="bd-row"><code>&lt;ol&gt;</code><span>ordered list: numbers appear automatically.</span></div>
+        <div class="bd-row"><code>&lt;li&gt;...&lt;/li&gt;</code><span>one item of the list.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Putting text straight into ul without li — every item must be inside <code>&lt;li&gt;</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Make a numbered list of 3 things you want to learn.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -125,6 +216,27 @@
 
   &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+    <div class="more">
+    <p>Forms are how a site gets information from people: sign-up, search, comments. <code>&lt;input&gt;</code> is a field; its <code>type</code> changes how it works: <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>checkbox</code>.</p>
+    <p>A <code>&lt;label&gt;</code> linked with <code>for</code> makes the caption clickable and helps screen readers. The <code>placeholder</code> is a grey hint that disappears when you type.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;label for=&quot;name&quot;&gt;</code><span>the caption for the field with id="name".</span></div>
+        <div class="bd-row"><code>&lt;input id=&quot;name&quot; type=&quot;text&quot;&gt;</code><span>a one-line text field.</span></div>
+        <div class="bd-row"><code>type=&quot;email&quot;</code><span>the browser checks that it looks like an email.</span></div>
+        <div class="bd-row"><code>&lt;button type=&quot;submit&quot;&gt;</code><span>the button that sends the form.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Different values in <code>for</code> and <code>id</code> — then clicking the label does nothing.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a password field with a label to the form.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;label for=&quot;pass&quot;&gt;Password&lt;/label&gt;
+&lt;input id=&quot;pass&quot; type=&quot;password&quot;&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -143,6 +255,34 @@
 &lt;/main&gt;
 
 &lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
+    <div class="more">
+    <p>Semantic tags name the parts of a page: <code>header</code> (top), <code>nav</code> (menu), <code>main</code> (main content, one per page), <code>section</code> (a part with its own heading), <code>footer</code> (bottom).</p>
+    <p>They look the same as plain <code>div</code>, but they tell browsers, search engines and screen readers what each part is. That makes the site easier to use and to find.</p>
+    </div>
+    <section class="sub breakdown"><h3>Line by line</h3>
+        <div class="bd-row"><code>&lt;header&gt;</code><span>the top of the page, usually with a logo and menu.</span></div>
+        <div class="bd-row"><code>&lt;nav&gt;</code><span>a block of navigation links.</span></div>
+        <div class="bd-row"><code>&lt;section id=&quot;about&quot;&gt;</code><span>a section; the id lets a link jump to it.</span></div>
+        <div class="bd-row"><code>&lt;footer&gt;</code><span>the bottom: contacts, copyright.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Common mistakes</h3><ul>
+        <li>Two elements with the same id. An id must be unique on a page.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Try it yourself</h3>
+      <p>Add a second section "Contacts" and a link to it in the nav.</p>
+      <details class="answer"><summary>Show answer</summary>
+        <pre><code>&lt;nav&gt;
+  &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+  &lt;a href=&quot;#contacts&quot;&gt;Contacts&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section id=&quot;contacts&quot;&gt;
+  &lt;h2&gt;Contacts&lt;/h2&gt;
+  &lt;p&gt;github.com/Shiro-dev1&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="html">
@@ -177,7 +317,7 @@
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="javascript.html">← Previous language: JavaScript</a><a class="btn ghost" href="css.html">Next language: CSS →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="typescript.html">← Previous language: TypeScript</a><a class="btn ghost" href="css.html">Next language: CSS →</a></nav>
     </div>
   </div>
 </div>
@@ -188,8 +328,8 @@
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
-<script src="quiz.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
+<script src="quiz.js?v=57c62262"></script>
 </body>
 </html>

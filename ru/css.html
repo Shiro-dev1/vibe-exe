@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../css.html" + location.hash); } catch (e) {}
@@ -68,6 +68,29 @@ body {
   background: black;
   color: white;
 }</code></pre>
+    <div class="more">
+    <p>CSS — это «каскадные таблицы стилей». Один CSS-файл может оформлять весь сайт: меняешь цвет один раз — и обновляются все страницы.</p>
+    <p>Правило состоит из <b>селектора</b> (кого) и <b>объявлений</b> (что): <code>body { color: white; }</code>. Каждое объявление — <code>свойство: значение;</code>. Не забывай двоеточие и точку с запятой.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code><span>подключить файл style.css к странице.</span></div>
+        <div class="bd-row"><code>body {</code><span>селектор: оформляем всё тело страницы.</span></div>
+        <div class="bd-row"><code>background: black;</code><span>цвет фона.</span></div>
+        <div class="bd-row"><code>color: white;</code><span>цвет текста.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Неверный путь в href — стили молча не подключаются. Проверь имя файла и папку.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай всю страницу тёмно-синей с жёлтым текстом.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>body {
+  background: navy;
+  color: yellow;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -78,6 +101,28 @@ body {
 .card { border: 2px solid; }  /* class=&quot;card&quot; */
 #logo { font-size: 32px; }    /* id=&quot;logo&quot; */
 a:hover { color: white; }     /* ссылка под мышкой */</code></pre>
+    <div class="more">
+    <p>Селекторы — это то, как CSS находит элементы. Селектор тега (<code>p</code>) оформляет все такие теги. Класс (<code>.card</code>) — любой элемент с <code>class="card"</code>. id (<code>#logo</code>) — один уникальный элемент.</p>
+    <p>Если два правила спорят, побеждает более конкретное: id сильнее класса, класс сильнее тега. Если они равны, побеждает то, что ниже, — это и есть «каскад».</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>p { ... }</code><span>все абзацы.</span></div>
+        <div class="bd-row"><code>.card { ... }</code><span>каждый элемент с class="card".</span></div>
+        <div class="bd-row"><code>#logo { ... }</code><span>единственный элемент с id="logo".</span></div>
+        <div class="bd-row"><code>a:hover { ... }</code><span>:hover — это состояние: ссылка, пока на неё наведена мышь.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть точку: <code>card { }</code> ищет тег &lt;card&gt;, а не класс.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай так, чтобы у всех кнопок с классом "big" размер шрифта был 24px.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>.big {
+  font-size: 24px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -92,6 +137,29 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
   font-weight: bold;
   text-align: center;
 }</code></pre>
+    <div class="more">
+    <p>Цвета записывают по-разному: словами (<code>white</code>), hex-кодом (<code>#ff8800</code> — красный, зелёный, синий от 00 до ff) или <code>rgb(255, 136, 0)</code>. Прозрачность: <code>rgba(0, 0, 0, 0.5)</code>.</p>
+    <p><code>font-family</code> перечисляет шрифты по приоритету; в конце всегда пиши общий вариант, например <code>sans-serif</code>. <code>font-size</code> — размер, <code>font-weight</code> — толщина (400 обычный, 700 жирный).</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>color: #ffffff;</code><span>белый текст в hex.</span></div>
+        <div class="bd-row"><code>font-family: Arial, sans-serif;</code><span>использовать Arial; если его нет — любой шрифт без засечек.</span></div>
+        <div class="bd-row"><code>text-align: center;</code><span>выровнять текст по центру элемента.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть # в hex: <code>color: ffffff;</code> не работает.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай заголовки h2 оранжевыми (#ff8800), жирными и 32px.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>h2 {
+  color: #ff8800;
+  font-weight: bold;
+  font-size: 32px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -105,6 +173,30 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
   margin: 24px;           /* снаружи */
   border-radius: 8px;     /* круглые углы */
 }</code></pre>
+    <div class="more">
+    <p>Каждый элемент — прямоугольник («коробка»). Изнутри наружу: содержимое, потом <code>padding</code>, потом <code>border</code>, потом <code>margin</code>. Фон закрашивает содержимое и padding, но не margin.</p>
+    <p>Совет: добавь <code>box-sizing: border-box;</code>, чтобы ширина включала padding и рамку. Тогда карточка 300px так и останется шириной 300px.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>width: 300px;</code><span>ширина коробки.</span></div>
+        <div class="bd-row"><code>padding: 16px;</code><span>отступ между содержимым и рамкой.</span></div>
+        <div class="bd-row"><code>border: 2px solid white;</code><span>толщина, стиль и цвет рамки.</span></div>
+        <div class="bd-row"><code>margin: 24px;</code><span>отступ снаружи, между этой коробкой и соседями.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Путать padding и margin. Запомни: padding — внутри, margin — снаружи.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай блок .note: padding 20px, серая пунктирная рамка 1px и скругление 12px.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>.note {
+  padding: 20px;
+  border: 1px dashed grey;
+  border-radius: 12px;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -117,6 +209,30 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
   align-items: center;            /* поперёк ряда */
   gap: 16px;
 }</code></pre>
+    <div class="more">
+    <p>Flexbox выстраивает дочерние элементы в одну линию. Ставишь <code>display: flex</code> родителю — и дети выстраиваются в ряд.</p>
+    <p><code>justify-content</code> двигает элементы вдоль линии (в начало, по центру, равномерно), <code>align-items</code> — поперёк (вверх, по центру, вниз). <code>gap</code> — промежуток между элементами. <code>flex-direction: column</code> превращает ряд в колонку.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>display: flex;</code><span>включить flexbox для детей этого элемента.</span></div>
+        <div class="bd-row"><code>justify-content: space-between;</code><span>первый в начале, последний в конце, остальные равномерно.</span></div>
+        <div class="bd-row"><code>align-items: center;</code><span>выровнять по центру по вертикали.</span></div>
+        <div class="bd-row"><code>gap: 16px;</code><span>16px между элементами.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Ставить <code>display: flex</code> детям вместо родителя.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Поставь один элемент ровно по центру .box с помощью flexbox.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -128,6 +244,28 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }</code></pre>
+    <div class="more">
+    <p>Grid — для двух измерений: строки и колонки сразу, как таблица для раскладки. Описываешь колонки у родителя, и дети заполняют клетки по порядку.</p>
+    <p><code>repeat(3, 1fr)</code> — три равные колонки. <code>200px 1fr</code> — фиксированная боковая колонка и всё остальное место. <code>gap</code> работает и здесь.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>display: grid;</code><span>включить grid.</span></div>
+        <div class="bd-row"><code>grid-template-columns: repeat(3, 1fr);</code><span>три колонки одинаковой ширины.</span></div>
+        <div class="bd-row"><code>gap: 12px;</code><span>промежуток между клетками.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать grid для одного ряда кнопок — для одной линии проще flexbox.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай раскладку: боковая колонка 250px и основная часть на всё остальное место.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -147,6 +285,31 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
 @keyframes blink {
   50% { opacity: 0; }
 }</code></pre>
+    <div class="more">
+    <p><code>transition</code> анимирует переход между двумя состояниями, например при наведении. Указываешь, какое свойство и как долго: <code>transition: transform 0.2s</code>.</p>
+    <p><code>@keyframes</code> описывает полную анимацию по процентам времени. Потом <code>animation: имя 1s infinite</code> её проигрывает: имя, длительность и сколько раз.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>transition: transform 0.2s;</code><span>изменения transform длятся 0.2 секунды.</span></div>
+        <div class="bd-row"><code>transform: scale(1.1);</code><span>увеличить элемент на 10%.</span></div>
+        <div class="bd-row"><code>@keyframes blink { 50% { opacity: 0; } }</code><span>на середине времени элемент невидим.</span></div>
+        <div class="bd-row"><code>animation: blink 1s infinite;</code><span>проигрывать blink по 1 секунде, бесконечно.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Разные имена в @keyframes и animation — ничего не двигается.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай так, чтобы .card плавно поднималась на 4px при наведении.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>.card {
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -158,6 +321,28 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
     grid-template-columns: 1fr;
   }
 }</code></pre>
+    <div class="more">
+    <p>Большинство посетителей сидят с телефонов, поэтому сайт должен работать на узких экранах. <code>@media</code> применяет правила только при условии — обычно это ширина экрана.</p>
+    <p>Чтобы это работало, в head нужна строка <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>. Без неё телефон притворяется широким и уменьшает страницу.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>@media (max-width: 600px) {</code><span>правила внутри работают только на экранах до 600px.</span></div>
+        <div class="bd-row"><code>grid-template-columns: 1fr;</code><span>одна колонка вместо трёх.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть meta viewport — медиа-запросы как будто не работают на телефоне.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Спрячь .sidebar на экранах уже 700px.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="css">
@@ -197,7 +382,7 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="html.html">← Предыдущий язык: HTML</a><a class="btn ghost" href="c.html">Следующий язык: C →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="html.html">← Предыдущий язык: HTML</a><a class="btn ghost" href="php.html">Следующий язык: PHP →</a></nav>
     </div>
   </div>
 </div>
@@ -208,8 +393,8 @@ a:hover { color: white; }     /* ссылка под мышкой */</code></pre
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

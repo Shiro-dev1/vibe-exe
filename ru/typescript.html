@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Уроки TypeScript — VIBE.EXE</title>
+<meta name="description" content="Уроки TypeScript: от Hello, world до мини-проекта.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../typescript.html">
+<link rel="alternate" hreflang="ru" href="typescript.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../typescript.html" + location.hash); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Главная</a><a href="page2.html" aria-current="page">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../typescript.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="typescript.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Языки</a><span>›</span><span>TypeScript</span></nav>
+    <h1>Уроки TypeScript</h1>
+    <p class="lead">TypeScript — это JavaScript с типами. Ты указываешь тип каждого значения, и компилятор находит ошибки ещё до запуска. Его используют большие сайты и приложения, потому что он защищает большой код от ошибок.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Уроки</summary>
+      <div class="side-inner">
+        <div class="side-title">Уроки</div>
+        <div class="pbar" data-progress="typescript"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="typescript" data-n="1"><span class="num"><span>1</span></span>Привет, мир</a></li>
+        <li><a href="#lesson-2" data-lang="typescript" data-n="2"><span class="num"><span>2</span></span>Переменные с типами</a></li>
+        <li><a href="#lesson-3" data-lang="typescript" data-n="3"><span class="num"><span>3</span></span>Типы данных</a></li>
+        <li><a href="#lesson-4" data-lang="typescript" data-n="4"><span class="num"><span>4</span></span>Условия</a></li>
+        <li><a href="#lesson-5" data-lang="typescript" data-n="5"><span class="num"><span>5</span></span>Циклы</a></li>
+        <li><a href="#lesson-6" data-lang="typescript" data-n="6"><span class="num"><span>6</span></span>Функции</a></li>
+        <li><a href="#lesson-7" data-lang="typescript" data-n="7"><span class="num"><span>7</span></span>Интерфейсы</a></li>
+        <li><a href="#lesson-8" data-lang="typescript" data-n="8"><span class="num"><span>8</span></span>Мини-проект: список дел</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Тест</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Привет, мир</h2>
+    <p>Код на TypeScript компилятор <code>tsc</code> превращает в обычный JavaScript, и уже он работает в браузере или Node.js. Hello, world выглядит так же, как в JavaScript.</p>
+    <pre><code>console.log(&quot;Hello, world!&quot;);</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>Любая программа на JavaScript — это и программа на TypeScript. TypeScript только добавляет сверху: типы, интерфейсы и проверки. Файлы заканчиваются на <code>.ts</code>.</p>
+    <p>Браузер не понимает TypeScript напрямую. Запускаешь <code>tsc file.ts</code>, он проверяет типы и пишет <code>file.js</code>, который ты уже запускаешь. Попробовать в браузере можно на typescriptlang.org/play.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>console.log(...)</code><span>вывод в консоль, как в JavaScript.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Пытаться открыть .ts-файл прямо в браузере — сначала его нужно скомпилировать в .js.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи своё имя, а на следующей строке 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>console.log(&quot;Shiro&quot;);
+console.log(2026);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="1"></button>
+  </article>
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Переменные с типами</h2>
+    <p>После имени переменной пишут двоеточие и тип: <code>let age: number</code>. Тогда TypeScript не даст случайно положить туда текст.</p>
+    <pre><code>let userName: string = &quot;Shiro&quot;;
+let age: number = 18;
+age = age + 1;
+console.log(`${userName} is ${age}`);</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Shiro is 19</pre></div>
+    <div class="more">
+    <p>Три основных типа: <code>string</code> (текст), <code>number</code> (любое число) и <code>boolean</code> (true/false). Пишутся маленькими буквами.</p>
+    <p>Тип не всегда нужно писать: <code>let age = 18</code> для TypeScript уже число. Это называется выводом типов. Пиши типы там, где они помогают читать код, например в параметрах функций.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let userName: string = &quot;Shiro&quot;;</code><span>переменная, в которой может быть только текст.</span></div>
+        <div class="bd-row"><code>let age: number = 18;</code><span>можно только числа.</span></div>
+        <div class="bd-row"><code>`${userName} is ${age}`</code><span>шаблонная строка, как в JavaScript.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>age = "nineteen"</code> — ошибка: Type 'string' is not assignable to type 'number'. Это TypeScript тебя защищает.</li>
+        <li>Назвать переменную верхнего уровня <code>name</code>: в браузере уже есть глобальная <code>name</code>, и TypeScript скажет Cannot redeclare block-scoped variable. Возьми другое имя, например <code>userName</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай city: string и year: number и выведи: I live in Kyiv since 2020.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const city: string = &quot;Kyiv&quot;;
+const year: number = 2020;
+console.log(`I live in ${city} since ${year}`);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>I live in Kyiv since 2020</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="2"></button>
+  </article>
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Типы данных</h2>
+    <p>Типы можно комбинировать. <code>number | string</code> значит «число или строка» — это объединение типов. <code>string[]</code> — массив строк.</p>
+    <pre><code>let id: number | string = 42;   // union: number OR string
+id = &quot;A-42&quot;;
+let tags: string[] = [&quot;web&quot;, &quot;ts&quot;];
+let done: boolean = false;
+console.log(id, tags.length, done);</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>A-42 2 false</pre></div>
+    <div class="more">
+    <p>Объединение типов полезно, когда значение действительно может быть разным, например id, который иногда число, а иногда текст.</p>
+    <p>Есть ещё <code>any</code> — «что угодно». Он отключает проверку типов, поэтому используй его, только если очень нужно. Безопаснее для неизвестных данных <code>unknown</code>: перед использованием придётся проверить тип.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>let id: number | string = 42;</code><span>id может быть числом или текстом.</span></div>
+        <div class="bd-row"><code>let tags: string[] = [...]</code><span>массив, где каждый элемент — текст.</span></div>
+        <div class="bd-row"><code>tags.length</code><span>количество элементов: 2.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>tags.push(5)</code> — ошибка: число нельзя положить в string[].</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай массив scores: number[] из 3 чисел и выведи, сколько их.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const scores: number[] = [5, 8, 10];
+console.log(scores.length);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>3</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="3"></button>
+  </article>
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Условия</h2>
+    <p>Условия работают как в JavaScript. Бонус: после <code>typeof x === "number"</code> TypeScript знает, что внутри этого блока <code>x</code> — число.</p>
+    <pre><code>function describe(x: number | string): string {
+  if (typeof x === &quot;number&quot;) {
+    return &quot;number &quot; + x.toFixed(1);
+  } else {
+    return &quot;text &quot; + x.toUpperCase();
+  }
+}
+
+console.log(describe(3));
+console.log(describe(&quot;hi&quot;));</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>number 3.0
+text HI</pre></div>
+    <div class="more">
+    <p>Этот приём называется <b>сужением типа</b>. До <code>if</code> переменная <code>x</code> могла быть числом или строкой, и методы числа на ней вызвать нельзя. Внутри <code>if</code> TypeScript сузил её до числа, а в <code>else</code> это точно строка.</p>
+    <p>Для сравнения используй <code>===</code> и <code>!==</code>, как в JavaScript.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>typeof x === &quot;number&quot;</code><span>проверка типа во время работы программы.</span></div>
+        <div class="bd-row"><code>x.toFixed(1)</code><span>метод числа: 1 знак после точки.</span></div>
+        <div class="bd-row"><code>x.toUpperCase()</code><span>метод строки: заглавные буквы.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Вызвать <code>x.toUpperCase()</code> до проверки типа — ошибка, ведь x может быть числом.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>const t: number = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>const t: number = 30;
+if (t &gt; 25) {
+  console.log(&quot;Hot&quot;);
+} else {
+  console.log(&quot;OK&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="4"></button>
+  </article>
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Циклы</h2>
+    <p><code>for ... of</code> проходит по каждому элементу массива. Классический <code>for</code> со счётчиком тоже работает.</p>
+    <pre><code>const langs: string[] = [&quot;TS&quot;, &quot;JS&quot;, &quot;Go&quot;];
+for (const lang of langs) {
+  console.log(lang);
+}
+
+for (let i = 0; i &lt; 3; i++) {
+  console.log(&quot;Step&quot;, i);
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>TS
+JS
+Go
+Step 0
+Step 1
+Step 2</pre></div>
+    <div class="more">
+    <p>Внутри <code>for (const lang of langs)</code> TypeScript знает, что <code>lang</code> — строка, ведь <code>langs</code> это <code>string[]</code>. Подсказки и проверки получаешь бесплатно.</p>
+    <p>Не путай <code>for ... of</code> (значения) и <code>for ... in</code> (ключи/индексы) — для массивов почти всегда нужен <code>of</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (const lang of langs)</code><span>lang по очереди — каждый элемент.</span></div>
+        <div class="bd-row"><code>for (let i = 0; i &lt; 3; i++)</code><span>счётчик от 0 до 2.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Использовать <code>for (const x in arr)</code> и получить "0", "1", "2" вместо значений.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (let i = 1; i &lt;= 5; i++) {
+  console.log(i);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="5"></button>
+  </article>
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Функции</h2>
+    <p>В TypeScript указывают типы параметров и результата. Тогда никто не сможет вызвать функцию с неправильными значениями.</p>
+    <pre><code>function add(a: number, b: number): number {
+  return a + b;
+}
+
+const greet = (name: string): string =&gt; `Hello, ${name}!`;
+
+console.log(add(2, 3));
+console.log(greet(&quot;Shiro&quot;));</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>5
+Hello, Shiro!</pre></div>
+    <div class="more">
+    <p>Тип после скобок <code>): number</code> — это тип результата. Если функция ничего не возвращает, пиши <code>: void</code>.</p>
+    <p>Параметр можно сделать необязательным через <code>?</code>: <code>function hi(name?: string)</code>, или дать ему значение по умолчанию: <code>function hi(name = "friend")</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>function add(a: number, b: number): number</code><span>на входе два числа, на выходе число.</span></div>
+        <div class="bd-row"><code>(name: string): string =&gt; ...</code><span>стрелочная функция с типами.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>add("2", 3)</code> — ошибка: строка не число. В обычном JavaScript это молча дало бы "23".</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши square(n: number): number и выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>function square(n: number): number {
+  return n * n;
+}
+console.log(square(7));</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="6"></button>
+  </article>
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Интерфейсы</h2>
+    <p><code>interface</code> описывает форму объекта: какие у него поля и какого они типа. <code>?</code> отмечает поле, которого может не быть.</p>
+    <pre><code>interface User {
+  name: string;
+  age: number;
+  email?: string;   // ? = optional
+}
+
+const user: User = { name: &quot;Shiro&quot;, age: 18 };
+console.log(user.name, user.age);
+console.log(user.email ?? &quot;no email&quot;);</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>Shiro 18
+no email</pre></div>
+    <div class="more">
+    <p>Объекты повсюду в веб-приложениях: пользователи, товары, сообщения. Интерфейс — это договор: у каждого <code>User</code> должны быть name и age. Если забудешь поле или опечатаешься, TypeScript сразу скажет.</p>
+    <p><code>??</code> значит «если слева ничего нет (null или undefined), возьми то, что справа».</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>interface User { ... }</code><span>описываем, как выглядит пользователь.</span></div>
+        <div class="bd-row"><code>email?: string;</code><span>email может отсутствовать.</span></div>
+        <div class="bd-row"><code>user.email ?? &quot;no email&quot;</code><span>взять текст, если email нет.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>{ name: "Shiro" }</code> без age — ошибка: Property 'age' is missing.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Сделай интерфейс Product с title: string и price: number, создай товар и выведи его title.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>interface Product {
+  title: string;
+  price: number;
+}
+const p: Product = { title: &quot;Book&quot;, price: 12 };
+console.log(p.title);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Book</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="7"></button>
+  </article>
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Мини-проект: список дел</h2>
+    <p>Всё вместе: интерфейс для задачи, типизированный массив, функция, которая добавляет задачи, и цикл, который их выводит.</p>
+    <pre><code>interface Task {
+  title: string;
+  done: boolean;
+}
+
+const tasks: Task[] = [];
+
+function addTask(title: string): void {
+  tasks.push({ title, done: false });
+}
+
+addTask(&quot;Learn TypeScript&quot;);
+addTask(&quot;Build a site&quot;);
+tasks[0].done = true;
+
+for (const t of tasks) {
+  console.log((t.done ? &quot;[x] &quot; : &quot;[ ] &quot;) + t.title);
+}</code></pre>
+    <div class="out"><span class="out-label">Вывод</span><pre>[x] Learn TypeScript
+[ ] Build a site</pre></div>
+    <div class="more">
+    <p>Это сердце любого приложения со списком дел. <code>Task[]</code> — «массив задач». <code>{ title, done: false }</code> — короткая запись <code>{ title: title, done: false }</code>.</p>
+    <p><code>условие ? a : b</code> — короткий if: если done, берём "[x] ", иначе "[ ] ". В настоящем приложении тот же код рисовал бы список на странице.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>const tasks: Task[] = [];</code><span>пустой массив, в котором будут только задачи.</span></div>
+        <div class="bd-row"><code>function addTask(title: string): void</code><span>добавляет задачу, ничего не возвращает.</span></div>
+        <div class="bd-row"><code>t.done ? &quot;[x] &quot; : &quot;[ ] &quot;</code><span>выбрать отметку по done.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>tasks.push({ title })</code> без done — ошибка: Property 'done' is missing.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь функцию countDone(): number, которая возвращает, сколько задач выполнено, и выведи результат.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>interface Task {
+  title: string;
+  done: boolean;
+}
+
+const tasks: Task[] = [
+  { title: &quot;Learn TypeScript&quot;, done: true },
+  { title: &quot;Build a site&quot;, done: false },
+];
+
+function countDone(): number {
+  return tasks.filter((t) =&gt; t.done).length;
+}
+
+console.log(countDone());</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1</pre></div>
+      </details>
+    </section>
+    <button class="done-btn" type="button" data-lang="typescript" data-n="8"></button>
+  </article>
+  <section class="quiz" id="quiz" data-lang="typescript">
+    <div class="quiz-head"><h2>Тест</h2><p>5 вопросов. Выбери ответ — сразу увидишь, верно ли.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. Что выведет этот код?</p>
+      <pre><code>let a: number = 5;
+a = a * 2;
+console.log(a);</code></pre>
+      <div class="opts"><button type="button">5</button><button type="button">10</button><button type="button">52</button><button type="button">Error</button></div>
+      <p class="why" hidden>a было 5, потом умножили на 2.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Что тут случится?</p>
+      <pre><code>let age: number = 18;
+age = &quot;18&quot;;</code></pre>
+      <div class="opts"><button type="button">age станет &quot;18&quot;</button><button type="button">Ошибка компиляции</button><button type="button">age останется 18</button><button type="button">Выведется 18</button></div>
+      <p class="why" hidden>В числовую переменную нельзя положить текст — компилятор остановит.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. Что значит number | string?</p>
+      <div class="opts"><button type="button">Число и строка одновременно</button><button type="button">Число или строка</button><button type="button">Число внутри строки</button><button type="button">Ошибка</button></div>
+      <p class="why" hidden>| — объединение: значение одного из этих типов.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Какой знак делает поле интерфейса необязательным?</p>
+      <pre><code>interface User {
+  email___: string;
+}</code></pre>
+      <div class="opts"><button type="button">!</button><button type="button">?</button><button type="button">*</button><button type="button">#</button></div>
+      <p class="why" hidden>email?: string значит, что поля может не быть.</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Что выведет этот код?</p>
+      <pre><code>const nums: number[] = [1, 2, 3];
+nums.push(4);
+console.log(nums.length);</code></pre>
+      <div class="opts"><button type="button">3</button><button type="button">4</button><button type="button">10</button><button type="button">Error</button></div>
+      <p class="why" hidden>push добавил ещё один элемент.</p>
+    </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
+  </section>
+  <nav class="pager"><a class="btn ghost" href="javascript.html">← Предыдущий язык: JavaScript</a><a class="btn ghost" href="html.html">Следующий язык: HTML →</a></nav>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
+</body>
+</html>

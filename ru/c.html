@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../c.html" + location.hash); } catch (e) {}
@@ -67,6 +67,35 @@ int main(void) {
     return 0;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <div class="more">
+    <p>Программу на C пишут в текстовом файле, а потом <b>компилируют</b> — превращают в исполняемый файл, понятный компьютеру. В браузере это делается в один клик на сайтах вроде onlinegdb.com.</p>
+    <p><code>#include &lt;stdio.h&gt;</code> подключает стандартную библиотеку ввода-вывода, где живёт <code>printf</code>. <code>int main(void)</code> — точка, откуда начинается программа. <code>return 0;</code> сообщает системе «всё прошло хорошо».</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>#include &lt;stdio.h&gt;</code><span>подключить библиотеку с printf.</span></div>
+        <div class="bd-row"><code>int main(void) {</code><span>главная функция; int значит, что она возвращает целое число.</span></div>
+        <div class="bd-row"><code>printf(&quot;Hello, world!\n&quot;);</code><span>вывести текст; \n переносит на новую строку.</span></div>
+        <div class="bd-row"><code>return 0;</code><span>успешно завершить программу.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>;</code> в конце строки — компилятор остановится с ошибкой.</li>
+        <li>Забыть <code>\n</code> — следующий текст приклеится к той же строке.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи две строки: своё имя и число 2026.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Shiro\n&quot;);
+    printf(&quot;%d\n&quot;, 2026);
+    return 0;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro
+2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="1"></button>
   </article>
   <article class="lesson" id="lesson-2">
@@ -83,6 +112,29 @@ printf(&quot;Letter: %c\n&quot;, letter);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Age: 18
 Price: 9.99
 Letter: S</pre></div>
+    <div class="more">
+    <p>В C у каждой переменной фиксированный тип, который пишут перед именем. По нему компилятор понимает, сколько памяти выделить.</p>
+    <p><code>printf</code> сам не знает типов, поэтому ему подсказывают кодами: <code>%d</code> для int, <code>%f</code> для float/double, <code>%c</code> для char, <code>%s</code> для текста. Значения идут после текста в том же порядке.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>int age = 18;</code><span>целое число.</span></div>
+        <div class="bd-row"><code>float price = 9.99f;</code><span>дробное число; f в конце означает float.</span></div>
+        <div class="bd-row"><code>char letter = &#x27;S&#x27;;</code><span>один символ, в одинарных кавычках.</span></div>
+        <div class="bd-row"><code>printf(&quot;Price: %.2f\n&quot;, price);</code><span>%.2f — число ровно с 2 знаками после точки.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Не тот код формата: <code>printf("%d", price)</code> для float выведет мусор.</li>
+        <li>Двойные кавычки для char: <code>char c = "S";</code> — ошибка, нужно <code>'S'</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай int year = 2026 и выведи "Year: 2026".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int year = 2026;
+printf(&quot;Year: %d\n&quot;, year);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Year: 2026</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="2"></button>
   </article>
   <article class="lesson" id="lesson-3">
@@ -96,6 +148,27 @@ char word[] = &quot;VIBE&quot;;     // текст
 
 printf(&quot;%s has %zu letters\n&quot;, word, sizeof(word) - 1);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>VIBE has 4 letters</pre></div>
+    <div class="more">
+    <p>В C нет отдельного типа для строк: текст — это массив <code>char</code>, который заканчивается скрытым нулевым символом <code>'\0'</code>. Поэтому <code>sizeof("VIBE")</code> равен 5, а не 4.</p>
+    <p><code>double</code> похож на float, но точнее — по умолчанию используй его для дробных чисел. Для длины текста есть <code>strlen()</code> из <code>&lt;string.h&gt;</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>double precise = 3.14159;</code><span>точное дробное число.</span></div>
+        <div class="bd-row"><code>char word[] = &quot;VIBE&quot;;</code><span>текст: массив из 5 символов (4 буквы + скрытый \0).</span></div>
+        <div class="bd-row"><code>sizeof(word) - 1</code><span>размер в байтах минус скрытый символ конца.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Сравнивать тексты через <code>==</code>. В C нужно <code>strcmp(a, b) == 0</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Создай char name[] = "Shiro" и выведи "Shiro has 5 letters" через sizeof.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>char name[] = &quot;Shiro&quot;;
+printf(&quot;%s has %zu letters\n&quot;, name, sizeof(name) - 1);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Shiro has 5 letters</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="3"></button>
   </article>
   <article class="lesson" id="lesson-4">
@@ -112,6 +185,31 @@ if (age &gt;= 18) {
     printf(&quot;Kid\n&quot;);
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <div class="more">
+    <p><code>if</code> в C работает как в большинстве языков: условие в скобках, блок в фигурных. В C «истина» — это любое число кроме 0, а «ложь» — это 0.</p>
+    <p>Условия соединяют через <code>&amp;&amp;</code> (и), <code>||</code> (или) и <code>!</code> (не). Например: <code>if (age &gt;= 13 &amp;&amp; age &lt; 18)</code>.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>if (age &gt;= 18) {</code><span>проверка: age 18 или больше.</span></div>
+        <div class="bd-row"><code>} else if (age &gt;= 13) {</code><span>иначе проверяем следующее условие.</span></div>
+        <div class="bd-row"><code>} else {</code><span>если ничего не подошло.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>if (x = 5)</code> присваивает 5 и всегда истинно. Сравнивай через <code>==</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>int t = 30. Выведи "Hot", если t > 25, иначе "OK".</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int t = 30;
+if (t &gt; 25) {
+    printf(&quot;Hot\n&quot;);
+} else {
+    printf(&quot;OK\n&quot;);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>Hot</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="4"></button>
   </article>
   <article class="lesson" id="lesson-5">
@@ -133,6 +231,32 @@ Step 2
 3
 2
 1</pre></div>
+    <div class="more">
+    <p>Циклы в C: <code>for</code> (начало; условие; шаг), <code>while</code> (повторять, пока верно) и <code>do ... while</code>, который выполнится хотя бы раз. Они такие же, как в JavaScript, C++, Java и C#: выучил один раз — пользуешься везде.</p>
+    <p><code>break</code> досрочно выходит из цикла, <code>continue</code> переходит к следующему кругу.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>for (int i = 0; i &lt; 3; i++)</code><span>i = 0, 1, 2; после каждого круга i растёт на 1.</span></div>
+        <div class="bd-row"><code>while (count &gt; 0)</code><span>повторять, пока count больше нуля.</span></div>
+        <div class="bd-row"><code>count--;</code><span>отнять 1.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li><code>for (int i = 0; i &lt;= 3; i++)</code> выполнится 4 раза, а не 3 — следи за &lt; и &lt;=.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Выведи числа от 1 до 5.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>for (int i = 1; i &lt;= 5; i++) {
+    printf(&quot;%d\n&quot;, i);
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>1
+2
+3
+4
+5</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="5"></button>
   </article>
   <article class="lesson" id="lesson-6">
@@ -150,6 +274,35 @@ int main(void) {
     return 0;
 }</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>5</pre></div>
+    <div class="more">
+    <p>Функция в C указывает, какой тип она возвращает, своё имя и типы параметров: <code>int add(int a, int b)</code>. Если функция ничего не возвращает, её тип — <code>void</code>.</p>
+    <p>Компилятор читает сверху вниз, поэтому функцию нужно написать (или объявить) выше того места, где её вызывают.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>int add(int a, int b) {</code><span>возвращает int, принимает два int.</span></div>
+        <div class="bd-row"><code>return a + b;</code><span>вернуть сумму.</span></div>
+        <div class="bd-row"><code>add(2, 3)</code><span>вызов функции: a = 2, b = 3.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Написать функцию ниже main без объявления — компилятор будет ругаться.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Напиши int square(int n), которая возвращает n * n, и выведи square(7).</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int square(int n) {
+    return n * n;
+}
+
+int main(void) {
+    printf(&quot;%d\n&quot;, square(7));
+    return 0;
+}</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>49</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="6"></button>
   </article>
   <article class="lesson" id="lesson-7">
@@ -165,6 +318,31 @@ for (int i = 0; i &lt; size; i++) {
 }
 printf(&quot;Sum: %d\n&quot;, sum);</code></pre>
     <div class="out"><span class="out-label">Вывод</span><pre>Sum: 100</pre></div>
+    <div class="more">
+    <p>Массив в C — это фиксированное количество значений одного типа, стоящих в памяти рядом. После создания его размер не меняется.</p>
+    <p>C не проверяет, правильный ли индекс: <code>scores[10]</code> в массиве из 4 элементов читает чужую память. Это классический источник ошибок, поэтому всегда следи за размером.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>int scores[] = {10, 20, 30, 40};</code><span>массив из 4 int; размер посчитан по списку.</span></div>
+        <div class="bd-row"><code>sizeof(scores) / sizeof(scores[0])</code><span>все байты делим на байты одного элемента = количество элементов.</span></div>
+        <div class="bd-row"><code>sum += scores[i];</code><span>прибавить каждый элемент к sum.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Выйти на шаг дальше: <code>i &lt;= size</code> вместо <code>i &lt; size</code>.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Найди самое большое число в {3, 9, 4, 7} и выведи его.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>int a[] = {3, 9, 4, 7};
+int max = a[0];
+for (int i = 1; i &lt; 4; i++) {
+    if (a[i] &gt; max) max = a[i];
+}
+printf(&quot;%d\n&quot;, max);</code></pre>
+        <div class="out"><span class="out-label">Вывод</span><pre>9</pre></div>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="7"></button>
   </article>
   <article class="lesson" id="lesson-8">
@@ -195,6 +373,43 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+    <div class="more">
+    <p><code>rand()</code> даёт псевдослучайное число; <code>% 10</code> оставляет остаток от 0 до 9, а <code>+ 1</code> делает от 1 до 10. <code>srand(time(NULL))</code> перемешивает генератор текущим временем, чтобы каждая игра была разной.</p>
+    <p><code>scanf("%d", &amp;guess)</code> читает число с клавиатуры. <code>&amp;</code> значит «адрес guess»: scanf должен знать, куда положить значение.</p>
+    </div>
+    <section class="sub breakdown"><h3>Разбор кода</h3>
+        <div class="bd-row"><code>srand(time(NULL));</code><span>запустить генератор случайных чисел от текущего времени.</span></div>
+        <div class="bd-row"><code>rand() % 10 + 1</code><span>случайное число от 1 до 10.</span></div>
+        <div class="bd-row"><code>scanf(&quot;%d&quot;, &amp;guess);</code><span>прочитать целое число в guess.</span></div>
+    </section>
+    <section class="sub mistakes"><h3>Частые ошибки</h3><ul>
+        <li>Забыть <code>&amp;</code> в scanf — программа может упасть.</li>
+      </ul>
+    </section>
+    <section class="sub task"><h3>Попробуй сам</h3>
+      <p>Добавь счётчик попыток и выведи его в конце.</p>
+      <details class="answer"><summary>Показать ответ</summary>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void) {
+    srand(time(NULL));
+    int secret = rand() % 10 + 1;
+    int guess = 0, tries = 0;
+
+    while (guess != secret) {
+        printf(&quot;Guess a number from 1 to 10: &quot;);
+        scanf(&quot;%d&quot;, &amp;guess);
+        tries++;
+        if (guess &lt; secret) printf(&quot;Bigger!\n&quot;);
+        else if (guess &gt; secret) printf(&quot;Smaller!\n&quot;);
+    }
+    printf(&quot;You got it in %d tries!\n&quot;, tries);
+    return 0;
+}</code></pre>
+      </details>
+    </section>
     <button class="done-btn" type="button" data-lang="c" data-n="8"></button>
   </article>
   <section class="quiz" id="quiz" data-lang="c">
@@ -234,7 +449,7 @@ printf(&quot;%d\n&quot;, a[2]);</code></pre>
     <p class="score" hidden></p>
     <button class="btn retry" type="button" hidden></button>
   </section>
-  <nav class="pager"><a class="btn ghost" href="css.html">← Предыдущий язык: CSS</a><a class="btn ghost" href="cpp.html">Следующий язык: C++ →</a></nav>
+  <nav class="pager"><a class="btn ghost" href="java.html">← Предыдущий язык: Java</a><a class="btn ghost" href="cpp.html">Следующий язык: C++ →</a></nav>
     </div>
   </div>
 </div>
@@ -245,8 +460,8 @@ printf(&quot;%d\n&quot;, a[2]);</code></pre>
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
-<script src="../quiz.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
+<script src="../quiz.js?v=57c62262"></script>
 </body>
 </html>

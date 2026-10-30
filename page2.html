@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Languages — VIBE.EXE</title>
-<meta name="description" content="Eight popular programming languages: what they are for and how they look.">
+<meta name="description" content="Twelve popular programming languages: what they are for and how they look.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="page2.html">
 <link rel="alternate" hreflang="ru" href="ru/page2.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/page2.html" + location.hash); } catch (e) {}
@@ -31,7 +31,7 @@
 </header>
 <main>
 <div class="wrap">
-  <header class="page-head"><h1>Programming languages</h1><p class="lead">A language is how you talk to a computer. Each one is good at something different. Here are eight you will meet most often, each with the classic first program: printing &quot;Hello, world!&quot;.</p></header>
+  <header class="page-head"><h1>Programming languages</h1><p class="lead">A language is how you talk to a computer. Each one is good at something different. Here are twelve you will meet most often, each with the classic first program: printing &quot;Hello, world!&quot;.</p></header>
   <div class="lang-list">
   <article class="lang-item" id="python">
     <div>
@@ -50,6 +50,16 @@
       <p>The language of the web: it runs in every browser. The eye on the home page is JavaScript.</p>
       <div class="pbar" data-progress="javascript"></div>
       <div class="btn-row"><a class="btn small" href="javascript.html">Open lessons →</a></div>
+    </div>
+    <div><pre><code>console.log(&quot;Hello, world!&quot;);</code></pre></div>
+  </article>
+  <article class="lang-item" id="typescript">
+    <div>
+      <h2>TypeScript</h2>
+      <dl class="facts"><dt>Born</dt><dd>2012</dd><dt>Author</dt><dd>Anders Hejlsberg (Microsoft)</dd><dt>Used for</dt><dd>big websites and web apps</dd></dl>
+      <p>JavaScript with types. The same author created C#. Used by VS Code, Slack and many large sites.</p>
+      <div class="pbar" data-progress="typescript"></div>
+      <div class="btn-row"><a class="btn small" href="typescript.html">Open lessons →</a></div>
     </div>
     <div><pre><code>console.log(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
@@ -72,6 +82,31 @@
       <div class="btn-row"><a class="btn small" href="css.html">Open lessons →</a></div>
     </div>
     <div><pre><code>h1 { color: white; background: black; }</code></pre></div>
+  </article>
+  <article class="lang-item" id="php">
+    <div>
+      <h2>PHP</h2>
+      <dl class="facts"><dt>Born</dt><dd>1995</dd><dt>Author</dt><dd>Rasmus Lerdorf</dd><dt>Used for</dt><dd>websites, blogs, online shops</dd></dl>
+      <p>Runs on the server and builds pages. WordPress, Wikipedia and Facebook&#x27;s first version were made with PHP.</p>
+      <div class="pbar" data-progress="php"></div>
+      <div class="btn-row"><a class="btn small" href="php.html">Open lessons →</a></div>
+    </div>
+    <div><pre><code>&lt;?php
+echo &quot;Hello, world!&quot;;</code></pre></div>
+  </article>
+  <article class="lang-item" id="java">
+    <div>
+      <h2>Java</h2>
+      <dl class="facts"><dt>Born</dt><dd>1995</dd><dt>Author</dt><dd>James Gosling (Sun Microsystems)</dd><dt>Used for</dt><dd>Android apps, servers, big company systems</dd></dl>
+      <p>Strict and reliable, runs on almost any device. Android apps and Minecraft are written in Java.</p>
+      <div class="pbar" data-progress="java"></div>
+      <div class="btn-row"><a class="btn small" href="java.html">Open lessons →</a></div>
+    </div>
+    <div><pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello, world!&quot;);
+    }
+}</code></pre></div>
   </article>
   <article class="lang-item" id="c">
     <div>
@@ -113,6 +148,22 @@ int main() {
     </div>
     <div><pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
+  <article class="lang-item" id="go">
+    <div>
+      <h2>Go</h2>
+      <dl class="facts"><dt>Born</dt><dd>2009</dd><dt>Author</dt><dd>Robert Griesemer, Rob Pike, Ken Thompson (Google)</dd><dt>Used for</dt><dd>servers, cloud services, command line tools</dd></dl>
+      <p>Simple, fast and great at doing many things at once. Docker and Kubernetes are written in Go.</p>
+      <div class="pbar" data-progress="go"></div>
+      <div class="btn-row"><a class="btn small" href="go.html">Open lessons →</a></div>
+    </div>
+    <div><pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, world!&quot;)
+}</code></pre></div>
+  </article>
   <article class="lang-item" id="rust">
     <div>
       <h2>Rust</h2>
@@ -134,7 +185,7 @@ int main() {
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="site.js"></script>
-<script src="progress.js"></script>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=5689a299"></script>
 </body>
 </html>

@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Языки — VIBE.EXE</title>
-<meta name="description" content="Восемь популярных языков программирования: для чего они и как выглядят.">
+<meta name="description" content="Двенадцать популярных языков программирования: для чего они и как выглядят.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="../page2.html">
 <link rel="alternate" hreflang="ru" href="page2.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../site.css?v=5d480f3f">
 <script>
   // Если раньше выбран другой язык — сразу открываем его версию страницы
   try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../page2.html" + location.hash); } catch (e) {}
@@ -31,7 +31,7 @@
 </header>
 <main>
 <div class="wrap">
-  <header class="page-head"><h1>Языки программирования</h1><p class="lead">Язык программирования — это то, как ты разговариваешь с компьютером. Каждый хорош в чём-то своём. Вот восемь, которые встречаются чаще всего, и у каждого — классическая первая программа: вывести &quot;Hello, world!&quot;.</p></header>
+  <header class="page-head"><h1>Языки программирования</h1><p class="lead">Язык программирования — это то, как ты разговариваешь с компьютером. Каждый хорош в чём-то своём. Вот двенадцать, которые встречаются чаще всего, и у каждого — классическая первая программа: вывести &quot;Hello, world!&quot;.</p></header>
   <div class="lang-list">
   <article class="lang-item" id="python">
     <div>
@@ -50,6 +50,16 @@
       <p>Язык интернета: работает в любом браузере. Глаз на главной странице — это JavaScript.</p>
       <div class="pbar" data-progress="javascript"></div>
       <div class="btn-row"><a class="btn small" href="javascript.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>console.log(&quot;Hello, world!&quot;);</code></pre></div>
+  </article>
+  <article class="lang-item" id="typescript">
+    <div>
+      <h2>TypeScript</h2>
+      <dl class="facts"><dt>Год</dt><dd>2012</dd><dt>Автор</dt><dd>Андерс Хейлсберг (Microsoft)</dd><dt>Для чего</dt><dd>большие сайты и веб-приложения</dd></dl>
+      <p>JavaScript с типами. Его создал тот же автор, что и C#. На нём написаны VS Code, Slack и многие большие сайты.</p>
+      <div class="pbar" data-progress="typescript"></div>
+      <div class="btn-row"><a class="btn small" href="typescript.html">Открыть уроки →</a></div>
     </div>
     <div><pre><code>console.log(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
@@ -72,6 +82,31 @@
       <div class="btn-row"><a class="btn small" href="css.html">Открыть уроки →</a></div>
     </div>
     <div><pre><code>h1 { color: white; background: black; }</code></pre></div>
+  </article>
+  <article class="lang-item" id="php">
+    <div>
+      <h2>PHP</h2>
+      <dl class="facts"><dt>Год</dt><dd>1995</dd><dt>Автор</dt><dd>Расмус Лердорф</dd><dt>Для чего</dt><dd>сайты, блоги, интернет-магазины</dd></dl>
+      <p>Работает на сервере и собирает страницы. На PHP сделаны WordPress, Википедия и первая версия Facebook.</p>
+      <div class="pbar" data-progress="php"></div>
+      <div class="btn-row"><a class="btn small" href="php.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>&lt;?php
+echo &quot;Hello, world!&quot;;</code></pre></div>
+  </article>
+  <article class="lang-item" id="java">
+    <div>
+      <h2>Java</h2>
+      <dl class="facts"><dt>Год</dt><dd>1995</dd><dt>Автор</dt><dd>Джеймс Гослинг (Sun Microsystems)</dd><dt>Для чего</dt><dd>Android-приложения, серверы, системы больших компаний</dd></dl>
+      <p>Строгий и надёжный, работает почти на любом устройстве. На Java написаны Android-приложения и Minecraft.</p>
+      <div class="pbar" data-progress="java"></div>
+      <div class="btn-row"><a class="btn small" href="java.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello, world!&quot;);
+    }
+}</code></pre></div>
   </article>
   <article class="lang-item" id="c">
     <div>
@@ -113,6 +148,22 @@ int main() {
     </div>
     <div><pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
+  <article class="lang-item" id="go">
+    <div>
+      <h2>Go</h2>
+      <dl class="facts"><dt>Год</dt><dd>2009</dd><dt>Автор</dt><dd>Роберт Гризмер, Роб Пайк, Кен Томпсон (Google)</dd><dt>Для чего</dt><dd>серверы, облачные сервисы, утилиты для терминала</dd></dl>
+      <p>Простой, быстрый и умеет делать много дел одновременно. На Go написаны Docker и Kubernetes.</p>
+      <div class="pbar" data-progress="go"></div>
+      <div class="btn-row"><a class="btn small" href="go.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Hello, world!&quot;)
+}</code></pre></div>
+  </article>
   <article class="lang-item" id="rust">
     <div>
       <h2>Rust</h2>
@@ -134,7 +185,7 @@ int main() {
     <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
   </div>
 </footer>
-<script src="../site.js"></script>
-<script src="../progress.js"></script>
+<script src="../site.js?v=76c415b1"></script>
+<script src="../progress.js?v=5689a299"></script>
 </body>
 </html>
