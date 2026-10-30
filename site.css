@@ -53,6 +53,9 @@ pre { tab-size: 4; }
   border-bottom: 1px solid var(--line);
 }
 .head-row { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+/* Шапка на всю ширину экрана: логотип в левом углу, меню и язык — в правом */
+.site-head .wrap { max-width: none; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 720px) { .site-head .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
 .logo { font-family: var(--display); font-weight: 700; font-size: 18px; text-decoration: none; letter-spacing: 0.02em; }
 .logo span { color: var(--faint); }
 .site-nav { display: flex; gap: 4px; margin-left: auto; }
