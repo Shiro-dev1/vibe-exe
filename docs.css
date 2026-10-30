@@ -49,6 +49,15 @@ p code, .lead code { background: #222; padding: 0 4px; }
 .go { margin-top: 12px; color: var(--dim); }
 .go b { color: var(--fg); font-weight: 400; background: #222; padding: 0 6px; }
 
+/* Подвал со ссылкой на GitHub */
+.foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
+  margin-top: 48px; padding-top: 16px; border-top: 2px solid var(--fg);
+  color: var(--dim);
+}
+.foot a { color: var(--fg); text-decoration: none; border-bottom: 2px solid var(--fg); }
+.foot a:hover { background: var(--fg); color: var(--bg); }
+
 /* Таблица команд на странице про Linux */
 .cmd { display: grid; grid-template-columns: 210px 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
 .cmd:last-child { border-bottom: 0; }
