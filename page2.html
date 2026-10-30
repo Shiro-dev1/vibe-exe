@@ -20,7 +20,8 @@
 <main>
   <div class="label">// PAGE 02</div>
   <h1>LANGUAGES.DOC</h1>
-  <p class="lead">A language is how you talk to a computer. Each one is good at something different. Here are six you will meet most often, with the classic first program: printing "Hello, world!".</p>
+  <p class="lead" style="margin-bottom:16px">A language is how you talk to a computer. Each one is good at something different. Here are eight you will meet most often, with the classic first program: printing "Hello, world!".</p>
+  <p class="lead">Want to learn one? Type its name in the terminal, for example <code>python</code>, and you will get lessons from the very first line to a mini project.</p>
 
   <article class="doc">
     <div class="doc-bar"><span>PYTHON.DOC</span><span>01</span></div>
@@ -32,6 +33,7 @@
       </dl>
       <p>Simple and readable, almost like English. A great first language. Most Telegram bots are written in Python.</p>
       <pre><code>print("Hello, world!")</code></pre>
+      <p class="go">&gt; type <b>python</b> to open the lessons</p>
     </div>
   </article>
 
@@ -45,6 +47,7 @@
       </dl>
       <p>The language of the web: it runs in every browser. All the moving dots on page 1 are JavaScript.</p>
       <pre><code>console.log("Hello, world!");</code></pre>
+      <p class="go">&gt; type <b>js</b> to open the lessons</p>
     </div>
   </article>
 
@@ -58,6 +61,7 @@
       </dl>
       <p>Not a programming language but a markup language: it says what is on the page — headings, text, buttons, images.</p>
       <pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre>
+      <p class="go">&gt; type <b>html</b> to open the lessons</p>
     </div>
   </article>
 
@@ -71,6 +75,7 @@
       </dl>
       <p>HTML says what is on the page, CSS says how it looks. This black and white style is CSS.</p>
       <pre><code>h1 { color: white; background: black; }</code></pre>
+      <p class="go">&gt; type <b>css</b> to open the lessons</p>
     </div>
   </article>
 
@@ -89,11 +94,45 @@ int main(void) {
     printf("Hello, world!\n");
     return 0;
 }</code></pre>
+      <p class="go">&gt; type <b>c</b> to open the lessons</p>
     </div>
   </article>
 
   <article class="doc">
-    <div class="doc-bar"><span>RUST.DOC</span><span>06</span></div>
+    <div class="doc-bar"><span>CPP.DOC</span><span>06</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>1985</dd>
+        <dt>AUTHOR</dt><dd>Bjarne Stroustrup (Bell Labs)</dd>
+        <dt>USED FOR</dt><dd>games, game engines, browsers, fast apps</dd>
+      </dl>
+      <p>C with classes and many tools on top. Unreal Engine and Chrome are written in C++.</p>
+      <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, world!" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+      <p class="go">&gt; type <b>cpp</b> to open the lessons</p>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>CSHARP.DOC</span><span>07</span></div>
+    <div class="doc-body">
+      <dl class="facts">
+        <dt>BORN</dt><dd>2000</dd>
+        <dt>AUTHOR</dt><dd>Anders Hejlsberg (Microsoft)</dd>
+        <dt>USED FOR</dt><dd>Unity games, Windows apps, websites</dd>
+      </dl>
+      <p>A language from Microsoft, similar to Java and C++ but easier. Most Unity games are written in C#.</p>
+      <pre><code>Console.WriteLine("Hello, world!");</code></pre>
+      <p class="go">&gt; type <b>csharp</b> to open the lessons</p>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>RUST.DOC</span><span>08</span></div>
     <div class="doc-body">
       <dl class="facts">
         <dt>BORN</dt><dd>2015 (version 1.0)</dd>
@@ -104,10 +143,11 @@ int main(void) {
       <pre><code>fn main() {
     println!("Hello, world!");
 }</code></pre>
+      <p class="go">&gt; type <b>rust</b> to open the lessons</p>
     </div>
   </article>
 
-  <p class="tip">// type "page 3" in the terminal to read about Linux</p>
+  <p class="tip">// type a language name in the terminal to open its lessons, or "page 3" to read about Linux</p>
 </main>
 
 <script src="terminal.js"></script>

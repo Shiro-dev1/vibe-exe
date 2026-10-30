@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML.LESSONS — VIBE.EXE</title>
+<meta name="description" content="HTML lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / HTML</div>
+  <h1>HTML.LESSONS</h1>
+  <p class="lead">HTML says what is on a page: headings, text, links, images, buttons. Save the code in a file that ends with .html and open it in the browser.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 PAGE SKELETON</a>
+    <a href="#lesson-2">02 HEADINGS AND TEXT</a>
+    <a href="#lesson-3">03 LINKS AND IMAGES</a>
+    <a href="#lesson-4">04 LISTS</a>
+    <a href="#lesson-5">05 BUTTONS AND FORMS</a>
+    <a href="#lesson-6">06 PAGE LAYOUT</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_PAGE_SKELETON</span><span>01/06</span></div>
+    <div class="doc-body">
+      <p>Every page starts like this. <code>&lt;head&gt;</code> holds settings and the tab title, <code>&lt;body&gt;</code> holds what you see. Tags come in pairs: <code>&lt;tag&gt;</code> opens, <code>&lt;/tag&gt;</code> closes.</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;My first page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Hello, world!
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>A tab called &quot;My first page&quot; with the text: Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_HEADINGS_AND_TEXT</span><span>02/06</span></div>
+    <div class="doc-body">
+      <p><code>&lt;h1&gt;</code> is the biggest heading, <code>&lt;h6&gt;</code> the smallest. <code>&lt;p&gt;</code> is a paragraph.</p>
+      <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
+&lt;h2&gt;Smaller heading&lt;/h2&gt;
+&lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_LINKS_AND_IMAGES</span><span>03/06</span></div>
+    <div class="doc-body">
+      <p><code>href</code> is where the link goes. <code>src</code> is the image file. <code>alt</code> describes the image for people who can't see it.</p>
+      <pre><code>&lt;a href=&quot;https://shiro-dev1.github.io&quot;&gt;My portfolio&lt;/a&gt;
+&lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
+
+&lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_LISTS</span><span>04/06</span></div>
+    <div class="doc-body">
+      <p><code>&lt;ul&gt;</code> is a list with dots, <code>&lt;ol&gt;</code> a list with numbers. Each item is <code>&lt;li&gt;</code>.</p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Learn HTML&lt;/li&gt;
+  &lt;li&gt;Learn CSS&lt;/li&gt;
+  &lt;li&gt;Build a site&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>• HTML
+• CSS
+
+1. Learn HTML
+2. Learn CSS
+3. Build a site</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_BUTTONS_AND_FORMS</span><span>05/06</span></div>
+    <div class="doc-body">
+      <p>A form collects what the user types. <code>&lt;label&gt;</code> is the caption, <code>for</code> links it to the field with the same <code>id</code>.</p>
+      <pre><code>&lt;form&gt;
+  &lt;label for=&quot;name&quot;&gt;Your name&lt;/label&gt;
+  &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Shiro&quot;&gt;
+
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input id=&quot;email&quot; type=&quot;email&quot;&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_PAGE_LAYOUT</span><span>06/06</span></div>
+    <div class="doc-body">
+      <p>These tags name the parts of a page: top, main content, bottom. A link to <code>#about</code> jumps to the element with <code>id="about"</code>.</p>
+      <pre><code>&lt;header&gt;
+  &lt;nav&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section id=&quot;about&quot;&gt;
+    &lt;h2&gt;About me&lt;/h2&gt;
+    &lt;p&gt;I build websites.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, css, c, cpp, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("html", "html lessons loaded");</script>
+</body>
+</html>

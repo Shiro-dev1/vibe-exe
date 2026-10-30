@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C++.LESSONS — VIBE.EXE</title>
+<meta name="description" content="C++ lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / C++</div>
+  <h1>C++.LESSONS</h1>
+  <p class="lead">C++ is C with classes and many tools on top. It is fast, so big games, game engines like Unreal and browsers like Chrome are written in it.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 VECTORS</a>
+    <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>C++ is C with many extras. <code>std::cout &lt;&lt;</code> sends text to the screen, <code>std::endl</code> ends the line.</p>
+      <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Hello, world!&quot; &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>Like in C, every variable has a type. <code>std::string</code> stores text. You can chain many values with <code>&lt;&lt;</code>.</p>
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name = &quot;Shiro&quot;;
+    int age = 18;
+    std::cout &lt;&lt; &quot;Hi, I&#x27;m &quot; &lt;&lt; name &lt;&lt; &quot; and I&#x27;m &quot; &lt;&lt; age &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p><code>auto</code> lets the compiler pick the type for you. From here on, short examples go inside <code>main</code>.</p>
+      <pre><code>int count = 10;              // whole number
+double price = 9.99;         // number with a dot
+bool online = true;          // true or false
+char letter = &#x27;S&#x27;;           // one character
+std::string title = &quot;VIBE&quot;;  // text
+auto half = 3.5;             // the compiler picks double
+
+std::cout &lt;&lt; title.length() &lt;&lt; &quot;\n&quot;;</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> runs code only when the condition in brackets is true.</p>
+      <pre><code>int age = 18;
+
+if (age &gt;= 18) {
+    std::cout &lt;&lt; &quot;Adult\n&quot;;
+} else if (age &gt;= 13) {
+    std::cout &lt;&lt; &quot;Teen\n&quot;;
+} else {
+    std::cout &lt;&lt; &quot;Kid\n&quot;;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>for</code> has three parts: start, condition, step. <code>while</code> repeats while the condition is true.</p>
+      <pre><code>for (int i = 0; i &lt; 3; i++) {
+    std::cout &lt;&lt; &quot;Step &quot; &lt;&lt; i &lt;&lt; &quot;\n&quot;;
+}
+
+int count = 3;
+while (count &gt; 0) {
+    std::cout &lt;&lt; count &lt;&lt; &quot;\n&quot;;
+    count--;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>A function has a return type, a name and parameters. <code>const std::string&amp;</code> means "read this text without copying it".</p>
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+std::string greet(const std::string&amp; name) {
+    return &quot;Hello, &quot; + name + &quot;!&quot;;
+}
+
+int main() {
+    std::cout &lt;&lt; greet(&quot;Shiro&quot;) &lt;&lt; &quot;\n&quot;;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_VECTORS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>std::vector</code> is a list that can grow. <code>push_back</code> adds an item, <code>size()</code> is how many there are. <code>for (... : langs)</code> goes through every item.</p>
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;std::string&gt; langs = {&quot;Python&quot;, &quot;C++&quot;, &quot;Rust&quot;};
+    langs.push_back(&quot;C#&quot;);
+    std::cout &lt;&lt; langs.size() &lt;&lt; &quot;\n&quot;;
+
+    for (const auto&amp; lang : langs) {
+        std::cout &lt;&lt; &quot;I like &quot; &lt;&lt; lang &lt;&lt; &quot;\n&quot;;
+    }
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4
+I like Python
+I like C++
+I like Rust
+I like C#</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_A_GAME_HERO</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>A <b>class</b> joins data and functions into one thing. This is how games describe players, enemies and items.</p>
+      <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Player {
+public:
+    std::string name;
+    int hp = 100;
+
+    void hit(int damage) {
+        hp -= damage;
+        std::cout &lt;&lt; name &lt;&lt; &quot; has &quot; &lt;&lt; hp &lt;&lt; &quot; HP\n&quot;;
+    }
+};
+
+int main() {
+    Player p;
+    p.name = &quot;Shiro&quot;;
+    p.hit(30);
+    p.hit(25);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("cpp", "cpp lessons loaded");</script>
+</body>
+</html>

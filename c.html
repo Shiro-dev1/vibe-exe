@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.LESSONS — VIBE.EXE</title>
+<meta name="description" content="C lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / C</div>
+  <h1>C.LESSONS</h1>
+  <p class="lead">C is old, fast and close to the hardware. Operating systems, drivers and the Linux kernel are written in C. Learn it and you will understand how computers really work.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 ARRAYS</a>
+    <a href="#lesson-8">08 MINI PROJECT: GUESS THE NUMBER</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>C has to be <b>compiled</b>: turned into a program before it runs. Every program starts in <code>main</code>. <code>\n</code> means a new line.</p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>In C you must say the type of every variable. <code>printf</code> inserts values with codes: <code>%d</code> whole number, <code>%.2f</code> number with 2 digits after the dot, <code>%c</code> one character. From here on, short examples go inside <code>main</code>.</p>
+      <pre><code>int age = 18;
+float price = 9.99f;
+char letter = &#x27;S&#x27;;
+
+printf(&quot;Age: %d\n&quot;, age);
+printf(&quot;Price: %.2f\n&quot;, price);
+printf(&quot;Letter: %c\n&quot;, letter);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Age: 18
+Price: 9.99
+Letter: S</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p>Text in C is an array of characters. <code>%s</code> prints text, <code>sizeof</code> tells how many bytes something takes (text has one hidden extra byte at the end).</p>
+      <pre><code>int whole = 42;           // whole number
+double precise = 3.14159; // number with a dot
+char symbol = &#x27;#&#x27;;        // one character
+char word[] = &quot;VIBE&quot;;     // text
+
+printf(&quot;%s has %zu letters\n&quot;, word, sizeof(word) - 1);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>VIBE has 4 letters</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> runs code only when the condition in brackets is true.</p>
+      <pre><code>int age = 18;
+
+if (age &gt;= 18) {
+    printf(&quot;Adult\n&quot;);
+} else if (age &gt;= 13) {
+    printf(&quot;Teen\n&quot;);
+} else {
+    printf(&quot;Kid\n&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>for</code> has three parts: start, condition, step. <code>i++</code> adds 1, <code>count--</code> takes 1 away.</p>
+      <pre><code>for (int i = 0; i &lt; 3; i++) {
+    printf(&quot;Step %d\n&quot;, i);
+}
+
+int count = 3;
+while (count &gt; 0) {
+    printf(&quot;%d\n&quot;, count);
+    count--;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>A function has a return type, a name and parameters with types. It must be written before it is used.</p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main(void) {
+    printf(&quot;%d\n&quot;, add(2, 3));
+    return 0;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>5</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_ARRAYS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p>An array stores many values of one type. Counting starts from 0. C doesn't store the length, so we calculate it with <code>sizeof</code>.</p>
+      <pre><code>int scores[] = {10, 20, 30, 40};
+int size = sizeof(scores) / sizeof(scores[0]);
+int sum = 0;
+
+for (int i = 0; i &lt; size; i++) {
+    sum += scores[i];
+}
+printf(&quot;Sum: %d\n&quot;, sum);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Sum: 100</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_GUESS_THE_NUMBER</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>Everything together. <code>rand()</code> gives a random number, <code>scanf</code> reads what the player types. The output below is an example game.</p>
+      <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void) {
+    srand(time(NULL));
+    int secret = rand() % 10 + 1;
+    int guess = 0;
+
+    while (guess != secret) {
+        printf(&quot;Guess a number from 1 to 10: &quot;);
+        scanf(&quot;%d&quot;, &amp;guess);
+        if (guess &lt; secret) printf(&quot;Bigger!\n&quot;);
+        else if (guess &gt; secret) printf(&quot;Smaller!\n&quot;);
+    }
+    printf(&quot;You got it!\n&quot;);
+    return 0;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Guess a number from 1 to 10: 5
+Bigger!
+Guess a number from 1 to 10: 8
+Smaller!
+Guess a number from 1 to 10: 7
+You got it!</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, cpp, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("c", "c lessons loaded");</script>
+</body>
+</html>

@@ -6,6 +6,17 @@ window.VibeTerm = (() => {
     2: { file: "page2.html", name: "languages.doc" },
     3: { file: "page3.html", name: "linux.man" },
   };
+  // Уроки по языкам: команда -> страница
+  const LANGS = {
+    python: "python.html",
+    js: "javascript.html", javascript: "javascript.html",
+    html: "html.html",
+    css: "css.html",
+    c: "c.html",
+    cpp: "cpp.html", "c++": "cpp.html",
+    csharp: "csharp.html", "c#": "csharp.html", cs: "csharp.html",
+    rust: "rust.html",
+  };
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const touch = matchMedia("(pointer: coarse)").matches;
 
@@ -87,6 +98,10 @@ window.VibeTerm = (() => {
         print("  page 2    " + PAGES[2].name);
         print("  page 3    " + PAGES[3].name);
         print("  clear     clear the screen");
+        print("lessons:");
+        print("  python  js  html  css");
+        print("  c  cpp  csharp  rust");
+        print("  back      return to languages");
         return;
       }
       if (cmd === "ls") {
@@ -95,17 +110,32 @@ window.VibeTerm = (() => {
       }
       if (cmd === "clear") { log.innerHTML = ""; return; }
 
+      if (cmd === "back") {
+        if (current === 2) { print("you are on the languages page. type page 1 for home", true); return; }
+        go("page2.html", "languages.doc");
+        return;
+      }
+      if (LANGS[cmd]) {
+        if (location.pathname.endsWith("/" + LANGS[cmd])) { print("you are already here", true); return; }
+        go(LANGS[cmd], cmd + " lessons");
+        return;
+      }
+
       const m = cmd.match(/^page ?(\d+)$/);
       if (m) {
         const n = +m[1];
         if (!PAGES[n]) { print("page " + n + " not found. type ls", true); return; }
         if (n === current) { print("you are already here", true); return; }
-        print("loading " + PAGES[n].name + " ...", true);
-        input.disabled = true;
-        setTimeout(() => { location.href = PAGES[n].file; }, reduce ? 0 : 450);
+        go(PAGES[n].file, PAGES[n].name);
         return;
       }
       print("unknown command: " + cmd + ". type help", true);
+    }
+
+    function go(file, name) {
+      print("loading " + name + " ...", true);
+      input.disabled = true;
+      setTimeout(() => { location.href = file; }, reduce ? 0 : 450);
     }
 
     input.addEventListener("keydown", e => {

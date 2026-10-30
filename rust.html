@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUST.LESSONS — VIBE.EXE</title>
+<meta name="description" content="RUST lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / RUST</div>
+  <h1>RUST.LESSONS</h1>
+  <p class="lead">Rust is as fast as C, but its compiler catches many mistakes before the program even runs. It is loved for safe system software and command line tools.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 VECTORS</a>
+    <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>Every program starts in <code>fn main()</code>. The <code>!</code> in <code>println!</code> means it is a <b>macro</b>: a special helper that writes code for you.</p>
+      <pre><code>fn main() {
+    println!(&quot;Hello, world!&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p><code>let</code> creates a variable. By default it can't change; add <code>mut</code> to allow it. Variables go into text with <code>{ }</code>.</p>
+      <pre><code>fn main() {
+    let name = &quot;Shiro&quot;;
+    let mut age = 18; // mut = can change
+    age += 1;
+    println!(&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 19</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p>Rust usually guesses the type, but you can write it after <code>:</code>. From here on, short examples go inside <code>fn main()</code>.</p>
+      <pre><code>let count: i32 = 10;      // whole number
+let price: f64 = 9.99;    // number with a dot
+let online: bool = true;  // true or false
+let letter: char = &#x27;S&#x27;;   // one character
+let title: &amp;str = &quot;VIBE&quot;; // text
+
+println!(&quot;{}&quot;, title.len());</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> works without brackets around the condition, but the <code>{ }</code> are required.</p>
+      <pre><code>let age = 18;
+
+if age &gt;= 18 {
+    println!(&quot;Adult&quot;);
+} else if age &gt;= 13 {
+    println!(&quot;Teen&quot;);
+} else {
+    println!(&quot;Kid&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>0..3</code> means 0, 1, 2. <code>while</code> repeats while the condition is true.</p>
+      <pre><code>for i in 0..3 {
+    println!(&quot;Step {i}&quot;);
+}
+
+let mut count = 3;
+while count &gt; 0 {
+    println!(&quot;{count}&quot;);
+    count -= 1;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>Parameters need types, <code>-&gt;</code> shows the return type. The last line without <code>;</code> is the value the function returns.</p>
+      <pre><code>fn add(a: i32, b: i32) -&gt; i32 {
+    a + b // no ; = this is returned
+}
+
+fn main() {
+    println!(&quot;{}&quot;, add(2, 3));
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>5</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_VECTORS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>vec!</code> makes a list that can grow. It needs <code>mut</code> to change. <code>&amp;langs</code> lets the loop read the list without taking it away.</p>
+      <pre><code>let mut langs = vec![&quot;Python&quot;, &quot;C&quot;, &quot;Rust&quot;];
+langs.push(&quot;C#&quot;);
+println!(&quot;{}&quot;, langs.len());
+
+for lang in &amp;langs {
+    println!(&quot;I like {lang}&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4
+I like Python
+I like C
+I like Rust
+I like C#</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_A_GAME_HERO</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>A <b>struct</b> stores data, <code>impl</code> adds functions to it. <code>&amp;mut self</code> means the function can change the player.</p>
+      <pre><code>struct Player {
+    name: String,
+    hp: i32,
+}
+
+impl Player {
+    fn hit(&amp;mut self, damage: i32) {
+        self.hp -= damage;
+        println!(&quot;{} has {} HP&quot;, self.name, self.hp);
+    }
+}
+
+fn main() {
+    let mut p = Player { name: String::from(&quot;Shiro&quot;), hp: 100 };
+    p.hit(30);
+    p.hit(25);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, cpp, csharp</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("rust", "rust lessons loaded");</script>
+</body>
+</html>
