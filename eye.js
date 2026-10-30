@@ -145,10 +145,24 @@
   }
 
   window.VibeScenes = window.VibeScenes || {};
-  window.VibeScenes.eye = {
+  const scene = window.VibeScenes.eye = {
     layout,
     draw,
     start() { t0 = performance.now(); nextBlink = 2500; blinkStart = -1e9; active = true; },  // глаз заново открывается
     stop() { active = false; },
   };
+
+  // Запасной режим: если hero.js не запустился (например, браузер взял старую страницу из кэша),
+  // глаз рисует себя сам, чтобы главный экран не был пустым.
+  setTimeout(() => {
+    if (window.VibeHeroRunning) return;
+    layout(); scene.start();
+    addEventListener("resize", layout);
+    let last = 0;
+    (function loop(now) {
+      requestAnimationFrame(loop);
+      if (now - last < 30) return;
+      last = now; draw(now);
+    })(performance.now());
+  }, 1000);
 })();

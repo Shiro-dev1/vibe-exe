@@ -4,6 +4,7 @@
   const S = window.VibeScenes || {};
   const cv = document.getElementById("eye");
   if (!cv || !S.eye) return;
+  window.VibeHeroRunning = true;
   const box = cv.parentElement;
   const ctx = cv.getContext("2d");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -26,14 +27,13 @@
     if (LABELS[k]) cv.setAttribute("aria-label", LABELS[k]);
   }
 
-  // Рисуем только когда главный экран виден
-  let visible = true;
-  if ("IntersectionObserver" in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
+  // Рисуем только когда главный экран виден на экране
+  const onScreen = () => { const r = cv.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight && r.width > 0; };
 
   let last = 0;
   function frame(now) {
     requestAnimationFrame(frame);
-    if (!visible) { sceneStart += now - (last || now); last = now; return; }   // пока не видно — время сцены стоит
+    if (!onScreen()) { sceneStart += now - (last || now); last = now; return; }   // пока не видно — время сцены стоит
     // глаз рисуется ~30 кадров/с, руки — каждый кадр (у них физика по кадрам)
     if (current === "eye" && now - last < 30) return;
     last = now;
@@ -43,7 +43,7 @@
       idx = (idx + 1) % PLAN.length; sceneStart = now; switched = true;
       show(PLAN[idx][0]);
     }
-    S[current].draw(now);
+    try { S[current].draw(now); } catch (err) { console.error(err); }
 
     // Переход: в конце сцены картинка гаснет и «рвётся» полосками, в начале — проявляется
     const e = now - sceneStart;
@@ -69,6 +69,8 @@
   }
 
   addEventListener("resize", layout);
+  // если размер блока поменялся (например, стили догрузились позже) — пересчитываем холст
+  if ("ResizeObserver" in window) new ResizeObserver(layout).observe(box);
   layout();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);   // ширина букв глаза после загрузки шрифта
   sceneStart = performance.now();
