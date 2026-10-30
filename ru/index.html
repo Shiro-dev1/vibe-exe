@@ -2,227 +2,113 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VIBE.EXE</title>
-<meta name="description" content="VIBE.EXE — чёрно-белый пиксельный эксперимент.">
+<meta name="description" content="Бесплатные уроки программирования по 8 языкам: короткие объяснения, код, который можно запустить, и тест по каждому языку.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../index.html">
+<link rel="alternate" hreflang="ru" href="index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<style>
-  html, body { height: 100%; }
-  body { overflow: hidden; touch-action: none; }
-  /* Холст с глазом на весь экран */
-  #eye { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../index.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-
-<canvas id="eye" aria-label="Глаз из букв, который следит за курсором"></canvas>
-<div class="scan"></div>
-
-<div class="corner tl">VIBE.EXE<span class="blink">_</span></div>
-<div class="corner tr">ЭКСПЕРИМЕНТ_01</div>
-
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html" aria-current="page">Главная</a><a href="page2.html">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../index.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="index.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="hero wrap">
+  <div class="eye-box"><canvas id="eye" role="img" aria-label="Глаз из букв, который следит за курсором"></canvas></div>
+  <h1>Учись программировать шаг за шагом</h1>
+  <p class="lead">Бесплатные уроки по 8 языкам. Короткие объяснения, настоящие примеры кода и тест в конце каждого языка. Прогресс сохраняется в твоём браузере.</p>
+  <div class="btn-row">
+    <a class="btn" href="page2.html">Начать учиться →</a>
+    <a class="btn ghost" href="page3.html">Основы Linux</a>
+  </div>
+</section>
+<section class="section wrap" id="languages">
+  <div class="section-head"><h2>Языки</h2><p>Выбери язык и начни с первого урока. Не знаешь какой? Python и JavaScript отлично подходят для начала.</p></div>
+  <div class="cards">
+    <a class="card" href="python.html">
+      <h3>Python</h3>
+      <p>Боты, скрипты, данные и ИИ. Самый лёгкий старт.</p>
+      <div class="pbar" data-progress="python"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="javascript.html">
+      <h3>JavaScript</h3>
+      <p>Язык интернета. Работает в любом браузере.</p>
+      <div class="pbar" data-progress="javascript"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="html.html">
+      <h3>HTML</h3>
+      <p>Структура любой веб-страницы.</p>
+      <div class="pbar" data-progress="html"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="css.html">
+      <h3>CSS</h3>
+      <p>Цвета, шрифты, расположение и анимации.</p>
+      <div class="pbar" data-progress="css"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="c.html">
+      <h3>C</h3>
+      <p>Быстрый и близкий к «железу». Linux написан на C.</p>
+      <div class="pbar" data-progress="c"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="cpp.html">
+      <h3>C++</h3>
+      <p>Игры, игровые движки и браузеры.</p>
+      <div class="pbar" data-progress="cpp"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="csharp.html">
+      <h3>C#</h3>
+      <p>Игры в Unity, программы для Windows и сайты.</p>
+      <div class="pbar" data-progress="csharp"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+    <a class="card" href="rust.html">
+      <h3>Rust</h3>
+      <p>Быстрый как C, а компилятор ловит ошибки.</p>
+      <div class="pbar" data-progress="rust"></div>
+      <span class="go">Открыть уроки →</span>
+    </a>
+  </div>
+</section>
+<section class="section wrap">
+  <div class="section-head"><h2>Как это работает</h2></div>
+  <ol class="steps">
+      <li><h3>Выбери язык</h3><p>Восемь языков, от Python до Rust. Каждый начинается с Hello, world.</p></li>
+      <li><h3>Читай и пробуй</h3><p>Каждый урок — короткое объяснение, код и то, что он выведет. Код на JavaScript запускается прямо на странице.</p></li>
+      <li><h3>Проверь себя</h3><p>Отмечай пройденные уроки и пройди тест из 5 вопросов. Прогресс виден на каждой карточке.</p></li>
+  </ol>
+</section>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js"></script>
 <script src="../progress.js"></script>
-<script src="../terminal.js"></script>
-<script>
-(() => {
-  // Глаз рисуется символами: чем ярче место, тем «тяжелее» буква
-  const RAMP = " .',:;clodxkO0KXNWM";
-  const SHADES = ["#5a5a5a", "#a8a8a8", "#ffffff"];   // три оттенка: тусклый, средний, белый
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const touch = matchMedia("(pointer: coarse)").matches;
-
-  const cv = document.getElementById("eye");
-  const ctx = cv.getContext("2d", { alpha: false });
-  let vw, vh, dpr, cw, ch, cols, rows, cx, cy, R, font;
-
-  // ---------- Размеры ----------
-  function layout() {
-    vw = innerWidth; vh = innerHeight;
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    cv.width = Math.round(vw * dpr); cv.height = Math.round(vh * dpr);
-    const phone = vw < 640;
-    const ew = phone ? vw * 0.96 : Math.min(vw * 0.7, vh * 1.12);   // ширина глаза
-    R = ew / 2;                                                    // половина ширины = 1 в координатах глаза
-    cx = vw / 2; cy = phone ? vh * 0.38 : vh * 0.4;
-    const size = Math.max(8, Math.min(15, ew / 95));
-    font = size + "px ui-monospace, Menlo, Consolas, monospace";
-    ctx.font = font;
-    cw = ctx.measureText("M").width;              // ширина одной буквы моноширинного шрифта
-    ch = Math.round(size * 1.05);
-    cols = Math.ceil(vw / cw); rows = Math.ceil(vh / ch);
-  }
-
-  // ---------- Куда смотрит глаз ----------
-  let mx = 0, my = 0, lastMove = -1e9;
-  const gaze = { x: 0, y: 0, tx: 0, ty: 0 };     // положение радужки (текущее и цель)
-  let pupil = 0.13, pupilT = 0.13;
-  let wanderAt = 0;
-  function pointer(e) {
-    mx = e.clientX; my = e.clientY; lastMove = performance.now();
-    const gx = Math.max(-1, Math.min(1, (mx - cx) / (vw * 0.45)));
-    const gy = Math.max(-1, Math.min(1, (my - cy) / (vh * 0.45)));
-    gaze.tx = gx * 0.42; gaze.ty = gy * 0.13;
-    // Курсор близко — зрачок сужается, далеко — расширяется
-    const d = Math.hypot(mx - cx, my - cy) / R;
-    pupilT = 0.075 + 0.075 * Math.min(1, d / 1.3);
-  }
-  addEventListener("pointermove", pointer);
-  addEventListener("pointerdown", e => {
-    pointer(e);
-    // Клик по глазу — испуганно моргает
-    if (!e.target.closest(".win") && Math.abs(e.clientX - cx) < R && Math.abs(e.clientY - cy) < R * 0.45) {
-      blinkStart = performance.now() - t0; blinkLen = 170; doubleBlink = false; pupilT = 0.06;
-    }
-  });
-
-  // ---------- Моргание ----------
-  let blinkStart = -1e9, blinkLen = 220, nextBlink = 2500, doubleBlink = false;
-  function openness(t) {
-    if (t < 1300) return reduce ? 1 : Math.min(1, Math.max(0, (t - 300) / 1000)) ** 0.7;  // глаз открывается при входе
-    if (reduce) return 1;
-    if (t > nextBlink) {
-      blinkStart = t; blinkLen = 200 + Math.random() * 80;
-      doubleBlink = Math.random() < 0.2;
-      nextBlink = t + 2800 + Math.random() * 3600;
-    }
-    const p = (t - blinkStart) / blinkLen;
-    if (p >= 0 && p < 1) return Math.abs(Math.cos(p * Math.PI)) ** 1.4;
-    if (doubleBlink && p >= 1.4 && p < 2.4) return Math.abs(Math.cos((p - 1.4) * Math.PI)) ** 1.4;
-    return 1;
-  }
-
-  // Быстрый «случайный» шум по координатам клетки
-  function hash(x, y, k) {
-    let h = (x * 374761393 + y * 668265263 + k * 2147483647) | 0;
-    h = (h ^ (h >>> 13)) * 1274126177;
-    return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
-  }
-
-  const t0 = performance.now();
-  let lastFrame = 0;
-  function frame(now) {
-    requestAnimationFrame(frame);
-    if (now - lastFrame < 30) return;            // ~30 кадров в секунду: хватает и бережёт слабые ноутбуки
-    lastFrame = now;
-    const t = now - t0;
-
-    // Если мышь давно не двигалась — глаз сам оглядывается
-    if (now - lastMove > 3500 && now > wanderAt) {
-      wanderAt = now + 1400 + Math.random() * 2200;
-      gaze.tx = (Math.random() * 2 - 1) * 0.4; gaze.ty = (Math.random() * 2 - 1) * 0.11;
-      pupilT = 0.11 + Math.random() * 0.04;
-    }
-    const ease = reduce ? 1 : 0.18;
-    gaze.x += (gaze.tx - gaze.x) * ease; gaze.y += (gaze.ty - gaze.y) * ease;
-    pupil += (pupilT - pupil) * 0.12;
-    const open = openness(t);
-    const tick = Math.floor(t / 120);              // буквы чуть мерцают несколько раз в секунду
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = "#000"; ctx.fillRect(0, 0, vw, vh);
-
-    const TOP = 0.42, BOT = 0.36;                  // высота верхнего и нижнего века
-    const RI = 0.30;                               // радиус радужки
-    const ix = gaze.x, iy = gaze.y;
-    const hx = ix - pupil * 0.38, hy = iy - pupil * 0.38;  // блик
-    const AURA = 0.15;
-    const c0 = Math.max(0, Math.floor((cx - R * 1.12) / cw)), c1 = Math.min(cols - 1, Math.ceil((cx + R * 1.12) / cw));
-    const r0 = Math.max(0, Math.floor((cy - R * (TOP + AURA + 0.05)) / ch)), r1 = Math.min(rows - 1, Math.ceil((cy + R * (BOT + AURA + 0.05)) / ch));
-    // Каждую строку выводим тремя надписями (по одной на оттенок) — так в десятки раз быстрее, чем по букве
-    ctx.font = font; ctx.textBaseline = "middle";
-    const span = c1 - c0 + 1;
-    const lines = [new Array(span), new Array(span), new Array(span)];
-
-    for (let r = r0; r <= r1; r++) {
-      lines[0].fill(" "); lines[1].fill(" "); lines[2].fill(" ");
-      let any = false;
-      const y = ((r + 0.5) * ch - cy) / R;
-      for (let c = c0; c <= c1; c++) {
-        const x = ((c + 0.5) * cw - cx) / R;
-        const n = hash(c, r, tick);
-        const k = 1 - x * x;
-        const top = k > 0 ? TOP * Math.pow(k, 0.85) * open : 0;
-        const bot = k > 0 ? BOT * Math.pow(k, 0.95) * open : 0;
-        const dTop = y + top, dBot = bot - y;        // > 0 — внутри век
-        let b = 0;
-
-        if (k > 0 && dTop > 0 && dBot > 0) {
-          const dx = x - ix, dy = y - iy, rr = Math.sqrt(dx * dx + dy * dy);
-          if (rr < pupil) {
-            // зрачок тёмный, с белым бликом
-            b = Math.hypot(x - hx, y - hy) < pupil * 0.3 ? 1 : 0.02;
-          } else if (rr < RI) {
-            // радужка: плотные «лучи» от зрачка
-            const tt = (rr - pupil) / (RI - pupil);
-            const ang = Math.atan2(dy, dx);
-            const rays = 0.5 + 0.5 * Math.sin(ang * 13 + Math.sin(ang * 5) * 1.7);
-            b = 0.55 + 0.4 * rays * (1 - tt * 0.35);
-            if (tt < 0.12) b = 0.95;
-            if (tt > 0.86) b *= 0.62;
-          } else {
-            // белок: светлее у радужки, темнее к уголкам
-            const fall = Math.max(0, 1 - (rr - RI) / 0.55);
-            b = 0.2 + 0.2 * fall;
-          }
-          // тень под верхним веком и контур век
-          if (dTop < 0.07) b *= 0.55;
-          const edge = Math.min(dTop, dBot);
-          if (edge < 0.026) b = 0.42 + 0.3 * n;   // контур века: разные буквы, а не одна
-          b += (n - 0.5) * 0.1;
-        } else {
-          // точки вокруг глаза, как на картинке
-          const out = k > 0 ? Math.max(-dTop, -dBot) : Math.max(Math.sqrt(x * x + y * y * 4) - 1, 0) + 0.03;
-          if (out < AURA) {
-            const f = 1 - out / AURA;
-            b = n < 0.55 + 0.35 * f ? 0.06 + 0.2 * f * f : 0;
-            if (out < 0.025 && open > 0.08) b = Math.max(b, 0.3 + 0.25 * n);   // мягкий контур снаружи
-          }
-          // закрытый глаз: линия ресниц
-          if (open < 0.12 && k > 0 && Math.abs(y - 0.01) < 0.03) b = 0.6;
-        }
-
-        if (b < 0.05) continue;
-        if (b > 1) b = 1;
-        const i = Math.min(RAMP.length - 1, 1 + Math.floor(b * (RAMP.length - 1.001)));
-        const l = b < 0.3 ? 0 : b < 0.65 ? 1 : 2;
-        lines[l][c - c0] = RAMP[i]; any = true;
-      }
-      if (!any) continue;
-      for (let l = 0; l < 3; l++) {
-        ctx.fillStyle = SHADES[l];
-        ctx.fillText(lines[l].join(""), c0 * cw, (r + 0.5) * ch);
-      }
-    }
-  }
-
-  // ---------- Окошко с командной строкой: под глазом ----------
-  const term = VibeTerm.create({
-    page: 1,
-    intro: [
-      "> загрузка vibe.exe...",
-      "> открываю глаз ....... ok",
-      "> он видит тебя",
-    ],
-    place(win) {
-      const phone = vw < 640;
-      const w = Math.min(460, vw - 32), h = phone ? 170 : 190;
-      win.style.width = w + "px";
-      win.style.height = h + "px";
-      win.style.left = (vw - w) / 2 + "px";
-      win.style.top = (vh - h - (phone ? 40 : 28)) + "px";
-    },
-  });
-
-  addEventListener("resize", () => { layout(); term.place(); });
-  layout();
-  term.place();
-  requestAnimationFrame(frame);
-  setTimeout(() => term.show(), reduce ? 0 : 1600);
-})();
-</script>
+<script src="../eye.js"></script>
 </body>
 </html>

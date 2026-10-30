@@ -2,77 +2,94 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>УРОКИ JAVASCRIPT — VIBE.EXE</title>
-<meta name="description" content="Уроки JAVASCRIPT: от Hello, world до мини-проекта.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Уроки JavaScript — VIBE.EXE</title>
+<meta name="description" content="Уроки JavaScript: от Hello, world до мини-проекта.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../javascript.html">
+<link rel="alternate" hreflang="ru" href="javascript.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../javascript.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<a class="corner tr" href="page2.html">&lt; СТРАНИЦА_02</a>
-
-<main>
-  <div class="label">// СТРАНИЦА 02 / JAVASCRIPT</div>
-  <h1>УРОКИ JAVASCRIPT</h1>
-  <p class="lead">JavaScript — язык интернета: он работает в любом браузере и делает страницы живыми. Все движущиеся точки на странице 1 — это JavaScript.</p>
-
-  <nav class="toc">
-    <a href="#lesson-1">01 ПРИВЕТ, МИР</a>
-    <a href="#lesson-2">02 ПЕРЕМЕННЫЕ</a>
-    <a href="#lesson-3">03 ТИПЫ ДАННЫХ</a>
-    <a href="#lesson-4">04 УСЛОВИЯ</a>
-    <a href="#lesson-5">05 ЦИКЛЫ</a>
-    <a href="#lesson-6">06 ФУНКЦИИ</a>
-    <a href="#lesson-7">07 МАССИВЫ</a>
-    <a href="#lesson-8">08 МИНИ-ПРОЕКТ: СЧЁТЧИК КЛИКОВ</a>
-    <a href="#quiz">ТЕСТ</a>
-  </nav>
-  <p class="pline" data-progress="javascript"></p>
-
-  <article class="doc" id="lesson-1">
-    <div class="doc-bar"><span>01_ПРИВЕТ_МИР</span><span>01/08</span></div>
-    <div class="doc-body">
-      <p><code>console.log()</code> выводит текст в консоль браузера. В Chrome её можно открыть клавишами <b>Ctrl + Shift + J</b> и писать код прямо там. А здесь можно нажать <b>RUN</b>.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">console.log(&quot;Hello, world!&quot;);</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Hello, world!</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="1"></button>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Главная</a><a href="page2.html" aria-current="page">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../javascript.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="javascript.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
     </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Языки</a><span>›</span><span>JavaScript</span></nav>
+    <h1>Уроки JavaScript</h1>
+    <p class="lead">JavaScript — язык интернета: он работает в любом браузере и делает страницы живыми. Все движущиеся точки на странице 1 — это JavaScript.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Уроки</summary>
+      <div class="side-inner">
+        <div class="side-title">Уроки</div>
+        <div class="pbar" data-progress="javascript"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="javascript" data-n="1"><span class="num"><span>1</span></span>Привет, мир</a></li>
+        <li><a href="#lesson-2" data-lang="javascript" data-n="2"><span class="num"><span>2</span></span>Переменные</a></li>
+        <li><a href="#lesson-3" data-lang="javascript" data-n="3"><span class="num"><span>3</span></span>Типы данных</a></li>
+        <li><a href="#lesson-4" data-lang="javascript" data-n="4"><span class="num"><span>4</span></span>Условия</a></li>
+        <li><a href="#lesson-5" data-lang="javascript" data-n="5"><span class="num"><span>5</span></span>Циклы</a></li>
+        <li><a href="#lesson-6" data-lang="javascript" data-n="6"><span class="num"><span>6</span></span>Функции</a></li>
+        <li><a href="#lesson-7" data-lang="javascript" data-n="7"><span class="num"><span>7</span></span>Массивы</a></li>
+        <li><a href="#lesson-8" data-lang="javascript" data-n="8"><span class="num"><span>8</span></span>Мини-проект: счётчик кликов</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Тест</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Привет, мир</h2>
+    <p><code>console.log()</code> выводит текст в консоль браузера. В Chrome её можно открыть клавишами <b>Ctrl + Shift + J</b> и писать код прямо там. А здесь можно просто нажать <b>Запустить</b>.</p>
+    <div class="runbox">
+      <textarea id="code-1" spellcheck="false" autocapitalize="off" aria-label="Code">console.log(&quot;Hello, world!&quot;);</textarea>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
+    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hello, world!</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="1"></button>
   </article>
-
-  <article class="doc" id="lesson-2">
-    <div class="doc-bar"><span>02_ПЕРЕМЕННЫЕ</span><span>02/08</span></div>
-    <div class="doc-body">
-      <p><code>let</code> создаёт переменную, которую можно менять, <code>const</code> — которую нельзя. В обратных кавычках <code>` `</code> переменные вставляются через <code>${ }</code>.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const name = &quot;Shiro&quot;;
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Переменные</h2>
+    <p><code>let</code> создаёт переменную, которую можно менять, <code>const</code> — которую нельзя. В обратных кавычках <code>` `</code> переменные вставляются через <code>${ }</code>.</p>
+    <div class="runbox">
+      <textarea id="code-2" spellcheck="false" autocapitalize="off" aria-label="Code">const name = &quot;Shiro&quot;;
 let age = 18;
 age = age + 1;
 
 console.log(name, age);
 console.log(`Hi, I&#x27;m ${name}`);</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Shiro 19
-Hi, I&#x27;m Shiro</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="2"></button>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Shiro 19
+Hi, I&#x27;m Shiro</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="2"></button>
   </article>
-
-  <article class="doc" id="lesson-3">
-    <div class="doc-bar"><span>03_ТИПЫ_ДАННЫХ</span><span>03/08</span></div>
-    <div class="doc-body">
-      <p><code>//</code> начинает комментарий. <code>typeof</code> показывает тип значения.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">let count = 10;      // number: число
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Типы данных</h2>
+    <p><code>//</code> начинает комментарий. <code>typeof</code> показывает тип значения.</p>
+    <div class="runbox">
+      <textarea id="code-3" spellcheck="false" autocapitalize="off" aria-label="Code">let count = 10;      // number: число
 let title = &quot;VIBE&quot;;  // string: текст
 let online = true;   // boolean: true или false
 let nothing = null;  // null: специально пусто
@@ -80,20 +97,18 @@ let user;            // undefined: значения ещё нет
 
 console.log(typeof count);
 console.log(typeof title);</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>number
-string</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="3"></button>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>number
+string</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="3"></button>
   </article>
-
-  <article class="doc" id="lesson-4">
-    <div class="doc-bar"><span>04_УСЛОВИЯ</span><span>04/08</span></div>
-    <div class="doc-body">
-      <p><code>if</code> выполняет код, только если условие в скобках верно. Блоки кода пишутся внутри <code>{ }</code>.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const age = 18;
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Условия</h2>
+    <p><code>if</code> выполняет код, только если условие в скобках верно. Блоки кода пишутся внутри <code>{ }</code>.</p>
+    <div class="runbox">
+      <textarea id="code-4" spellcheck="false" autocapitalize="off" aria-label="Code">const age = 18;
 
 if (age &gt;= 18) {
   console.log(&quot;Adult&quot;);
@@ -102,19 +117,17 @@ if (age &gt;= 18) {
 } else {
   console.log(&quot;Kid&quot;);
 }</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Adult</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="4"></button>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Adult</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="4"></button>
   </article>
-
-  <article class="doc" id="lesson-5">
-    <div class="doc-bar"><span>05_ЦИКЛЫ</span><span>05/08</span></div>
-    <div class="doc-body">
-      <p>У <code>for</code> три части: начало, условие, шаг. <code>i++</code> прибавляет 1, <code>count--</code> отнимает 1.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">for (let i = 0; i &lt; 3; i++) {
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Циклы</h2>
+    <p>У <code>for</code> три части: начало, условие, шаг. <code>i++</code> прибавляет 1, <code>count--</code> отнимает 1.</p>
+    <div class="runbox">
+      <textarea id="code-5" spellcheck="false" autocapitalize="off" aria-label="Code">for (let i = 0; i &lt; 3; i++) {
   console.log(&quot;Step&quot;, i);
 }
 
@@ -123,24 +136,22 @@ while (count &gt; 0) {
   console.log(count);
   count--;
 }</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Step 0
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
+    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Step 0
 Step 1
 Step 2
 3
 2
 1</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="5"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="5"></button>
   </article>
-
-  <article class="doc" id="lesson-6">
-    <div class="doc-bar"><span>06_ФУНКЦИИ</span><span>06/08</span></div>
-    <div class="doc-body">
-      <p>Функция — это код с названием, который можно запускать много раз. Стрелка <code>=&gt;</code> — короткий способ записать функцию.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">function greet(name) {
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Функции</h2>
+    <p>Функция — это код с названием, который можно запускать много раз. Стрелка <code>=&gt;</code> — короткий способ записать функцию.</p>
+    <div class="runbox">
+      <textarea id="code-6" spellcheck="false" autocapitalize="off" aria-label="Code">function greet(name) {
   return &quot;Hello, &quot; + name + &quot;!&quot;;
 }
 
@@ -148,44 +159,40 @@ const shout = (text) =&gt; text.toUpperCase();
 
 console.log(greet(&quot;Shiro&quot;));
 console.log(shout(&quot;vibe&quot;));</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Hello, Shiro!
-VIBE</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="6"></button>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Hello, Shiro!
+VIBE</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="6"></button>
   </article>
-
-  <article class="doc" id="lesson-7">
-    <div class="doc-bar"><span>07_МАССИВЫ</span><span>07/08</span></div>
-    <div class="doc-body">
-      <p>Массив хранит много значений по порядку. Счёт идёт с 0. <code>push</code> добавляет элемент в конец, <code>length</code> — сколько их.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;];
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Массивы</h2>
+    <p>Массив хранит много значений по порядку. Счёт идёт с 0. <code>push</code> добавляет элемент в конец, <code>length</code> — сколько их.</p>
+    <div class="runbox">
+      <textarea id="code-7" spellcheck="false" autocapitalize="off" aria-label="Code">const langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;];
 langs.push(&quot;Rust&quot;);
 
 console.log(langs[0]);
 console.log(langs.length);
 
 langs.forEach((lang) =&gt; console.log(&quot;I like &quot; + lang));</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>Python
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
+    </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>Python
 4
 I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="7"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="7"></button>
   </article>
-
-  <article class="doc" id="lesson-8">
-    <div class="doc-bar"><span>08_МИНИ-ПРОЕКТ_СЧЁТЧИК_КЛИКОВ</span><span>08/08</span></div>
-    <div class="doc-body">
-      <p>JavaScript умеет менять страницу. Эта кнопка считает клики: нажми RUN и покликай по ней.</p>
-      <div class="runbox">
-        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Мини-проект: счётчик кликов</h2>
+    <p>JavaScript умеет менять страницу. Эта кнопка считает клики: нажми «Запустить» и покликай по ней.</p>
+    <div class="runbox">
+      <textarea id="code-8" spellcheck="false" autocapitalize="off" aria-label="Code">&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
 
 &lt;script&gt;
   const btn = document.getElementById(&quot;btn&quot;);
@@ -196,61 +203,63 @@ I like Rust</pre></div>
     btn.textContent = &quot;Clicks: &quot; + clicks;
   });
 &lt;/script&gt;</textarea>
-        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
-      </div>
-      <div class="out"><span>ВЫВОД</span><pre>[ Clicks: 0 ]  -&gt; клик -&gt;  [ Clicks: 1 ]  -&gt; клик -&gt;  [ Clicks: 2 ]</pre></div>
-      <button class="done-btn" type="button" data-lang="javascript" data-n="8"></button>
+      <div class="run-btns"><button class="btn small run" type="button">Run</button><button class="btn small ghost reset" type="button">Reset</button></div>
     </div>
+    <div class="out"><span class="out-label">Вывод</span><pre>[ Clicks: 0 ]  -&gt; клик -&gt;  [ Clicks: 1 ]  -&gt; клик -&gt;  [ Clicks: 2 ]</pre></div>
+    <button class="done-btn" type="button" data-lang="javascript" data-n="8"></button>
   </article>
-
   <section class="quiz" id="quiz" data-lang="javascript">
-    <div class="doc-bar"><span>ТЕСТ.EXE</span><span>5 ВОПРОСОВ</span></div>
-    <div class="doc-body">
-      <div class="q" data-answer="1">
-      <p class="q-text">01. Что выведет этот код?</p>
+    <div class="quiz-head"><h2>Тест</h2><p>5 вопросов. Выбери ответ — сразу увидишь, верно ли.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. Что выведет этот код?</p>
       <pre><code>let x = 5;
 x = x + 2;
 console.log(x);</code></pre>
       <div class="opts"><button type="button">5</button><button type="button">7</button><button type="button">x + 2</button><button type="button">52</button></div>
       <p class="why" hidden>x было 5, потом прибавили 2, стало 7.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">02. Что выведет этот код?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Что выведет этот код?</p>
       <pre><code>console.log(&quot;5&quot; + 2);</code></pre>
       <div class="opts"><button type="button">7</button><button type="button">52</button><button type="button">Error</button><button type="button">undefined</button></div>
       <p class="why" hidden>&quot;5&quot; — это текст, поэтому + приклеивает 2, а не складывает.</p>
-      </div>
-      <div class="q" data-answer="2">
-      <p class="q-text">03. Какое слово создаёт переменную, которую нельзя менять?</p>
+    </div>
+    <div class="q" data-answer="2">
+      <p class="q-text">3. Какое слово создаёт переменную, которую нельзя менять?</p>
       <div class="opts"><button type="button">let</button><button type="button">var</button><button type="button">const</button><button type="button">fixed</button></div>
       <p class="why" hidden>const — константа: её нельзя присвоить заново.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">04. Что выведет этот код?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Что выведет этот код?</p>
       <pre><code>const a = [10, 20, 30];
 console.log(a.length);</code></pre>
       <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">30</button><button type="button">60</button></div>
       <p class="why" hidden>length — сколько элементов в массиве: 3.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">05. Что выведет этот код?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Что выведет этот код?</p>
       <pre><code>const shout = (t) =&gt; t.toUpperCase();
 console.log(shout(&quot;hi&quot;));</code></pre>
       <div class="opts"><button type="button">hi</button><button type="button">HI</button><button type="button">Hi</button><button type="button">t</button></div>
       <p class="why" hidden>toUpperCase() делает все буквы заглавными.</p>
-      </div>
-      <p class="score" hidden></p>
-      <button class="retry" type="button" hidden></button>
     </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
   </section>
-  <p class="tip">// введи "back" в терминале, чтобы вернуться к языкам, или другой язык: python, html, css, c, c++, c#, rust</p>
+  <nav class="pager"><a class="btn ghost" href="python.html">← Предыдущий язык: Python</a><a class="btn ghost" href="html.html">Следующий язык: HTML →</a></nav>
+    </div>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js"></script>
 <script src="../progress.js"></script>
-<script src="../terminal.js"></script>
-<script src="../docs.js"></script>
 <script src="../quiz.js"></script>
 <script src="../runner.js"></script>
-<script>startDocsTerminal("javascript", "уроки js загружены");</script>
 </body>
 </html>

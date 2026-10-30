@@ -2,42 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML LESSONS — VIBE.EXE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HTML lessons — VIBE.EXE</title>
 <meta name="description" content="HTML lessons: from Hello, world to a mini project.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="html.html">
+<link rel="alternate" hreflang="ru" href="ru/html.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/html.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
-
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html" aria-current="page">Languages</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="html.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/html.html" data-setlang="ru" hreflang="ru">RU</a>
+    </div>
+  </div>
+</header>
 <main>
-  <div class="label">// PAGE 02 / HTML</div>
-  <h1>HTML LESSONS</h1>
-  <p class="lead">HTML says what is on a page: headings, text, links, images, buttons. Save the code in a file that ends with .html and open it in the browser.</p>
-
-  <nav class="toc">
-    <a href="#lesson-1">01 PAGE SKELETON</a>
-    <a href="#lesson-2">02 HEADINGS AND TEXT</a>
-    <a href="#lesson-3">03 LINKS AND IMAGES</a>
-    <a href="#lesson-4">04 LISTS</a>
-    <a href="#lesson-5">05 BUTTONS AND FORMS</a>
-    <a href="#lesson-6">06 PAGE LAYOUT</a>
-    <a href="#quiz">QUIZ</a>
-  </nav>
-  <p class="pline" data-progress="html"></p>
-
-  <article class="doc" id="lesson-1">
-    <div class="doc-bar"><span>01_PAGE_SKELETON</span><span>01/06</span></div>
-    <div class="doc-body">
-      <p>Every page starts like this. <code>&lt;head&gt;</code> holds settings and the tab title, <code>&lt;body&gt;</code> holds what you see. Tags come in pairs: <code>&lt;tag&gt;</code> opens, <code>&lt;/tag&gt;</code> closes.</p>
-      <pre><code>&lt;!DOCTYPE html&gt;
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Languages</a><span>›</span><span>HTML</span></nav>
+    <h1>HTML lessons</h1>
+    <p class="lead">HTML says what is on a page: headings, text, links, images, buttons. Save the code in a file that ends with .html and open it in the browser.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Lessons</summary>
+      <div class="side-inner">
+        <div class="side-title">Lessons</div>
+        <div class="pbar" data-progress="html"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="html" data-n="1"><span class="num"><span>1</span></span>Page skeleton</a></li>
+        <li><a href="#lesson-2" data-lang="html" data-n="2"><span class="num"><span>2</span></span>Headings and text</a></li>
+        <li><a href="#lesson-3" data-lang="html" data-n="3"><span class="num"><span>3</span></span>Links and images</a></li>
+        <li><a href="#lesson-4" data-lang="html" data-n="4"><span class="num"><span>4</span></span>Lists</a></li>
+        <li><a href="#lesson-5" data-lang="html" data-n="5"><span class="num"><span>5</span></span>Buttons and forms</a></li>
+        <li><a href="#lesson-6" data-lang="html" data-n="6"><span class="num"><span>6</span></span>Page layout</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Quiz</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 06</span>
+    <h2>Page skeleton</h2>
+    <p>Every page starts like this. <code>&lt;head&gt;</code> holds settings and the tab title, <code>&lt;body&gt;</code> holds what you see. Tags come in pairs: <code>&lt;tag&gt;</code> opens, <code>&lt;/tag&gt;</code> closes.</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -47,39 +68,33 @@
   Hello, world!
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>A tab called &quot;My first page&quot; with the text: Hello, world!</pre></div>
-      <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
-    </div>
+    <div class="out"><span class="out-label">Output</span><pre>A tab called &quot;My first page&quot; with the text: Hello, world!</pre></div>
+    <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
   </article>
-
-  <article class="doc" id="lesson-2">
-    <div class="doc-bar"><span>02_HEADINGS_AND_TEXT</span><span>02/06</span></div>
-    <div class="doc-body">
-      <p><code>&lt;h1&gt;</code> is the biggest heading, <code>&lt;h6&gt;</code> the smallest. <code>&lt;p&gt;</code> is a paragraph.</p>
-      <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 06</span>
+    <h2>Headings and text</h2>
+    <p><code>&lt;h1&gt;</code> is the biggest heading, <code>&lt;h6&gt;</code> the smallest. <code>&lt;p&gt;</code> is a paragraph.</p>
+    <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
 &lt;h2&gt;Smaller heading&lt;/h2&gt;
 &lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
-      <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
   </article>
-
-  <article class="doc" id="lesson-3">
-    <div class="doc-bar"><span>03_LINKS_AND_IMAGES</span><span>03/06</span></div>
-    <div class="doc-body">
-      <p><code>href</code> is where the link goes. <code>src</code> is the image file. <code>alt</code> describes the image for people who can't see it.</p>
-      <pre><code>&lt;a href=&quot;https://shiro-dev1.github.io&quot;&gt;My portfolio&lt;/a&gt;
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 06</span>
+    <h2>Links and images</h2>
+    <p><code>href</code> is where the link goes. <code>src</code> is the image file. <code>alt</code> describes the image for people who can't see it.</p>
+    <pre><code>&lt;a href=&quot;https://shiro-dev1.github.io&quot;&gt;My portfolio&lt;/a&gt;
 &lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
 
 &lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
-      <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
   </article>
-
-  <article class="doc" id="lesson-4">
-    <div class="doc-bar"><span>04_LISTS</span><span>04/06</span></div>
-    <div class="doc-body">
-      <p><code>&lt;ul&gt;</code> is a list with dots, <code>&lt;ol&gt;</code> a list with numbers. Each item is <code>&lt;li&gt;</code>.</p>
-      <pre><code>&lt;ul&gt;
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 06</span>
+    <h2>Lists</h2>
+    <p><code>&lt;ul&gt;</code> is a list with dots, <code>&lt;ol&gt;</code> a list with numbers. Each item is <code>&lt;li&gt;</code>.</p>
+    <pre><code>&lt;ul&gt;
   &lt;li&gt;HTML&lt;/li&gt;
   &lt;li&gt;CSS&lt;/li&gt;
 &lt;/ul&gt;
@@ -89,21 +104,19 @@
   &lt;li&gt;Learn CSS&lt;/li&gt;
   &lt;li&gt;Build a site&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>• HTML
+    <div class="out"><span class="out-label">Output</span><pre>• HTML
 • CSS
 
 1. Learn HTML
 2. Learn CSS
 3. Build a site</pre></div>
-      <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
   </article>
-
-  <article class="doc" id="lesson-5">
-    <div class="doc-bar"><span>05_BUTTONS_AND_FORMS</span><span>05/06</span></div>
-    <div class="doc-body">
-      <p>A form collects what the user types. <code>&lt;label&gt;</code> is the caption, <code>for</code> links it to the field with the same <code>id</code>.</p>
-      <pre><code>&lt;form&gt;
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 06</span>
+    <h2>Buttons and forms</h2>
+    <p>A form collects what the user types. <code>&lt;label&gt;</code> is the caption, <code>for</code> links it to the field with the same <code>id</code>.</p>
+    <pre><code>&lt;form&gt;
   &lt;label for=&quot;name&quot;&gt;Your name&lt;/label&gt;
   &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Shiro&quot;&gt;
 
@@ -112,15 +125,13 @@
 
   &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-      <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
   </article>
-
-  <article class="doc" id="lesson-6">
-    <div class="doc-bar"><span>06_PAGE_LAYOUT</span><span>06/06</span></div>
-    <div class="doc-body">
-      <p>These tags name the parts of a page: top, main content, bottom. A link to <code>#about</code> jumps to the element with <code>id="about"</code>.</p>
-      <pre><code>&lt;header&gt;
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 06</span>
+    <h2>Page layout</h2>
+    <p>These tags name the parts of a page: top, main content, bottom. A link to <code>#about</code> jumps to the element with <code>id="about"</code>.</p>
+    <pre><code>&lt;header&gt;
   &lt;nav&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/nav&gt;
 &lt;/header&gt;
 
@@ -132,51 +143,53 @@
 &lt;/main&gt;
 
 &lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
-      <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
   </article>
-
   <section class="quiz" id="quiz" data-lang="html">
-    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
-    <div class="doc-body">
-      <div class="q" data-answer="1">
-      <p class="q-text">01. Which tag is the biggest heading?</p>
+    <div class="quiz-head"><h2>Quiz</h2><p>5 questions. Pick an answer to see if it is right.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. Which tag is the biggest heading?</p>
       <div class="opts"><button type="button">&lt;h6&gt;</button><button type="button">&lt;h1&gt;</button><button type="button">&lt;head&gt;</button><button type="button">&lt;big&gt;</button></div>
       <p class="why" hidden>&lt;h1&gt; is the biggest, &lt;h6&gt; the smallest.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">02. Where does the visible content of a page go?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. Where does the visible content of a page go?</p>
       <div class="opts"><button type="button">&lt;head&gt;</button><button type="button">&lt;body&gt;</button><button type="button">&lt;title&gt;</button><button type="button">&lt;meta&gt;</button></div>
       <p class="why" hidden>&lt;head&gt; holds settings, &lt;body&gt; holds what you see.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">03. Which attribute says where a link goes?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. Which attribute says where a link goes?</p>
       <pre><code>&lt;a ___=&quot;page2.html&quot;&gt;Next&lt;/a&gt;</code></pre>
       <div class="opts"><button type="button">src</button><button type="button">href</button><button type="button">link</button><button type="button">to</button></div>
       <p class="why" hidden>Links use href. Images use src.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">04. Which tag makes a numbered list?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. Which tag makes a numbered list?</p>
       <div class="opts"><button type="button">&lt;ul&gt;</button><button type="button">&lt;ol&gt;</button><button type="button">&lt;li&gt;</button><button type="button">&lt;list&gt;</button></div>
       <p class="why" hidden>&lt;ol&gt; is an ordered (numbered) list, &lt;ul&gt; has dots.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">05. What is the alt attribute for?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. What is the alt attribute for?</p>
       <pre><code>&lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot;&gt;</code></pre>
       <div class="opts"><button type="button">Image size</button><button type="button">Text description of the image</button><button type="button">Link to another page</button><button type="button">Image border</button></div>
       <p class="why" hidden>alt describes the image for people who can&#x27;t see it and when it doesn&#x27;t load.</p>
-      </div>
-      <p class="score" hidden></p>
-      <button class="retry" type="button" hidden></button>
     </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
   </section>
-  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, css, c, c++, c#, rust</p>
+  <nav class="pager"><a class="btn ghost" href="javascript.html">← Previous language: JavaScript</a><a class="btn ghost" href="css.html">Next language: CSS →</a></nav>
+    </div>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js"></script>
 <script src="progress.js"></script>
-<script src="terminal.js"></script>
-<script src="docs.js"></script>
 <script src="quiz.js"></script>
-<script>startDocsTerminal("html", "html lessons loaded");</script>
 </body>
 </html>

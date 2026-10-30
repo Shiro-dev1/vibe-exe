@@ -6,8 +6,8 @@ window.VibeProgress = (() => {
   const KEY = "vibe-progress-v1";
   const ru = document.documentElement.lang === "ru";
   const T = ru
-    ? { progress: "ПРОГРЕСС", quiz: "ТЕСТ", mark: "[ ] ОТМЕТИТЬ ПРОЙДЕННЫМ", done: "[x] ПРОЙДЕНО" }
-    : { progress: "PROGRESS", quiz: "QUIZ", mark: "[ ] MARK AS DONE", done: "[x] DONE" };
+    ? { of: " из ", lessons: " уроков", quiz: "тест ", noQuiz: "тест не пройден", mark: "Отметить пройденным", done: "Пройдено ✓" }
+    : { of: " of ", lessons: " lessons", quiz: "quiz ", noQuiz: "quiz not taken", mark: "Mark as done", done: "Done ✓" };
 
   // Если браузер не даёт сохранять (приватный режим), просто работаем без сохранения
   let mem = { lessons: {}, quiz: {} };
@@ -40,19 +40,27 @@ window.VibeProgress = (() => {
   }
   function line(lang) {
     const n = doneList(lang).length, q = quizBest(lang);
-    return T.progress + " " + bar(n, TOTAL[lang]) + " " + n + "/" + TOTAL[lang] +
-      "  ·  " + T.quiz + " " + (q === undefined ? "-" : q + "/" + QUESTIONS);
+    return n + T.of + TOTAL[lang] + T.lessons + " · " + (q === undefined ? T.noQuiz : T.quiz + q + "/" + QUESTIONS);
   }
 
-  // Рисуем всё, что есть на странице
+  // Рисуем всё, что есть на странице: полоски прогресса, кнопки «пройдено», галочки в меню уроков
   function render() {
-    document.querySelectorAll("[data-progress]").forEach(el => { el.textContent = line(el.dataset.progress); });
+    document.querySelectorAll("[data-progress]").forEach(el => {
+      const lang = el.dataset.progress;
+      if (!el.firstChild) el.innerHTML = '<span class="pbar-track"><span class="pbar-fill"></span></span><span class="pbar-text"></span>';
+      el.querySelector(".pbar-fill").style.width = (doneList(lang).length / TOTAL[lang] * 100) + "%";
+      el.querySelector(".pbar-text").textContent = line(lang);
+    });
     document.querySelectorAll(".done-btn").forEach(b => {
       const on = isDone(b.dataset.lang, +b.dataset.n);
       b.textContent = on ? T.done : T.mark;
       b.classList.toggle("on", on);
-      const doc = b.closest(".doc");
-      if (doc) doc.classList.toggle("is-done", on);
+      b.setAttribute("aria-pressed", on);
+      const lesson = b.closest(".lesson");
+      if (lesson) lesson.classList.toggle("is-done", on);
+    });
+    document.querySelectorAll(".side a[data-n]").forEach(a => {
+      a.classList.toggle("done", isDone(a.dataset.lang, +a.dataset.n));
     });
   }
 

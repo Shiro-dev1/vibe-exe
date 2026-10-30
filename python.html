@@ -2,84 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PYTHON LESSONS — VIBE.EXE</title>
-<meta name="description" content="PYTHON lessons: from Hello, world to a mini project.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Python lessons — VIBE.EXE</title>
+<meta name="description" content="Python lessons: from Hello, world to a mini project.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="python.html">
+<link rel="alternate" hreflang="ru" href="ru/python.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/python.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
-
-<main>
-  <div class="label">// PAGE 02 / PYTHON</div>
-  <h1>PYTHON LESSONS</h1>
-  <p class="lead">Python is simple and readable, almost like English. It is a great first language: bots, scripts, automation, data and AI are all written in it.</p>
-
-  <nav class="toc">
-    <a href="#lesson-1">01 HELLO, WORLD</a>
-    <a href="#lesson-2">02 VARIABLES</a>
-    <a href="#lesson-3">03 DATA TYPES</a>
-    <a href="#lesson-4">04 CONDITIONS</a>
-    <a href="#lesson-5">05 LOOPS</a>
-    <a href="#lesson-6">06 FUNCTIONS</a>
-    <a href="#lesson-7">07 LISTS</a>
-    <a href="#lesson-8">08 MINI PROJECT: GUESS THE NUMBER</a>
-    <a href="#quiz">QUIZ</a>
-  </nav>
-  <p class="pline" data-progress="python"></p>
-
-  <article class="doc" id="lesson-1">
-    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
-    <div class="doc-body">
-      <p><code>print()</code> shows text on the screen. Text in quotes is called a <b>string</b>.</p>
-      <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="1"></button>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html" aria-current="page">Languages</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="python.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/python.html" data-setlang="ru" hreflang="ru">RU</a>
     </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head">
+    <nav class="crumbs"><a href="page2.html">Languages</a><span>›</span><span>Python</span></nav>
+    <h1>Python lessons</h1>
+    <p class="lead">Python is simple and readable, almost like English. It is a great first language: bots, scripts, automation, data and AI are all written in it.</p>
+  </header>
+  <div class="lesson-layout">
+    <details class="side" open>
+      <summary>Lessons</summary>
+      <div class="side-inner">
+        <div class="side-title">Lessons</div>
+        <div class="pbar" data-progress="python"></div>
+        <ol>
+        <li><a href="#lesson-1" data-lang="python" data-n="1"><span class="num"><span>1</span></span>Hello, world</a></li>
+        <li><a href="#lesson-2" data-lang="python" data-n="2"><span class="num"><span>2</span></span>Variables</a></li>
+        <li><a href="#lesson-3" data-lang="python" data-n="3"><span class="num"><span>3</span></span>Data types</a></li>
+        <li><a href="#lesson-4" data-lang="python" data-n="4"><span class="num"><span>4</span></span>Conditions</a></li>
+        <li><a href="#lesson-5" data-lang="python" data-n="5"><span class="num"><span>5</span></span>Loops</a></li>
+        <li><a href="#lesson-6" data-lang="python" data-n="6"><span class="num"><span>6</span></span>Functions</a></li>
+        <li><a href="#lesson-7" data-lang="python" data-n="7"><span class="num"><span>7</span></span>Lists</a></li>
+        <li><a href="#lesson-8" data-lang="python" data-n="8"><span class="num"><span>8</span></span>Mini project: guess the number</a></li>
+          <li><a href="#quiz"><span class="num">?</span>Quiz</a></li>
+        </ol>
+      </div>
+    </details>
+    <div class="lesson-main">
+  <article class="lesson" id="lesson-1">
+    <span class="lesson-kicker">01 / 08</span>
+    <h2>Hello, world</h2>
+    <p><code>print()</code> shows text on the screen. Text in quotes is called a <b>string</b>.</p>
+    <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
+    <div class="out"><span class="out-label">Output</span><pre>Hello, world!</pre></div>
+    <button class="done-btn" type="button" data-lang="python" data-n="1"></button>
   </article>
-
-  <article class="doc" id="lesson-2">
-    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
-    <div class="doc-body">
-      <p>A variable is a box with a name that stores a value. Put <code>f</code> before quotes and you can insert variables into text with <code>{ }</code>.</p>
-      <pre><code>name = &quot;Shiro&quot;
+  <article class="lesson" id="lesson-2">
+    <span class="lesson-kicker">02 / 08</span>
+    <h2>Variables</h2>
+    <p>A variable is a box with a name that stores a value. Put <code>f</code> before quotes and you can insert variables into text with <code>{ }</code>.</p>
+    <pre><code>name = &quot;Shiro&quot;
 age = 18
 
 print(name, age)
 print(f&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;)</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Shiro 18
+    <div class="out"><span class="out-label">Output</span><pre>Shiro 18
 Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="2"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="python" data-n="2"></button>
   </article>
-
-  <article class="doc" id="lesson-3">
-    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
-    <div class="doc-body">
-      <p>Every value has a type. <code>#</code> starts a comment: Python ignores everything after it. <code>type()</code> tells you the type.</p>
-      <pre><code>count = 10          # int: whole number
+  <article class="lesson" id="lesson-3">
+    <span class="lesson-kicker">03 / 08</span>
+    <h2>Data types</h2>
+    <p>Every value has a type. <code>#</code> starts a comment: Python ignores everything after it. <code>type()</code> tells you the type.</p>
+    <pre><code>count = 10          # int: whole number
 price = 9.99        # float: number with a dot
 title = &quot;VIBE.EXE&quot;  # str: text
 online = True       # bool: True or False
 
 print(type(price))</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="3"></button>
-    </div>
+    <div class="out"><span class="out-label">Output</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
+    <button class="done-btn" type="button" data-lang="python" data-n="3"></button>
   </article>
-
-  <article class="doc" id="lesson-4">
-    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
-    <div class="doc-body">
-      <p><code>if</code> runs code only when something is true. <code>elif</code> means "else if". Spaces at the start of a line (indent) matter in Python: they show which code belongs to the <code>if</code>.</p>
-      <pre><code>age = 18
+  <article class="lesson" id="lesson-4">
+    <span class="lesson-kicker">04 / 08</span>
+    <h2>Conditions</h2>
+    <p><code>if</code> runs code only when something is true. <code>elif</code> means "else if". Spaces at the start of a line (indent) matter in Python: they show which code belongs to the <code>if</code>.</p>
+    <pre><code>age = 18
 
 if age &gt;= 18:
     print(&quot;Adult&quot;)
@@ -87,52 +102,46 @@ elif age &gt;= 13:
     print(&quot;Teen&quot;)
 else:
     print(&quot;Kid&quot;)</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="4"></button>
-    </div>
+    <div class="out"><span class="out-label">Output</span><pre>Adult</pre></div>
+    <button class="done-btn" type="button" data-lang="python" data-n="4"></button>
   </article>
-
-  <article class="doc" id="lesson-5">
-    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
-    <div class="doc-body">
-      <p><code>for</code> repeats code a set number of times. <code>while</code> repeats while a condition is true. <code>range(3)</code> gives 0, 1, 2.</p>
-      <pre><code>for i in range(3):
+  <article class="lesson" id="lesson-5">
+    <span class="lesson-kicker">05 / 08</span>
+    <h2>Loops</h2>
+    <p><code>for</code> repeats code a set number of times. <code>while</code> repeats while a condition is true. <code>range(3)</code> gives 0, 1, 2.</p>
+    <pre><code>for i in range(3):
     print(&quot;Step&quot;, i)
 
 count = 3
 while count &gt; 0:
     print(count)
     count -= 1</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Step 0
+    <div class="out"><span class="out-label">Output</span><pre>Step 0
 Step 1
 Step 2
 3
 2
 1</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="5"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="python" data-n="5"></button>
   </article>
-
-  <article class="doc" id="lesson-6">
-    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
-    <div class="doc-body">
-      <p>A function is a piece of code with a name that you can run many times. <code>def</code> creates it, <code>return</code> gives the result back.</p>
-      <pre><code>def greet(name):
+  <article class="lesson" id="lesson-6">
+    <span class="lesson-kicker">06 / 08</span>
+    <h2>Functions</h2>
+    <p>A function is a piece of code with a name that you can run many times. <code>def</code> creates it, <code>return</code> gives the result back.</p>
+    <pre><code>def greet(name):
     return &quot;Hello, &quot; + name + &quot;!&quot;
 
 print(greet(&quot;Shiro&quot;))
 print(greet(&quot;world&quot;))</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!
+    <div class="out"><span class="out-label">Output</span><pre>Hello, Shiro!
 Hello, world!</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="6"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="python" data-n="6"></button>
   </article>
-
-  <article class="doc" id="lesson-7">
-    <div class="doc-bar"><span>07_LISTS</span><span>07/08</span></div>
-    <div class="doc-body">
-      <p>A list stores many values in order. Counting starts from 0, so <code>langs[0]</code> is the first item. <code>len()</code> gives the length.</p>
-      <pre><code>langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;]
+  <article class="lesson" id="lesson-7">
+    <span class="lesson-kicker">07 / 08</span>
+    <h2>Lists</h2>
+    <p>A list stores many values in order. Counting starts from 0, so <code>langs[0]</code> is the first item. <code>len()</code> gives the length.</p>
+    <pre><code>langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;]
 langs.append(&quot;Rust&quot;)
 
 print(langs[0])
@@ -140,21 +149,19 @@ print(len(langs))
 
 for lang in langs:
     print(&quot;I like&quot;, lang)</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Python
+    <div class="out"><span class="out-label">Output</span><pre>Python
 4
 I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="7"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="python" data-n="7"></button>
   </article>
-
-  <article class="doc" id="lesson-8">
-    <div class="doc-bar"><span>08_MINI_PROJECT_GUESS_THE_NUMBER</span><span>08/08</span></div>
-    <div class="doc-body">
-      <p>Everything together: a random number, a loop, conditions and <code>input()</code>, which reads what the player types. The output below is an example game.</p>
-      <pre><code>import random
+  <article class="lesson" id="lesson-8">
+    <span class="lesson-kicker">08 / 08</span>
+    <h2>Mini project: guess the number</h2>
+    <p>Everything together: a random number, a loop, conditions and <code>input()</code>, which reads what the player types. The output below is an example game.</p>
+    <pre><code>import random
 
 secret = random.randint(1, 10)
 guess = 0
@@ -167,43 +174,40 @@ while guess != secret:
         print(&quot;Smaller!&quot;)
 
 print(&quot;You got it!&quot;)</code></pre>
-      <div class="out"><span>OUTPUT</span><pre>Guess a number from 1 to 10: 5
+    <div class="out"><span class="out-label">Output</span><pre>Guess a number from 1 to 10: 5
 Bigger!
 Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
-      <button class="done-btn" type="button" data-lang="python" data-n="8"></button>
-    </div>
+    <button class="done-btn" type="button" data-lang="python" data-n="8"></button>
   </article>
-
   <section class="quiz" id="quiz" data-lang="python">
-    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
-    <div class="doc-body">
-      <div class="q" data-answer="1">
-      <p class="q-text">01. What will this code print?</p>
+    <div class="quiz-head"><h2>Quiz</h2><p>5 questions. Pick an answer to see if it is right.</p></div>
+    <div class="q" data-answer="1">
+      <p class="q-text">1. What will this code print?</p>
       <pre><code>x = 5
 x = x + 2
 print(x)</code></pre>
       <div class="opts"><button type="button">5</button><button type="button">7</button><button type="button">x + 2</button><button type="button">52</button></div>
       <p class="why" hidden>x was 5, then we add 2, so x becomes 7.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">02. What will this code print?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">2. What will this code print?</p>
       <pre><code>langs = [&quot;Python&quot;, &quot;C&quot;, &quot;Rust&quot;]
 print(langs[1])</code></pre>
       <div class="opts"><button type="button">Python</button><button type="button">C</button><button type="button">Rust</button><button type="button">Error</button></div>
       <p class="why" hidden>Counting starts from 0, so [1] is the second item.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">03. How many times will &quot;hi&quot; be printed?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">3. How many times will &quot;hi&quot; be printed?</p>
       <pre><code>for i in range(4):
     print(&quot;hi&quot;)</code></pre>
       <div class="opts"><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">0</button></div>
       <p class="why" hidden>range(4) gives 0, 1, 2, 3: that is 4 steps.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">04. What will this code print?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">4. What will this code print?</p>
       <pre><code>age = 15
 if age &gt;= 18:
     print(&quot;Adult&quot;)
@@ -211,23 +215,28 @@ else:
     print(&quot;Kid&quot;)</code></pre>
       <div class="opts"><button type="button">Adult</button><button type="button">Kid</button><button type="button">Adult Kid</button><button type="button">Nothing</button></div>
       <p class="why" hidden>15 is less than 18, so the else part runs.</p>
-      </div>
-      <div class="q" data-answer="1">
-      <p class="q-text">05. Which word creates a function in Python?</p>
+    </div>
+    <div class="q" data-answer="1">
+      <p class="q-text">5. Which word creates a function in Python?</p>
       <div class="opts"><button type="button">function</button><button type="button">def</button><button type="button">func</button><button type="button">fn</button></div>
       <p class="why" hidden>Python uses def: def greet(name):</p>
-      </div>
-      <p class="score" hidden></p>
-      <button class="retry" type="button" hidden></button>
     </div>
+    <p class="score" hidden></p>
+    <button class="btn retry" type="button" hidden></button>
   </section>
-  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: js, html, css, c, c++, c#, rust</p>
+  <nav class="pager"><span></span><a class="btn ghost" href="javascript.html">Next language: JavaScript →</a></nav>
+    </div>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js"></script>
 <script src="progress.js"></script>
-<script src="terminal.js"></script>
-<script src="docs.js"></script>
 <script src="quiz.js"></script>
-<script>startDocsTerminal("python", "python lessons loaded");</script>
 </body>
 </html>

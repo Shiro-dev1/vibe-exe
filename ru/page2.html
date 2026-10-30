@@ -2,169 +2,139 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ЯЗЫКИ.DOC — VIBE.EXE</title>
-<meta name="description" content="Коротко о популярных языках программирования.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Языки — VIBE.EXE</title>
+<meta name="description" content="Восемь популярных языков программирования: для чего они и как выглядят.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="../page2.html">
+<link rel="alternate" hreflang="ru" href="page2.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../docs.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "en") location.replace("../page2.html" + location.hash); } catch (e) {}
+</script>
 </head>
 <body>
-<div class="scan"></div>
-<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
-<div class="corner tr">СТРАНИЦА_02</div>
-
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Главная</a><a href="page2.html" aria-current="page">Языки</a><a href="page3.html">Linux</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="../page2.html" data-setlang="en" hreflang="en">EN</a>
+      <a href="page2.html" data-setlang="ru" hreflang="ru" aria-current="true">RU</a>
+    </div>
+  </div>
+</header>
 <main>
-  <div class="label">// СТРАНИЦА 02</div>
-  <h1>ЯЗЫКИ.DOC</h1>
-  <p class="lead" style="margin-bottom:16px">Язык программирования — это то, как ты разговариваешь с компьютером. Каждый хорош в чём-то своём. Вот восемь, которые встречаются чаще всего, и у каждого — классическая первая программа: вывести "Hello, world!".</p>
-  <p class="lead">Хочешь выучить какой-то? Напиши его название в терминале, например <code>python</code>, и откроются уроки: от самой первой строчки до мини-проекта.</p>
-
-  <article class="doc">
-    <div class="doc-bar"><span>PYTHON</span><span>01</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1991</dd>
-        <dt>АВТОР</dt><dd>Guido van Rossum</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>боты, скрипты, автоматизация, данные, ИИ</dd>
-      </dl>
+<div class="wrap">
+  <header class="page-head"><h1>Языки программирования</h1><p class="lead">Язык программирования — это то, как ты разговариваешь с компьютером. Каждый хорош в чём-то своём. Вот восемь, которые встречаются чаще всего, и у каждого — классическая первая программа: вывести &quot;Hello, world!&quot;.</p></header>
+  <div class="lang-list">
+  <article class="lang-item" id="python">
+    <div>
+      <h2>Python</h2>
+      <dl class="facts"><dt>Год</dt><dd>1991</dd><dt>Автор</dt><dd>Гвидо ван Россум</dd><dt>Для чего</dt><dd>боты, скрипты, автоматизация, данные, ИИ</dd></dl>
       <p>Простой и понятный, почти как английский текст. Отличный первый язык. Большинство Telegram-ботов написаны на Python.</p>
-      <pre><code>print("Hello, world!")</code></pre>
-      <p class="go">&gt; введи <b>python</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="python"></p>
+      <div class="pbar" data-progress="python"></div>
+      <div class="btn-row"><a class="btn small" href="python.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>print(&quot;Hello, world!&quot;)</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>JAVASCRIPT</span><span>02</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1995</dd>
-        <dt>АВТОР</dt><dd>Brendan Eich (Netscape)</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>живые сайты, серверы (Node.js)</dd>
-      </dl>
-      <p>Язык интернета: работает в любом браузере. Все движущиеся точки на странице 1 — это JavaScript.</p>
-      <pre><code>console.log("Hello, world!");</code></pre>
-      <p class="go">&gt; введи <b>js</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="javascript"></p>
+  <article class="lang-item" id="javascript">
+    <div>
+      <h2>JavaScript</h2>
+      <dl class="facts"><dt>Год</dt><dd>1995</dd><dt>Автор</dt><dd>Брендан Эйх (Netscape)</dd><dt>Для чего</dt><dd>живые сайты, серверы (Node.js)</dd></dl>
+      <p>Язык интернета: работает в любом браузере. Глаз на главной странице — это JavaScript.</p>
+      <div class="pbar" data-progress="javascript"></div>
+      <div class="btn-row"><a class="btn small" href="javascript.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>console.log(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>HTML</span><span>03</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1991</dd>
-        <dt>АВТОР</dt><dd>Tim Berners-Lee</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>структура любой веб-страницы</dd>
-      </dl>
+  <article class="lang-item" id="html">
+    <div>
+      <h2>HTML</h2>
+      <dl class="facts"><dt>Год</dt><dd>1991</dd><dt>Автор</dt><dd>Тим Бернерс-Ли</dd><dt>Для чего</dt><dd>структура любой веб-страницы</dd></dl>
       <p>Не язык программирования, а язык разметки: он говорит, что есть на странице — заголовки, текст, кнопки, картинки.</p>
-      <pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre>
-      <p class="go">&gt; введи <b>html</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="html"></p>
+      <div class="pbar" data-progress="html"></div>
+      <div class="btn-row"><a class="btn small" href="html.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>CSS</span><span>04</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1996</dd>
-        <dt>АВТОР</dt><dd>Håkon Wium Lie</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>цвета, шрифты, расположение, анимации</dd>
-      </dl>
+  <article class="lang-item" id="css">
+    <div>
+      <h2>CSS</h2>
+      <dl class="facts"><dt>Год</dt><dd>1996</dd><dt>Автор</dt><dd>Хокон Виум Ли</dd><dt>Для чего</dt><dd>цвета, шрифты, расположение, анимации</dd></dl>
       <p>HTML говорит, что есть на странице, CSS — как это выглядит. Этот чёрно-белый стиль — CSS.</p>
-      <pre><code>h1 { color: white; background: black; }</code></pre>
-      <p class="go">&gt; введи <b>css</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="css"></p>
+      <div class="pbar" data-progress="css"></div>
+      <div class="btn-row"><a class="btn small" href="css.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>h1 { color: white; background: black; }</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>C</span><span>05</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1972</dd>
-        <dt>АВТОР</dt><dd>Dennis Ritchie (Bell Labs)</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>операционные системы, драйверы, быстрые программы</dd>
-      </dl>
+  <article class="lang-item" id="c">
+    <div>
+      <h2>C</h2>
+      <dl class="facts"><dt>Год</dt><dd>1972</dd><dt>Автор</dt><dd>Деннис Ритчи (Bell Labs)</dd><dt>Для чего</dt><dd>операционные системы, драйверы, быстрые программы</dd></dl>
       <p>Старый, быстрый и близкий к «железу». Ядро Linux написано на C.</p>
-      <pre><code>#include &lt;stdio.h&gt;
+      <div class="pbar" data-progress="c"></div>
+      <div class="btn-row"><a class="btn small" href="c.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>#include &lt;stdio.h&gt;
 
 int main(void) {
-    printf("Hello, world!\n");
+    printf(&quot;Hello, world!\n&quot;);
     return 0;
-}</code></pre>
-      <p class="go">&gt; введи <b>c</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="c"></p>
-    </div>
+}</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>C++ (СИ ПЛЮС ПЛЮС)</span><span>06</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>1985</dd>
-        <dt>АВТОР</dt><dd>Bjarne Stroustrup (Bell Labs)</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>игры, игровые движки, браузеры, быстрые программы</dd>
-      </dl>
+  <article class="lang-item" id="cpp">
+    <div>
+      <h2>C++</h2>
+      <dl class="facts"><dt>Год</dt><dd>1985</dd><dt>Автор</dt><dd>Бьёрн Страуструп (Bell Labs)</dd><dt>Для чего</dt><dd>игры, игровые движки, браузеры, быстрые программы</dd></dl>
       <p>C с классами и множеством инструментов сверху. Unreal Engine и Chrome написаны на C++.</p>
-      <pre><code>#include &lt;iostream&gt;
+      <div class="pbar" data-progress="cpp"></div>
+      <div class="btn-row"><a class="btn small" href="cpp.html">Открыть уроки →</a></div>
+    </div>
+    <div><pre><code>#include &lt;iostream&gt;
 
 int main() {
-    std::cout &lt;&lt; "Hello, world!" &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Hello, world!&quot; &lt;&lt; std::endl;
     return 0;
-}</code></pre>
-      <p class="go">&gt; введи <b>c++</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="cpp"></p>
-    </div>
+}</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>C# (СИ ШАРП)</span><span>07</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>2000</dd>
-        <dt>АВТОР</dt><dd>Anders Hejlsberg (Microsoft)</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>игры в Unity, программы для Windows, сайты</dd>
-      </dl>
+  <article class="lang-item" id="csharp">
+    <div>
+      <h2>C#</h2>
+      <dl class="facts"><dt>Год</dt><dd>2000</dd><dt>Автор</dt><dd>Андерс Хейлсберг (Microsoft)</dd><dt>Для чего</dt><dd>игры в Unity, программы для Windows, сайты</dd></dl>
       <p>Язык от Microsoft, похож на Java и C++, но проще. Большинство игр в Unity написаны на C#.</p>
-      <pre><code>Console.WriteLine("Hello, world!");</code></pre>
-      <p class="go">&gt; введи <b>c#</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="csharp"></p>
+      <div class="pbar" data-progress="csharp"></div>
+      <div class="btn-row"><a class="btn small" href="csharp.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre></div>
   </article>
-
-  <article class="doc">
-    <div class="doc-bar"><span>RUST</span><span>08</span></div>
-    <div class="doc-body">
-      <dl class="facts">
-        <dt>ГОД</dt><dd>2015 (версия 1.0)</dd>
-        <dt>АВТОР</dt><dd>Graydon Hoare, Mozilla</dd>
-        <dt>ДЛЯ ЧЕГО</dt><dd>быстрые и надёжные системные программы</dd>
-      </dl>
+  <article class="lang-item" id="rust">
+    <div>
+      <h2>Rust</h2>
+      <dl class="facts"><dt>Год</dt><dd>2015 (версия 1.0)</dd><dt>Автор</dt><dd>Грейдон Хоар, Mozilla</dd><dt>Для чего</dt><dd>быстрые и надёжные системные программы</dd></dl>
       <p>Такой же быстрый, как C, но компилятор ловит многие ошибки с памятью ещё до запуска программы.</p>
-      <pre><code>fn main() {
-    println!("Hello, world!");
-}</code></pre>
-      <p class="go">&gt; введи <b>rust</b>, чтобы открыть уроки</p>
-      <p class="pline" data-progress="rust"></p>
+      <div class="pbar" data-progress="rust"></div>
+      <div class="btn-row"><a class="btn small" href="rust.html">Открыть уроки →</a></div>
     </div>
+    <div><pre><code>fn main() {
+    println!(&quot;Hello, world!&quot;);
+}</code></pre></div>
   </article>
-
-  <p class="tip">// напиши название языка в терминале, чтобы открыть уроки, или "page 3", чтобы почитать про Linux</p>
-  <footer class="foot">
-    <span>СДЕЛАЛ SHIRO</span>
-    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GITHUB: github.com/Shiro-dev1 &gt;</a>
-  </footer>
+  </div>
+</div>
 </main>
-
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Сделал Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="../site.js"></script>
 <script src="../progress.js"></script>
-<script src="../terminal.js"></script>
-<script src="../docs.js"></script>
-<script>startDocsTerminal(2, "языки.doc загружены");</script>
 </body>
 </html>

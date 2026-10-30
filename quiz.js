@@ -2,8 +2,8 @@
 (() => {
   const ru = document.documentElement.lang === "ru";
   const T = ru
-    ? { right: "ВЕРНО. ", wrong: "НЕВЕРНО. ", score: "РЕЗУЛЬТАТ: ", best: "ЛУЧШИЙ: ", perfect: " — идеально!", retry: "[ ПРОЙТИ ЗАНОВО ]" }
-    : { right: "RIGHT. ", wrong: "NOT QUITE. ", score: "SCORE: ", best: "BEST: ", perfect: " — perfect!", retry: "[ TRY AGAIN ]" };
+    ? { right: "Верно. ", wrong: "Неверно. ", score: "Результат: ", best: "лучший: ", perfect: " — идеально!", retry: "Пройти заново" }
+    : { right: "Correct. ", wrong: "Not quite. ", score: "Score: ", best: "best: ", perfect: " — perfect!", retry: "Try again" };
 
   document.querySelectorAll(".quiz").forEach(quiz => {
     const lang = quiz.dataset.lang;

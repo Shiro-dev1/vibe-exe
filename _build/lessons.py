@@ -58,7 +58,7 @@ LANGS["javascript"] = dict(
     ext="js",
     lessons=[
         ("HELLO, WORLD",
-         "<code>console.log()</code> prints text to the browser console. You can open the console in Chrome with <b>Ctrl + Shift + J</b> and type code right there. Or just press <b>RUN</b> here.",
+         "<code>console.log()</code> prints text to the browser console. You can open the console in Chrome with <b>Ctrl + Shift + J</b> and type code right there. Or just press <b>Run</b> here.",
          'console.log("Hello, world!");',
          "Hello, world!", None),
         ("VARIABLES",
@@ -86,7 +86,7 @@ LANGS["javascript"] = dict(
          'const langs = ["Python", "JavaScript", "C"];\nlangs.push("Rust");\n\nconsole.log(langs[0]);\nconsole.log(langs.length);\n\nlangs.forEach((lang) => console.log("I like " + lang));',
          "Python\n4\nI like Python\nI like JavaScript\nI like C\nI like Rust", None),
         ("MINI PROJECT: CLICK COUNTER",
-         "JavaScript can change the page. This button counts clicks: press RUN and click it.",
+         "JavaScript can change the page. This button counts clicks: press Run and click it.",
          '<button id="btn">Clicks: 0</button>\n\n<script>\n  const btn = document.getElementById("btn");\n  let clicks = 0;\n\n  btn.addEventListener("click", () => {\n    clicks++;\n    btn.textContent = "Clicks: " + clicks;\n  });\n</script>',
          "[ Clicks: 0 ]  -> click ->  [ Clicks: 1 ]  -> click ->  [ Clicks: 2 ]", "SKIP"),
     ])
