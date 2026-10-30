@@ -99,7 +99,7 @@ window.VibeTerm = (() => {
         print("  clear     clear the screen");
         print("lessons:");
         print("  python  js  html  css");
-        print("  c  cpp  csharp  rust");
+        print("  c  c++  c#  rust");
         print("  back      return to languages");
         return;
       }

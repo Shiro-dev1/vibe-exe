@@ -7,6 +7,7 @@ main {
 }
 .label { color: var(--dim); letter-spacing: 1px; }
 h1 { font-size: 72px; line-height: 1; font-weight: 400; margin: 6px 0 18px; letter-spacing: 1px; }
+.say { color: var(--dim); margin: -10px 0 18px; }
 .lead { color: #d6d6d6; max-width: 640px; margin-bottom: 44px; }
 
 /* Каждая статья — как окошко */
