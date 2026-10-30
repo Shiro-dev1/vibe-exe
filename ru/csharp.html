@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>УРОКИ C# — VIBE.EXE</title>
+<meta name="description" content="Уроки C#: от Hello, world до мини-проекта.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; СТРАНИЦА_02</a>
+
+<main>
+  <div class="label">// СТРАНИЦА 02 / C#</div>
+  <h1>УРОКИ C#</h1>
+  <p class="say">// читается: си шарп</p>
+  <p class="lead">C# — язык от Microsoft. На нём делают игры в Unity, программы для Windows и сайты. Он похож на Java и C++, но проще.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 ПРИВЕТ, МИР</a>
+    <a href="#lesson-2">02 ПЕРЕМЕННЫЕ</a>
+    <a href="#lesson-3">03 ТИПЫ ДАННЫХ</a>
+    <a href="#lesson-4">04 УСЛОВИЯ</a>
+    <a href="#lesson-5">05 ЦИКЛЫ</a>
+    <a href="#lesson-6">06 ФУНКЦИИ</a>
+    <a href="#lesson-7">07 СПИСКИ</a>
+    <a href="#lesson-8">08 МИНИ-ПРОЕКТ: ГЕРОЙ ИГРЫ</a>
+    <a href="#quiz">ТЕСТ</a>
+  </nav>
+  <p class="pline" data-progress="csharp"></p>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_ПРИВЕТ_МИР</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>В современном C# (.NET 6 и новее) эта одна строка — целая программа. В старом коде ты увидишь её внутри <code>class Program</code> и <code>static void Main()</code>.</p>
+      <pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="1"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_ПЕРЕМЕННЫЕ</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>У каждой переменной есть тип. <code>var</code> позволяет C# угадать его самому. Поставь <code>$</code> перед кавычками, и переменные можно вставлять через <code>{ }</code>.</p>
+      <pre><code>string name = &quot;Shiro&quot;;
+int age = 18;
+var lang = &quot;C#&quot;;   // C# угадает: string
+
+Console.WriteLine($&quot;Hi, I&#x27;m {name}, {age}, I learn {lang}&quot;);</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Hi, I&#x27;m Shiro, 18, I learn C#</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="2"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_ТИПЫ_ДАННЫХ</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p><code>//</code> начинает комментарий. У текста есть длина <code>Length</code>.</p>
+      <pre><code>int count = 10;         // целое число
+double price = 9.99;    // дробное число
+bool online = true;     // true или false
+char letter = &#x27;S&#x27;;      // один символ
+string title = &quot;VIBE&quot;;  // текст
+
+Console.WriteLine(title.Length);</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>4</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="3"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_УСЛОВИЯ</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> выполняет код, только если условие в скобках верно.</p>
+      <pre><code>int age = 18;
+
+if (age &gt;= 18)
+{
+    Console.WriteLine(&quot;Adult&quot;);
+}
+else if (age &gt;= 13)
+{
+    Console.WriteLine(&quot;Teen&quot;);
+}
+else
+{
+    Console.WriteLine(&quot;Kid&quot;);
+}</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="4"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_ЦИКЛЫ</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p>У <code>for</code> три части: начало, условие, шаг. <code>while</code> повторяет, пока условие верно.</p>
+      <pre><code>for (int i = 0; i &lt; 3; i++)
+{
+    Console.WriteLine($&quot;Step {i}&quot;);
+}
+
+int count = 3;
+while (count &gt; 0)
+{
+    Console.WriteLine(count);
+    count--;
+}</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="5"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_ФУНКЦИИ</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>В C# функции называются <b>методами</b>. Пишешь тип результата, название и параметры с типами.</p>
+      <pre><code>string Greet(string name)
+{
+    return $&quot;Hello, {name}!&quot;;
+}
+
+Console.WriteLine(Greet(&quot;Shiro&quot;));</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Hello, Shiro!</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="6"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_СПИСКИ</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>List</code> — список, который может расти. <code>Add</code> добавляет элемент в конец, <code>Count</code> — сколько их, <code>foreach</code> проходит по каждому.</p>
+      <pre><code>var langs = new List&lt;string&gt; { &quot;Python&quot;, &quot;C#&quot;, &quot;Rust&quot; };
+langs.Add(&quot;C++&quot;);
+Console.WriteLine(langs.Count);
+
+foreach (var lang in langs)
+{
+    Console.WriteLine($&quot;I like {lang}&quot;);
+}</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>4
+I like Python
+I like C#
+I like Rust
+I like C++</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="7"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_МИНИ-ПРОЕКТ_ГЕРОЙ_ИГРЫ</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p><b>Класс</b> объединяет данные и методы в одно целое. Игры в Unity пишутся именно так.</p>
+      <pre><code>var p = new Player(&quot;Shiro&quot;);
+p.Hit(30);
+p.Hit(25);
+
+class Player
+{
+    public string Name;
+    public int Hp = 100;
+
+    public Player(string name)
+    {
+        Name = name;
+    }
+
+    public void Hit(int damage)
+    {
+        Hp -= damage;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+}</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="8"></button>
+    </div>
+  </article>
+
+  <section class="quiz" id="quiz" data-lang="csharp">
+    <div class="doc-bar"><span>ТЕСТ.EXE</span><span>5 ВОПРОСОВ</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. Что выведет этот код?</p>
+      <pre><code>string name = &quot;Shiro&quot;;
+Console.WriteLine($&quot;Hi, {name}!&quot;);</code></pre>
+      <div class="opts"><button type="button">Hi, {name}!</button><button type="button">Hi, Shiro!</button><button type="button">Hi, name!</button><button type="button">Error</button></div>
+      <p class="why" hidden>$ перед кавычками вставляет значение name в текст.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Как добавить элемент в List?</p>
+      <pre><code>var langs = new List&lt;string&gt;();</code></pre>
+      <div class="opts"><button type="button">langs.Push(&quot;C#&quot;);</button><button type="button">langs.Add(&quot;C#&quot;);</button><button type="button">langs.Append(&quot;C#&quot;);</button><button type="button">langs += &quot;C#&quot;;</button></div>
+      <p class="why" hidden>У List метод Add. push — это JavaScript, append — Python.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. Что выведет этот код?</p>
+      <pre><code>int x = 10;
+x--;
+Console.WriteLine(x);</code></pre>
+      <div class="opts"><button type="button">10</button><button type="button">9</button><button type="button">11</button><button type="button">x--</button></div>
+      <p class="why" hidden>x-- отнимает 1: было 10, стало 9.</p>
+      </div>
+      <div class="q" data-answer="2">
+      <p class="q-text">04. Какой тип хранит true или false?</p>
+      <div class="opts"><button type="button">int</button><button type="button">string</button><button type="button">bool</button><button type="button">char</button></div>
+      <p class="why" hidden>bool — это только true или false.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">05. Какой игровой движок в основном использует C#?</p>
+      <div class="opts"><button type="button">Unity</button><button type="button">Unreal</button><button type="button">Minecraft</button><button type="button">Roblox</button></div>
+      <p class="why" hidden>Игры в Unity пишут на C#. В Unreal — C++.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
+  <p class="tip">// введи "back" в терминале, чтобы вернуться к языкам, или другой язык: python, js, html, css, c, c++, rust</p>
+</main>
+
+<script src="../progress.js"></script>
+<script src="../terminal.js"></script>
+<script src="../docs.js"></script>
+<script src="../quiz.js"></script>
+<script>startDocsTerminal("csharp", "уроки c# загружены");</script>
+</body>
+</html>

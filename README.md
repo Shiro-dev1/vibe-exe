@@ -14,7 +14,19 @@ Black and white pixel experiment: two hands made of dots reach for each other.
   `python.html`, `javascript.html` (js), `html.html`, `css.html`, `c.html`, `cpp.html` (cpp / c++), `csharp.html` (csharp / c#), `rust.html`.
   Type `back` to return to page 2.
 
+## Russian version
+Type `lang ru` in the terminal (or `lang en` to switch back). Russian pages live in `ru/` with the same file names. The choice is remembered in the browser.
+
+## Learning features
+- Every lesson has a MARK AS DONE button; progress is shown on the lesson page, on page 2 and with the `progress` command. It is stored in the visitor's browser (localStorage).
+- Each language ends with a 5-question quiz; the best score is saved too.
+- JavaScript lessons have RUN / RESET buttons: the code runs in a sandboxed iframe.
+
 ## Other files
 - `style.css` — shared styles, `docs.css` — styles for doc pages
 - `terminal.js` — the terminal window used on every page, `docs.js` — its setup on doc pages
+- `progress.js` — lesson progress, `quiz.js` — quizzes, `runner.js` — RUN button for JavaScript lessons
 - `favicon.svg` — site icon
+- `_build/` — scripts that generate the pages (not published by GitHub Pages):
+  `python3 _build/build.py` rebuilds `index.html`, `ru/index.html` and all lesson pages from `lessons.py`, `lessons_ru.py`, `quiz.py`;
+  `python3 _build/verify.py` and `python3 _build/verify_quiz.py` run the code examples and check the outputs.

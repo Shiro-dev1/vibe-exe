@@ -31,7 +31,9 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 LISTS</a>
     <a href="#lesson-8">08 MINI PROJECT: GUESS THE NUMBER</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="python"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
@@ -39,6 +41,7 @@
       <p><code>print()</code> shows text on the screen. Text in quotes is called a <b>string</b>.</p>
       <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="1"></button>
     </div>
   </article>
 
@@ -53,6 +56,7 @@ print(name, age)
 print(f&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;)</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Shiro 18
 Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="2"></button>
     </div>
   </article>
 
@@ -67,6 +71,7 @@ online = True       # bool: True or False
 
 print(type(price))</code></pre>
       <div class="out"><span>OUTPUT</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="3"></button>
     </div>
   </article>
 
@@ -83,6 +88,7 @@ elif age &gt;= 13:
 else:
     print(&quot;Kid&quot;)</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="4"></button>
     </div>
   </article>
 
@@ -103,6 +109,7 @@ Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="5"></button>
     </div>
   </article>
 
@@ -117,6 +124,7 @@ print(greet(&quot;Shiro&quot;))
 print(greet(&quot;world&quot;))</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!
 Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="6"></button>
     </div>
   </article>
 
@@ -138,6 +146,7 @@ I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="7"></button>
     </div>
   </article>
 
@@ -164,14 +173,61 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+      <button class="done-btn" type="button" data-lang="python" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="python">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>x = 5
+x = x + 2
+print(x)</code></pre>
+      <div class="opts"><button type="button">5</button><button type="button">7</button><button type="button">x + 2</button><button type="button">52</button></div>
+      <p class="why" hidden>x was 5, then we add 2, so x becomes 7.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. What will this code print?</p>
+      <pre><code>langs = [&quot;Python&quot;, &quot;C&quot;, &quot;Rust&quot;]
+print(langs[1])</code></pre>
+      <div class="opts"><button type="button">Python</button><button type="button">C</button><button type="button">Rust</button><button type="button">Error</button></div>
+      <p class="why" hidden>Counting starts from 0, so [1] is the second item.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. How many times will &quot;hi&quot; be printed?</p>
+      <pre><code>for i in range(4):
+    print(&quot;hi&quot;)</code></pre>
+      <div class="opts"><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">0</button></div>
+      <p class="why" hidden>range(4) gives 0, 1, 2, 3: that is 4 steps.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. What will this code print?</p>
+      <pre><code>age = 15
+if age &gt;= 18:
+    print(&quot;Adult&quot;)
+else:
+    print(&quot;Kid&quot;)</code></pre>
+      <div class="opts"><button type="button">Adult</button><button type="button">Kid</button><button type="button">Adult Kid</button><button type="button">Nothing</button></div>
+      <p class="why" hidden>15 is less than 18, so the else part runs.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. Which word creates a function in Python?</p>
+      <div class="opts"><button type="button">function</button><button type="button">def</button><button type="button">func</button><button type="button">fn</button></div>
+      <p class="why" hidden>Python uses def: def greet(name):</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: js, html, css, c, c++, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("python", "python lessons loaded");</script>
 </body>
 </html>

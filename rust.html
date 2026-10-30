@@ -31,7 +31,9 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 VECTORS</a>
     <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="rust"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
@@ -41,6 +43,7 @@
     println!(&quot;Hello, world!&quot;);
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="1"></button>
     </div>
   </article>
 
@@ -55,6 +58,7 @@
     println!(&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;);
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 19</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="2"></button>
     </div>
   </article>
 
@@ -70,6 +74,7 @@ let title: &amp;str = &quot;VIBE&quot;; // text
 
 println!(&quot;{}&quot;, title.len());</code></pre>
       <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="3"></button>
     </div>
   </article>
 
@@ -87,6 +92,7 @@ if age &gt;= 18 {
     println!(&quot;Kid&quot;);
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="4"></button>
     </div>
   </article>
 
@@ -109,6 +115,7 @@ Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="5"></button>
     </div>
   </article>
 
@@ -124,6 +131,7 @@ fn main() {
     println!(&quot;{}&quot;, add(2, 3));
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>5</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="6"></button>
     </div>
   </article>
 
@@ -143,6 +151,7 @@ I like Python
 I like C
 I like Rust
 I like C#</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="7"></button>
     </div>
   </article>
 
@@ -169,14 +178,66 @@ fn main() {
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+      <button class="done-btn" type="button" data-lang="rust" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="rust">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>let mut x = 5;
+x += 3;
+println!(&quot;{x}&quot;);</code></pre>
+      <div class="opts"><button type="button">5</button><button type="button">8</button><button type="button">53</button><button type="button">Error</button></div>
+      <p class="why" hidden>x is mut, so it can change: 5 + 3 = 8.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. What happens here?</p>
+      <pre><code>let x = 5;
+x = 6;</code></pre>
+      <div class="opts"><button type="button">x becomes 6</button><button type="button">Compile error: x is not mut</button><button type="button">x stays 5</button><button type="button">It prints 6</button></div>
+      <p class="why" hidden>Without mut a variable can&#x27;t change, and Rust won&#x27;t compile it.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. How many times will the loop run?</p>
+      <pre><code>for i in 0..3 {
+    println!(&quot;{i}&quot;);
+}</code></pre>
+      <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">0</button></div>
+      <p class="why" hidden>0..3 is 0, 1, 2: the end number is not included.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. What will this code print?</p>
+      <pre><code>fn double(n: i32) -&gt; i32 {
+    n * 2
+}
+
+fn main() {
+    println!(&quot;{}&quot;, double(21));
+}</code></pre>
+      <div class="opts"><button type="button">21</button><button type="button">42</button><button type="button">n * 2</button><button type="button">Error</button></div>
+      <p class="why" hidden>The last line without ; is returned: 21 * 2 = 42.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. What will this code print?</p>
+      <pre><code>let v = vec![1, 2, 3];
+println!(&quot;{}&quot;, v.len());</code></pre>
+      <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">6</button><button type="button">[1, 2, 3]</button></div>
+      <p class="why" hidden>len() is how many items are in the vector: 3.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, c++, c#</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("rust", "rust lessons loaded");</script>
 </body>
 </html>

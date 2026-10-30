@@ -10,6 +10,9 @@ h1 { font-size: 72px; line-height: 1; font-weight: 400; margin: 6px 0 18px; lett
 .say { color: var(--dim); margin: -10px 0 18px; }
 .lead { color: #d6d6d6; max-width: 640px; margin-bottom: 44px; }
 
+/* Надписи в углах не сливаются с текстом при прокрутке */
+.corner { background: var(--bg); box-shadow: 0 0 0 6px var(--bg); }
+
 /* Каждая статья — как окошко */
 .doc { border: 2px solid var(--fg); margin-bottom: 28px; }
 .doc-bar {
@@ -57,6 +60,60 @@ p code, .lead code { background: #222; padding: 0 4px; }
 }
 .foot a { color: var(--fg); text-decoration: none; border-bottom: 2px solid var(--fg); }
 .foot a:hover { background: var(--fg); color: var(--bg); }
+
+/* Прогресс и кнопка «пройдено» */
+.pline { color: var(--fg); margin: -16px 0 32px; letter-spacing: 1px; white-space: pre-wrap; }
+.go + .pline, .doc-body .pline { margin: 6px 0 0; color: var(--dim); }
+.done-btn {
+  margin-top: 14px; background: var(--bg); color: var(--dim);
+  border: 2px dashed var(--dim); font: inherit; padding: 2px 12px; cursor: pointer;
+}
+.done-btn:hover { color: var(--fg); border-color: var(--fg); }
+.done-btn.on { color: var(--bg); background: var(--fg); border-style: solid; border-color: var(--fg); }
+.doc.is-done .doc-bar span:first-child::after { content: "  [x]"; }
+
+/* Редактор и кнопки RUN / RESET (уроки JavaScript) */
+.runbox textarea {
+  display: block; width: 100%; resize: vertical; overflow-x: auto; overflow-y: hidden;
+  background: var(--fg); color: var(--bg); border: 0; outline: 0;
+  padding: 8px 12px; font: inherit; font-size: 21px; line-height: 1.3;
+  white-space: pre; tab-size: 2;
+}
+.runbox textarea:focus { outline: 2px dashed var(--dim); outline-offset: 3px; }
+.run-btns { display: flex; gap: 8px; margin-top: 8px; }
+.run-btns button {
+  background: var(--bg); color: var(--fg); border: 2px solid var(--fg);
+  font: inherit; padding: 2px 14px; cursor: pointer;
+}
+.run-btns button:hover, .run-btns .run { background: var(--fg); color: var(--bg); }
+.run-btns .run:hover { background: var(--bg); color: var(--fg); }
+.out.live span::after { content: "  < LIVE"; color: var(--fg); }
+.run-frame { display: block; width: 100%; height: 90px; border: 0; background: #000; }
+.run-frame.hidden { position: absolute; width: 0; height: 0; visibility: hidden; }
+
+/* Тест в конце страницы */
+.quiz { border: 2px solid var(--fg); margin: 48px 0 28px; scroll-margin-top: 90px; }
+.q { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px dashed var(--line); }
+.q:last-of-type { border-bottom: 0; margin-bottom: 0; }
+.q-text { margin-bottom: 10px; }
+.q pre { margin-bottom: 10px; }
+.opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.opts button {
+  text-align: left; background: var(--bg); color: var(--fg);
+  border: 2px solid var(--line); font: inherit; padding: 4px 12px; cursor: pointer;
+  white-space: pre-wrap;
+}
+.opts button:hover { border-color: var(--fg); }
+.q.answered .opts button { cursor: default; }
+.q.answered .opts button:hover { border-color: var(--line); }
+.opts button.right { background: var(--fg); color: var(--bg); border-color: var(--fg) !important; }
+.opts button.wrong { border-style: dashed; border-color: var(--fg) !important; text-decoration: line-through; }
+.why { margin-top: 10px; color: var(--dim); }
+.score { font-size: 30px; margin: 10px 0; }
+.retry {
+  background: var(--fg); color: var(--bg); border: 0;
+  font: inherit; padding: 4px 16px; cursor: pointer;
+}
 
 /* Таблица команд на странице про Linux */
 .cmd { display: grid; grid-template-columns: 210px 1fr; gap: 4px 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); }

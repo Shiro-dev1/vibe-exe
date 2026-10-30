@@ -31,7 +31,9 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 ARRAYS</a>
     <a href="#lesson-8">08 MINI PROJECT: GUESS THE NUMBER</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="c"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
@@ -44,6 +46,7 @@ int main(void) {
     return 0;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="1"></button>
     </div>
   </article>
 
@@ -61,6 +64,7 @@ printf(&quot;Letter: %c\n&quot;, letter);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Age: 18
 Price: 9.99
 Letter: S</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="2"></button>
     </div>
   </article>
 
@@ -75,6 +79,7 @@ char word[] = &quot;VIBE&quot;;     // text
 
 printf(&quot;%s has %zu letters\n&quot;, word, sizeof(word) - 1);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>VIBE has 4 letters</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="3"></button>
     </div>
   </article>
 
@@ -92,6 +97,7 @@ if (age &gt;= 18) {
     printf(&quot;Kid\n&quot;);
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="4"></button>
     </div>
   </article>
 
@@ -114,6 +120,7 @@ Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="5"></button>
     </div>
   </article>
 
@@ -132,6 +139,7 @@ int main(void) {
     return 0;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>5</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="6"></button>
     </div>
   </article>
 
@@ -148,6 +156,7 @@ for (int i = 0; i &lt; size; i++) {
 }
 printf(&quot;Sum: %d\n&quot;, sum);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Sum: 100</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="7"></button>
     </div>
   </article>
 
@@ -179,14 +188,56 @@ Guess a number from 1 to 10: 8
 Smaller!
 Guess a number from 1 to 10: 7
 You got it!</pre></div>
+      <button class="done-btn" type="button" data-lang="c" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="c">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>int x = 7;
+printf(&quot;%d\n&quot;, x / 2);</code></pre>
+      <div class="opts"><button type="button">3.5</button><button type="button">3</button><button type="button">4</button><button type="button">Error</button></div>
+      <p class="why" hidden>Both are whole numbers, so C drops the part after the dot.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Which code prints a whole number in printf?</p>
+      <div class="opts"><button type="button">%s</button><button type="button">%d</button><button type="button">%c</button><button type="button">%f</button></div>
+      <p class="why" hidden>%d is a whole number, %s text, %c one character, %f a number with a dot.</p>
+      </div>
+      <div class="q" data-answer="2">
+      <p class="q-text">03. What will this code print?</p>
+      <pre><code>int a[] = {4, 8, 15};
+printf(&quot;%d\n&quot;, a[2]);</code></pre>
+      <div class="opts"><button type="button">4</button><button type="button">8</button><button type="button">15</button><button type="button">2</button></div>
+      <p class="why" hidden>Counting starts from 0: a[0]=4, a[1]=8, a[2]=15.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. What will this code print?</p>
+      <pre><code>for (int i = 0; i &lt; 3; i++) {
+    printf(&quot;%d&quot;, i);
+}</code></pre>
+      <div class="opts"><button type="button">123</button><button type="button">012</button><button type="button">0123</button><button type="button">333</button></div>
+      <p class="why" hidden>i goes 0, 1, 2 and stops when it reaches 3.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. Where does every C program start?</p>
+      <div class="opts"><button type="button">start()</button><button type="button">main()</button><button type="button">begin()</button><button type="button">program()</button></div>
+      <p class="why" hidden>The program always starts running from main().</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c++, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("c", "c lessons loaded");</script>
 </body>
 </html>

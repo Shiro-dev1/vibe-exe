@@ -29,7 +29,9 @@
     <a href="#lesson-4">04 LISTS</a>
     <a href="#lesson-5">05 BUTTONS AND FORMS</a>
     <a href="#lesson-6">06 PAGE LAYOUT</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="html"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_PAGE_SKELETON</span><span>01/06</span></div>
@@ -46,6 +48,7 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
       <div class="out"><span>OUTPUT</span><pre>A tab called &quot;My first page&quot; with the text: Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
     </div>
   </article>
 
@@ -56,6 +59,7 @@
       <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
 &lt;h2&gt;Smaller heading&lt;/h2&gt;
 &lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
     </div>
   </article>
 
@@ -67,6 +71,7 @@
 &lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
 
 &lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
     </div>
   </article>
 
@@ -90,6 +95,7 @@
 1. Learn HTML
 2. Learn CSS
 3. Build a site</pre></div>
+      <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
     </div>
   </article>
 
@@ -106,6 +112,7 @@
 
   &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
     </div>
   </article>
 
@@ -125,14 +132,51 @@
 &lt;/main&gt;
 
 &lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="html">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. Which tag is the biggest heading?</p>
+      <div class="opts"><button type="button">&lt;h6&gt;</button><button type="button">&lt;h1&gt;</button><button type="button">&lt;head&gt;</button><button type="button">&lt;big&gt;</button></div>
+      <p class="why" hidden>&lt;h1&gt; is the biggest, &lt;h6&gt; the smallest.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Where does the visible content of a page go?</p>
+      <div class="opts"><button type="button">&lt;head&gt;</button><button type="button">&lt;body&gt;</button><button type="button">&lt;title&gt;</button><button type="button">&lt;meta&gt;</button></div>
+      <p class="why" hidden>&lt;head&gt; holds settings, &lt;body&gt; holds what you see.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. Which attribute says where a link goes?</p>
+      <pre><code>&lt;a ___=&quot;page2.html&quot;&gt;Next&lt;/a&gt;</code></pre>
+      <div class="opts"><button type="button">src</button><button type="button">href</button><button type="button">link</button><button type="button">to</button></div>
+      <p class="why" hidden>Links use href. Images use src.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. Which tag makes a numbered list?</p>
+      <div class="opts"><button type="button">&lt;ul&gt;</button><button type="button">&lt;ol&gt;</button><button type="button">&lt;li&gt;</button><button type="button">&lt;list&gt;</button></div>
+      <p class="why" hidden>&lt;ol&gt; is an ordered (numbered) list, &lt;ul&gt; has dots.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. What is the alt attribute for?</p>
+      <pre><code>&lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot;&gt;</code></pre>
+      <div class="opts"><button type="button">Image size</button><button type="button">Text description of the image</button><button type="button">Link to another page</button><button type="button">Image border</button></div>
+      <p class="why" hidden>alt describes the image for people who can&#x27;t see it and when it doesn&#x27;t load.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, css, c, c++, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("html", "html lessons loaded");</script>
 </body>
 </html>

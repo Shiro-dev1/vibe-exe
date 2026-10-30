@@ -1,10 +1,86 @@
 // Окошко VIBE.EXE с командной строкой — одно на все страницы.
 // Использование: VibeTerm.create({ intro: [...], place: (win, size) => {...} })
 window.VibeTerm = (() => {
+  const RU = document.documentElement.lang === "ru";
+
+  // ---------- Язык сайта: английский в корне, русский в папке ru/ ----------
+  function langUrl(target) {
+    const path = location.pathname;
+    const cut = path.lastIndexOf("/") + 1;
+    const file = path.slice(cut) || "index.html";
+    let dir = path.slice(0, cut);
+    if (RU) dir = dir.replace(/ru\/$/, "");
+    return dir + (target === "ru" ? "ru/" : "") + file + location.hash;
+  }
+  // Если посетитель раньше выбрал другой язык — сразу открываем его версию
+  try {
+    const want = localStorage.getItem("vibe-lang");
+    if ((want === "ru" && !RU) || (want === "en" && RU)) location.replace(langUrl(want));
+  } catch (e) {}
+
+  // Все тексты терминала на двух языках
+  const T = RU ? {
+    p1: "главная — руки", p2: "языки.doc", p3: "linux.man",
+    hint: "введи help и нажми Enter",
+    help: [
+      "команды:",
+      "  help      этот список",
+      "  ls        все страницы",
+      "  page 1    главная — руки",
+      "  page 2    языки программирования",
+      "  page 3    linux и терминал",
+      "  progress  твой прогресс в уроках",
+      "  lang en   english version",
+      "  clear     очистить экран",
+      "уроки:",
+      "  python  js  html  css",
+      "  c  c++  c#  rust",
+      "  back      назад к языкам",
+    ],
+    here: "  <- ты здесь", already: "ты уже здесь",
+    onLangs: "ты на странице языков. page 1 — на главную",
+    notFound: n => "страница " + n + " не найдена. введи ls",
+    unknown: c => "неизвестная команда: " + c + ". введи help",
+    loading: n => "загрузка: " + n + " ...",
+    lessons: c => "уроки " + c, ready: "готово",
+    progressTitle: "твой прогресс:",
+    langNow: "сейчас: русский. lang en — english",
+    langSame: "уже русский",
+    langSwitch: "переключаю на english ...",
+  } : {
+    p1: "home — the hands", p2: "languages.doc", p3: "linux.man",
+    hint: "type help and press Enter",
+    help: [
+      "commands:",
+      "  help      show this list",
+      "  ls        list all pages",
+      "  page 1    home — the hands",
+      "  page 2    languages.doc",
+      "  page 3    linux.man",
+      "  progress  your lesson progress",
+      "  lang ru   русская версия",
+      "  clear     clear the screen",
+      "lessons:",
+      "  python  js  html  css",
+      "  c  c++  c#  rust",
+      "  back      return to languages",
+    ],
+    here: "  <- you are here", already: "you are already here",
+    onLangs: "you are on the languages page. type page 1 for home",
+    notFound: n => "page " + n + " not found. type ls",
+    unknown: c => "unknown command: " + c + ". type help",
+    loading: n => "loading " + n + " ...",
+    lessons: c => c + " lessons", ready: "ready",
+    progressTitle: "your progress:",
+    langNow: "now: english. lang ru — русский",
+    langSame: "already english",
+    langSwitch: "switching to русский ...",
+  };
+
   const PAGES = {
-    1: { file: "index.html", name: "home — the hands" },
-    2: { file: "page2.html", name: "languages.doc" },
-    3: { file: "page3.html", name: "linux.man" },
+    1: { file: "index.html", name: T.p1 },
+    2: { file: "page2.html", name: T.p2 },
+    3: { file: "page3.html", name: T.p3 },
   };
   // Уроки по языкам: команда -> страница
   const LANGS = {
@@ -77,7 +153,7 @@ window.VibeTerm = (() => {
         await wait(300);
       }
       if (id !== typing) return;
-      print("type help and press Enter", true);
+      print(T.hint, true);
     }
 
     // ---------- Команды ----------
@@ -89,50 +165,53 @@ window.VibeTerm = (() => {
       if (!cmd) return;
       history.push(raw); hi = history.length;
 
-      if (cmd === "help") {
-        print("commands:");
-        print("  help      show this list");
-        print("  ls        list all pages");
-        print("  page 1    " + PAGES[1].name);
-        print("  page 2    " + PAGES[2].name);
-        print("  page 3    " + PAGES[3].name);
-        print("  clear     clear the screen");
-        print("lessons:");
-        print("  python  js  html  css");
-        print("  c  c++  c#  rust");
-        print("  back      return to languages");
+      if (cmd === "help") { T.help.forEach(l => print(l)); return; }
+      if (cmd === "ls") {
+        for (const n in PAGES) print("  page " + n + "  " + PAGES[n].name + (+n === current ? T.here : ""));
         return;
       }
-      if (cmd === "ls") {
-        for (const n in PAGES) print("  page " + n + "  " + PAGES[n].name + (+n === current ? "  <- you are here" : ""));
+      if (cmd === "progress") {
+        print(T.progressTitle);
+        if (window.VibeProgress) VibeProgress.report().forEach(l => print(l));
+        return;
+      }
+      if (cmd === "lang") { print(T.langNow, true); return; }
+      const lm = cmd.match(/^lang (ru|en)$/);
+      if (lm) {
+        try { localStorage.setItem("vibe-lang", lm[1]); } catch (e) {}
+        if ((lm[1] === "ru") === RU) { print(T.langSame, true); return; }
+        print(T.langSwitch, true);
+        input.disabled = true;
+        setTimeout(() => { location.href = langUrl(lm[1]); }, reduce ? 0 : 450);
+        setTimeout(unlock, 4000);
         return;
       }
       if (cmd === "clear") { log.innerHTML = ""; return; }
 
       if (cmd === "back") {
-        if (current === 2) { print("you are on the languages page. type page 1 for home", true); return; }
-        go("page2.html", "languages.doc");
+        if (current === 2) { print(T.onLangs, true); return; }
+        go("page2.html", T.p2);
         return;
       }
       if (LANGS[cmd]) {
-        if (location.pathname.endsWith("/" + LANGS[cmd])) { print("you are already here", true); return; }
-        go(LANGS[cmd], cmd + " lessons");
+        if (location.pathname.endsWith("/" + LANGS[cmd])) { print(T.already, true); return; }
+        go(LANGS[cmd], T.lessons(cmd));
         return;
       }
 
       const m = cmd.match(/^page ?(\d+)$/);
       if (m) {
         const n = +m[1];
-        if (!PAGES[n]) { print("page " + n + " not found. type ls", true); return; }
-        if (n === current) { print("you are already here", true); return; }
+        if (!PAGES[n]) { print(T.notFound(n), true); return; }
+        if (n === current) { print(T.already, true); return; }
         go(PAGES[n].file, PAGES[n].name);
         return;
       }
-      print("unknown command: " + cmd + ". type help", true);
+      print(T.unknown(cmd), true);
     }
 
     function go(file, name) {
-      print("loading " + name + " ...", true);
+      print(T.loading(name), true);
       input.disabled = true;
       setTimeout(() => { location.href = file; }, reduce ? 0 : 450);
       setTimeout(unlock, 4000);
@@ -144,7 +223,7 @@ window.VibeTerm = (() => {
     }
     // Chrome может вернуть страницу кнопкой «Назад» из памяти — вместе с заблокированным полем
     addEventListener("pageshow", e => {
-      if (e.persisted) { unlock(); print("ready", true); }
+      if (e.persisted) { unlock(); print(T.ready, true); }
     });
 
     input.addEventListener("keydown", e => {

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>УРОКИ CSS — VIBE.EXE</title>
+<meta name="description" content="Уроки CSS: от Hello, world до мини-проекта.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; СТРАНИЦА_02</a>
+
+<main>
+  <div class="label">// СТРАНИЦА 02 / CSS</div>
+  <h1>УРОКИ CSS</h1>
+  <p class="lead">HTML говорит, что есть на странице, а CSS — как это выглядит: цвета, шрифты, размеры, расположение и анимации.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 ПОДКЛЮЧЕНИЕ CSS</a>
+    <a href="#lesson-2">02 СЕЛЕКТОРЫ</a>
+    <a href="#lesson-3">03 ЦВЕТА И ШРИФТЫ</a>
+    <a href="#lesson-4">04 ОТСТУПЫ И РАМКИ</a>
+    <a href="#lesson-5">05 FLEXBOX</a>
+    <a href="#lesson-6">06 GRID</a>
+    <a href="#lesson-7">07 АНИМАЦИИ</a>
+    <a href="#lesson-8">08 ТЕЛЕФОНЫ</a>
+    <a href="#quiz">ТЕСТ</a>
+  </nav>
+  <p class="pline" data-progress="css"></p>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_ПОДКЛЮЧЕНИЕ_CSS</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>Стили пишут в файле <code>style.css</code> и подключают внутри <code>&lt;head&gt;</code>. Правило выглядит так: кого стилизуем, потом <code>{ свойство: значение; }</code>.</p>
+      <pre><code>&lt;!-- index.html, внутри &lt;head&gt; --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+
+/* style.css */
+body {
+  background: black;
+  color: white;
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_СЕЛЕКТОРЫ</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>Селектор выбирает, какие элементы стилизовать. Класс (<code>.</code>) можно использовать много раз, id (<code>#</code>) — только один раз на странице.</p>
+      <pre><code>p { color: gray; }            /* все &lt;p&gt; */
+.card { border: 2px solid; }  /* class=&quot;card&quot; */
+#logo { font-size: 32px; }    /* id=&quot;logo&quot; */
+a:hover { color: white; }     /* ссылка под мышкой */</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_ЦВЕТА_И_ШРИФТЫ</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p>Цвет можно задать словом, кодом <code>#hex</code> или <code>rgb()</code>. Шрифты перечисляются по порядку: если первого нет, берётся следующий.</p>
+      <pre><code>h1 {
+  color: #ffffff;
+  background: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_ОТСТУПЫ_И_РАМКИ</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p>Каждый элемент — это коробка. <code>padding</code> — отступ внутри рамки, <code>margin</code> — снаружи.</p>
+      <pre><code>.card {
+  width: 300px;
+  padding: 16px;          /* внутри */
+  border: 2px solid white;
+  margin: 24px;           /* снаружи */
+  border-radius: 8px;     /* круглые углы */
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_FLEXBOX</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p>Flexbox ставит элементы в ряд (или в колонку) и распределяет их. Идеально для меню и шапок.</p>
+      <pre><code>.menu {
+  display: flex;
+  justify-content: space-between; /* вдоль ряда */
+  align-items: center;            /* поперёк ряда */
+  gap: 16px;
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_GRID</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>Grid раскладывает элементы по строкам и колонкам. <code>1fr</code> — «одна равная часть», так что здесь 3 одинаковые колонки.</p>
+      <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_АНИМАЦИИ</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>transition</code> делает изменение плавным. <code>@keyframes</code> описывает анимацию по шагам. Так работает мигающий курсор на этом сайте.</p>
+      <pre><code>.button {
+  transition: transform 0.2s;
+}
+.button:hover {
+  transform: scale(1.1);
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_ТЕЛЕФОНЫ</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p><code>@media</code> применяет стили только на некоторых экранах. Здесь галерея на узких телефонах становится одной колонкой.</p>
+      <pre><code>@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
+    </div>
+  </article>
+
+  <section class="quiz" id="quiz" data-lang="css">
+    <div class="doc-bar"><span>ТЕСТ.EXE</span><span>5 ВОПРОСОВ</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. Какой селектор выбирает элементы с class=&quot;card&quot;?</p>
+      <div class="opts"><button type="button">#card</button><button type="button">.card</button><button type="button">card</button><button type="button">*card</button></div>
+      <p class="why" hidden>Точка — класс, # — id.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Какое свойство — отступ ВНУТРИ рамки?</p>
+      <div class="opts"><button type="button">margin</button><button type="button">padding</button><button type="button">gap</button><button type="button">border</button></div>
+      <p class="why" hidden>padding — внутри, margin — снаружи.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">03. Что это сделает?</p>
+      <pre><code>.box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+      <div class="opts"><button type="button">3 одинаковые колонки</button><button type="button">3 строки</button><button type="button">отступ 3 пикселя</button><button type="button">квадрат 3 на 3</button></div>
+      <p class="why" hidden>1fr — одна равная часть, повторённая 3 раза: три одинаковые колонки.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. Какое свойство меняет цвет текста?</p>
+      <div class="opts"><button type="button">background</button><button type="button">color</button><button type="button">font-color</button><button type="button">text-color</button></div>
+      <p class="why" hidden>color — цвет текста, background — цвет фона.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. Когда сработают эти стили?</p>
+      <pre><code>@media (max-width: 600px) {
+  .menu { display: none; }
+}</code></pre>
+      <div class="opts"><button type="button">Всегда</button><button type="button">На экранах шириной 600px и меньше</button><button type="button">На экранах шире 600px</button><button type="button">Никогда</button></div>
+      <p class="why" hidden>max-width: 600px значит «до 600 пикселей в ширину» — это телефоны.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
+  <p class="tip">// введи "back" в терминале, чтобы вернуться к языкам, или другой язык: python, js, html, c, c++, c#, rust</p>
+</main>
+
+<script src="../progress.js"></script>
+<script src="../terminal.js"></script>
+<script src="../docs.js"></script>
+<script src="../quiz.js"></script>
+<script>startDocsTerminal("css", "уроки css загружены");</script>
+</body>
+</html>

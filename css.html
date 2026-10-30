@@ -31,7 +31,9 @@
     <a href="#lesson-6">06 GRID</a>
     <a href="#lesson-7">07 ANIMATIONS</a>
     <a href="#lesson-8">08 PHONES</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="css"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_CONNECT_CSS</span><span>01/08</span></div>
@@ -45,6 +47,7 @@ body {
   background: black;
   color: white;
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="1"></button>
     </div>
   </article>
 
@@ -56,6 +59,7 @@ body {
 .card { border: 2px solid; }  /* class=&quot;card&quot; */
 #logo { font-size: 32px; }    /* id=&quot;logo&quot; */
 a:hover { color: white; }     /* link under the mouse */</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="2"></button>
     </div>
   </article>
 
@@ -71,6 +75,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   font-weight: bold;
   text-align: center;
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="3"></button>
     </div>
   </article>
 
@@ -85,6 +90,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   margin: 24px;           /* outside */
   border-radius: 8px;     /* round corners */
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="4"></button>
     </div>
   </article>
 
@@ -98,6 +104,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   align-items: center;            /* across the row */
   gap: 16px;
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="5"></button>
     </div>
   </article>
 
@@ -110,6 +117,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="6"></button>
     </div>
   </article>
 
@@ -130,6 +138,7 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
 @keyframes blink {
   50% { opacity: 0; }
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="7"></button>
     </div>
   </article>
 
@@ -142,14 +151,56 @@ a:hover { color: white; }     /* link under the mouse */</code></pre>
     grid-template-columns: 1fr;
   }
 }</code></pre>
+      <button class="done-btn" type="button" data-lang="css" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="css">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. Which selector picks elements with class=&quot;card&quot;?</p>
+      <div class="opts"><button type="button">#card</button><button type="button">.card</button><button type="button">card</button><button type="button">*card</button></div>
+      <p class="why" hidden>A dot means class, # means id.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Which property is the space INSIDE the border?</p>
+      <div class="opts"><button type="button">margin</button><button type="button">padding</button><button type="button">gap</button><button type="button">border</button></div>
+      <p class="why" hidden>padding is inside, margin is outside.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">03. What does this make?</p>
+      <pre><code>.box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+      <div class="opts"><button type="button">3 equal columns</button><button type="button">3 rows</button><button type="button">3 pixels gap</button><button type="button">A 3x3 square</button></div>
+      <p class="why" hidden>1fr is one equal part, repeated 3 times: three equal columns.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. Which property changes the text color?</p>
+      <div class="opts"><button type="button">background</button><button type="button">color</button><button type="button">font-color</button><button type="button">text-color</button></div>
+      <p class="why" hidden>color is the text color, background is the color behind it.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. When will these styles work?</p>
+      <pre><code>@media (max-width: 600px) {
+  .menu { display: none; }
+}</code></pre>
+      <div class="opts"><button type="button">Always</button><button type="button">On screens 600px wide or less</button><button type="button">On screens wider than 600px</button><button type="button">Never</button></div>
+      <p class="why" hidden>max-width: 600px means &quot;up to 600 pixels wide&quot;: phones.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, c, c++, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("css", "css lessons loaded");</script>
 </body>
 </html>

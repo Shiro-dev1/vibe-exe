@@ -32,7 +32,9 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 LISTS</a>
     <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="csharp"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
@@ -40,6 +42,7 @@
       <p>In modern C# (.NET 6 and newer) this one line is a whole program. In older code you will see it wrapped in <code>class Program</code> and <code>static void Main()</code>.</p>
       <pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="1"></button>
     </div>
   </article>
 
@@ -53,6 +56,7 @@ var lang = &quot;C#&quot;;   // C# guesses: string
 
 Console.WriteLine($&quot;Hi, I&#x27;m {name}, {age}, I learn {lang}&quot;);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro, 18, I learn C#</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="2"></button>
     </div>
   </article>
 
@@ -68,6 +72,7 @@ string title = &quot;VIBE&quot;;  // text
 
 Console.WriteLine(title.Length);</code></pre>
       <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="3"></button>
     </div>
   </article>
 
@@ -90,6 +95,7 @@ else
     Console.WriteLine(&quot;Kid&quot;);
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="4"></button>
     </div>
   </article>
 
@@ -114,6 +120,7 @@ Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="5"></button>
     </div>
   </article>
 
@@ -128,6 +135,7 @@ Step 2
 
 Console.WriteLine(Greet(&quot;Shiro&quot;));</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="6"></button>
     </div>
   </article>
 
@@ -148,6 +156,7 @@ I like Python
 I like C#
 I like Rust
 I like C++</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="7"></button>
     </div>
   </article>
 
@@ -177,14 +186,55 @@ class Player
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+      <button class="done-btn" type="button" data-lang="csharp" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="csharp">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>string name = &quot;Shiro&quot;;
+Console.WriteLine($&quot;Hi, {name}!&quot;);</code></pre>
+      <div class="opts"><button type="button">Hi, {name}!</button><button type="button">Hi, Shiro!</button><button type="button">Hi, name!</button><button type="button">Error</button></div>
+      <p class="why" hidden>$ before the quotes puts the value of name into the text.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. How do you add an item to a List?</p>
+      <pre><code>var langs = new List&lt;string&gt;();</code></pre>
+      <div class="opts"><button type="button">langs.Push(&quot;C#&quot;);</button><button type="button">langs.Add(&quot;C#&quot;);</button><button type="button">langs.Append(&quot;C#&quot;);</button><button type="button">langs += &quot;C#&quot;;</button></div>
+      <p class="why" hidden>List uses Add. push is JavaScript, append is Python.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. What will this code print?</p>
+      <pre><code>int x = 10;
+x--;
+Console.WriteLine(x);</code></pre>
+      <div class="opts"><button type="button">10</button><button type="button">9</button><button type="button">11</button><button type="button">x--</button></div>
+      <p class="why" hidden>x-- takes 1 away: 10 becomes 9.</p>
+      </div>
+      <div class="q" data-answer="2">
+      <p class="q-text">04. Which type stores true or false?</p>
+      <div class="opts"><button type="button">int</button><button type="button">string</button><button type="button">bool</button><button type="button">char</button></div>
+      <p class="why" hidden>bool (boolean) is only true or false.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">05. Which game engine mostly uses C#?</p>
+      <div class="opts"><button type="button">Unity</button><button type="button">Unreal</button><button type="button">Minecraft</button><button type="button">Roblox</button></div>
+      <p class="why" hidden>Unity games are written in C#. Unreal uses C++.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, c++, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("csharp", "c# lessons loaded");</script>
 </body>
 </html>

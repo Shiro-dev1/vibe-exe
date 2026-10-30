@@ -31,14 +31,20 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 ARRAYS</a>
     <a href="#lesson-8">08 MINI PROJECT: CLICK COUNTER</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="javascript"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
     <div class="doc-body">
-      <p><code>console.log()</code> prints text to the browser console. You can open the console in Chrome with <b>Ctrl + Shift + J</b> and type code right there.</p>
-      <pre><code>console.log(&quot;Hello, world!&quot;);</code></pre>
+      <p><code>console.log()</code> prints text to the browser console. You can open the console in Chrome with <b>Ctrl + Shift + J</b> and type code right there. Or just press <b>RUN</b> here.</p>
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">console.log(&quot;Hello, world!&quot;);</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="1"></button>
     </div>
   </article>
 
@@ -46,14 +52,18 @@
     <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
     <div class="doc-body">
       <p><code>let</code> creates a variable that can change, <code>const</code> one that can't. In backticks <code>` `</code> you can insert variables with <code>${ }</code>.</p>
-      <pre><code>const name = &quot;Shiro&quot;;
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const name = &quot;Shiro&quot;;
 let age = 18;
 age = age + 1;
 
 console.log(name, age);
-console.log(`Hi, I&#x27;m ${name}`);</code></pre>
+console.log(`Hi, I&#x27;m ${name}`);</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Shiro 19
 Hi, I&#x27;m Shiro</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="2"></button>
     </div>
   </article>
 
@@ -61,16 +71,20 @@ Hi, I&#x27;m Shiro</pre></div>
     <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
     <div class="doc-body">
       <p><code>//</code> starts a comment. <code>typeof</code> tells you the type of a value.</p>
-      <pre><code>let count = 10;      // number
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">let count = 10;      // number
 let title = &quot;VIBE&quot;;  // string: text
 let online = true;   // boolean: true or false
 let nothing = null;  // null: empty on purpose
 let user;            // undefined: no value yet
 
 console.log(typeof count);
-console.log(typeof title);</code></pre>
+console.log(typeof title);</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>number
 string</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="3"></button>
     </div>
   </article>
 
@@ -78,7 +92,8 @@ string</pre></div>
     <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
     <div class="doc-body">
       <p><code>if</code> runs code only when the condition in brackets is true. Code blocks live inside <code>{ }</code>.</p>
-      <pre><code>const age = 18;
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const age = 18;
 
 if (age &gt;= 18) {
   console.log(&quot;Adult&quot;);
@@ -86,8 +101,11 @@ if (age &gt;= 18) {
   console.log(&quot;Teen&quot;);
 } else {
   console.log(&quot;Kid&quot;);
-}</code></pre>
+}</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="4"></button>
     </div>
   </article>
 
@@ -95,7 +113,8 @@ if (age &gt;= 18) {
     <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
     <div class="doc-body">
       <p><code>for</code> has three parts: start, condition, step. <code>i++</code> adds 1, <code>count--</code> takes 1 away.</p>
-      <pre><code>for (let i = 0; i &lt; 3; i++) {
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">for (let i = 0; i &lt; 3; i++) {
   console.log(&quot;Step&quot;, i);
 }
 
@@ -103,13 +122,16 @@ let count = 3;
 while (count &gt; 0) {
   console.log(count);
   count--;
-}</code></pre>
+}</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Step 0
 Step 1
 Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="5"></button>
     </div>
   </article>
 
@@ -117,16 +139,20 @@ Step 2
     <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
     <div class="doc-body">
       <p>A function is code with a name that you can run many times. The arrow <code>=&gt;</code> is a short way to write a function.</p>
-      <pre><code>function greet(name) {
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">function greet(name) {
   return &quot;Hello, &quot; + name + &quot;!&quot;;
 }
 
 const shout = (text) =&gt; text.toUpperCase();
 
 console.log(greet(&quot;Shiro&quot;));
-console.log(shout(&quot;vibe&quot;));</code></pre>
+console.log(shout(&quot;vibe&quot;));</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!
 VIBE</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="6"></button>
     </div>
   </article>
 
@@ -134,27 +160,32 @@ VIBE</pre></div>
     <div class="doc-bar"><span>07_ARRAYS</span><span>07/08</span></div>
     <div class="doc-body">
       <p>An array stores many values in order. Counting starts from 0. <code>push</code> adds an item to the end, <code>length</code> is how many there are.</p>
-      <pre><code>const langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;];
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">const langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;];
 langs.push(&quot;Rust&quot;);
 
 console.log(langs[0]);
 console.log(langs.length);
 
-langs.forEach((lang) =&gt; console.log(&quot;I like &quot; + lang));</code></pre>
+langs.forEach((lang) =&gt; console.log(&quot;I like &quot; + lang));</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>Python
 4
 I like Python
 I like JavaScript
 I like C
 I like Rust</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="7"></button>
     </div>
   </article>
 
   <article class="doc" id="lesson-8">
     <div class="doc-bar"><span>08_MINI_PROJECT_CLICK_COUNTER</span><span>08/08</span></div>
     <div class="doc-body">
-      <p>JavaScript can change the page. This button counts clicks: put the code in an HTML file and open it in the browser.</p>
-      <pre><code>&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
+      <p>JavaScript can change the page. This button counts clicks: press RUN and click it.</p>
+      <div class="runbox">
+        <textarea spellcheck="false" autocapitalize="off" aria-label="Code">&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
 
 &lt;script&gt;
   const btn = document.getElementById(&quot;btn&quot;);
@@ -164,16 +195,62 @@ I like Rust</pre></div>
     clicks++;
     btn.textContent = &quot;Clicks: &quot; + clicks;
   });
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;</textarea>
+        <div class="run-btns"><button class="run" type="button">[ RUN ]</button><button class="reset" type="button">[ RESET ]</button></div>
+      </div>
       <div class="out"><span>OUTPUT</span><pre>[ Clicks: 0 ]  -&gt; click -&gt;  [ Clicks: 1 ]  -&gt; click -&gt;  [ Clicks: 2 ]</pre></div>
+      <button class="done-btn" type="button" data-lang="javascript" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="javascript">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>let x = 5;
+x = x + 2;
+console.log(x);</code></pre>
+      <div class="opts"><button type="button">5</button><button type="button">7</button><button type="button">x + 2</button><button type="button">52</button></div>
+      <p class="why" hidden>x was 5, then we add 2, so x becomes 7.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. What will this code print?</p>
+      <pre><code>console.log(&quot;5&quot; + 2);</code></pre>
+      <div class="opts"><button type="button">7</button><button type="button">52</button><button type="button">Error</button><button type="button">undefined</button></div>
+      <p class="why" hidden>&quot;5&quot; is text, so + glues the 2 to it instead of adding.</p>
+      </div>
+      <div class="q" data-answer="2">
+      <p class="q-text">03. Which keyword creates a variable that can&#x27;t be changed?</p>
+      <div class="opts"><button type="button">let</button><button type="button">var</button><button type="button">const</button><button type="button">fixed</button></div>
+      <p class="why" hidden>const means constant: you can&#x27;t assign it again.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. What will this code print?</p>
+      <pre><code>const a = [10, 20, 30];
+console.log(a.length);</code></pre>
+      <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">30</button><button type="button">60</button></div>
+      <p class="why" hidden>length is how many items are in the array: 3.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. What will this code print?</p>
+      <pre><code>const shout = (t) =&gt; t.toUpperCase();
+console.log(shout(&quot;hi&quot;));</code></pre>
+      <div class="opts"><button type="button">hi</button><button type="button">HI</button><button type="button">Hi</button><button type="button">t</button></div>
+      <p class="why" hidden>toUpperCase() makes all letters big.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, html, css, c, c++, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
+<script src="runner.js"></script>
 <script>startDocsTerminal("javascript", "js lessons loaded");</script>
 </body>
 </html>

@@ -32,7 +32,9 @@
     <a href="#lesson-6">06 FUNCTIONS</a>
     <a href="#lesson-7">07 VECTORS</a>
     <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+    <a href="#quiz">QUIZ</a>
   </nav>
+  <p class="pline" data-progress="cpp"></p>
 
   <article class="doc" id="lesson-1">
     <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
@@ -45,6 +47,7 @@ int main() {
     return 0;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="1"></button>
     </div>
   </article>
 
@@ -61,6 +64,7 @@ int main() {
     std::cout &lt;&lt; &quot;Hi, I&#x27;m &quot; &lt;&lt; name &lt;&lt; &quot; and I&#x27;m &quot; &lt;&lt; age &lt;&lt; &quot;\n&quot;;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="2"></button>
     </div>
   </article>
 
@@ -77,6 +81,7 @@ auto half = 3.5;             // the compiler picks double
 
 std::cout &lt;&lt; title.length() &lt;&lt; &quot;\n&quot;;</code></pre>
       <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="3"></button>
     </div>
   </article>
 
@@ -94,6 +99,7 @@ if (age &gt;= 18) {
     std::cout &lt;&lt; &quot;Kid\n&quot;;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="4"></button>
     </div>
   </article>
 
@@ -116,6 +122,7 @@ Step 2
 3
 2
 1</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="5"></button>
     </div>
   </article>
 
@@ -134,6 +141,7 @@ int main() {
     std::cout &lt;&lt; greet(&quot;Shiro&quot;) &lt;&lt; &quot;\n&quot;;
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="6"></button>
     </div>
   </article>
 
@@ -159,6 +167,7 @@ I like Python
 I like C++
 I like Rust
 I like C#</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="7"></button>
     </div>
   </article>
 
@@ -188,14 +197,58 @@ int main() {
 }</code></pre>
       <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
 Shiro has 45 HP</pre></div>
+      <button class="done-btn" type="button" data-lang="cpp" data-n="8"></button>
     </div>
   </article>
 
+  <section class="quiz" id="quiz" data-lang="cpp">
+    <div class="doc-bar"><span>QUIZ.EXE</span><span>5 QUESTIONS</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. What will this code print?</p>
+      <pre><code>std::string s = &quot;VIBE&quot;;
+std::cout &lt;&lt; s.length() &lt;&lt; &quot;\n&quot;;</code></pre>
+      <div class="opts"><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">VIBE</button></div>
+      <p class="why" hidden>&quot;VIBE&quot; has 4 letters.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Which one sends text to the screen?</p>
+      <div class="opts"><button type="button">std::cin &gt;&gt;</button><button type="button">std::cout &lt;&lt;</button><button type="button">print()</button><button type="button">echo</button></div>
+      <p class="why" hidden>cout &lt;&lt; is output, cin &gt;&gt; is input.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. What will this code print?</p>
+      <pre><code>std::vector&lt;int&gt; v = {1, 2};
+v.push_back(3);
+std::cout &lt;&lt; v.size() &lt;&lt; &quot;\n&quot;;</code></pre>
+      <div class="opts"><button type="button">2</button><button type="button">3</button><button type="button">6</button><button type="button">1</button></div>
+      <p class="why" hidden>push_back added one more item: now there are 3.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">04. What will this code print?</p>
+      <pre><code>int hp = 100;
+hp -= 30;
+hp -= 25;
+std::cout &lt;&lt; hp &lt;&lt; &quot;\n&quot;;</code></pre>
+      <div class="opts"><button type="button">45</button><button type="button">55</button><button type="button">70</button><button type="button">100</button></div>
+      <p class="why" hidden>100 - 30 = 70, then 70 - 25 = 45.</p>
+      </div>
+      <div class="q" data-answer="0">
+      <p class="q-text">05. What joins data and functions into one thing?</p>
+      <div class="opts"><button type="button">class</button><button type="button">loop</button><button type="button">include</button><button type="button">vector</button></div>
+      <p class="why" hidden>A class has data (name, hp) and functions (hit).</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
   <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, c#, rust</p>
 </main>
 
+<script src="progress.js"></script>
 <script src="terminal.js"></script>
 <script src="docs.js"></script>
+<script src="quiz.js"></script>
 <script>startDocsTerminal("cpp", "c++ lessons loaded");</script>
 </body>
 </html>

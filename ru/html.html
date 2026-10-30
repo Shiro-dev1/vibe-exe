@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>УРОКИ HTML — VIBE.EXE</title>
+<meta name="description" content="Уроки HTML: от Hello, world до мини-проекта.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; СТРАНИЦА_02</a>
+
+<main>
+  <div class="label">// СТРАНИЦА 02 / HTML</div>
+  <h1>УРОКИ HTML</h1>
+  <p class="lead">HTML говорит, что есть на странице: заголовки, текст, ссылки, картинки, кнопки. Сохрани код в файл с окончанием .html и открой его в браузере.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 КАРКАС СТРАНИЦЫ</a>
+    <a href="#lesson-2">02 ЗАГОЛОВКИ И ТЕКСТ</a>
+    <a href="#lesson-3">03 ССЫЛКИ И КАРТИНКИ</a>
+    <a href="#lesson-4">04 СПИСКИ</a>
+    <a href="#lesson-5">05 КНОПКИ И ФОРМЫ</a>
+    <a href="#lesson-6">06 РАЗМЕТКА СТРАНИЦЫ</a>
+    <a href="#quiz">ТЕСТ</a>
+  </nav>
+  <p class="pline" data-progress="html"></p>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_КАРКАС_СТРАНИЦЫ</span><span>01/06</span></div>
+    <div class="doc-body">
+      <p>Любая страница начинается так. В <code>&lt;head&gt;</code> настройки и название вкладки, в <code>&lt;body&gt;</code> то, что видно на экране. Теги идут парами: <code>&lt;tag&gt;</code> открывает, <code>&lt;/tag&gt;</code> закрывает.</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;My first page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Hello, world!
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>Вкладка «My first page» и текст: Hello, world!</pre></div>
+      <button class="done-btn" type="button" data-lang="html" data-n="1"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_ЗАГОЛОВКИ_И_ТЕКСТ</span><span>02/06</span></div>
+    <div class="doc-body">
+      <p><code>&lt;h1&gt;</code> — самый большой заголовок, <code>&lt;h6&gt;</code> — самый маленький. <code>&lt;p&gt;</code> — абзац.</p>
+      <pre><code>&lt;h1&gt;Big heading&lt;/h1&gt;
+&lt;h2&gt;Smaller heading&lt;/h2&gt;
+&lt;p&gt;A paragraph of text with &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; words.&lt;/p&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="2"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_ССЫЛКИ_И_КАРТИНКИ</span><span>03/06</span></div>
+    <div class="doc-body">
+      <p><code>href</code> — куда ведёт ссылка. <code>src</code> — файл картинки. <code>alt</code> описывает картинку для тех, кто её не видит.</p>
+      <pre><code>&lt;a href=&quot;https://shiro-dev1.github.io&quot;&gt;My portfolio&lt;/a&gt;
+&lt;a href=&quot;page2.html&quot;&gt;Go to page 2&lt;/a&gt;
+
+&lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot; width=&quot;300&quot;&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="3"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_СПИСКИ</span><span>04/06</span></div>
+    <div class="doc-body">
+      <p><code>&lt;ul&gt;</code> — список с точками, <code>&lt;ol&gt;</code> — с номерами. Каждый пункт — <code>&lt;li&gt;</code>.</p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Learn HTML&lt;/li&gt;
+  &lt;li&gt;Learn CSS&lt;/li&gt;
+  &lt;li&gt;Build a site&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      <div class="out"><span>ВЫВОД</span><pre>• HTML
+• CSS
+
+1. Learn HTML
+2. Learn CSS
+3. Build a site</pre></div>
+      <button class="done-btn" type="button" data-lang="html" data-n="4"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_КНОПКИ_И_ФОРМЫ</span><span>05/06</span></div>
+    <div class="doc-body">
+      <p>Форма собирает то, что вводит пользователь. <code>&lt;label&gt;</code> — подпись, <code>for</code> связывает её с полем, у которого такой же <code>id</code>.</p>
+      <pre><code>&lt;form&gt;
+  &lt;label for=&quot;name&quot;&gt;Your name&lt;/label&gt;
+  &lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Shiro&quot;&gt;
+
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input id=&quot;email&quot; type=&quot;email&quot;&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="5"></button>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_РАЗМЕТКА_СТРАНИЦЫ</span><span>06/06</span></div>
+    <div class="doc-body">
+      <p>Эти теги называют части страницы: верх, основное содержимое, низ. Ссылка на <code>#about</code> прыгает к элементу с <code>id="about"</code>.</p>
+      <pre><code>&lt;header&gt;
+  &lt;nav&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section id=&quot;about&quot;&gt;
+    &lt;h2&gt;About me&lt;/h2&gt;
+    &lt;p&gt;I build websites.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;(c) 2026&lt;/footer&gt;</code></pre>
+      <button class="done-btn" type="button" data-lang="html" data-n="6"></button>
+    </div>
+  </article>
+
+  <section class="quiz" id="quiz" data-lang="html">
+    <div class="doc-bar"><span>ТЕСТ.EXE</span><span>5 ВОПРОСОВ</span></div>
+    <div class="doc-body">
+      <div class="q" data-answer="1">
+      <p class="q-text">01. Какой тег — самый большой заголовок?</p>
+      <div class="opts"><button type="button">&lt;h6&gt;</button><button type="button">&lt;h1&gt;</button><button type="button">&lt;head&gt;</button><button type="button">&lt;big&gt;</button></div>
+      <p class="why" hidden>&lt;h1&gt; — самый большой, &lt;h6&gt; — самый маленький.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">02. Где пишется то, что видно на странице?</p>
+      <div class="opts"><button type="button">&lt;head&gt;</button><button type="button">&lt;body&gt;</button><button type="button">&lt;title&gt;</button><button type="button">&lt;meta&gt;</button></div>
+      <p class="why" hidden>В &lt;head&gt; — настройки, в &lt;body&gt; — то, что видно.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">03. Какой атрибут говорит, куда ведёт ссылка?</p>
+      <pre><code>&lt;a ___=&quot;page2.html&quot;&gt;Next&lt;/a&gt;</code></pre>
+      <div class="opts"><button type="button">src</button><button type="button">href</button><button type="button">link</button><button type="button">to</button></div>
+      <p class="why" hidden>У ссылок href, у картинок src.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">04. Какой тег делает нумерованный список?</p>
+      <div class="opts"><button type="button">&lt;ul&gt;</button><button type="button">&lt;ol&gt;</button><button type="button">&lt;li&gt;</button><button type="button">&lt;list&gt;</button></div>
+      <p class="why" hidden>&lt;ol&gt; — нумерованный список, &lt;ul&gt; — с точками.</p>
+      </div>
+      <div class="q" data-answer="1">
+      <p class="q-text">05. Зачем нужен атрибут alt?</p>
+      <pre><code>&lt;img src=&quot;cat.jpg&quot; alt=&quot;A sleeping cat&quot;&gt;</code></pre>
+      <div class="opts"><button type="button">Размер картинки</button><button type="button">Текстовое описание картинки</button><button type="button">Ссылка на другую страницу</button><button type="button">Рамка картинки</button></div>
+      <p class="why" hidden>alt описывает картинку для тех, кто её не видит, и на случай, если она не загрузилась.</p>
+      </div>
+      <p class="score" hidden></p>
+      <button class="retry" type="button" hidden></button>
+    </div>
+  </section>
+  <p class="tip">// введи "back" в терминале, чтобы вернуться к языкам, или другой язык: python, js, css, c, c++, c#, rust</p>
+</main>
+
+<script src="../progress.js"></script>
+<script src="../terminal.js"></script>
+<script src="../docs.js"></script>
+<script src="../quiz.js"></script>
+<script>startDocsTerminal("html", "уроки html загружены");</script>
+</body>
+</html>

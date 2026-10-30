@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINUX.MAN — VIBE.EXE</title>
+<meta name="description" content="Коротко о Linux и основных командах терминала.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<div class="corner tr">СТРАНИЦА_03</div>
+
+<main>
+  <div class="label">// СТРАНИЦА 03</div>
+  <h1>LINUX.MAN</h1>
+  <p class="lead">Linux — бесплатное ядро операционной системы, его начал писать Линус Торвальдс в 1991 году. На нём работает большинство серверов в интернете, все Android-телефоны и суперкомпьютеры мира. ChromeOS тоже построена на Linux.</p>
+
+  <article class="doc">
+    <div class="doc-bar"><span>ЧТО_ТАКОЕ_ТЕРМИНАЛ.TXT</span><span>01</span></div>
+    <div class="doc-body">
+      <p>Терминал — это окно, где компьютером управляют текстовыми командами вместо мышки. Пишешь команду, нажимаешь Enter, и компьютер отвечает. Окошко в углу этого сайта работает так же.</p>
+      <pre><code>$ команда  опции  цель
+$ ls -la /home</code></pre>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>ФАЙЛЫ_И_ПАПКИ.MAN</span><span>02</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>pwd</code><div>Показать, в какой папке ты сейчас.</div></div>
+      <div class="cmd"><code>ls</code><div>Список файлов в папке.<small>ls -la — ещё и скрытые файлы с подробностями</small></div></div>
+      <div class="cmd"><code>cd папка</code><div>Зайти в папку.<small>cd .. — на папку выше; cd ~ — в домашнюю папку</small></div></div>
+      <div class="cmd"><code>mkdir имя</code><div>Создать новую папку.</div></div>
+      <div class="cmd"><code>touch file.txt</code><div>Создать пустой файл.</div></div>
+      <div class="cmd"><code>cp a b</code><div>Скопировать файл a в b.</div></div>
+      <div class="cmd"><code>mv a b</code><div>Переместить или переименовать файл.</div></div>
+      <div class="cmd"><code>rm файл</code><div>Удалить файл.<small>осторожно: корзины нет, файл удаляется навсегда</small></div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>ЧТЕНИЕ_И_ПОИСК.MAN</span><span>03</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>cat file.txt</code><div>Вывести весь файл.</div></div>
+      <div class="cmd"><code>less file.txt</code><div>Читать длинный файл постранично.<small>q — выйти</small></div></div>
+      <div class="cmd"><code>grep "слово" файл</code><div>Найти строки, где есть слово.</div></div>
+      <div class="cmd"><code>man ls</code><div>Открыть инструкцию к любой команде.</div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>СИСТЕМА.MAN</span><span>04</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>sudo команда</code><div>Выполнить команду от имени администратора.<small>спросит твой пароль</small></div></div>
+      <div class="cmd"><code>chmod +x script.sh</code><div>Сделать файл запускаемым.</div></div>
+      <div class="cmd"><code>top</code><div>Посмотреть запущенные программы и насколько они нагружают компьютер.</div></div>
+      <div class="cmd"><code>clear</code><div>Очистить экран терминала.</div></div>
+    </div>
+  </article>
+
+  <article class="doc">
+    <div class="doc-bar"><span>СОВЕТЫ.TXT</span><span>05</span></div>
+    <div class="doc-body">
+      <div class="cmd"><code>Tab</code><div>Допишет название файла или команды за тебя.</div></div>
+      <div class="cmd"><code>↑ / ↓</code><div>Листать команды, которые ты вводил раньше (в терминале этого сайта тоже работает).</div></div>
+      <div class="cmd"><code>Ctrl + C</code><div>Остановить работающую команду.</div></div>
+    </div>
+  </article>
+
+  <p class="tip">// введи "page 1" в терминале, чтобы вернуться к рукам</p>
+  <footer class="foot">
+    <span>СДЕЛАЛ SHIRO</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GITHUB: github.com/Shiro-dev1 &gt;</a>
+  </footer>
+</main>
+
+<script src="../progress.js"></script>
+<script src="../terminal.js"></script>
+<script src="../docs.js"></script>
+<script>startDocsTerminal(3, "linux.man загружен");</script>
+</body>
+</html>
