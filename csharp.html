@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C#.LESSONS — VIBE.EXE</title>
+<meta name="description" content="C# lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / C#</div>
+  <h1>C#.LESSONS</h1>
+  <p class="lead">C# is a language from Microsoft. Games in Unity, Windows apps and websites are made with it. It looks a lot like Java and C++, but is easier.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 LISTS</a>
+    <a href="#lesson-8">08 MINI PROJECT: A GAME HERO</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>In modern C# (.NET 6 and newer) this one line is a whole program. In older code you will see it wrapped in <code>class Program</code> and <code>static void Main()</code>.</p>
+      <pre><code>Console.WriteLine(&quot;Hello, world!&quot;);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>Every variable has a type. <code>var</code> lets C# guess it. Put <code>$</code> before quotes to insert variables with <code>{ }</code>.</p>
+      <pre><code>string name = &quot;Shiro&quot;;
+int age = 18;
+var lang = &quot;C#&quot;;   // C# guesses: string
+
+Console.WriteLine($&quot;Hi, I&#x27;m {name}, {age}, I learn {lang}&quot;);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hi, I&#x27;m Shiro, 18, I learn C#</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p><code>//</code> starts a comment. Text has a <code>Length</code>.</p>
+      <pre><code>int count = 10;         // whole number
+double price = 9.99;    // number with a dot
+bool online = true;     // true or false
+char letter = &#x27;S&#x27;;      // one character
+string title = &quot;VIBE&quot;;  // text
+
+Console.WriteLine(title.Length);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> runs code only when the condition in brackets is true.</p>
+      <pre><code>int age = 18;
+
+if (age &gt;= 18)
+{
+    Console.WriteLine(&quot;Adult&quot;);
+}
+else if (age &gt;= 13)
+{
+    Console.WriteLine(&quot;Teen&quot;);
+}
+else
+{
+    Console.WriteLine(&quot;Kid&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>for</code> has three parts: start, condition, step. <code>while</code> repeats while the condition is true.</p>
+      <pre><code>for (int i = 0; i &lt; 3; i++)
+{
+    Console.WriteLine($&quot;Step {i}&quot;);
+}
+
+int count = 3;
+while (count &gt; 0)
+{
+    Console.WriteLine(count);
+    count--;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>In C# functions are called <b>methods</b>. You write the return type, the name and the parameters with types.</p>
+      <pre><code>string Greet(string name)
+{
+    return $&quot;Hello, {name}!&quot;;
+}
+
+Console.WriteLine(Greet(&quot;Shiro&quot;));</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_LISTS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>List</code> is a list that can grow. <code>Add</code> puts an item at the end, <code>Count</code> is how many there are, <code>foreach</code> goes through every item.</p>
+      <pre><code>var langs = new List&lt;string&gt; { &quot;Python&quot;, &quot;C#&quot;, &quot;Rust&quot; };
+langs.Add(&quot;C++&quot;);
+Console.WriteLine(langs.Count);
+
+foreach (var lang in langs)
+{
+    Console.WriteLine($&quot;I like {lang}&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>4
+I like Python
+I like C#
+I like Rust
+I like C++</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_A_GAME_HERO</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>A <b>class</b> joins data and methods into one thing. Games made in Unity are written exactly like this.</p>
+      <pre><code>var p = new Player(&quot;Shiro&quot;);
+p.Hit(30);
+p.Hit(25);
+
+class Player
+{
+    public string Name;
+    public int Hp = 100;
+
+    public Player(string name)
+    {
+        Name = name;
+    }
+
+    public void Hit(int damage)
+    {
+        Hp -= damage;
+        Console.WriteLine($&quot;{Name} has {Hp} HP&quot;);
+    }
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Shiro has 70 HP
+Shiro has 45 HP</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, css, c, cpp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("csharp", "csharp lessons loaded");</script>
+</body>
+</html>

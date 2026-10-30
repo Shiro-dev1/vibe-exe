@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PYTHON.LESSONS — VIBE.EXE</title>
+<meta name="description" content="PYTHON lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / PYTHON</div>
+  <h1>PYTHON.LESSONS</h1>
+  <p class="lead">Python is simple and readable, almost like English. It is a great first language: bots, scripts, automation, data and AI are all written in it.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 LISTS</a>
+    <a href="#lesson-8">08 MINI PROJECT: GUESS THE NUMBER</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p><code>print()</code> shows text on the screen. Text in quotes is called a <b>string</b>.</p>
+      <pre><code>print(&quot;Hello, world!&quot;)</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>A variable is a box with a name that stores a value. Put <code>f</code> before quotes and you can insert variables into text with <code>{ }</code>.</p>
+      <pre><code>name = &quot;Shiro&quot;
+age = 18
+
+print(name, age)
+print(f&quot;Hi, I&#x27;m {name} and I&#x27;m {age}&quot;)</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Shiro 18
+Hi, I&#x27;m Shiro and I&#x27;m 18</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p>Every value has a type. <code>#</code> starts a comment: Python ignores everything after it. <code>type()</code> tells you the type.</p>
+      <pre><code>count = 10          # int: whole number
+price = 9.99        # float: number with a dot
+title = &quot;VIBE.EXE&quot;  # str: text
+online = True       # bool: True or False
+
+print(type(price))</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>&lt;class &#x27;float&#x27;&gt;</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> runs code only when something is true. <code>elif</code> means "else if". Spaces at the start of a line (indent) matter in Python: they show which code belongs to the <code>if</code>.</p>
+      <pre><code>age = 18
+
+if age &gt;= 18:
+    print(&quot;Adult&quot;)
+elif age &gt;= 13:
+    print(&quot;Teen&quot;)
+else:
+    print(&quot;Kid&quot;)</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>for</code> repeats code a set number of times. <code>while</code> repeats while a condition is true. <code>range(3)</code> gives 0, 1, 2.</p>
+      <pre><code>for i in range(3):
+    print(&quot;Step&quot;, i)
+
+count = 3
+while count &gt; 0:
+    print(count)
+    count -= 1</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>A function is a piece of code with a name that you can run many times. <code>def</code> creates it, <code>return</code> gives the result back.</p>
+      <pre><code>def greet(name):
+    return &quot;Hello, &quot; + name + &quot;!&quot;
+
+print(greet(&quot;Shiro&quot;))
+print(greet(&quot;world&quot;))</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!
+Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_LISTS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p>A list stores many values in order. Counting starts from 0, so <code>langs[0]</code> is the first item. <code>len()</code> gives the length.</p>
+      <pre><code>langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;]
+langs.append(&quot;Rust&quot;)
+
+print(langs[0])
+print(len(langs))
+
+for lang in langs:
+    print(&quot;I like&quot;, lang)</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Python
+4
+I like Python
+I like JavaScript
+I like C
+I like Rust</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_GUESS_THE_NUMBER</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>Everything together: a random number, a loop, conditions and <code>input()</code>, which reads what the player types. The output below is an example game.</p>
+      <pre><code>import random
+
+secret = random.randint(1, 10)
+guess = 0
+
+while guess != secret:
+    guess = int(input(&quot;Guess a number from 1 to 10: &quot;))
+    if guess &lt; secret:
+        print(&quot;Bigger!&quot;)
+    elif guess &gt; secret:
+        print(&quot;Smaller!&quot;)
+
+print(&quot;You got it!&quot;)</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Guess a number from 1 to 10: 5
+Bigger!
+Guess a number from 1 to 10: 8
+Smaller!
+Guess a number from 1 to 10: 7
+You got it!</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: js, html, css, c, cpp, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("python", "python lessons loaded");</script>
+</body>
+</html>

@@ -20,8 +20,8 @@ body {
 }
 
 /* Надписи по углам */
-.corner { position: fixed; z-index: 6; font-size: 22px; letter-spacing: 1px; line-height: 1; }
-.tl { top: 24px; left: 28px; font-size: 30px; color: var(--fg); text-decoration: none; }
+.corner { position: fixed; z-index: 6; font-size: 22px; letter-spacing: 1px; line-height: 1; text-decoration: none; }
+.tl { top: 24px; left: 28px; font-size: 30px; color: var(--fg); }
 .tr { top: 28px; right: 28px; color: var(--dim); }
 .blink { animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }

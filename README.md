@@ -4,12 +4,15 @@ Black and white pixel experiment: two hands made of dots reach for each other.
 
 - Hands assemble from scattered dots, slowly "breathe" toward each other and spark with a glitch when the fingers almost touch.
 - Dots scatter away from the cursor or finger.
-- The VIBE.EXE window is a small terminal: type `help` to see commands, `page 2` / `page 3` to open other pages.
+- The VIBE.EXE window is a small terminal: type `help` to see commands, `page 2` / `page 3` to open other pages, a language name (`python`, `js`, `cpp`...) to open its lessons.
 
 ## Pages
 - `index.html` — page 1, the hands
 - `page2.html` — LANGUAGES.DOC, short docs about programming languages
 - `page3.html` — LINUX.MAN, Linux and basic terminal commands
+- Lessons, opened from the terminal by typing a language name:
+  `python.html`, `javascript.html` (js), `html.html`, `css.html`, `c.html`, `cpp.html` (cpp / c++), `csharp.html` (csharp / c#), `rust.html`.
+  Type `back` to return to page 2.
 
 ## Other files
 - `style.css` — shared styles, `docs.css` — styles for doc pages

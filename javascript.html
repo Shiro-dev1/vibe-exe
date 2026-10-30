@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAVASCRIPT.LESSONS — VIBE.EXE</title>
+<meta name="description" content="JAVASCRIPT lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / JAVASCRIPT</div>
+  <h1>JAVASCRIPT.LESSONS</h1>
+  <p class="lead">JavaScript is the language of the web: it runs in every browser and makes pages interactive. All the moving dots on page 1 are JavaScript.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 HELLO, WORLD</a>
+    <a href="#lesson-2">02 VARIABLES</a>
+    <a href="#lesson-3">03 DATA TYPES</a>
+    <a href="#lesson-4">04 CONDITIONS</a>
+    <a href="#lesson-5">05 LOOPS</a>
+    <a href="#lesson-6">06 FUNCTIONS</a>
+    <a href="#lesson-7">07 ARRAYS</a>
+    <a href="#lesson-8">08 MINI PROJECT: CLICK COUNTER</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_HELLO_WORLD</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p><code>console.log()</code> prints text to the browser console. You can open the console in Chrome with <b>Ctrl + Shift + J</b> and type code right there.</p>
+      <pre><code>console.log(&quot;Hello, world!&quot;);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, world!</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_VARIABLES</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p><code>let</code> creates a variable that can change, <code>const</code> one that can't. In backticks <code>` `</code> you can insert variables with <code>${ }</code>.</p>
+      <pre><code>const name = &quot;Shiro&quot;;
+let age = 18;
+age = age + 1;
+
+console.log(name, age);
+console.log(`Hi, I&#x27;m ${name}`);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Shiro 19
+Hi, I&#x27;m Shiro</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_DATA_TYPES</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p><code>//</code> starts a comment. <code>typeof</code> tells you the type of a value.</p>
+      <pre><code>let count = 10;      // number
+let title = &quot;VIBE&quot;;  // string: text
+let online = true;   // boolean: true or false
+let nothing = null;  // null: empty on purpose
+let user;            // undefined: no value yet
+
+console.log(typeof count);
+console.log(typeof title);</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>number
+string</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_CONDITIONS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p><code>if</code> runs code only when the condition in brackets is true. Code blocks live inside <code>{ }</code>.</p>
+      <pre><code>const age = 18;
+
+if (age &gt;= 18) {
+  console.log(&quot;Adult&quot;);
+} else if (age &gt;= 13) {
+  console.log(&quot;Teen&quot;);
+} else {
+  console.log(&quot;Kid&quot;);
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Adult</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_LOOPS</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p><code>for</code> has three parts: start, condition, step. <code>i++</code> adds 1, <code>count--</code> takes 1 away.</p>
+      <pre><code>for (let i = 0; i &lt; 3; i++) {
+  console.log(&quot;Step&quot;, i);
+}
+
+let count = 3;
+while (count &gt; 0) {
+  console.log(count);
+  count--;
+}</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Step 0
+Step 1
+Step 2
+3
+2
+1</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_FUNCTIONS</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>A function is code with a name that you can run many times. The arrow <code>=&gt;</code> is a short way to write a function.</p>
+      <pre><code>function greet(name) {
+  return &quot;Hello, &quot; + name + &quot;!&quot;;
+}
+
+const shout = (text) =&gt; text.toUpperCase();
+
+console.log(greet(&quot;Shiro&quot;));
+console.log(shout(&quot;vibe&quot;));</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Hello, Shiro!
+VIBE</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_ARRAYS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p>An array stores many values in order. Counting starts from 0. <code>push</code> adds an item to the end, <code>length</code> is how many there are.</p>
+      <pre><code>const langs = [&quot;Python&quot;, &quot;JavaScript&quot;, &quot;C&quot;];
+langs.push(&quot;Rust&quot;);
+
+console.log(langs[0]);
+console.log(langs.length);
+
+langs.forEach((lang) =&gt; console.log(&quot;I like &quot; + lang));</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>Python
+4
+I like Python
+I like JavaScript
+I like C
+I like Rust</pre></div>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_MINI_PROJECT_CLICK_COUNTER</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p>JavaScript can change the page. This button counts clicks: put the code in an HTML file and open it in the browser.</p>
+      <pre><code>&lt;button id=&quot;btn&quot;&gt;Clicks: 0&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById(&quot;btn&quot;);
+  let clicks = 0;
+
+  btn.addEventListener(&quot;click&quot;, () =&gt; {
+    clicks++;
+    btn.textContent = &quot;Clicks: &quot; + clicks;
+  });
+&lt;/script&gt;</code></pre>
+      <div class="out"><span>OUTPUT</span><pre>[ Clicks: 0 ]  -&gt; click -&gt;  [ Clicks: 1 ]  -&gt; click -&gt;  [ Clicks: 2 ]</pre></div>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, html, css, c, cpp, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("javascript", "js lessons loaded");</script>
+</body>
+</html>

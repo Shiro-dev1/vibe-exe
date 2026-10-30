@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS.LESSONS — VIBE.EXE</title>
+<meta name="description" content="CSS lessons: from Hello, world to a mini project.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="scan"></div>
+<a class="corner tl" href="index.html">VIBE.EXE<span class="blink">_</span></a>
+<a class="corner tr" href="page2.html">&lt; PAGE_02</a>
+
+<main>
+  <div class="label">// PAGE 02 / CSS</div>
+  <h1>CSS.LESSONS</h1>
+  <p class="lead">HTML says what is on the page, CSS says how it looks: colors, fonts, sizes, layout and animations.</p>
+
+  <nav class="toc">
+    <a href="#lesson-1">01 CONNECT CSS</a>
+    <a href="#lesson-2">02 SELECTORS</a>
+    <a href="#lesson-3">03 COLORS AND FONTS</a>
+    <a href="#lesson-4">04 SPACING AND BORDERS</a>
+    <a href="#lesson-5">05 FLEXBOX</a>
+    <a href="#lesson-6">06 GRID</a>
+    <a href="#lesson-7">07 ANIMATIONS</a>
+    <a href="#lesson-8">08 PHONES</a>
+  </nav>
+
+  <article class="doc" id="lesson-1">
+    <div class="doc-bar"><span>01_CONNECT_CSS</span><span>01/08</span></div>
+    <div class="doc-body">
+      <p>Put styles in a file <code>style.css</code> and connect it inside <code>&lt;head&gt;</code>. A rule is: who to style, then <code>{ property: value; }</code>.</p>
+      <pre><code>&lt;!-- index.html, inside &lt;head&gt; --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+
+/* style.css */
+body {
+  background: black;
+  color: white;
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-2">
+    <div class="doc-bar"><span>02_SELECTORS</span><span>02/08</span></div>
+    <div class="doc-body">
+      <p>A selector picks which elements to style. A class (<code>.</code>) can be used many times, an id (<code>#</code>) only once on a page.</p>
+      <pre><code>p { color: gray; }            /* every &lt;p&gt; */
+.card { border: 2px solid; }  /* class=&quot;card&quot; */
+#logo { font-size: 32px; }    /* id=&quot;logo&quot; */
+a:hover { color: white; }     /* link under the mouse */</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-3">
+    <div class="doc-bar"><span>03_COLORS_AND_FONTS</span><span>03/08</span></div>
+    <div class="doc-body">
+      <p>Colors can be names, <code>#hex</code> codes or <code>rgb()</code>. Fonts are listed in order: if the first is missing, the next one is used.</p>
+      <pre><code>h1 {
+  color: #ffffff;
+  background: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-4">
+    <div class="doc-bar"><span>04_SPACING_AND_BORDERS</span><span>04/08</span></div>
+    <div class="doc-body">
+      <p>Every element is a box. <code>padding</code> is space inside the border, <code>margin</code> is space outside it.</p>
+      <pre><code>.card {
+  width: 300px;
+  padding: 16px;          /* inside */
+  border: 2px solid white;
+  margin: 24px;           /* outside */
+  border-radius: 8px;     /* round corners */
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-5">
+    <div class="doc-bar"><span>05_FLEXBOX</span><span>05/08</span></div>
+    <div class="doc-body">
+      <p>Flexbox puts elements in a row (or column) and spaces them out. Great for menus and headers.</p>
+      <pre><code>.menu {
+  display: flex;
+  justify-content: space-between; /* along the row */
+  align-items: center;            /* across the row */
+  gap: 16px;
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-6">
+    <div class="doc-bar"><span>06_GRID</span><span>06/08</span></div>
+    <div class="doc-body">
+      <p>Grid places elements in rows and columns. <code>1fr</code> means "one equal part", so this makes 3 equal columns.</p>
+      <pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-7">
+    <div class="doc-bar"><span>07_ANIMATIONS</span><span>07/08</span></div>
+    <div class="doc-body">
+      <p><code>transition</code> makes a change smooth. <code>@keyframes</code> describes an animation step by step. This is how the blinking cursor on this site works.</p>
+      <pre><code>.button {
+  transition: transform 0.2s;
+}
+.button:hover {
+  transform: scale(1.1);
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}</code></pre>
+    </div>
+  </article>
+
+  <article class="doc" id="lesson-8">
+    <div class="doc-bar"><span>08_PHONES</span><span>08/08</span></div>
+    <div class="doc-body">
+      <p><code>@media</code> applies styles only on some screens. Here the gallery becomes one column on narrow phones.</p>
+      <pre><code>@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+    </div>
+  </article>
+
+  <p class="tip">// type "back" in the terminal to return to the languages, or type another language: python, js, html, c, cpp, csharp, rust</p>
+</main>
+
+<script src="terminal.js"></script>
+<script src="docs.js"></script>
+<script>startDocsTerminal("css", "css lessons loaded");</script>
+</body>
+</html>
