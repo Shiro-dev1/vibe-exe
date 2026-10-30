@@ -121,10 +121,12 @@ def lang_cards(lang):
 
 
 # ---------------------------------------------------------------- главная
-# Картинка рук (1 бит на точку) — отдельным файлом для hands.js
+# Карта яркости рук (368×150, 4 бита на точку) — отдельным файлом для hands.js.
+# split — граница между руками, tipL / tipR — кончики пальцев (в точках карты).
 open(os.path.join(ROOT, "hands-data.js"), "w").write(
-    "// Картинка рук для главной: 736×268 точек, 1 бит на точку, base64. Создаётся _build/build.py из _build/hands.b64\n"
-    "window.VIBE_HANDS = \"" + open(os.path.join(HERE, "hands.b64")).read().strip() + "\";\n")
+    "// Руки для главной: карта яркости 368×150, 4 бита на точку, base64. Создаётся _build/build.py из _build/hands-ascii.b64\n"
+    "window.VIBE_HANDS = " + json.dumps({"w": 368, "h": 150, "split": 189, "tipL": [167, 79], "tipR": [211, 73],
+                                         "data": open(os.path.join(HERE, "hands-ascii.b64")).read().strip()}) + ";\n")
 for lang in ("en", "ru"):
     H = HOME[lang]
     steps = "\n".join(f"      <li><h3>{esc(t)}</h3><p>{esc(d)}</p></li>" for t, d in H["steps"])

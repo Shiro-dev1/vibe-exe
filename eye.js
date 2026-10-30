@@ -137,9 +137,19 @@
         lines[b < 0.3 ? 0 : b < 0.65 ? 1 : 2][c - c0] = RAMP[i]; any = true;
       }
       if (!any) continue;
+      // выводим только куски строки, где есть символы (пустые промежутки пропускаем — так быстрее)
       for (let l = 0; l < 3; l++) {
+        const line = lines[l];
         ctx.fillStyle = SHADES[l];
-        ctx.fillText(lines[l].join(""), c0 * cw, (r + 0.5) * ch);
+        let c = 0;
+        while (c < span) {
+          while (c < span && line[c] === " ") c++;
+          if (c >= span) break;
+          let end = c, gap = 0;
+          for (let k = c; k < span && gap < 6; k++) { if (line[k] === " ") gap++; else { gap = 0; end = k; } }
+          ctx.fillText(line.slice(c, end + 1).join(""), (c0 + c) * cw, (r + 0.5) * ch);
+          c = end + 1;
+        }
       }
     }
   }

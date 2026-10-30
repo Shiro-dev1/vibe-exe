@@ -10,8 +10,8 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const LABELS = JSON.parse(cv.dataset.labels || "{}");
 
-  // Порядок и длительность сцен (мс). Руки: сборка + два «касания».
-  const PLAN = [["eye", 14000], ["hands", 15500]].filter(([k]) => S[k]);
+  // Порядок и длительность сцен (мс). Руки: два полных «касания».
+  const PLAN = [["eye", 14000], ["hands", 16400]].filter(([k]) => S[k]);
   const FADE = 520;               // длительность перехода
   let idx = 0, sceneStart = 0, current = PLAN[0][0], switched = false;
 
@@ -34,8 +34,7 @@
   function frame(now) {
     requestAnimationFrame(frame);
     if (!onScreen()) { sceneStart += now - (last || now); last = now; return; }   // пока не видно — время сцены стоит
-    // глаз рисуется ~30 кадров/с, руки — каждый кадр (у них физика по кадрам)
-    if (current === "eye" && now - last < 30) return;
+    if (now - last < 30) return;     // ~30 кадров в секунду: хватает и бережёт слабые ноутбуки
     last = now;
 
     const elapsed = now - sceneStart, len = PLAN[idx][1];

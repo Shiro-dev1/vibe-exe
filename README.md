@@ -2,7 +2,7 @@
 
 Free coding lessons in 12 languages, in black and white. Live: https://shiro-dev1.github.io/vibe-exe/
 
-- **Home** — two animations take turns with a glitch between them: an eye drawn with letters (follows the cursor, blinks) and two hands made of dots (they reach for each other and spark when the fingers touch; dots scatter from the cursor). Below — cards for every language with progress.
+- **Home** — two animations take turns with a glitch between them: an eye drawn with letters (follows the cursor, blinks) and two hands drawn with letters (they reach for each other, pause, and spark when the fingers touch; letters move aside around the cursor). Below — cards for every language with progress.
 - **Languages** (`page2.html`) — Python, JavaScript, TypeScript, HTML, CSS, PHP, Java, C, C++, C#, Go, Rust: facts and Hello, world.
 - **Lessons** (`python.html`, `javascript.html`, ...) — every lesson has an explanation, code and its output, a line-by-line breakdown, common mistakes and an exercise with a hidden answer; each language ends with a 5-question quiz. JavaScript lessons have Run / Reset buttons (code runs in a sandboxed iframe).
 - **Linux** (`page3.html`) — what a terminal is and basic commands.
@@ -11,7 +11,7 @@ Free coding lessons in 12 languages, in black and white. Live: https://shiro-dev
 
 ## Files
 - `site.css` — styles, `site.js` — mobile menu and language switch
-- `hero.js` — switches the home animations, `eye.js` — the eye, `hands.js` + `hands-data.js` — the hands, `progress.js` — progress, `quiz.js` — quizzes, `runner.js` — Run button
+- `hero.js` — switches the home animations, `eye.js` — the eye, `hands.js` + `hands-data.js` — the hands (brightness map made from `_build/hands-ascii.b64`), `progress.js` — progress, `quiz.js` — quizzes, `runner.js` — Run button
 - `favicon.svg` — site icon
 - `_build/` — not published by GitHub Pages:
   `python3 _build/build.py` rebuilds all 30 pages from `lessons.py`, `lessons_ru.py`, `quiz.py`, `site_data.py`, `details/` (explanations and exercises) and `newlangs/` (TypeScript, PHP, Java, Go);

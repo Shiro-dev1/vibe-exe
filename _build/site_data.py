@@ -36,7 +36,7 @@ HOME = {
                ("Read and try", "Every lesson explains the idea, goes through the code line by line, lists common mistakes and gives you an exercise."),
                ("Check yourself", "Mark lessons as done and finish with a 5-question quiz. Your progress shows on every card.")],
         eye_label="An eye made of letters that follows your cursor",
-        hands_label="Two hands made of dots reaching for each other",
+        hands_label="Two hands drawn with letters reaching for each other",
     ),
     "ru": dict(
         title="VIBE.EXE",
@@ -50,7 +50,7 @@ HOME = {
                ("Читай и пробуй", "Каждый урок объясняет идею, разбирает код по строчкам, показывает частые ошибки и даёт задание."),
                ("Проверь себя", "Отмечай пройденные уроки и пройди тест из 5 вопросов. Прогресс виден на каждой карточке.")],
         eye_label="Глаз из букв, который следит за курсором",
-        hands_label="Две руки из точек тянутся друг к другу",
+        hands_label="Две руки из букв тянутся друг к другу",
     ),
 }
 
