@@ -64,7 +64,8 @@ window.VibeTerm = (() => {
     async function intro() {
       const id = ++typing;
       log.innerHTML = "";
-      prompt.classList.remove("on");
+      prompt.classList.add("on");
+      input.disabled = false;
       const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
       for (const line of opts.intro) {
         const s = print("");
@@ -77,8 +78,6 @@ window.VibeTerm = (() => {
       }
       if (id !== typing) return;
       print("type help and press Enter", true);
-      prompt.classList.add("on");
-      if (!touch) input.focus({ preventScroll: true });
     }
 
     // ---------- Команды ----------
@@ -136,7 +135,17 @@ window.VibeTerm = (() => {
       print("loading " + name + " ...", true);
       input.disabled = true;
       setTimeout(() => { location.href = file; }, reduce ? 0 : 450);
+      setTimeout(unlock, 4000);
     }
+
+    function unlock() {
+      input.disabled = false;
+      input.value = "";
+    }
+    // Chrome может вернуть страницу кнопкой «Назад» из памяти — вместе с заблокированным полем
+    addEventListener("pageshow", e => {
+      if (e.persisted) { unlock(); print("ready", true); }
+    });
 
     input.addEventListener("keydown", e => {
       if (e.key === "Enter") { run(input.value); input.value = ""; }
@@ -147,7 +156,7 @@ window.VibeTerm = (() => {
       }
     });
     term.addEventListener("click", () => {
-      if (prompt.classList.contains("on") && !getSelection().toString()) input.focus({ preventScroll: true });
+      if (!getSelection().toString()) input.focus({ preventScroll: true });
     });
 
     // ---------- Перетаскивание ----------
@@ -189,7 +198,10 @@ window.VibeTerm = (() => {
     place();
 
     return {
-      show() { place(); win.classList.add("show"); intro(); },
+      show() {
+        place(); win.classList.add("show"); intro();
+        if (!touch) input.focus({ preventScroll: true });
+      },
       place,
     };
   }
