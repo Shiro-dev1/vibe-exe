@@ -1,4 +1,5 @@
-// Глаз из символов на главной: следит за курсором, моргает, оглядывается.
+// Сцена «глаз» для главной: глаз из символов следит за курсором, моргает, оглядывается.
+// Рисует и переключает сцены hero.js; здесь только сама сцена.
 (() => {
   const RAMP = " .',:;clodxkO0KXNWM";            // от тусклого к яркому
   const SHADES = ["#565654", "#a3a3a0", "#f4f4f2"];
@@ -39,6 +40,7 @@
   }
   addEventListener("pointermove", pointer);
   cv.addEventListener("pointerdown", e => {   // клик по глазу — моргает
+    if (!active) return;
     pointer(e);
     blinkStart = performance.now() - t0; blinkLen = 170; doubleBlink = false; pupilT = 0.06;
   });
@@ -64,18 +66,8 @@
     return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
   }
 
-  // Рисуем только когда глаз виден на экране
-  let visible = true;
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
-  }
-
-  const t0 = performance.now();
-  let lastFrame = 0;
-  function frame(now) {
-    requestAnimationFrame(frame);
-    if (!visible || now - lastFrame < 30) return;   // ~30 кадров в секунду
-    lastFrame = now;
+  let t0 = performance.now(), active = false;
+  function draw(now) {
     const t = now - t0;
 
     if (now - lastMove > 3500 && now > wanderAt) {
@@ -152,9 +144,11 @@
     }
   }
 
-  addEventListener("resize", layout);
-  layout();
-  // когда загрузится шрифт кода, пересчитываем ширину буквы
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
-  requestAnimationFrame(frame);
+  window.VibeScenes = window.VibeScenes || {};
+  window.VibeScenes.eye = {
+    layout,
+    draw,
+    start() { t0 = performance.now(); nextBlink = 2500; blinkStart = -1e9; active = true; },  // глаз заново открывается
+    stop() { active = false; },
+  };
 })();

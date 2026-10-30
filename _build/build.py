@@ -5,7 +5,7 @@ import os, sys, html
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-import importlib, hashlib
+import importlib, hashlib, json
 from lessons import LANGS
 from lessons_ru import RU
 from quiz import QUIZ
@@ -121,11 +121,15 @@ def lang_cards(lang):
 
 
 # ---------------------------------------------------------------- главная
+# Картинка рук (1 бит на точку) — отдельным файлом для hands.js
+open(os.path.join(ROOT, "hands-data.js"), "w").write(
+    "// Картинка рук для главной: 736×268 точек, 1 бит на точку, base64. Создаётся _build/build.py из _build/hands.b64\n"
+    "window.VIBE_HANDS = \"" + open(os.path.join(HERE, "hands.b64")).read().strip() + "\";\n")
 for lang in ("en", "ru"):
     H = HOME[lang]
     steps = "\n".join(f"      <li><h3>{esc(t)}</h3><p>{esc(d)}</p></li>" for t, d in H["steps"])
     body = f"""<section class="hero wrap">
-  <div class="eye-box"><canvas id="eye" role="img" aria-label="{esc(H['eye_label'])}"></canvas></div>
+  <div class="eye-box"><canvas id="eye" role="img" aria-label="{esc(H['eye_label'])}" data-labels="{esc(json.dumps({'eye': H['eye_label'], 'hands': H['hands_label']}, ensure_ascii=False))}"></canvas></div>
   <h1>{esc(H['h1'])}</h1>
   <p class="lead">{esc(H['lead'])}</p>
   <div class="btn-row">
@@ -146,7 +150,7 @@ for lang in ("en", "ru"):
   </ol>
 </section>"""
     write(("" if lang == "en" else "ru/") + "index.html",
-          page(lang, "index.html", H["title"], H["desc"], body, "home", ("progress.js", "eye.js")))
+          page(lang, "index.html", H["title"], H["desc"], body, "home", ("progress.js", "eye.js", "hands-data.js", "hands.js", "hero.js")))
 
 # ---------------------------------------------------------------- языки (page2)
 for lang in ("en", "ru"):

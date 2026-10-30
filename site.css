@@ -101,7 +101,7 @@ pre { tab-size: 4; }
 .hero { padding-block: 24px 56px; text-align: center; }
 .eye-box { position: relative; height: clamp(220px, 34vw, 400px); margin-bottom: 8px; }
 .eye-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.hero h1 { margin: 0 auto 16px; max-width: 18ch; }
+.hero h1 { margin: 0 auto 16px; max-width: 18ch; font-size: clamp(24px, 6.3vw, 52px); hyphens: manual; }
 .hero .lead { margin: 0 auto 28px; color: var(--muted); font-size: 18px; }
 .hero .btn-row { justify-content: center; }
 .section { padding-block: 56px; border-top: 1px solid var(--line); }
