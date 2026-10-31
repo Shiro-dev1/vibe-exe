@@ -9,7 +9,7 @@ import importlib, hashlib, json
 from lessons import LANGS
 from lessons_ru import RU
 from quiz import QUIZ
-from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX, ACH_PAGE
+from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX, ACH_PAGE, PICK
 
 # Порядок языков на сайте
 ORDER = ["python", "javascript", "typescript", "html", "css", "php", "java", "c", "cpp", "csharp", "go", "rust"]
@@ -105,6 +105,13 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
 """
 
 
+def pick_banner(lang):
+    # блок «Не знаешь, с какого языка начать?» со ссылкой на тест
+    P = PICK[lang]
+    return (f'<div class="pick-banner"><div><h2>{esc(P["banner_h"])}</h2><p>{esc(P["banner_p"])}</p></div>'
+            f'<a class="btn" href="pick.html">{esc(P["banner_btn"])} →</a></div>')
+
+
 def card_title(key):
     return {"PYTHON": "Python", "JAVASCRIPT": "JavaScript", "RUST": "Rust"}.get(LANGS[key]["title"], LANGS[key]["title"])
 
@@ -142,6 +149,7 @@ for lang in ("en", "ru"):
     <a class="btn ghost" href="page3.html">{esc(H['linux'])}</a>
   </div>
 </section>
+<section class="wrap pick-wrap">{pick_banner(lang)}</section>
 <section class="section wrap" id="languages">
   <div class="section-head"><h2>{esc(H['langs_h'])}</h2><p>{esc(H['langs_sub'])}</p></div>
   <div class="cards">
@@ -175,6 +183,7 @@ for lang in ("en", "ru"):
   </article>""")
     body = f"""<div class="wrap">
   <header class="page-head"><h1>{esc(P['h1'])}</h1><p class="lead">{esc(P['lead'])}</p></header>
+  {pick_banner(lang)}
   <div class="lang-list">
 {chr(10).join(items)}
   </div>
@@ -199,6 +208,16 @@ for lang in ("en", "ru"):
 </div>"""
     write(("" if lang == "en" else "ru/") + "page3.html",
           page(lang, "page3.html", L["title"] + " — VIBE.EXE", L["desc"], body, "linux"))
+
+# ---------------------------------------------------------------- тест «Какой язык выбрать?»
+for lang in ("en", "ru"):
+    P = PICK[lang]
+    body = f"""<div class="wrap">
+  <header class="page-head pick-head"><h1>{esc(P['h1'])}</h1><p class="lead">{esc(P['lead'])}</p></header>
+  <div class="pick-box" id="pick"></div>
+</div>"""
+    write(("" if lang == "en" else "ru/") + "pick.html",
+          page(lang, "pick.html", P["title"] + " — VIBE.EXE", P["desc"], body, "langs", ("pick.js",)))
 
 # ---------------------------------------------------------------- достижения
 for lang in ("en", "ru"):

@@ -202,3 +202,14 @@ ACH_PAGE = {
     "ru": dict(title="Достижения", desc="Значки за уроки, тесты и заходы каждый день.", h1="Достижения",
                lead="Получай значки за учёбу: проходи уроки и тесты, запускай код и заходи каждый день. Они сохраняются в твоём браузере."),
 }
+
+PICK = {
+    "en": dict(title="Which language should I choose?", desc="Answer 5 questions and get a programming language that fits your goal.",
+               h1="Which language should I choose?", lead="Answer 5 questions — we'll suggest a language for your goal: games, websites, bots or apps.",
+               banner_h="Not sure which language to start with?", banner_p="Answer 5 questions — we'll suggest a language for your goal: games, websites, bots or apps.",
+               banner_btn="Take the quiz"),
+    "ru": dict(title="Какой язык выбрать?", desc="Ответь на 5 вопросов и узнай, какой язык программирования подходит под твою цель.",
+               h1="Какой язык выбрать?", lead="Ответь на 5 вопросов — подскажем язык под твою цель: игры, сайты, боты или приложения.",
+               banner_h="Не знаешь, с какого языка начать?", banner_p="Ответь на 5 вопросов — подскажем язык под твою цель: игры, сайты, боты или приложения.",
+               banner_btn="Пройти тест"),
+}

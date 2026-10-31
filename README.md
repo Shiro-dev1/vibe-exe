@@ -7,6 +7,7 @@ Free coding lessons in 12 languages, in black and white. Live: https://shiro-dev
 - **Lessons** (`python.html`, `javascript.html`, ...) — every lesson has an explanation, code and its output, a line-by-line breakdown, common mistakes and an exercise with a hidden answer; each language ends with a 5-question quiz. JavaScript lessons have Run / Reset buttons (code runs in a sandboxed iframe).
 - **Linux** (`page3.html`) — what a terminal is and basic commands.
 - **Russian version** — the EN / RU switch in the header; Russian pages live in `ru/`. The choice is remembered in the browser.
+- **Which language?** (`pick.html`) — a 5-question quiz that suggests a language for your goal; a banner links to it from the home page and the Languages page (`pick.js`).
 - **Achievements** (`achievements.html`) — 12 badges for lessons, quizzes, running code and visiting days in a row; a pop-up when you earn one and a dot in the menu until you look (`achievements.js`).
 - **Progress** — "Mark as done" on every lesson and the best quiz score, stored in the visitor's browser (localStorage).
 

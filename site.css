@@ -272,6 +272,32 @@ main { flex: 1; padding-bottom: 64px; }
 @media (max-width: 640px) { .cmd { grid-template-columns: 1fr; } }
 .intro-block { display: grid; gap: 12px; margin-bottom: 40px; }
 
+/* ---------- Тест «Какой язык выбрать?» ---------- */
+.pick-wrap { padding-block: 0 48px; }
+.pick-banner { display: flex; justify-content: space-between; align-items: center; gap: 16px 24px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+.pick-wrap .pick-banner { margin-bottom: 0; }
+.pick-banner > div { min-width: 0; flex: 1 1 320px; }
+.pick-banner h2 { font-size: 24px; }
+.pick-banner p { color: var(--muted); margin-top: 6px; }
+.pick-head { max-width: 720px; margin: 0 auto; }
+.pick-box { max-width: 720px; margin: 0 auto; display: grid; gap: 18px; scroll-margin-top: 90px; }
+.pick-steps { display: flex; gap: 6px; }
+.pick-steps i { flex: 1; height: 4px; border-radius: 4px; background: var(--line); }
+.pick-steps i.on { background: var(--fg); }
+.pick-count { color: var(--faint); font-size: 14px; }
+.pick-opts { display: grid; gap: 10px; }
+.pick-opts button { text-align: left; cursor: pointer; font: 500 16px var(--body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.pick-opts button:hover { border-color: var(--muted); }
+.pick-opts button.sel { border-color: var(--fg); background: var(--raised); }
+.btn[disabled] { opacity: .35; cursor: not-allowed; transform: none; }
+.pick-res { border: 1px solid var(--fg); border-radius: var(--radius); padding: 24px; display: grid; gap: 12px; }
+.pick-big { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 6vw, 44px); line-height: 1.1; }
+.pick-muted { color: var(--muted); }
+.pick-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.pick-tags span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--muted); }
+.pick-also { color: var(--faint); font-size: 14px; }
+.pick-also a { color: var(--muted); }
+
 /* ---------- Достижения ---------- */
 .site-nav a.has-new::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--fg); margin-left: 6px; vertical-align: 2px; }
 .ach-stats { display: flex; gap: 28px; flex-wrap: wrap; color: var(--muted); font-size: 15px; margin-top: 6px; }
