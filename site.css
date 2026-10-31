@@ -272,6 +272,29 @@ main { flex: 1; padding-bottom: 64px; }
 @media (max-width: 640px) { .cmd { grid-template-columns: 1fr; } }
 .intro-block { display: grid; gap: 12px; margin-bottom: 40px; }
 
+/* ---------- Достижения ---------- */
+.site-nav a.has-new::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--fg); margin-left: 6px; vertical-align: 2px; }
+.ach-stats { display: flex; gap: 28px; flex-wrap: wrap; color: var(--muted); font-size: 15px; margin-top: 6px; }
+.ach-stats b { display: block; color: var(--fg); font-family: var(--display); font-size: 26px; }
+.ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.ach { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.ach-ic { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--fg); font-family: var(--mono); font-size: 16px; }
+.ach h3 { font-size: 16px; }
+.ach p { font-size: 13.5px; color: var(--muted); }
+.ach small { font-size: 12px; color: var(--faint); }
+.ach.off { opacity: .45; background: transparent; }
+.ach.off .ach-ic { border-style: dashed; border-color: var(--faint); color: var(--faint); }
+.ach-toast {
+  position: fixed; z-index: 40; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 12px; align-items: center; max-width: calc(100vw - 40px);
+  background: var(--fg); color: var(--bg); border-radius: 10px; padding: 14px 18px; font-size: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .6); transform: translateY(20px); opacity: 0; transition: transform .3s, opacity .3s;
+}
+.ach-toast.show { transform: none; opacity: 1; }
+.ach-toast b { display: block; font-size: 15px; }
+.ach-cup { font-size: 22px; }
+@media (prefers-reduced-motion: reduce) { .ach-toast { transition: none; } }
+
 /* ---------- Подвал ---------- */
 .site-foot { border-top: 1px solid var(--line); padding-block: 24px calc(24px + env(safe-area-inset-bottom, 0px)); color: var(--faint); font-size: 14px; }
 .foot-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }

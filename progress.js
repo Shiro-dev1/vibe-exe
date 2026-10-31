@@ -25,12 +25,14 @@ window.VibeProgress = (() => {
     if (!isDone(lang, n)) list.push(n);
     mem.lessons[lang] = list.sort((a, b) => a - b);
     save(); render();
+    document.dispatchEvent(new Event("vibe:progress"));   // для достижений
   }
   const quizBest = lang => load().quiz[lang];
   function setQuiz(lang, score) {
     const best = quizBest(lang);
     if (best === undefined || score > best) { mem.quiz[lang] = score; save(); }
     render();
+    document.dispatchEvent(new CustomEvent("vibe:quiz", { detail: { lang, score } }));   // для достижений
   }
 
   // [####----] из ASCII: в пиксельном шрифте нет символов-блоков
@@ -80,5 +82,5 @@ window.VibeProgress = (() => {
     });
   }
 
-  return { TOTAL, toggle, setQuiz, quizBest, render, report };
+  return { TOTAL, toggle, setQuiz, quizBest, render, report, data: load };
 })();

@@ -32,6 +32,7 @@
     function clear() { if (frame) { frame.remove(); frame = null; } }
 
     function run() {
+      document.dispatchEvent(new Event("vibe:run"));   // для достижения «Запуск!»
       clear();
       const code = ta.value;
       const html = code.trim().startsWith("<");     // мини-проект со страницей и кнопкой

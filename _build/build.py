@@ -9,7 +9,7 @@ import importlib, hashlib, json
 from lessons import LANGS
 from lessons_ru import RU
 from quiz import QUIZ
-from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX
+from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX, ACH_PAGE
 
 # Порядок языков на сайте
 ORDER = ["python", "javascript", "typescript", "html", "css", "php", "java", "c", "cpp", "csharp", "go", "rust"]
@@ -53,10 +53,13 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
     ru_href = "ru/" + file if lang == "en" else file
     other = "ru" if lang == "en" else "en"
     other_href = ru_href if lang == "en" else en_href
-    nav = [("index.html", U["nav_home"], "home"), ("page2.html", U["nav_langs"], "langs"), ("page3.html", U["nav_linux"], "linux")]
+    nav = [("index.html", U["nav_home"], "home"), ("page2.html", U["nav_langs"], "langs"), ("page3.html", U["nav_linux"], "linux"),
+           ("achievements.html", U["nav_ach"], "ach")]
     nav_html = "".join(
         f'<a href="{f}"{" aria-current=\"page\"" if key == active else ""}>{esc(t)}</a>' for f, t, key in nav)
-    js = "".join(f'<script src="{pre}{ver(s)}"></script>\n' for s in ("site.js",) + tuple(scripts))
+    # прогресс и достижения — на каждой странице (для значков и точки в меню)
+    order = ["site.js", "progress.js", "achievements.js"] + [x for x in scripts if x not in ("site.js", "progress.js", "achievements.js")]
+    js = "".join(f'<script src="{pre}{ver(s)}"></script>\n' for s in order)
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -192,9 +195,20 @@ for lang in ("en", "ru"):
   <header class="page-head"><h1>{esc(L['h1'])}</h1><p class="lead">{esc(L['lead'])}</p></header>
   <section class="intro-block"><h2>{esc(L['intro_h'])}</h2><p>{esc(L['intro'])}</p><pre><code>{esc(L['intro_code'])}</code></pre></section>
 {chr(10).join(groups)}
+  <div data-ach-end></div>
 </div>"""
     write(("" if lang == "en" else "ru/") + "page3.html",
           page(lang, "page3.html", L["title"] + " — VIBE.EXE", L["desc"], body, "linux"))
+
+# ---------------------------------------------------------------- достижения
+for lang in ("en", "ru"):
+    A = ACH_PAGE[lang]
+    body = f"""<div class="wrap">
+  <header class="page-head"><h1>{esc(A['h1'])}</h1><p class="lead">{esc(A['lead'])}</p><div class="ach-stats" id="ach-stats"></div></header>
+  <div class="ach-grid" id="ach-grid"></div>
+</div>"""
+    write(("" if lang == "en" else "ru/") + "achievements.html",
+          page(lang, "achievements.html", A["title"] + " — VIBE.EXE", A["desc"], body, "ach"))
 
 # ---------------------------------------------------------------- уроки
 LESSON_UI = {

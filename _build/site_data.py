@@ -2,7 +2,7 @@
 
 UI = {
     "en": dict(
-        nav_home="Home", nav_langs="Languages", nav_linux="Linux", menu="Menu",
+        nav_home="Home", nav_langs="Languages", nav_linux="Linux", nav_ach="Achievements", menu="Menu",
         footer_made="Made by Shiro", footer_gh="GitHub",
         open_lessons="Open lessons", lessons_word="lessons", quiz_word="quiz",
         crumbs_langs="Languages", lessons_title="Lessons", quiz_link="Quiz",
@@ -12,7 +12,7 @@ UI = {
         born="Born", author="Author", used_for="Used for",
     ),
     "ru": dict(
-        nav_home="Главная", nav_langs="Языки", nav_linux="Linux", menu="Меню",
+        nav_home="Главная", nav_langs="Языки", nav_linux="Linux", nav_ach="Достижения", menu="Меню",
         footer_made="Сделал Shiro", footer_gh="GitHub",
         open_lessons="Открыть уроки", lessons_word="уроков", quiz_word="тест",
         crumbs_langs="Языки", lessons_title="Уроки", quiz_link="Тест",
@@ -194,4 +194,11 @@ LINUX = {
             ]),
         ],
     ),
+}
+
+ACH_PAGE = {
+    "en": dict(title="Achievements", desc="Badges for lessons, quizzes and coming back every day.", h1="Achievements",
+               lead="Earn badges as you learn: finish lessons, pass quizzes, run code and come back every day. They are saved in your browser."),
+    "ru": dict(title="Достижения", desc="Значки за уроки, тесты и заходы каждый день.", h1="Достижения",
+               lead="Получай значки за учёбу: проходи уроки и тесты, запускай код и заходи каждый день. Они сохраняются в твоём браузере."),
 }
