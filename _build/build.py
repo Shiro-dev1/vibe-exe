@@ -238,7 +238,7 @@ for lang in ("en", "ru"):
         links = ", ".join(f'<a href="{LANGS[k]["file"]}">{esc(card_title(k))}</a>' for k in t[7])
         inl = f'<div class="term-in">{esc(G["inlessons"])}: {links}</div>' if links else ""
         text = " ".join([t[0], t[1], t[2 + li], t[4 + li]]).lower()
-        sub = f'<small>{esc(other)}</small>' if other != name else ""
+        sub = f'<small>{esc(other)}</small>' if lang == "ru" and other != name else ""   # на русской странице — английское название
         cards.append(f"""    <article class="term" data-letter="{esc(letter)}" data-name="{esc((t[0] + ' ' + t[1]).lower())}" data-text="{esc(text)}">
       <h3>{esc(name)} {sub}</h3>
       <p>{esc(t[2 + li])}</p>
