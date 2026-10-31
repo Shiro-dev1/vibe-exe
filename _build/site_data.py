@@ -2,7 +2,7 @@
 
 UI = {
     "en": dict(
-        nav_home="Home", nav_langs="Languages", nav_linux="Linux", nav_ach="Achievements", menu="Menu",
+        nav_home="Home", nav_langs="Languages", nav_glos="Glossary", nav_linux="Linux", nav_ach="Achievements", menu="Menu",
         footer_made="Made by Shiro", footer_gh="GitHub",
         open_lessons="Open lessons", lessons_word="lessons", quiz_word="quiz",
         crumbs_langs="Languages", lessons_title="Lessons", quiz_link="Quiz",
@@ -12,7 +12,7 @@ UI = {
         born="Born", author="Author", used_for="Used for",
     ),
     "ru": dict(
-        nav_home="Главная", nav_langs="Языки", nav_linux="Linux", nav_ach="Достижения", menu="Меню",
+        nav_home="Главная", nav_langs="Языки", nav_glos="Словарь", nav_linux="Linux", nav_ach="Достижения", menu="Меню",
         footer_made="Сделал Shiro", footer_gh="GitHub",
         open_lessons="Открыть уроки", lessons_word="уроков", quiz_word="тест",
         crumbs_langs="Языки", lessons_title="Уроки", quiz_link="Тест",
@@ -212,4 +212,13 @@ PICK = {
                h1="Какой язык выбрать?", lead="Ответь на 5 вопросов — подскажем язык под твою цель: игры, сайты, боты или приложения.",
                banner_h="Не знаешь, с какого языка начать?", banner_p="Ответь на 5 вопросов — подскажем язык под твою цель: игры, сайты, боты или приложения.",
                banner_btn="Пройти тест"),
+}
+
+GLOS_PAGE = {
+    "en": dict(title="Glossary", desc="Programming words explained simply, with everyday examples.", h1="Glossary",
+               lead="The main programming words in plain language. Don't get a word in a lesson? Look it up here.",
+               search="Find a word: variable, function, API…", all="All", inlessons="In lessons", none="Nothing found. Try another word."),
+    "ru": dict(title="Словарь", desc="Слова программирования простыми словами и с примерами из жизни.", h1="Словарь",
+               lead="Главные слова программирования простыми словами. Не понял слово в уроке — ищи здесь.",
+               search="Найти слово: переменная, функция, API…", all="Все", inlessons="В уроках", none="Ничего не нашлось. Попробуй другое слово."),
 }

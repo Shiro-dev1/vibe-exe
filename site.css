@@ -298,6 +298,25 @@ main { flex: 1; padding-bottom: 64px; }
 .pick-also { color: var(--faint); font-size: 14px; }
 .pick-also a { color: var(--muted); }
 
+/* ---------- Словарь ---------- */
+.glos-search { width: 100%; font: 16px var(--body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.glos-search:focus { outline: none; border-color: var(--muted); }
+.abc { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 26px; }
+.abc button { cursor: pointer; font: 600 13px var(--mono); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; }
+.abc button:hover { color: var(--fg); border-color: var(--muted); }
+.abc button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.terms { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.term { display: grid; gap: 10px; align-content: start; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.term h3 { font-size: 19px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.term h3 small { font: 500 12px var(--mono); color: var(--faint); }
+.term p { color: var(--muted); font-size: 15px; }
+.term-life { font-size: 14px; border-left: 2px solid var(--fg); padding-left: 10px; }
+.term pre { font-size: 13.5px; padding: 10px 12px; background: var(--bg); }
+.term-in { font-size: 13px; color: var(--faint); }
+.term-in a { color: var(--muted); }
+.glos-empty { color: var(--muted); margin-top: 20px; }
+@media (max-width: 400px) { .terms { grid-template-columns: 1fr; } }
+
 /* ---------- Достижения ---------- */
 .site-nav a.has-new::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--fg); margin-left: 6px; vertical-align: 2px; }
 .ach-stats { display: flex; gap: 28px; flex-wrap: wrap; color: var(--muted); font-size: 15px; margin-top: 6px; }

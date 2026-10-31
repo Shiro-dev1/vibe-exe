@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Glossary — VIBE.EXE</title>
+<meta name="description" content="Programming words explained simply, with everyday examples.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="glossary.html">
+<link rel="alternate" hreflang="ru" href="ru/glossary.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=e30e1ec0">
+<script>
+  // Если раньше выбран другой язык — сразу открываем его версию страницы
+  try { if (localStorage.getItem("vibe-lang") === "ru") location.replace("ru/glossary.html" + location.hash); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="index.html">VIBE<span>.EXE</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav"><a href="index.html">Home</a><a href="page2.html">Languages</a><a href="glossary.html" aria-current="page">Glossary</a><a href="page3.html">Linux</a><a href="achievements.html">Achievements</a></nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="glossary.html" data-setlang="en" hreflang="en" aria-current="true">EN</a>
+      <a href="ru/glossary.html" data-setlang="ru" hreflang="ru">RU</a>
+    </div>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <header class="page-head"><h1>Glossary</h1><p class="lead">The main programming words in plain language. Don&#x27;t get a word in a lesson? Look it up here.</p></header>
+  <input class="glos-search" id="glos-search" type="search" placeholder="Find a word: variable, function, API…" aria-label="Find a word: variable, function, API…" autocomplete="off">
+  <div class="abc" role="group"><button type="button" data-letter="" aria-pressed="true">All</button><button type="button" data-letter="A" aria-pressed="false">A</button><button type="button" data-letter="B" aria-pressed="false">B</button><button type="button" data-letter="C" aria-pressed="false">C</button><button type="button" data-letter="D" aria-pressed="false">D</button><button type="button" data-letter="F" aria-pressed="false">F</button><button type="button" data-letter="G" aria-pressed="false">G</button><button type="button" data-letter="H" aria-pressed="false">H</button><button type="button" data-letter="I" aria-pressed="false">I</button><button type="button" data-letter="L" aria-pressed="false">L</button><button type="button" data-letter="M" aria-pressed="false">M</button><button type="button" data-letter="O" aria-pressed="false">O</button><button type="button" data-letter="P" aria-pressed="false">P</button><button type="button" data-letter="R" aria-pressed="false">R</button><button type="button" data-letter="S" aria-pressed="false">S</button><button type="button" data-letter="T" aria-pressed="false">T</button><button type="button" data-letter="V" aria-pressed="false">V</button></div>
+  <div class="terms">
+    <article class="term" data-letter="A" data-name="api api" data-text="api api a way for one program to ask another to do something or give data. for example, a bot asks telegram for new messages. a café menu: you don&#x27;t go to the kitchen, you order from the menu and get the dish.">
+      <h3>API </h3>
+      <p>A way for one program to ask another to do something or give data. For example, a bot asks Telegram for new messages.</p>
+      <div class="term-life">A café menu: you don&#x27;t go to the kitchen, you order from the menu and get the dish.</div>
+      
+    </article>
+    <article class="term" data-letter="A" data-name="array / list массив / список" data-text="array / list массив / список many values stored in order in one variable. counting starts from 0. like a numbered shelf: item 0, item 1, item 2…">
+      <h3>Array / list <small>Массив / список</small></h3>
+      <p>Many values stored in order in one variable. Counting starts from 0.</p>
+      <div class="term-life">Like a numbered shelf: item 0, item 1, item 2…</div>
+      <pre><code>langs = [&quot;Python&quot;, &quot;Go&quot;]</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a>, <a href="go.html">Go</a></div>
+    </article>
+    <article class="term" data-letter="B" data-name="backend бэкенд" data-text="backend бэкенд the part that works on the server: data, accounts, payments. the warehouse and office behind the shop.">
+      <h3>Backend <small>Бэкенд</small></h3>
+      <p>The part that works on the server: data, accounts, payments.</p>
+      <div class="term-life">The warehouse and office behind the shop.</div>
+      <div class="term-in">In lessons: <a href="php.html">PHP</a>, <a href="go.html">Go</a>, <a href="java.html">Java</a></div>
+    </article>
+    <article class="term" data-letter="B" data-name="boolean булево значение" data-text="boolean булево значение a value that is only true or false. conditions work with it. like a light switch: on or off, nothing in between.">
+      <h3>Boolean <small>Булево значение</small></h3>
+      <p>A value that is only true or false. Conditions work with it.</p>
+      <div class="term-life">Like a light switch: on or off, nothing in between.</div>
+      <pre><code>online = True</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="java.html">Java</a>, <a href="csharp.html">C#</a></div>
+    </article>
+    <article class="term" data-letter="B" data-name="browser браузер" data-text="browser браузер a program that opens websites: chrome, firefox, safari. it also runs javascript. a window into the internet.">
+      <h3>Browser <small>Браузер</small></h3>
+      <p>A program that opens websites: Chrome, Firefox, Safari. It also runs JavaScript.</p>
+      <div class="term-life">A window into the internet.</div>
+      <div class="term-in">In lessons: <a href="javascript.html">JavaScript</a>, <a href="html.html">HTML</a></div>
+    </article>
+    <article class="term" data-letter="B" data-name="bug баг" data-text="bug баг a mistake in a program that makes it work wrong. the word comes from a real moth found inside a computer in 1947.">
+      <h3>Bug <small>Баг</small></h3>
+      <p>A mistake in a program that makes it work wrong.</p>
+      <div class="term-life">The word comes from a real moth found inside a computer in 1947.</div>
+      
+    </article>
+    <article class="term" data-letter="C" data-name="class класс" data-text="class класс a blueprint for objects. it describes what every object of this kind has and can do. a cookie cutter: one shape, many cookies.">
+      <h3>Class <small>Класс</small></h3>
+      <p>A blueprint for objects. It describes what every object of this kind has and can do.</p>
+      <div class="term-life">A cookie cutter: one shape, many cookies.</div>
+      <pre><code>class Player:</code></pre><div class="term-in">In lessons: <a href="cpp.html">C++</a>, <a href="csharp.html">C#</a>, <a href="java.html">Java</a></div>
+    </article>
+    <article class="term" data-letter="C" data-name="client клиент" data-text="client клиент the side that asks a server for something — usually your browser or app. the guest at a restaurant who makes the order.">
+      <h3>Client <small>Клиент</small></h3>
+      <p>The side that asks a server for something — usually your browser or app.</p>
+      <div class="term-life">The guest at a restaurant who makes the order.</div>
+      
+    </article>
+    <article class="term" data-letter="C" data-name="comment комментарий" data-text="comment комментарий a note in the code for people. the computer skips it. a sticky note on a recipe: &quot;less salt next time&quot;.">
+      <h3>Comment <small>Комментарий</small></h3>
+      <p>A note in the code for people. The computer skips it.</p>
+      <div class="term-life">A sticky note on a recipe: &quot;less salt next time&quot;.</div>
+      <pre><code># this is a comment</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="c.html">C</a></div>
+    </article>
+    <article class="term" data-letter="C" data-name="commit коммит" data-text="commit коммит one saved step in git with a short note about what changed. a photo of your work at one moment.">
+      <h3>Commit <small>Коммит</small></h3>
+      <p>One saved step in Git with a short note about what changed.</p>
+      <div class="term-life">A photo of your work at one moment.</div>
+      
+    </article>
+    <article class="term" data-letter="C" data-name="compiler компилятор" data-text="compiler компилятор a program that turns your code into a language the computer understands before it runs, and finds mistakes on the way. a translator who translates the whole book before anyone reads it.">
+      <h3>Compiler <small>Компилятор</small></h3>
+      <p>A program that turns your code into a language the computer understands before it runs, and finds mistakes on the way.</p>
+      <div class="term-life">A translator who translates the whole book before anyone reads it.</div>
+      <div class="term-in">In lessons: <a href="c.html">C</a>, <a href="cpp.html">C++</a>, <a href="rust.html">Rust</a>, <a href="go.html">Go</a>, <a href="java.html">Java</a></div>
+    </article>
+    <article class="term" data-letter="C" data-name="condition условие" data-text="condition условие a check that decides which code runs: if something is true, do this, otherwise do that. &quot;if it&#x27;s raining, take an umbrella, otherwise — sunglasses.&quot;">
+      <h3>Condition <small>Условие</small></h3>
+      <p>A check that decides which code runs: if something is true, do this, otherwise do that.</p>
+      <div class="term-life">&quot;If it&#x27;s raining, take an umbrella, otherwise — sunglasses.&quot;</div>
+      <pre><code>if age &gt;= 18:
+    print(&quot;Adult&quot;)</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a>, <a href="go.html">Go</a></div>
+    </article>
+    <article class="term" data-letter="C" data-name="console консоль" data-text="console консоль a text window where a program prints messages and errors. the program&#x27;s diary: it writes down what it&#x27;s doing.">
+      <h3>Console <small>Консоль</small></h3>
+      <p>A text window where a program prints messages and errors.</p>
+      <div class="term-life">The program&#x27;s diary: it writes down what it&#x27;s doing.</div>
+      <pre><code>console.log(&quot;hi&quot;)</code></pre><div class="term-in">In lessons: <a href="javascript.html">JavaScript</a></div>
+    </article>
+    <article class="term" data-letter="C" data-name="css css" data-text="css css the language that says how a page looks: colors, fonts, layout, animations. the paint and furniture in the house.">
+      <h3>CSS </h3>
+      <p>The language that says how a page looks: colors, fonts, layout, animations.</p>
+      <div class="term-life">The paint and furniture in the house.</div>
+      <pre><code>h1 { color: white; }</code></pre><div class="term-in">In lessons: <a href="css.html">CSS</a></div>
+    </article>
+    <article class="term" data-letter="D" data-name="data type тип данных" data-text="data type тип данных what kind of value it is: whole number, number with a dot, text, true/false. the type decides what you can do with it. numbers can be added, words can&#x27;t — just like you can&#x27;t add &quot;cat&quot; and 5.">
+      <h3>Data type <small>Тип данных</small></h3>
+      <p>What kind of value it is: whole number, number with a dot, text, true/false. The type decides what you can do with it.</p>
+      <div class="term-life">Numbers can be added, words can&#x27;t — just like you can&#x27;t add &quot;cat&quot; and 5.</div>
+      <div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="typescript.html">TypeScript</a>, <a href="java.html">Java</a></div>
+    </article>
+    <article class="term" data-letter="D" data-name="database база данных" data-text="database база данных an organized place to store data so it&#x27;s easy to find, add and change: users, orders, messages. a huge, perfectly sorted card catalog.">
+      <h3>Database <small>База данных</small></h3>
+      <p>An organized place to store data so it&#x27;s easy to find, add and change: users, orders, messages.</p>
+      <div class="term-life">A huge, perfectly sorted card catalog.</div>
+      
+    </article>
+    <article class="term" data-letter="D" data-name="debugging отладка" data-text="debugging отладка finding and fixing bugs: reading errors, printing values, checking step by step. like a detective looking for clues.">
+      <h3>Debugging <small>Отладка</small></h3>
+      <p>Finding and fixing bugs: reading errors, printing values, checking step by step.</p>
+      <div class="term-life">Like a detective looking for clues.</div>
+      
+    </article>
+    <article class="term" data-letter="D" data-name="domain домен" data-text="domain домен the name of a site in the address bar, like github.io. a street address, but for a website.">
+      <h3>Domain <small>Домен</small></h3>
+      <p>The name of a site in the address bar, like github.io.</p>
+      <div class="term-life">A street address, but for a website.</div>
+      
+    </article>
+    <article class="term" data-letter="F" data-name="framework фреймворк" data-text="framework фреймворк a big set of ready code and rules for building a certain kind of app, like websites or games. a house kit: walls and rooms are already planned, you add the rest.">
+      <h3>Framework <small>Фреймворк</small></h3>
+      <p>A big set of ready code and rules for building a certain kind of app, like websites or games.</p>
+      <div class="term-life">A house kit: walls and rooms are already planned, you add the rest.</div>
+      
+    </article>
+    <article class="term" data-letter="F" data-name="frontend фронтенд" data-text="frontend фронтенд the part of an app people see and click: the page in the browser. the shop window and the shop floor.">
+      <h3>Frontend <small>Фронтенд</small></h3>
+      <p>The part of an app people see and click: the page in the browser.</p>
+      <div class="term-life">The shop window and the shop floor.</div>
+      <div class="term-in">In lessons: <a href="html.html">HTML</a>, <a href="css.html">CSS</a>, <a href="javascript.html">JavaScript</a></div>
+    </article>
+    <article class="term" data-letter="F" data-name="function функция" data-text="function функция a named piece of code that does one job. write it once — call it as many times as you want. like a coffee machine button: press &quot;latte&quot; and get a latte without thinking how it&#x27;s made.">
+      <h3>Function <small>Функция</small></h3>
+      <p>A named piece of code that does one job. Write it once — call it as many times as you want.</p>
+      <div class="term-life">Like a coffee machine button: press &quot;latte&quot; and get a latte without thinking how it&#x27;s made.</div>
+      <pre><code>def greet(name):
+    return &quot;Hello, &quot; + name</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a>, <a href="rust.html">Rust</a></div>
+    </article>
+    <article class="term" data-letter="G" data-name="git git" data-text="git git a program that remembers every version of your code, so you can go back and work together. &quot;save game&quot; for code.">
+      <h3>Git </h3>
+      <p>A program that remembers every version of your code, so you can go back and work together.</p>
+      <div class="term-life">&quot;Save game&quot; for code.</div>
+      <pre><code>git commit -m &quot;fix&quot;</code></pre>
+    </article>
+    <article class="term" data-letter="H" data-name="hosting хостинг" data-text="hosting хостинг a service that keeps your site on a server so people can open it online. this site uses github pages. renting a spot for your shop on a busy street.">
+      <h3>Hosting <small>Хостинг</small></h3>
+      <p>A service that keeps your site on a server so people can open it online. This site uses GitHub Pages.</p>
+      <div class="term-life">Renting a spot for your shop on a busy street.</div>
+      
+    </article>
+    <article class="term" data-letter="H" data-name="html html" data-text="html html the markup language that says what is on a web page: headings, text, links, images. the skeleton of a house.">
+      <h3>HTML </h3>
+      <p>The markup language that says what is on a web page: headings, text, links, images.</p>
+      <div class="term-life">The skeleton of a house.</div>
+      <pre><code>&lt;h1&gt;Hello&lt;/h1&gt;</code></pre><div class="term-in">In lessons: <a href="html.html">HTML</a></div>
+    </article>
+    <article class="term" data-letter="I" data-name="interpreter интерпретатор" data-text="interpreter интерпретатор a program that reads your code and runs it line by line, without a separate compile step. a live interpreter who translates a speech sentence by sentence.">
+      <h3>Interpreter <small>Интерпретатор</small></h3>
+      <p>A program that reads your code and runs it line by line, without a separate compile step.</p>
+      <div class="term-life">A live interpreter who translates a speech sentence by sentence.</div>
+      <div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a>, <a href="php.html">PHP</a></div>
+    </article>
+    <article class="term" data-letter="L" data-name="library библиотека" data-text="library библиотека ready-made code written by other people that you can use in your program. a box of ready-made lego parts instead of carving each brick yourself.">
+      <h3>Library <small>Библиотека</small></h3>
+      <p>Ready-made code written by other people that you can use in your program.</p>
+      <div class="term-life">A box of ready-made LEGO parts instead of carving each brick yourself.</div>
+      <pre><code>import random</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a></div>
+    </article>
+    <article class="term" data-letter="L" data-name="loop цикл" data-text="loop цикл repeating the same code several times or while a condition stays true. like &quot;do 10 squats&quot;: one move repeated 10 times.">
+      <h3>Loop <small>Цикл</small></h3>
+      <p>Repeating the same code several times or while a condition stays true.</p>
+      <div class="term-life">Like &quot;do 10 squats&quot;: one move repeated 10 times.</div>
+      <pre><code>for i in range(10):</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="c.html">C</a>, <a href="go.html">Go</a></div>
+    </article>
+    <article class="term" data-letter="M" data-name="method метод" data-text="method метод a function that belongs to an object or a class. the player&#x27;s &quot;jump&quot; button — an action of exactly this player.">
+      <h3>Method <small>Метод</small></h3>
+      <p>A function that belongs to an object or a class.</p>
+      <div class="term-life">The player&#x27;s &quot;jump&quot; button — an action of exactly this player.</div>
+      <pre><code>player.hit(30)</code></pre><div class="term-in">In lessons: <a href="java.html">Java</a>, <a href="csharp.html">C#</a>, <a href="go.html">Go</a></div>
+    </article>
+    <article class="term" data-letter="O" data-name="object объект" data-text="object объект a thing in a program that holds data (fields) and actions (methods) together. a player in a game: has a name and health, and can jump and attack.">
+      <h3>Object <small>Объект</small></h3>
+      <p>A thing in a program that holds data (fields) and actions (methods) together.</p>
+      <div class="term-life">A player in a game: has a name and health, and can jump and attack.</div>
+      <div class="term-in">In lessons: <a href="javascript.html">JavaScript</a>, <a href="typescript.html">TypeScript</a></div>
+    </article>
+    <article class="term" data-letter="O" data-name="open source открытый код" data-text="open source открытый код code anyone can read, use and improve for free. a recipe shared publicly that anyone can cook and improve.">
+      <h3>Open source <small>Открытый код</small></h3>
+      <p>Code anyone can read, use and improve for free.</p>
+      <div class="term-life">A recipe shared publicly that anyone can cook and improve.</div>
+      
+    </article>
+    <article class="term" data-letter="P" data-name="parameter параметр" data-text="parameter параметр a value you give to a function so it can do its job. it goes in the brackets. like telling a barista &quot;large, no sugar&quot; — the order details.">
+      <h3>Parameter <small>Параметр</small></h3>
+      <p>A value you give to a function so it can do its job. It goes in the brackets.</p>
+      <div class="term-life">Like telling a barista &quot;large, no sugar&quot; — the order details.</div>
+      <pre><code>greet(&quot;Shiro&quot;)</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="typescript.html">TypeScript</a></div>
+    </article>
+    <article class="term" data-letter="R" data-name="repository репозиторий" data-text="repository репозиторий a project folder tracked by git, often stored on github. a project&#x27;s home with its whole history inside.">
+      <h3>Repository <small>Репозиторий</small></h3>
+      <p>A project folder tracked by Git, often stored on GitHub.</p>
+      <div class="term-life">A project&#x27;s home with its whole history inside.</div>
+      
+    </article>
+    <article class="term" data-letter="R" data-name="return value возвращаемое значение" data-text="return value возвращаемое значение the result a function gives back with return. the finished coffee the machine hands you.">
+      <h3>Return value <small>Возвращаемое значение</small></h3>
+      <p>The result a function gives back with return.</p>
+      <div class="term-life">The finished coffee the machine hands you.</div>
+      <pre><code>return a + b</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="rust.html">Rust</a></div>
+    </article>
+    <article class="term" data-letter="S" data-name="server сервер" data-text="server сервер a computer that is always on and answers requests: sends pages, stores data. a kitchen that takes orders and cooks them.">
+      <h3>Server <small>Сервер</small></h3>
+      <p>A computer that is always on and answers requests: sends pages, stores data.</p>
+      <div class="term-life">A kitchen that takes orders and cooks them.</div>
+      <div class="term-in">In lessons: <a href="php.html">PHP</a>, <a href="go.html">Go</a></div>
+    </article>
+    <article class="term" data-letter="S" data-name="string строка" data-text="string строка text in a program. it is written in quotes. like a line of letters on a necklace: each letter is a bead.">
+      <h3>String <small>Строка</small></h3>
+      <p>Text in a program. It is written in quotes.</p>
+      <div class="term-life">Like a line of letters on a necklace: each letter is a bead.</div>
+      <pre><code>&quot;Hello, world!&quot;</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a></div>
+    </article>
+    <article class="term" data-letter="S" data-name="syntax синтаксис" data-text="syntax синтаксис the writing rules of a language: where brackets, colons and quotes go. like grammar and punctuation in a normal language.">
+      <h3>Syntax <small>Синтаксис</small></h3>
+      <p>The writing rules of a language: where brackets, colons and quotes go.</p>
+      <div class="term-life">Like grammar and punctuation in a normal language.</div>
+      
+    </article>
+    <article class="term" data-letter="T" data-name="terminal терминал" data-text="terminal терминал a window where you control the computer with text commands instead of the mouse. talking to the computer by typing instead of pointing.">
+      <h3>Terminal <small>Терминал</small></h3>
+      <p>A window where you control the computer with text commands instead of the mouse.</p>
+      <div class="term-life">Talking to the computer by typing instead of pointing.</div>
+      <pre><code>ls -la</code></pre>
+    </article>
+    <article class="term" data-letter="V" data-name="variable переменная" data-text="variable переменная a named box that stores a value: a number, text or a list. you can read it by name or replace it. like a label on a jar: &quot;sugar&quot;. you can change what&#x27;s inside, the label stays.">
+      <h3>Variable <small>Переменная</small></h3>
+      <p>A named box that stores a value: a number, text or a list. You can read it by name or replace it.</p>
+      <div class="term-life">Like a label on a jar: &quot;sugar&quot;. You can change what&#x27;s inside, the label stays.</div>
+      <pre><code>age = 18</code></pre><div class="term-in">In lessons: <a href="python.html">Python</a>, <a href="javascript.html">JavaScript</a>, <a href="c.html">C</a></div>
+    </article>
+  </div>
+  <p class="glos-empty" id="glos-empty" hidden>Nothing found. Try another word.</p>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-row">
+    <span>VIBE.EXE · Made by Shiro</span>
+    <a href="https://github.com/Shiro-dev1" target="_blank" rel="noopener">GitHub: github.com/Shiro-dev1</a>
+  </div>
+</footer>
+<script src="site.js?v=76c415b1"></script>
+<script src="progress.js?v=f32c5016"></script>
+<script src="achievements.js?v=5f077fa0"></script>
+<script src="glossary.js?v=b9581c34"></script>
+</body>
+</html>

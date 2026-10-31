@@ -9,7 +9,8 @@ import importlib, hashlib, json
 from lessons import LANGS
 from lessons_ru import RU
 from quiz import QUIZ
-from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX, ACH_PAGE, PICK
+from site_data import UI, HOME, CARD, LANGS_PAGE, FACTS, LINUX, ACH_PAGE, PICK, GLOS_PAGE
+from glossary import TERMS
 
 # Порядок языков на сайте
 ORDER = ["python", "javascript", "typescript", "html", "css", "php", "java", "c", "cpp", "csharp", "go", "rust"]
@@ -53,7 +54,8 @@ def page(lang, file, title, desc, body, active=None, scripts=()):
     ru_href = "ru/" + file if lang == "en" else file
     other = "ru" if lang == "en" else "en"
     other_href = ru_href if lang == "en" else en_href
-    nav = [("index.html", U["nav_home"], "home"), ("page2.html", U["nav_langs"], "langs"), ("page3.html", U["nav_linux"], "linux"),
+    nav = [("index.html", U["nav_home"], "home"), ("page2.html", U["nav_langs"], "langs"), ("glossary.html", U["nav_glos"], "glos"),
+           ("page3.html", U["nav_linux"], "linux"),
            ("achievements.html", U["nav_ach"], "ach")]
     nav_html = "".join(
         f'<a href="{f}"{" aria-current=\"page\"" if key == active else ""}>{esc(t)}</a>' for f, t, key in nav)
@@ -218,6 +220,44 @@ for lang in ("en", "ru"):
 </div>"""
     write(("" if lang == "en" else "ru/") + "pick.html",
           page(lang, "pick.html", P["title"] + " — VIBE.EXE", P["desc"], body, "langs", ("pick.js",)))
+
+# ---------------------------------------------------------------- словарь
+for lang in ("en", "ru"):
+    G = GLOS_PAGE[lang]
+    li = 0 if lang == "en" else 1
+    def sort_key(t):
+        name = t[li]
+        return (0 if lang == "ru" and "А" <= name[0].upper() <= "Я" else 1, name.lower())
+    terms = sorted(TERMS, key=sort_key)
+    letters, cards = [], []
+    for t in terms:
+        name, other = t[li], t[1 - li]
+        letter = name[0].upper()
+        if letter not in letters: letters.append(letter)
+        code = f'<pre><code>{esc(t[6])}</code></pre>' if t[6] else ""
+        links = ", ".join(f'<a href="{LANGS[k]["file"]}">{esc(card_title(k))}</a>' for k in t[7])
+        inl = f'<div class="term-in">{esc(G["inlessons"])}: {links}</div>' if links else ""
+        text = " ".join([t[0], t[1], t[2 + li], t[4 + li]]).lower()
+        sub = f'<small>{esc(other)}</small>' if other != name else ""
+        cards.append(f"""    <article class="term" data-letter="{esc(letter)}" data-name="{esc((t[0] + ' ' + t[1]).lower())}" data-text="{esc(text)}">
+      <h3>{esc(name)} {sub}</h3>
+      <p>{esc(t[2 + li])}</p>
+      <div class="term-life">{esc(t[4 + li])}</div>
+      {code}{inl}
+    </article>""")
+    abc = f'<button type="button" data-letter="" aria-pressed="true">{esc(G["all"])}</button>' + "".join(
+        f'<button type="button" data-letter="{esc(l)}" aria-pressed="false">{esc(l)}</button>' for l in letters)
+    body = f"""<div class="wrap">
+  <header class="page-head"><h1>{esc(G['h1'])}</h1><p class="lead">{esc(G['lead'])}</p></header>
+  <input class="glos-search" id="glos-search" type="search" placeholder="{esc(G['search'])}" aria-label="{esc(G['search'])}" autocomplete="off">
+  <div class="abc" role="group">{abc}</div>
+  <div class="terms">
+{chr(10).join(cards)}
+  </div>
+  <p class="glos-empty" id="glos-empty" hidden>{esc(G['none'])}</p>
+</div>"""
+    write(("" if lang == "en" else "ru/") + "glossary.html",
+          page(lang, "glossary.html", G["title"] + " — VIBE.EXE", G["desc"], body, "glos", ("glossary.js",)))
 
 # ---------------------------------------------------------------- достижения
 for lang in ("en", "ru"):
